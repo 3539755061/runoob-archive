@@ -1,0 +1,2049 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Highcharts 教程 · 离线版</title>
+<link rel="stylesheet" href="css/offline.css">
+</head><body>
+<nav class="topbar"><a href="index.html">← 返回总索引</a><span>·</span><span>A 前端与界面</span>
+<span>·</span><span>16 章</span></nav>
+<h1>Highcharts 教程</h1>
+<p class="docmeta">来源：<a class="ext" href="https://www.runoob.com/highcharts/highcharts-tutorial.html">https://www.runoob.com/highcharts/highcharts-tutorial.html</a><br>
+适用性：<b style="color:#b26a00">谨慎</b>
+｜ 时效：在役 ｜ 抓取：2026-11-13 ｜ 本页为离线阅读版，章节按教程侧栏顺序合并，广告与评论已去除。</p>
+<details class="toc-ch"><summary>本篇目录（16 章，点击展开）</summary><ol>
+<li><a href="#c1">Highcharts 教程</a></li>
+<li><a href="#c2">Highcharts 环境配置</a></li>
+<li><a href="#c3">Highcharts 配置语法</a></li>
+<li><a href="#c4">Highcharts 配置说明</a></li>
+<li><a href="#c5">Highcharts 曲线图</a></li>
+<li><a href="#c6">Highcharts 区域图</a></li>
+<li><a href="#c7">Highcharts 条形图</a></li>
+<li><a href="#c8">Highcharts 柱形图</a></li>
+<li><a href="#c9">Highcharts 饼图</a></li>
+<li><a href="#c10">Highcharts 散点图</a></li>
+<li><a href="#c11">Highcharts 气泡图</a></li>
+<li><a href="#c12">Highcharts 动态图</a></li>
+<li><a href="#c13">Highcharts 组合图</a></li>
+<li><a href="#c14">Highcharts 3D图</a></li>
+<li><a href="#c15">Highcharts 测量图</a></li>
+<li><a href="#c16">Highcharts 树状图(Treemap)</a></li>
+</ol></details>
+<section class="ch" id="c1"><h2>1. Highcharts 教程<a class="chsrc" href="https://www.runoob.com/highcharts/highcharts-tutorial.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><img src="img/605df2dba4c77b81.png" alt="Vx4_Psj1" loading="lazy">
+<p>Highcharts 是一个用纯JavaScript编写的一个图表库。</p>
+<p>Highcharts 能够很简单便捷的在web网站或是web应用程序添加有交互性的图表</p>
+<p>Highcharts 免费提供给个人学习、个人网站和非商业用途使用。</p>
+<hr>
+<h3>
+HighCharts 特性</h3>
+
+<ul>
+<li><b>兼容性</b> - 支持所有主流浏览器和移动平台（android、iOS等）。</li>
+<li><b>多设备</b> - 支持多种设备，如手持设备 iPhone/iPad、平板等。</li>
+<li><b>免费使用</b> - 供个人免费学习使用。</li>
+<li><b>轻量</b> - highcharts.js 内核库大小只有 35KB 左右。</li>
+<li><b>配置简单</b> - 使用 json 格式配置</li>
+<li><b>动态</b> - 可以在图表生成后修改。</li>
+<li><b>多维</b> - 支持多维图表</li>
+<li><b>配置提示工具</b> - 鼠标移动到图表的某一点上有提示信息。</li>
+<li><b>时间轴</b> - 可以精确到毫秒。</li>
+<li><b>导出</b> - 表格可导出为 PDF/ PNG/ JPG / SVG 格式</li>
+<li><b>输出</b> - 网页输出图表。</li>
+<li><b>可变焦</b> - 选中图表部分放大，近距离观察图表；</li>
+<li><b>外部数据</b> - 从服务器载入动态数据。</li>
+<li><b>文字旋转</b> - 支持在任意方向的标签旋转。</li>
+</ul>
+<hr>
+<h3>支持的图表类型</h3>
+<p>HighCharts支持的图表类型：</p>
+<table>
+<tbody><tr><th>序号</th><th>图表类型 </th></tr>
+<tr><td>1</td><td><b>曲线图</b></td></tr>
+<tr><td>2</td><td><b>区域图</b></td></tr>
+<tr><td>3</td><td><b>饼图</b></td></tr>
+<tr><td>4</td><td><b>散点图</b></td></tr>
+<tr><td>5</td><td><b>气泡图</b></td></tr>
+<tr><td>6</td><td><b>动态图表</b></td></tr>
+<tr><td>7</td><td><b>组合图表</b></td></tr>
+<tr><td>8</td><td><b>3D 图</b></td></tr>
+<tr><td>9</td><td><b>测量图</b></td></tr>
+<tr><td>10</td><td><b>热点图</b></td></tr>
+<tr><td>11</td><td><b>树状图(Treemap)</b></td></tr>
+</tbody></table>
+
+<p>接下来几个章节我们讲为大家具体介绍 Highcharts 的使用。</p></div></section>
+<section class="ch" id="c2"><h2>2. Highcharts 环境配置<a class="chsrc" href="https://www.runoob.com/highcharts/highcharts-setup.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>本章节我们将为大家介绍如何在网页中使用 Highcharts。</p>
+<p>本教程将 Highcharts 与 jQuery 结合使用，所以在加载 Highcharts 前必须先加载 jQuery 库。</p>
+<p>如果你对 jQuery 不熟悉，可以参阅本站的<a href="jquery.html#c1">jQuery 教程</a>。</p>
+<hr>
+<h3>安装 jQuery</h3>
+<p>jQuery 安装可以使用以下两种方式：</p>
+<ul>
+<li>1、访问 <a href="https://jquery.com/download/" class="ext">jquery.com</a> 下载jQuery包。</li>
+<li><p>2、使用 Staticfile CDN 静态资源库的jQuery资源：</p><pre>https://cdn.staticfile.net/jquery/2.1.4/jquery.min.js</pre></li>
+<li><p>3、使用百度静态资源库的jQuery资源：</p><pre>https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js</pre></li>
+
+</ul>
+<h4>使用下载的方式</h4>
+<p>使用下载的方式，在 HTML 页面引入 jQuery 代码:</p>
+<pre>
+&lt;head&gt;
+   &lt;script src="/jquery/jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+</pre>
+<h4>使用 CDN（推荐）</h4>
+<p>使用 Staticfile CDN 静态资源库来加载jQuery库：</p>
+<pre>
+&lt;head&gt;
+   &lt;script src="https://cdn.staticfile.net/jquery/2.1.4/jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+</pre>
+<hr><h3>安装 Highcharts</h3>
+<p>Highcharts 安装可以使用以下两种方式：</p>
+<ul>
+<li>1、访问 <a href="https://www.highcharts.com/" class="ext">highcharts.com</a> 下载 Highcharts 包。</li>
+
+<li>2、使用官方提供的 CDN 地址：<b><a href="https://code.highcharts.com/highcharts.js" class="ext">https://code.highcharts.com/highcharts.js</a></b></li></ul>
+
+<h4>使用下载的方式（推荐）</h4>
+<p>使用下载的方式，在 HTML 页面引入 Highcharts 代码:</p>
+<pre>
+&lt;head&gt;
+   &lt;script src="/highcharts/highcharts.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+</pre>
+<h4>使用 CDN</h4>
+<p>使用官方提供的 CDN 地址：</p>
+<pre>
+&lt;head&gt;
+   &lt;script src="https://code.highcharts.com/highcharts.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+</pre></div></section>
+<section class="ch" id="c3"><h2>3. Highcharts 配置语法<a class="chsrc" href="https://www.runoob.com/highcharts/highcharts-configuration-syntax.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>本章节我们将为大家介绍使用 Highcharts 生成图表的一些配置。</p>
+<h4>第一步：创建 HTML 页面</h4>
+<p>创建一个 HTML 页面，引入 jQuery 和 Highcharts 库：</p>
+
+<h3>文件名：HighchartsTest.htm</h3> 
+<span style="color:#170">&lt;<span style="color:#170">html</span>&gt;</span><br>
+<span style="color:#170">&lt;<span style="color:#170">head</span>&gt;</span><br>
+<span style="color:#170">&lt;<span style="color:#170">title</span>&gt;</span>Highcharts 教程 | 菜鸟教程<span style="color:#170">&lt;<span style="color:#66cc66">/</span><span style="color:#170">title</span>&gt;</span><br>
+    <span style="color:#170">&lt;<span style="color:#170">script</span> <span style="color:#00c">src</span><span style="color:#66cc66">=</span><span style="color:#a11">"https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"</span>&gt;&lt;<span style="color:#66cc66">/</span><span style="color:#170">script</span>&gt;</span><br>
+   <span style="color:#170">&lt;<span style="color:#170">script</span> <span style="color:#00c">src</span><span style="color:#66cc66">=</span><span style="color:#a11">"/try/demo_source/highcharts.js"</span>&gt;&lt;<span style="color:#66cc66">/</span><span style="color:#170">script</span>&gt;</span><br>
+<span style="color:#170">&lt;<span style="color:#66cc66">/</span><span style="color:#170">head</span>&gt;</span><br>
+<span style="color:#170">&lt;<span style="color:#170">body</span>&gt;</span><br>
+<span style="color:#170">&lt;<span style="color:#170">div</span> <span style="color:#00c">id</span><span style="color:#66cc66">=</span><span style="color:#a11">"container"</span> <span style="color:#00c">style</span><span style="color:#66cc66">=</span><span style="color:#a11">"width: 550px; height: 400px; margin: 0 auto"</span>&gt;&lt;<span style="color:#66cc66">/</span><span style="color:#170">div</span>&gt;</span><br>
+<span style="color:#170">&lt;<span style="color:#170">script</span> <span style="color:#00c">language</span><span style="color:#66cc66">=</span><span style="color:#a11">"JavaScript"</span>&gt;</span><br>
+$(document).ready(function() {<br>
+     <br>
+});<br>
+<span style="color:#170">&lt;<span style="color:#66cc66">/</span><span style="color:#170">script</span>&gt;</span><br>
+<span style="color:#170">&lt;<span style="color:#66cc66">/</span><span style="color:#170">body</span>&gt;</span><br>
+<span style="color:#170">&lt;<span style="color:#66cc66">/</span><span style="color:#170">html</span>&gt;</span><br>
+
+<p>实例中 id 为 container 的 div 用于包含 Highcharts 绘制的图表。</p>
+<h4>第二步: 创建配置文件</h4><p>
+Highcharts 库使用 json 格式来配置。</p>
+<pre>
+$('#container').highcharts(json);
+</pre>
+<p>这里 json 表示使用 json 数据格式和 json 格式的配置来绘制图表。步骤如下：
+</p>
+
+<h5>标题</h5>
+<p>为图表配置标题：</p>
+<pre>
+var title = {
+  text: '月平均气温'   
+};
+</pre>
+<h5>副标题</h5>
+<p>为图表配置副标题：</p>
+<pre>
+var subtitle = {
+  text: 'Source: runoob.com'
+};
+</pre>
+<h4>X 轴</h4>
+<p>配置要在 X 轴显示的项。
+</p>
+<pre>
+var xAxis = {
+   categories: ['一月', '二月', '三月', '四月', '五月', '六月'
+      ,'七月', '八月', '九月', '十月', '十一月', '十二月']
+};
+</pre>
+<h4>Y 轴</h4>
+<p>配置要在 Y 轴显示的项。
+</p>
+<pre>
+var yAxis = {
+   title: {
+      text: 'Temperature (\xB0C)'
+   },
+   plotLines: [{
+      value: 0,
+      width: 1,
+      color: '#808080'
+   }]
+};
+</pre>  
+<h4>提示信息</h4>
+<p>配置提示信息：</p>
+<pre>
+var tooltip = {
+   valueSuffix: '\xB0C'
+}
+</pre>
+<h4>展示方式</h4>
+<p>配置图表向右对齐：</p>
+<pre>
+var legend = {
+   layout: 'vertical',
+   align: 'right',
+   verticalAlign: 'middle',
+   borderWidth: 0
+};
+</pre>
+<h4>数据</h4>
+<p>配置图表要展示的数据。每个系列是个数组，每一项在图片中都会生成一条曲线。</p>
+<pre>
+var series =  [
+   {
+      name: 'Tokyo',
+      data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 
+         26.5, 23.3, 18.3, 13.9, 9.6]
+   }, 
+   {
+      name: 'New York',
+      data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 
+         24.1, 20.1, 14.1, 8.6, 2.5]
+   }, 
+   {
+      name: 'Berlin',
+      data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 
+         17.9, 14.3, 9.0, 3.9, 1.0]
+   }, 
+   {
+      name: 'London',
+      data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 
+         16.6, 14.2, 10.3, 6.6, 4.8]
+   }
+];
+</pre>
+<h4>第三步: 创建 json 数据</h4>
+<p>组合是由配置信息:</p>
+<pre>
+var json = {};
+
+json.title = title;
+json.subtitle = subtitle;
+json.xAxis = xAxis;
+json.yAxis = yAxis;
+json.tooltip = tooltip;
+json.legend = legend;
+json.series = series;
+Step 4: Draw the chart
+$('#container').highcharts(json);
+</pre>
+<h4>实例</h4><p>以下为完整的实例(HighchartsTest.htm)：</p>
+<h3>实例</h3> 
+<span style="color:#170">&lt;<span style="color:#170">html</span>&gt;</span><br>
+<span style="color:#170">&lt;<span style="color:#170">head</span>&gt;</span><br>
+<span style="color:#170">&lt;<span style="color:#170">meta</span> <span style="color:#00c">charset</span><span style="color:#66cc66">=</span><span style="color:#a11">"UTF-8"</span> <span style="color:#66cc66">/</span>&gt;</span><br>
+<span style="color:#170">&lt;<span style="color:#170">title</span>&gt;</span>Highcharts 教程 | 菜鸟教程(runoob.com)<span style="color:#170">&lt;<span style="color:#66cc66">/</span><span style="color:#170">title</span>&gt;</span><br>
+<span style="color:#170">&lt;<span style="color:#170">script</span> <span style="color:#00c">src</span><span style="color:#66cc66">=</span><span style="color:#a11">"https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"</span>&gt;&lt;<span style="color:#66cc66">/</span><span style="color:#170">script</span>&gt;</span><br>
+<span style="color:#170">&lt;<span style="color:#170">script</span> <span style="color:#00c">src</span><span style="color:#66cc66">=</span><span style="color:#a11">"https://code.highcharts.com/highcharts.js"</span>&gt;&lt;<span style="color:#66cc66">/</span><span style="color:#170">script</span>&gt;</span><br>
+<span style="color:#170">&lt;<span style="color:#66cc66">/</span><span style="color:#170">head</span>&gt;</span><br>
+<span style="color:#170">&lt;<span style="color:#170">body</span>&gt;</span><br>
+<span style="color:#170">&lt;<span style="color:#170">div</span> <span style="color:#00c">id</span><span style="color:#66cc66">=</span><span style="color:#a11">"container"</span> <span style="color:#00c">style</span><span style="color:#66cc66">=</span><span style="color:#a11">"width: 550px; height: 400px; margin: 0 auto"</span>&gt;&lt;<span style="color:#66cc66">/</span><span style="color:#170">div</span>&gt;</span><br>
+<span style="color:#170">&lt;<span style="color:#170">script</span> <span style="color:#00c">language</span><span style="color:#66cc66">=</span><span style="color:#a11">"JavaScript"</span>&gt;</span><br>
+$(document).ready(function() {<br>
+   var title = {<br>
+       text: '月平均气温'   <br>
+   };<br>
+   var subtitle = {<br>
+        text: 'Source: runoob.com'<br>
+   };<br>
+   var xAxis = {<br>
+       categories: ['一月', '二月', '三月', '四月', '五月', '六月'<br>
+              ,'七月', '八月', '九月', '十月', '十一月', '十二月']<br>
+   };<br>
+   var yAxis = {<br>
+      title: {<br>
+         text: 'Temperature (\xB0C)'<br>
+      },<br>
+      plotLines: [{<br>
+         value: 0,<br>
+         width: 1,<br>
+         color: '#808080'<br>
+      }]<br>
+   };   <br>
+<br>
+   var tooltip = {<br>
+      valueSuffix: '\xB0C'<br>
+   }<br>
+<br>
+   var legend = {<br>
+      layout: 'vertical',<br>
+      align: 'right',<br>
+      verticalAlign: 'middle',<br>
+      borderWidth: 0<br>
+   };<br>
+<br>
+   var series =  [<br>
+      {<br>
+         name: 'Tokyo',<br>
+         data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2,<br>
+            26.5, 23.3, 18.3, 13.9, 9.6]<br>
+      }, <br>
+      {<br>
+         name: 'New York',<br>
+         data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8,<br>
+            24.1, 20.1, 14.1, 8.6, 2.5]<br>
+      }, <br>
+      {<br>
+         name: 'Berlin',<br>
+         data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6,<br>
+            17.9, 14.3, 9.0, 3.9, 1.0]<br>
+      }, <br>
+      {<br>
+         name: 'London',<br>
+         data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, <br>
+            16.6, 14.2, 10.3, 6.6, 4.8]<br>
+      }<br>
+   ];<br>
+<br>
+   var json = {};<br>
+<br>
+   json.title = title;<br>
+   json.subtitle = subtitle;<br>
+   json.xAxis = xAxis;<br>
+   json.yAxis = yAxis;<br>
+   json.tooltip = tooltip;<br>
+   json.legend = legend;<br>
+   json.series = series;<br>
+<br>
+   $('#container').highcharts(json);<br>
+});<br>
+<span style="color:#170">&lt;<span style="color:#66cc66">/</span><span style="color:#170">script</span>&gt;</span><br>
+<span style="color:#170">&lt;<span style="color:#66cc66">/</span><span style="color:#170">body</span>&gt;</span><br>
+<span style="color:#170">&lt;<span style="color:#66cc66">/</span><span style="color:#170">html</span>&gt;</span><br>
+
+<br>
+<a href="https://www.runoob.com/try/tryit.php?filename=HighchartsTest" class="ext"></a>
+
+<p>以上实例输出结果为：</p></div></section>
+<section class="ch" id="c4"><h2>4. Highcharts 配置说明<a class="chsrc" href="https://www.runoob.com/highcharts/highcharts-setting-detail.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>Highcharts 提供大量的配置选项参数，您可以轻松定制符合用户要求的图表，本章节为大家详细介绍Highcharts 配置选项使用说明：</p>
+<hr>
+<h3>参数配置(属性+事件)</h3>
+<ol>
+<li>
+<p>chart.events.addSeries：添加数列到图表中。</p>
+</li>
+<li>
+<p>chart.events.click：整个图表的绘图区上所发生的点击事件。</p>
+</li>
+<li>
+<p>chart.events.load：图表加载事件。</p>
+</li>
+<li>
+<p>chart.events.redraw：图表重画事件，当点击图注显示和隐藏绘图时可以触发。</p>
+</li>
+<li>
+<p>chart.events.selection：当图表曲线可选择放大时，当选择图表操作时，可以触发该事件。</p>
+</li>
+<li>
+<p>chart.height：所绘制图表的高度值。</p>
+</li>
+<li>
+<p>chart.inverted：图表中的x，y轴对换。</p>
+</li>
+<li>
+<p>chart.polar：是否为极性图表。</p>
+</li>
+<li>
+<p>chart.reflow：当窗口大小改变时，图表宽度自适应窗口大小改变。</p>
+</li>
+<li>
+<p>chart.renderTo：图表加载的位置，是页面上的一个DOM对象。</p>
+</li>
+<li>
+<p>chart.showAxes：在空白图表中，是否显示坐标轴。</p>
+</li>
+<li>
+<p>chart.type：图表的类型，默认为line，还有<span>bar/column/pie……</span></p>
+</li>
+<li>
+<p>chart.width：图表绘图区的宽度，默认为自适应。</p>
+</li>
+<li>
+<p>chart.zoomType：图表中数据报表的放大类型，可以以X轴放大，或是以Y轴放大，还可以以XY轴同时放大。</p>
+</li>
+<li>
+<p>colors：图表中多数列时，各数列之间的颜色。是一个数组，一般不动。</p>
+</li>
+<li>
+<p><span>credits</span>.enabled：是否允许显示版权信息。</p>
+</li>
+<li>
+<p>credits.href：版权所有的链接。</p>
+</li>
+<li>
+<p>credits.text：版权信息显示文字。</p>
+</li>
+<li>
+<p><span>exporting</span>.buttons.exportButton.enabled：是否允许显示导出按钮。</p>
+</li>
+<li>
+<p>exporting.buttons.exportButton.menuItems：导出按钮的菜单选项。</p>
+</li>
+<li>
+<p>exporting.buttons.exportButton.onclick：导出按钮被点击的事件，不是内部的菜单。</p>
+</li>
+<li>
+<p>exporting.buttons.printButton.enabled：是否允许打印按钮。</p>
+</li>
+<li>
+<p>exporting.buttons.printButton.onclick：打印按钮的点击事件。</p>
+</li>
+<li>
+<p>exporting.enabled：打印和导出按钮是否被允许。</p>
+</li>
+<li>
+<p>exporting.filename：被导出文件的文件名。</p>
+</li>
+<li>
+<p>exporting.type：默认导出图片的文件格式。</p>
+</li>
+<li>
+<p>exporting.url：SVG图表转换并导出的接口处理地址。</p>
+</li>
+<li>
+<p>exporing.width：默认导出图片的宽度。</p>
+</li>
+<li>
+<p><span>labels</span>：标签，可以加载到图表的任何位置，里面有items，style。</p>
+</li>
+<li>
+<p>lang：语言参数配置，与导出按钮菜单有关的配置，时间名称的配置等。</p>
+</li>
+<li>
+<p>legend.enabled：是否允许图注。</p>
+</li>
+<li>
+<p>navigation.buttonOptions.enabled：图表中所有导航中的按钮是否可被点击。</p>
+</li>
+<li>
+<p><span>plotOptions</span>.area.allowPointSelect：是否允许数据点的点击。</p>
+</li>
+<li>
+<p>plotOptions.area.color：绘图的颜色。</p>
+</li>
+<li>
+<p>plotOptions.area.dataLabels.enabled：是否允许数据标签。</p>
+</li>
+<li>
+<p>plotOptions.area.enableMouseTracking：是否允许数据图表中，数据点的鼠标跟踪气泡显示。</p>
+</li>
+<li>
+<p>plotOptions.area.events.checkboxClick：数据图表中图注中复选框的点击事件。</p>
+</li>
+<li>
+<p>plotOptions.area.events.click：数据图表中，数据点的点击事件。</p>
+</li>
+<li>
+<p>plotOptions.area.events.hide：数据图表中，某一数据序列隐藏时的事件。</p>
+</li>
+<li>
+<p>plotOptions.area.events.show：数据图表中，某一数据序列显示时的事件。</p>
+</li>
+<li>
+<p>plotOptions.area.events.legendItemClick：数据图表中，图注中的项目被点击时的事件，直接赋值false，则不可点击。</p>
+</li>
+<li>
+<p>plotOptions.area.events.mouseOut：数据点的鼠标移出事件。</p>
+</li>
+<li>
+<p>plotOptions.area.events.mouseOver：数据点的鼠标经过事件。</p>
+</li>
+<li>
+<p>plotOptions.area.marker.enabled：图表中绘图中是否显示点的标记符。</p>
+</li>
+<li>
+<p>plotOptions.area.marker.states.hover.enabled：是否允许标记符的鼠标经过状态。</p>
+</li>
+<li>
+<p>plotOptions.area.marker.states.select.enabled：是否允许标记符的选择状态。</p>
+</li>
+<li>
+<p>plotOptions.area.point.events.click：图表中每一个单独的点点击事件。</p>
+</li>
+<li>
+<p>plotOptions.area.point.events.mouseOut</p>
+</li>
+<li>
+<p>plotOptions.area.point.events..mouseOver</p>
+</li>
+<li>
+<p>plotOptions.area.point.events.remove：删除图表中的点时的事件。</p>
+</li>
+<li>
+<p>plotOptions.area.point.events.select：图表中点选择事件。</p>
+</li>
+<li>
+<p>plotOptions.area.point.events.unselect：图表中点取消选择时的事件。</p>
+</li>
+<li>
+<p>plotOptions.area.point.events.update：图表中数据发生更新时的事件。</p>
+</li>
+<li>
+<p>plotOptions.area.visible：加载时，数据序列默认是显示还是隐藏。</p>
+</li>
+<li>
+<p>plotOptions.area.zIndex：在多序列的情况下，调整每一个序列的层叠顺序。</p>
+</li>
+<li>
+<p>以上的point.events同样还适用于其他面积类图表（arearange、areaspline、areasplinerange），其他的柱状图（bar、column）及所有图表。</p>
+</li>
+<li>
+<p>plotOptions.area.showInLegend：是否在图注中显示。</p>
+</li>
+<li>
+<p>plotOptions.area.stacking：是以值堆叠，还是以百分比堆叠。</p>
+</li>
+<li>
+<p>plotOptions.area.states.hover.enabled：鼠标放上的状态是否允许。</p>
+</li>
+<li>
+<p>plotOptions.area.stickyTracking：鼠标粘性跟踪数据点。</p>
+</li>
+<li>
+<p>plotOptions.arearange，plotOptions.areaspline，plotOptions.areasplinerange类同于plotOptions.area</p>
+</li>
+<li>
+<p>plotOptions.bar.groupPadding：对于柱状图分组，每个分组之间的间隔。</p>
+</li>
+<li>
+<p>plotOptions.bar.grouping：是否对数据进行分组。</p>
+</li>
+<li>
+<p>plotOptions.bar.minPointLength:：定义当point值为零时，点的最小长度为多少</p>
+</li>
+<li>
+<p>plotOptions.bar.showInLegend：是否在图注中显示。</p>
+</li>
+<li>
+<p>plotOptions.bar.stacking：是以值堆叠，还是以百分比堆叠（normal/percent）。</p>
+</li>
+<li>
+<p>plotOptions.column，plotOptions.columnrange类同于plotOptions.bar</p>
+</li>
+<li>
+<p>plotOptions.line的相关配置类似于plotOptions.area配置。</p>
+</li>
+<li>
+<p>plotOptions.pie.ignoreHiddenPoint：在饼状图中，某一个序列经图注点击隐藏后，整个饼状图是重新以100%分配，还是只在原图基础上隐藏，呈现一个缺口。</p>
+</li>
+<li>
+<p>plotOptions.pie.innerSize：绘制饼状图时，饼状图的圆心预留多大的空白。</p>
+</li>
+<li>
+<p>plotOptions.pie.slicedOffset：与allowPointSelect结合使用，当点被点击时，对应的扇区剥离，这个参数即配置离开的距离。</p>
+</li>
+<li>
+<p>plotOptions.pie的其他常用配置参数类同于plotOptions.area,plotOptions.scatter，plotOptions.series，plotOptions.spline的相关配置类似于plotOptions.area配置。</p>
+</li>
+<li>
+<p><span>series</span>：是一个数组。</p>
+</li>
+<li>
+<p>series.data.color：某一个数据的颜色。</p>
+</li>
+<li>
+<p>series.data.dataLabels：序列中某一个数据的数据标签。</p>
+</li>
+<li>
+<p>series.data.events类同于plotOptions.area.point.events的相关配置。</p>
+</li>
+<li>
+<p>series.data.marker类同于plotOptions.area.marker的相关配置。</p>
+</li>
+<li>
+<p>series.data.name：配置数据点的名称。</p>
+</li>
+<li>
+<p>series.data.sliced：配置在饼图中，扇区的分离距离大小。</p>
+</li>
+<li>
+<p>series.data.x：点的x值。</p>
+</li>
+<li>
+<p>series.data.y：点的y值。</p>
+</li>
+<li>
+<p>series.name：数据序列的名称。</p>
+</li>
+<li>
+<p>series.stack：堆叠的分组索引。</p>
+</li>
+<li>
+<p>series.type：数据序列的展示类型。</p>
+</li>
+<li>
+<p>series.xAxis，series.yAxis：当使用多坐标轴时，指定某个数列对应哪个坐标轴。</p>
+</li>
+<li>
+<p><span>subtitle</span>：配置图表的子标题。</p>
+</li>
+<li>
+<p><span>title</span>：配置图表的标题。</p>
+</li>
+<li>
+<p><span>tooltip</span>：配置图表中数据的气泡提示。</p>
+</li>
+<li>
+<p>tooltip.valueDecimals：允许的小数点位数。</p>
+</li>
+<li>
+<p>tooltip.percentageDecimals：允许百分比的小数点后位数。</p>
+</li>
+<li>
+<p><span>xAxis</span>，yAxis配置设置坐标轴</p>
+</li>
+<li>
+<p>allowDecimals：坐标轴上是否允许小数。</p>
+</li>
+<li>
+<p>categories：是一个数组，坐标轴的分类。</p>
+</li>
+<li>
+<p>plotLines：绘制主线。</p>
+</li>
+<li>
+<p>tickColor：刻度颜色。</p>
+</li>
+<li>
+<p>tickInterval：刻度的步进值。</p>
+</li>
+<li>
+<p>labels.rotation：刻度标签旋转度数</p>
+</li>
+</ol>
+
+<h3>Chart：图表区选项</h3>
+<p>Chart图表区选项用于设置图表区相关属性。</p>
+<table>
+    <tbody>
+        <tr>
+            <th>参数</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        <tr>
+            <td>backgroundColor</td>
+            <td>设置图表区背景色</td>
+            <td>#FFFFFF</td>
+        </tr>
+        <tr>
+            <td>borderWidth</td>
+            <td>设置图表边框宽度</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>borderRadius</td>
+            <td>设置图表边框圆角角度</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>renderTo</td>
+            <td>图表放置的容器，一般在html中放置一个DIV，获取DIV的id属性值</td>
+            <td>null</td>
+        </tr>
+        <tr>
+            <td>defaultSeriesType</td>
+            <td>默认图表类型line, spline, area, areaspline, column, bar, pie , scatter</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>width</td>
+            <td>图表宽度，默认根据图表容器自适应宽度</td>
+            <td>null</td>
+        </tr>
+        <tr>
+            <td>height</td>
+            <td>图表高度，默认根据图表容器自适应高度</td>
+            <td>null</td>
+        </tr>
+        <tr>
+            <td>margin</td>
+            <td>设置图表与其他元素之间的间距，数组，如[0,0,0,0]</td>
+            <td>[null]</td>
+        </tr>
+        <tr>
+            <td>plotBackgroundColor</td>
+            <td>主图表区背景色，即X轴与Y轴围成的区域的背景色</td>
+            <td>null</td>
+        </tr>
+        <tr>
+            <td>plotBorderColor</td>
+            <td>主图表区边框的颜色，即X轴与Y轴围成的区域的边框颜色</td>
+            <td>null</td>
+        </tr>
+        <tr>
+            <td>plotBorderWidth</td>
+            <td>主图表区边框的宽度</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>shadow</td>
+            <td>是否设置阴影，需要设置背景色backgroundColor。</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>reflow</td>
+            <td>是否自使用图表区域高度和宽度，如果没有设置width和height时，会自适应大小。</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>zoomType</td>
+            <td>拖动鼠标进行缩放，沿x轴或y轴进行缩放，可以设置为：'x','y','xy'</td>
+            <td>''</td>
+        </tr>
+        <tr>
+            <td>events</td>
+            <td>事件回调，支持addSeries方法，click方法，load方法，selection方法等的回调函数。</td>
+            <td> </td>
+        </tr>
+    </tbody>
+</table>
+<hr><h3>Color：颜色选项</h3>
+<p>Color颜色选项用于设置图表的颜色方案。</p>
+<table>
+    <tbody>
+        <tr>
+            <td>参数</td>
+            <td>描述</td>
+            <td>默认值</td>
+        </tr>
+        <tr>
+            <td>color</td>
+            <td>用于展示图表，折线/柱状/饼状等图的颜色，数组形式。</td>
+            <td>array</td>
+        </tr>
+    </tbody>
+</table>
+<p>Highcharts已经默认提供了多种颜色方案，当要显示的图形多于颜色种类时，多出的图形会自动从第一种颜色方案开始选取。自定义颜色方案的方法：</p>
+<pre>
+Highcharts.setOptions({
+    colors: ['#058DC7', '#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#64E572', '#FF9655',
+'#FFF263', '#6AF9C4']
+});</pre>
+<hr><h3>Title：标题选项</h3>
+<p>Title标题选项用于设置图表的标题相关属性。</p>
+<table>
+    <tbody>
+        <tr>
+            <th>参数</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        <tr>
+            <td>text</td>
+            <td>标题文本内容。</td>
+            <td>Chart title</td>
+        </tr>
+        <tr>
+            <td>align</td>
+            <td>水平对齐方式。</td>
+            <td>center</td>
+        </tr>
+        <tr>
+            <td>verticalAlign</td>
+            <td>垂直对齐方式。</td>
+            <td>top</td>
+        </tr>
+        <tr>
+            <td>margin</td>
+            <td>标题与副标题之间或者主图表区间的间距。</td>
+            <td>15</td>
+        </tr>
+        <tr>
+            <td>floating</td>
+            <td>是否浮动，如果为true，则标题可以偏离主图表区，可配合x,y属性使用。</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>style</td>
+            <td>设置CSS样式。</td>
+            <td>{color: '#3E576F',<br>
+            fontSize: '16px'}</td>
+        </tr>
+    </tbody>
+</table>
+<hr><h3>Subtitle：副标题选项</h3>
+<p>副标题提供的属性选项与标题title大致相同，可参照上述标题选项，值得一提的是副标题的text选项默认为''，即空的，所以默认情况下副标题不显示。</p>
+<hr><h3>xAxis：X轴选项</h3>
+<p>X轴选项用于设置图表X轴相关属性。</p>
+<table>
+    <tbody>
+        <tr>
+            <th>参数</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        <tr>
+            <td>categories</td>
+            <td>设置X轴分类名称，数组，例如：categories: ['Apples', 'Bananas', 'Oranges']</td>
+            <td>[]</td>
+        </tr>
+        <tr>
+            <td>title</td>
+            <td>X轴名称，支持text、enabled、align、rotation、style等属性</td>
+            <td> </td>
+        </tr>
+        <tr>
+            <td>labels</td>
+            <td>设置X轴各分类名称的样式style，格式formatter，角度rotation等。</td>
+            <td>array</td>
+        </tr>
+        <tr>
+            <td>max</td>
+            <td>X轴最大值(categories为空时)，如果为null，则最大值会根据X轴数据自动匹配一个最大值。</td>
+            <td>null</td>
+        </tr>
+        <tr>
+            <td>min</td>
+            <td>X轴最小值(categories为空时)，如果为null，则最小值会根据X轴数据自动匹配一个最小值。</td>
+            <td>array</td>
+        </tr>
+        <tr>
+            <td>gridLineColor</td>
+            <td>网格（竖线）颜色</td>
+            <td>#C0C0C0</td>
+        </tr>
+        <tr>
+            <td>gridLineWidth</td>
+            <td>网格(竖线)宽度</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>lineColor</td>
+            <td>基线颜色</td>
+            <td>#C0D0E0</td>
+        </tr>
+        <tr>
+            <td>lineWidth</td>
+            <td>基线宽度</td>
+            <td>0</td>
+        </tr>
+    </tbody>
+</table>
+<hr><h3>yAxis：Y轴选项</h3>
+<p>Y轴选项与上述xAxis选项基本一致，请参照上表中的参数设置，不再单独列出。</p>
+<hr><h3>Series：数据列选项</h3>
+<p>数据列选项用于设置图表中要展示的数据相关的属性。</p>
+<table>
+    <tbody>
+        <tr>
+            <th>参数</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>显示在图表中的数据列，可以为数组或者JSON格式的数据。如：data:[0, 5, 3, 5]，或<br>
+            data: [{name: 'Point 1',y: 0}, {name: 'Point 2',y: 5}]</td>
+            <td>''</td>
+        </tr>
+        <tr>
+            <td>name</td>
+            <td>显示数据列的名称。</td>
+            <td>''</td>
+        </tr>
+        <tr>
+            <td>type</td>
+            <td>数据列类型，支持 area, areaspline, bar, column, line, pie, scatter or spline</td>
+            <td>line</td>
+        </tr>
+    </tbody>
+</table>
+<hr><h3>plotOptions：数据点选项</h3>
+<p>plotOptions用于设置图表中的数据点相关属性。plotOptions根据各种图表类型，其属性设置略微有些差异，现将常用选项列出来。</p>
+<table>
+    <tbody>
+        <tr>
+            <td>参数</td>
+            <td>描述</td>
+            <td>默认值</td>
+        </tr>
+        <tr>
+            <td>enabled</td>
+            <td>是否在数据点上直接显示数据</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>allowPointSelect</td>
+            <td>是否允许使用鼠标选中数据点</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>formatter</td>
+            <td>回调函数，格式化数据显示内容</td>
+            <td>formatter: function() {return this.y;}</td>
+        </tr>
+    </tbody>
+</table>
+<hr><h3>Tooltip：数据点提示框</h3>
+<p>Tooltip用于设置当鼠标滑向数据点时显示的提示框信息。</p>
+<table>
+    <tbody>
+        <tr>
+            <td>参数</td>
+            <td>描述</td>
+            <td>默认值</td>
+        </tr>
+        <tr>
+            <td>enabled</td>
+            <td>是否显示提示框</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>backgroundColor</td>
+            <td>设置提示框的背景色</td>
+            <td>rgba(255, 255, 255, .85)</td>
+        </tr>
+        <tr>
+            <td>borderColor</td>
+            <td>提示框边框颜色，默认自动匹配数据列的颜色</td>
+            <td>auto</td>
+        </tr>
+        <tr>
+            <td>borderRadius</td>
+            <td>提示框圆角度</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>shadow</td>
+            <td>是否显示提示框阴影</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>style</td>
+            <td>设置提示框内容样式，如字体颜色等</td>
+            <td>color:'#333'</td>
+        </tr>
+        <tr>
+            <td>formatter</td>
+            <td>回调函数，用于格式化输出提示框的显示内容。返回的内容支持html标签如：&lt;b&gt;, &lt;strong&gt;, &lt;i&gt;, &lt;em&gt;, &lt;br/&gt;, &lt;span&gt;</td>
+            <td>2</td>
+        </tr>
+    </tbody>
+</table>
+<hr><h3>Legend：图例选项</h3>
+<p>legend用于设置图例相关属性。</p>
+<table>
+    <tbody>
+        <tr>
+            <th>参数</th>
+            <th>描述</th>
+            <th>默认值</th>
+        </tr>
+        <tr>
+            <td>layout</td>
+            <td>显示形式，支持水平horizontal和垂直vertical</td>
+            <td>horizontal</td>
+        </tr>
+        <tr>
+            <td>align</td>
+            <td>对齐方式。</td>
+            <td>center</td>
+        </tr>
+        <tr>
+            <td>backgroundColor</td>
+            <td>图例背景色。</td>
+            <td>null</td>
+        </tr>
+        <tr>
+            <td>borderColor</td>
+            <td>图例边框颜色。</td>
+            <td>#909090</td>
+        </tr>
+        <tr>
+            <td>borderRadius</td>
+            <td>图例边框角度</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>enabled</td>
+            <td>是否显示图例</td>
+            <td>true</td>
+        </tr>
+        <tr>
+            <td>floating</td>
+            <td>是否可以浮动，配合x，y属性。</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>shadow</td>
+            <td>是否显示阴影</td>
+            <td>false</td>
+        </tr>
+        <tr>
+            <td>style</td>
+            <td>设置图例内容样式</td>
+            <td>''</td>
+        </tr>
+    </tbody>
+</table>
+<p>更多详细信息请参照highcharts官网英文文档：<a href="http://api.highcharts.com/highcharts" class="ext">http://api.highcharts.com/highcharts</a></p></div></section>
+<section class="ch" id="c5"><h2>5. Highcharts 曲线图<a class="chsrc" href="https://www.runoob.com/highcharts/highcharts-line-charts.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>下表列出了 Highcharts 不同类型的曲线图：</p>
+<table>
+<tbody><tr><th>序号</th><th>图表类型</th></tr>
+<tr><td>1</td><td><a href="https://www.runoob.com/highcharts/highcharts-line-basic.html" class="ext">基本曲线图表</a></td></tr>
+<tr><td>2</td><td><a href="https://www.runoob.com/highcharts/highcharts-line-labels.html" class="ext">带有数据标签图表</a></td></tr>
+<tr><td>3</td><td><a href="https://www.runoob.com/highcharts/highcharts-line-ajax.html" class="ext">图表异步加载数据</a></td></tr>
+<tr><td>4</td><td><a href="https://www.runoob.com/highcharts/highcharts-line-time.html" class="ext">时间序列，可缩放的图表</a></td></tr>
+<tr><td>5</td><td><a href="https://www.runoob.com/highcharts/highcharts-spline-inverted.html" class="ext">X轴翻转曲线图</a></td></tr>				
+<tr><td>6</td><td><a href="https://www.runoob.com/highcharts/highcharts-spline-symbols.html" class="ext">带标记曲线图</a></td></tr>
+<tr><td>7</td><td><a href="https://www.runoob.com/highcharts/highcharts-spline-bands.html" class="ext">标示区曲线图</a></td></tr>
+<tr><td>8</td><td><a href="https://www.runoob.com/highcharts/highcharts-spline-time.html" class="ext">不规则时间间隔图表</a></td></tr>
+<tr><td>9</td><td><a href="https://www.runoob.com/highcharts/highcharts-line-logarithmic.html" class="ext">对数 x 轴</a></td></tr>
+</tbody></table></div></section>
+<section class="ch" id="c6"><h2>6. Highcharts 区域图<a class="chsrc" href="https://www.runoob.com/highcharts/highcharts-area-charts.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>
+本章节我们为大家介绍几种区域图类型。</p>
+<table>
+<tbody><tr><th>序号</th><th>图表类型</th></tr>
+<tr><td>1</td><td><a href="https://www.runoob.com/highcharts/highcharts-area-basic.html" class="ext">基本区域图</a></td></tr>
+<tr><td>2</td><td><a href="https://www.runoob.com/highcharts/highcharts-area-negative.html" class="ext">区域图，使用负值</a></td></tr>
+<tr><td>3</td><td><a href="https://www.runoob.com/highcharts/highcharts-area-stacked.html" class="ext">堆叠区域图，各个区域叠加</a></td></tr>
+<tr><td>4</td><td><a href="https://www.runoob.com/highcharts/highcharts-area-percentage.html" class="ext">使用百分比的区域图</a></td></tr>
+<tr><td>5</td><td><a href="https://www.runoob.com/highcharts/highcharts-area-missing.html" class="ext">丢失数据的区域图</a></td></tr>		
+<tr><td>6</td><td><a href="https://www.runoob.com/highcharts/highcharts-area-inverted.html" class="ext">反转x轴与y轴</a></td></tr>
+<tr><td>7</td><td><a href="https://www.runoob.com/highcharts/highcharts-area-spline.html" class="ext">曲线区域图</a></td></tr>
+<tr><td>8</td><td><a href="https://www.runoob.com/highcharts/highcharts-area-range.html" class="ext">区间区域图</a></td></tr>
+<tr><td>9</td><td><a href="https://www.runoob.com/highcharts/highcharts-area-rangeline.html" class="ext">区域区间和线</a></td></tr>
+</tbody></table></div></section>
+<section class="ch" id="c7"><h2>7. Highcharts 条形图<a class="chsrc" href="https://www.runoob.com/highcharts/highcharts-bar-charts.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>
+本章节我们将为大家介绍几种条形图的类型。</p>
+
+<table>
+<tbody><tr><th>序号</th><th>图表类型</th></tr>
+<tr><td>1</td><td><a href="https://www.runoob.com/highcharts/highcharts-bar-basic.html" class="ext">基本条形图</a></td></tr>
+<tr><td>2</td><td><a href="https://www.runoob.com/highcharts/highcharts-bar-stacked.html" class="ext">堆叠条形图</a></td></tr>
+<tr><td>3</td><td><a href="https://www.runoob.com/highcharts/highcharts-bar-nagative.html" class="ext">反向条形图</a></td></tr>
+</tbody></table></div></section>
+<section class="ch" id="c8"><h2>8. Highcharts 柱形图<a class="chsrc" href="https://www.runoob.com/highcharts/highcharts-column-charts.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>本章节我们将为大家介绍几种柱形图的类型。</p>
+<table>
+<tbody><tr><th>序号</th><th>图表类型</th></tr>
+<tr><td>1</td><td><a href="https://www.runoob.com/highcharts/highcharts-column-basic.html" class="ext">基本柱形图</a></td></tr>
+<tr><td>2</td><td><a href="https://www.runoob.com/highcharts/highcharts-column-negative.html" class="ext">反向柱形图</a></td></tr>
+<tr><td>3</td><td><a href="https://www.runoob.com/highcharts/highcharts-column-stacked.html" class="ext">堆叠柱形图</a></td></tr>
+<tr><td>4</td><td><a href="https://www.runoob.com/highcharts/highcharts-column-stacked-grouped.html" class="ext">堆叠组柱形图</a></td></tr>
+<tr><td>5</td><td><a href="https://www.runoob.com/highcharts/highcharts-column-percentage.html" class="ext">按百分比堆叠柱形图</a></td></tr> 
+<tr><td>6</td><td><a href="https://www.runoob.com/highcharts/highcharts-column-rotated.html" class="ext">标签旋转柱形图</a></td></tr>      
+<tr><td>7</td><td><a href="https://www.runoob.com/highcharts/highcharts-column-drilldown.html" class="ext">向下钻取柱形图</a></td></tr>
+<tr><td>8</td><td><a href="https://www.runoob.com/highcharts/highcharts-column-fixed.html" class="ext">固定布局柱形图</a></td></tr>
+<tr><td>9</td><td><a href="https://www.runoob.com/highcharts/highcharts-column-table.html" class="ext">使用 html 表格数据的柱形图</a></td></tr>
+<tr><td>10</td><td><a href="https://www.runoob.com/highcharts/highcharts-column-range.html" class="ext">区间柱形图</a></td></tr>
+</tbody></table></div></section>
+<section class="ch" id="c9"><h2>9. Highcharts 饼图<a class="chsrc" href="https://www.runoob.com/highcharts/highcharts-pie-charts.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>
+下表列出了 Highcharts 不同类型的饼图：</p>
+<p>
+<table>
+<tbody><tr><th>序号</th><th>图表类型</th></tr>
+<tr><td>1</td><td><a href="https://www.runoob.com/highcharts/highcharts-pie-basic.html" class="ext">基本饼图</a></td></tr>
+<tr><td>2</td><td><a href="https://www.runoob.com/highcharts/highcharts-pie-legends.html" class="ext">显示图例饼图</a></td></tr>
+<tr><td>3</td><td><a href="https://www.runoob.com/highcharts/highcharts-pie-donut.html" class="ext">圆环图</a></td></tr>
+<tr><td>4</td><td><a href="https://www.runoob.com/highcharts/highcharts-pie-semicircle-donut.html" class="ext">半圈圆环图</a></td></tr>
+<tr><td>5</td><td><a href="https://www.runoob.com/highcharts/highcharts-pie-drilldown.html" class="ext">向下钻取饼图</a></td></tr>
+<tr><td>6</td><td><a href="https://www.runoob.com/highcharts/highcharts-pie-gradient.html" class="ext">渐变饼图</a></td></tr>
+<tr><td>7</td><td><a href="https://www.runoob.com/highcharts/highcharts-pie-monochrome.html" class="ext">单色饼图</a></td></tr>
+</tbody></table>			
+						
+			
+			
+		
+
+		
+		
+
+		
+		
+		
+</p></div></section>
+<section class="ch" id="c10"><h2>10. Highcharts 散点图<a class="chsrc" href="https://www.runoob.com/highcharts/highcharts-scatter-basic.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>本章节我们将为大家介绍 Highcharts 的散点图。</p>
+<p>我们在前面的章节已经了解了 Highcharts 配置语法。接下来让我们来看下 Highcharts 的其他配置。</p>
+<hr>
+<h3>配置</h3>
+<h4>chart 配置
+</h4><p>
+配置 chart 的 type 为 'scatter' 。chart.type 描述了图表类型。默认值为 "line"。</p>
+<p>chart.zoomType 属性可配置图表放大 ，通过拖动鼠标进行缩放，沿x轴或y轴进行缩放，可以设置为：'x','y','xy'。
+</p>
+<pre>
+var chart = {
+   type: 'scatter',
+   zoomType: 'xy'
+};
+</pre>
+<h4>实例</h4>
+<p>文件名：highcharts_scatter_basic.htm</p>
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8" /&gt;
+&lt;title&gt;Highcharts 教程 | 菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="http://code.highcharts.com/highcharts.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="container" style="width: 550px; height: 400px; margin: 0 auto"&gt;&lt;/div&gt;
+&lt;script language="JavaScript"&gt;
+$(document).ready(function() {  
+   var chart = {
+      type: 'scatter',
+      zoomType: 'xy'
+   };
+   var title = {
+      text: 'Height Versus Weight of 507 Individuals by Gender'   
+   };
+   var subtitle = {
+      text: 'Source: Heinz  2003'  
+   };
+   var xAxis = {
+      title: {
+      enabled: true,
+         text: 'Height (cm)'
+      },
+      startOnTick: true,
+      endOnTick: true,
+      showLastLabel: true
+   };
+   var yAxis = {
+      title: {
+         text: 'Weight (kg)'
+      }
+   };
+   var legend = {   
+      layout: 'vertical',
+      align: 'left',
+      verticalAlign: 'top',
+      x: 100,
+      y: 70,
+      floating: true,
+      backgroundColor: (Highcharts.theme &amp;&amp; Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
+      borderWidth: 1
+   }  
+   var plotOptions = {
+      scatter: {
+         marker: {
+            radius: 5,
+            states: {
+               hover: {
+                  enabled: true,
+                  lineColor: 'rgb(100,100,100)'
+               }
+            }
+         },
+         states: {
+            hover: {
+               marker: {
+                  enabled: false
+               }
+            }
+         },
+         tooltip: {
+            headerFormat: '&lt;b&gt;{series.name}&lt;/b&gt;&lt;br&gt;',
+            pointFormat: '{point.x} cm, {point.y} kg'
+         }
+      }
+   };
+   var series= [{
+            name: 'Female',
+            color: 'rgba(223, 83, 83, .5)',
+            data: [[161.2, 51.6], [167.5, 59.0], [159.5, 49.2], [157.0, 63.0], [155.8, 53.6],
+                [170.0, 59.0], [159.1, 47.6], [166.0, 69.8], [176.2, 66.8], [160.2, 75.2],
+                [172.5, 55.2], [170.9, 54.2], [172.9, 62.5], [153.4, 42.0], [160.0, 50.0],
+                [147.2, 49.8], [168.2, 49.2], [175.0, 73.2], [157.0, 47.8], [167.6, 68.8],
+                [159.5, 50.6], [175.0, 82.5], [166.8, 57.2], [176.5, 87.8], [170.2, 72.8],
+                [174.0, 54.5], [173.0, 59.8], [179.9, 67.3], [170.5, 67.8], [160.0, 47.0],
+                [154.4, 46.2], [162.0, 55.0], [176.5, 83.0], [160.0, 54.4], [152.0, 45.8],
+                [162.1, 53.6], [170.0, 73.2], [160.2, 52.1], [161.3, 67.9], [166.4, 56.6],
+                [168.9, 62.3], [163.8, 58.5], [167.6, 54.5], [160.0, 50.2], [161.3, 60.3],
+                [167.6, 58.3], [165.1, 56.2], [160.0, 50.2], [170.0, 72.9], [157.5, 59.8],
+                [167.6, 61.0], [160.7, 69.1], [163.2, 55.9], [152.4, 46.5], [157.5, 54.3],
+                [168.3, 54.8], [180.3, 60.7], [165.5, 60.0], [165.0, 62.0], [164.5, 60.3],
+                [156.0, 52.7], [160.0, 74.3], [163.0, 62.0], [165.7, 73.1], [161.0, 80.0],
+                [162.0, 54.7], [166.0, 53.2], [174.0, 75.7], [172.7, 61.1], [167.6, 55.7],
+                [151.1, 48.7], [164.5, 52.3], [163.5, 50.0], [152.0, 59.3], [169.0, 62.5],
+                [164.0, 55.7], [161.2, 54.8], [155.0, 45.9], [170.0, 70.6], [176.2, 67.2],
+                [170.0, 69.4], [162.5, 58.2], [170.3, 64.8], [164.1, 71.6], [169.5, 52.8],
+                [163.2, 59.8], [154.5, 49.0], [159.8, 50.0], [173.2, 69.2], [170.0, 55.9],
+                [161.4, 63.4], [169.0, 58.2], [166.2, 58.6], [159.4, 45.7], [162.5, 52.2],
+                [159.0, 48.6], [162.8, 57.8], [159.0, 55.6], [179.8, 66.8], [162.9, 59.4],
+                [161.0, 53.6], [151.1, 73.2], [168.2, 53.4], [168.9, 69.0], [173.2, 58.4],
+                [171.8, 56.2], [178.0, 70.6], [164.3, 59.8], [163.0, 72.0], [168.5, 65.2],
+                [166.8, 56.6], [172.7, 105.2], [163.5, 51.8], [169.4, 63.4], [167.8, 59.0],
+                [159.5, 47.6], [167.6, 63.0], [161.2, 55.2], [160.0, 45.0], [163.2, 54.0],
+                [162.2, 50.2], [161.3, 60.2], [149.5, 44.8], [157.5, 58.8], [163.2, 56.4],
+                [172.7, 62.0], [155.0, 49.2], [156.5, 67.2], [164.0, 53.8], [160.9, 54.4],
+                [162.8, 58.0], [167.0, 59.8], [160.0, 54.8], [160.0, 43.2], [168.9, 60.5],
+                [158.2, 46.4], [156.0, 64.4], [160.0, 48.8], [167.1, 62.2], [158.0, 55.5],
+                [167.6, 57.8], [156.0, 54.6], [162.1, 59.2], [173.4, 52.7], [159.8, 53.2],
+                [170.5, 64.5], [159.2, 51.8], [157.5, 56.0], [161.3, 63.6], [162.6, 63.2],
+                [160.0, 59.5], [168.9, 56.8], [165.1, 64.1], [162.6, 50.0], [165.1, 72.3],
+                [166.4, 55.0], [160.0, 55.9], [152.4, 60.4], [170.2, 69.1], [162.6, 84.5],
+                [170.2, 55.9], [158.8, 55.5], [172.7, 69.5], [167.6, 76.4], [162.6, 61.4],
+                [167.6, 65.9], [156.2, 58.6], [175.2, 66.8], [172.1, 56.6], [162.6, 58.6],
+                [160.0, 55.9], [165.1, 59.1], [182.9, 81.8], [166.4, 70.7], [165.1, 56.8],
+                [177.8, 60.0], [165.1, 58.2], [175.3, 72.7], [154.9, 54.1], [158.8, 49.1],
+                [172.7, 75.9], [168.9, 55.0], [161.3, 57.3], [167.6, 55.0], [165.1, 65.5],
+                [175.3, 65.5], [157.5, 48.6], [163.8, 58.6], [167.6, 63.6], [165.1, 55.2],
+                [165.1, 62.7], [168.9, 56.6], [162.6, 53.9], [164.5, 63.2], [176.5, 73.6],
+                [168.9, 62.0], [175.3, 63.6], [159.4, 53.2], [160.0, 53.4], [170.2, 55.0],
+                [162.6, 70.5], [167.6, 54.5], [162.6, 54.5], [160.7, 55.9], [160.0, 59.0],
+                [157.5, 63.6], [162.6, 54.5], [152.4, 47.3], [170.2, 67.7], [165.1, 80.9],
+                [172.7, 70.5], [165.1, 60.9], [170.2, 63.6], [170.2, 54.5], [170.2, 59.1],
+                [161.3, 70.5], [167.6, 52.7], [167.6, 62.7], [165.1, 86.3], [162.6, 66.4],
+                [152.4, 67.3], [168.9, 63.0], [170.2, 73.6], [175.2, 62.3], [175.2, 57.7],
+                [160.0, 55.4], [165.1, 104.1], [174.0, 55.5], [170.2, 77.3], [160.0, 80.5],
+                [167.6, 64.5], [167.6, 72.3], [167.6, 61.4], [154.9, 58.2], [162.6, 81.8],
+                [175.3, 63.6], [171.4, 53.4], [157.5, 54.5], [165.1, 53.6], [160.0, 60.0],
+                [174.0, 73.6], [162.6, 61.4], [174.0, 55.5], [162.6, 63.6], [161.3, 60.9],
+                [156.2, 60.0], [149.9, 46.8], [169.5, 57.3], [160.0, 64.1], [175.3, 63.6],
+                [169.5, 67.3], [160.0, 75.5], [172.7, 68.2], [162.6, 61.4], [157.5, 76.8],
+                [176.5, 71.8], [164.4, 55.5], [160.7, 48.6], [174.0, 66.4], [163.8, 67.3]]
+
+        }, {
+            name: 'Male',
+            color: 'rgba(119, 152, 191, .5)',
+            data: [[174.0, 65.6], [175.3, 71.8], [193.5, 80.7], [186.5, 72.6], [187.2, 78.8],
+                [181.5, 74.8], [184.0, 86.4], [184.5, 78.4], [175.0, 62.0], [184.0, 81.6],
+                [180.0, 76.6], [177.8, 83.6], [192.0, 90.0], [176.0, 74.6], [174.0, 71.0],
+                [184.0, 79.6], [192.7, 93.8], [171.5, 70.0], [173.0, 72.4], [176.0, 85.9],
+                [176.0, 78.8], [180.5, 77.8], [172.7, 66.2], [176.0, 86.4], [173.5, 81.8],
+                [178.0, 89.6], [180.3, 82.8], [180.3, 76.4], [164.5, 63.2], [173.0, 60.9],
+                [183.5, 74.8], [175.5, 70.0], [188.0, 72.4], [189.2, 84.1], [172.8, 69.1],
+                [170.0, 59.5], [182.0, 67.2], [170.0, 61.3], [177.8, 68.6], [184.2, 80.1],
+                [186.7, 87.8], [171.4, 84.7], [172.7, 73.4], [175.3, 72.1], [180.3, 82.6],
+                [182.9, 88.7], [188.0, 84.1], [177.2, 94.1], [172.1, 74.9], [167.0, 59.1],
+                [169.5, 75.6], [174.0, 86.2], [172.7, 75.3], [182.2, 87.1], [164.1, 55.2],
+                [163.0, 57.0], [171.5, 61.4], [184.2, 76.8], [174.0, 86.8], [174.0, 72.2],
+                [177.0, 71.6], [186.0, 84.8], [167.0, 68.2], [171.8, 66.1], [182.0, 72.0],
+                [167.0, 64.6], [177.8, 74.8], [164.5, 70.0], [192.0, 101.6], [175.5, 63.2],
+                [171.2, 79.1], [181.6, 78.9], [167.4, 67.7], [181.1, 66.0], [177.0, 68.2],
+                [174.5, 63.9], [177.5, 72.0], [170.5, 56.8], [182.4, 74.5], [197.1, 90.9],
+                [180.1, 93.0], [175.5, 80.9], [180.6, 72.7], [184.4, 68.0], [175.5, 70.9],
+                [180.6, 72.5], [177.0, 72.5], [177.1, 83.4], [181.6, 75.5], [176.5, 73.0],
+                [175.0, 70.2], [174.0, 73.4], [165.1, 70.5], [177.0, 68.9], [192.0, 102.3],
+                [176.5, 68.4], [169.4, 65.9], [182.1, 75.7], [179.8, 84.5], [175.3, 87.7],
+                [184.9, 86.4], [177.3, 73.2], [167.4, 53.9], [178.1, 72.0], [168.9, 55.5],
+                [157.2, 58.4], [180.3, 83.2], [170.2, 72.7], [177.8, 64.1], [172.7, 72.3],
+                [165.1, 65.0], [186.7, 86.4], [165.1, 65.0], [174.0, 88.6], [175.3, 84.1],
+                [185.4, 66.8], [177.8, 75.5], [180.3, 93.2], [180.3, 82.7], [177.8, 58.0],
+                [177.8, 79.5], [177.8, 78.6], [177.8, 71.8], [177.8, 116.4], [163.8, 72.2],
+                [188.0, 83.6], [198.1, 85.5], [175.3, 90.9], [166.4, 85.9], [190.5, 89.1],
+                [166.4, 75.0], [177.8, 77.7], [179.7, 86.4], [172.7, 90.9], [190.5, 73.6],
+                [185.4, 76.4], [168.9, 69.1], [167.6, 84.5], [175.3, 64.5], [170.2, 69.1],
+                [190.5, 108.6], [177.8, 86.4], [190.5, 80.9], [177.8, 87.7], [184.2, 94.5],
+                [176.5, 80.2], [177.8, 72.0], [180.3, 71.4], [171.4, 72.7], [172.7, 84.1],
+                [172.7, 76.8], [177.8, 63.6], [177.8, 80.9], [182.9, 80.9], [170.2, 85.5],
+                [167.6, 68.6], [175.3, 67.7], [165.1, 66.4], [185.4, 102.3], [181.6, 70.5],
+                [172.7, 95.9], [190.5, 84.1], [179.1, 87.3], [175.3, 71.8], [170.2, 65.9],
+                [193.0, 95.9], [171.4, 91.4], [177.8, 81.8], [177.8, 96.8], [167.6, 69.1],
+                [167.6, 82.7], [180.3, 75.5], [182.9, 79.5], [176.5, 73.6], [186.7, 91.8],
+                [188.0, 84.1], [188.0, 85.9], [177.8, 81.8], [174.0, 82.5], [177.8, 80.5],
+                [171.4, 70.0], [185.4, 81.8], [185.4, 84.1], [188.0, 90.5], [188.0, 91.4],
+                [182.9, 89.1], [176.5, 85.0], [175.3, 69.1], [175.3, 73.6], [188.0, 80.5],
+                [188.0, 82.7], [175.3, 86.4], [170.5, 67.7], [179.1, 92.7], [177.8, 93.6],
+                [175.3, 70.9], [182.9, 75.0], [170.8, 93.2], [188.0, 93.2], [180.3, 77.7],
+                [177.8, 61.4], [185.4, 94.1], [168.9, 75.0], [185.4, 83.6], [180.3, 85.5],
+                [174.0, 73.9], [167.6, 66.8], [182.9, 87.3], [160.0, 72.3], [180.3, 88.6],
+                [167.6, 75.5], [186.7, 101.4], [175.3, 91.1], [175.3, 67.3], [175.9, 77.7],
+                [175.3, 81.8], [179.1, 75.5], [181.6, 84.5], [177.8, 76.6], [182.9, 85.0],
+                [177.8, 102.5], [184.2, 77.3], [179.1, 71.8], [176.5, 87.9], [188.0, 94.3],
+                [174.0, 70.9], [167.6, 64.5], [170.2, 77.3], [167.6, 72.3], [188.0, 87.3],
+                [174.0, 80.0], [176.5, 82.3], [180.3, 73.6], [167.6, 74.1], [188.0, 85.9],
+                [180.3, 73.2], [167.6, 76.3], [183.0, 65.9], [183.0, 90.9], [179.1, 89.1],
+                [170.2, 62.3], [177.8, 82.7], [179.1, 79.1], [190.5, 98.2], [177.8, 84.1],
+                [180.3, 83.2], [180.3, 83.2]]      
+      }
+   ];     
+      
+   var json = {};   
+   json.chart = chart; 
+   json.title = title;   
+   json.subtitle = subtitle; 
+   json.legend = legend;
+   json.xAxis = xAxis;
+   json.yAxis = yAxis;  
+   json.series = series;
+   json.plotOptions = plotOptions;
+   $('#container').highcharts(json);
+  
+});
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p><a href="https://www.runoob.com/try/tryit.php?filename=highcharts_scatter_basic" class="ext"></a></p>
+<p>以上实例输出结果为：</p></div></section>
+<section class="ch" id="c11"><h2>11. Highcharts 气泡图<a class="chsrc" href="https://www.runoob.com/highcharts/highcharts-bubble-charts.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>本章节我们将为大家介绍 Highcharts 的气泡图。</p>
+<p>我们在前面的章节已经了解了 Highcharts 配置语法。接下来让我们来看下 Highcharts 的其他配置。</p>
+<hr>
+<h3>配置</h3>
+<h4>chart 配置
+</h4><p>
+配置 chart 的 type 为 'bubble' 。chart.type 描述了图表类型。默认值为 "line"。</p>
+<p>chart.zoomType 属性可配置图表放大 ，通过拖动鼠标进行缩放，沿x轴或y轴进行缩放，可以设置为：'x','y','xy'。
+</p>
+<pre>
+var chart = {
+   type: 'bubble',
+   zoomType: 'xy'
+};
+</pre>
+<h4>实例</h4>
+<p>文件名：highcharts_bubble_basic.htm</p>
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8" /&gt;
+&lt;title&gt;Highcharts 教程 | 菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="http://code.highcharts.com/highcharts.js"&gt;&lt;/script&gt;
+&lt;script src="http://code.highcharts.com/highcharts-more.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="container" style="width: 550px; height: 400px; margin: 0 auto"&gt;&lt;/div&gt;
+&lt;script language="JavaScript"&gt;
+$(document).ready(function() {  
+   var chart = {
+      type: 'bubble',
+      zoomType: 'xy'
+   };
+   var title = {
+      text: 'Highcharts Bubbles'   
+   };   
+   var series= [{
+            data: [[97, 36, 79], [94, 74, 60], [68, 76, 58], [64, 87, 56], [68, 27, 73], [74, 99, 42], [7, 93, 87], [51, 69, 40], [38, 23, 33], [57, 86, 31]]
+        }, {
+            data: [[25, 10, 87], [2, 75, 59], [11, 54, 8], [86, 55, 93], [5, 3, 58], [90, 63, 44], [91, 33, 17], [97, 3, 56], [15, 67, 48], [54, 25, 81]]
+        }, {
+            data: [[47, 47, 21], [20, 12, 4], [6, 76, 91], [38, 30, 60], [57, 98, 64], [61, 17, 80], [83, 60, 13], [67, 78, 75], [64, 12, 10], [30, 77, 82]]
+      }
+   ];     
+      
+   var json = {};   
+   json.chart = chart; 
+   json.title = title;     
+   json.series = series;   
+   $('#container').highcharts(json);
+  
+});
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p><a href="https://www.runoob.com/try/tryit.php?filename=highcharts_bubble_basic" class="ext"></a></p>
+<p>以上实例输出结果为：</p>
+
+<hr>
+<h3>3D 气泡图</h3>
+<h4>series.marker</h4>
+<p>设置 series.marker 渐变让其看起来有 3D 的效果。</p>
+<pre>
+marker: {
+   fillColor: {
+      radialGradient: { cx: 0.4, cy: 0.3, r: 0.7 },
+      stops: [
+         [0, 'rgba(255,255,255,0.5)'],
+         [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0.5).get('rgba')]
+      ]
+   }
+}
+</pre>
+<h4>实例</h4>
+<p>文件名：highcharts_bubble_3d.htm</p>
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Highcharts 教程 | 菜鸟教程(runoob.com)&lt;/title&gt;
+   &lt;script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"&gt;&lt;/script&gt;
+   &lt;script src="/try/demo_source/highcharts.js"&gt;&lt;/script&gt;
+   &lt;script src="http://code.highcharts.com/highcharts-more.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="container" style="width: 550px; height: 400px; margin: 0 auto"&gt;&lt;/div&gt;
+&lt;script language="JavaScript"&gt;
+$(document).ready(function() {  
+   var chart = {
+      type: 'bubble',
+      plotBorderWidth: 1,
+      zoomType: 'xy'
+   };
+   var title = {
+      text: 'Highcharts bubbles with radial gradient fill'   
+   };   
+   var xAxis = {
+      gridLineWidth: 1
+   };
+
+   var yAxis = {
+      startOnTick: false,
+      endOnTick: false
+   };
+
+   var series= [{
+           data: [
+                [9, 81, 63],
+                [98, 5, 89],
+                [51, 50, 73],
+                [41, 22, 14],
+                [58, 24, 20],
+                [78, 37, 34],
+                [55, 56, 53],
+                [18, 45, 70],
+                [42, 44, 28],
+                [3, 52, 59],
+                [31, 18, 97],
+                [79, 91, 63],
+                [93, 23, 23],
+                [44, 83, 22]
+            ],
+            marker: {
+                fillColor: {
+                    radialGradient: { cx: 0.4, cy: 0.3, r: 0.7 },
+                    stops: [
+                        [0, 'rgba(255,255,255,0.5)'],
+                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0.5).get('rgba')]
+                    ]
+                }
+            }
+        }, {
+            data: [
+                [42, 38, 20],
+                [6, 18, 1],
+                [1, 93, 55],
+                [57, 2, 90],
+                [80, 76, 22],
+                [11, 74, 96],
+                [88, 56, 10],
+                [30, 47, 49],
+                [57, 62, 98],
+                [4, 16, 16],
+                [46, 10, 11],
+                [22, 87, 89],
+                [57, 91, 82],
+                [45, 15, 98]
+            ],
+            marker: {
+                fillColor: {
+                    radialGradient: { cx: 0.4, cy: 0.3, r: 0.7 },
+                    stops: [
+                        [0, 'rgba(255,255,255,0.5)'],
+                        [1, Highcharts.Color(Highcharts.getOptions().colors[1]).setOpacity(0.5).get('rgba')]
+                    ]
+                }
+            }
+      }
+   ];     
+      
+   var json = {};   
+   json.chart = chart; 
+   json.title = title;   
+   json.xAxis = xAxis;   
+   json.yAxis = yAxis;      
+   json.series = series;   
+   $('#container').highcharts(json);
+  
+});
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p><a href="https://www.runoob.com/try/tryit.php?filename=highcharts_bubble_3d" class="ext"></a></p>
+<p>以上实例输出结果为：</p></div></section>
+<section class="ch" id="c12"><h2>12. Highcharts 动态图<a class="chsrc" href="https://www.runoob.com/highcharts/highcharts-dynamic-click.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>本章节我们将为大家介绍 Highcharts 的动态图。</p>
+<p>我们在前面的章节已经了解了 Highcharts 配置语法。接下来让我们来看下 Highcharts 的其他配置。</p>
+<hr>
+<h3>每秒更新曲线图</h3>
+<h4>chart.events
+</h4><p>
+chart.event 属性中添加 load 方法（图表加载事件）。在 1000 毫秒内随机产生数据点并生成图表。</p>
+<pre>
+chart: {
+   events: {
+      load: function () {
+         // 图表每秒更新一次
+         var series = this.series[0];
+         setInterval(function () {
+            var x = (new Date()).getTime(), // 当期时间
+            y = Math.random();
+            series.addPoint([x, y], true, true);
+         }, 1000);
+      }
+   }
+}
+</pre>
+<h4>实例</h4>
+<p>文件名：highcharts_dynamic_spline.htm</p>
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8" /&gt;
+&lt;title&gt;Highcharts 教程 | 菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="http://code.highcharts.com/highcharts.js"&gt;&lt;/script&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="container" style="width: 550px; height: 400px; margin: 0 auto"&gt;&lt;/div&gt;
+&lt;script language="JavaScript"&gt;
+$(document).ready(function() {  
+   var chart = {
+      type: 'spline',
+      animation: Highcharts.svg, // don't animate in IE &lt; IE 10.
+      marginRight: 10,
+      events: {
+         load: function () {
+            // set up the updating of the chart each second
+            var series = this.series[0];
+            setInterval(function () {
+               var x = (new Date()).getTime(), // current time
+               y = Math.random();
+               series.addPoint([x, y], true, true);
+            }, 1000);
+         }
+      }
+   };
+   var title = {
+      text: 'Live random data'   
+   };   
+   var xAxis = {
+      type: 'datetime',
+      tickPixelInterval: 150
+   };
+   var yAxis = {
+      title: {
+         text: 'Value'
+      },
+      plotLines: [{
+         value: 0,
+         width: 1,
+         color: '#808080'
+      }]
+   };
+   var tooltip = {
+      formatter: function () {
+      return '&lt;b&gt;' + this.series.name + '&lt;/b&gt;&lt;br/&gt;' +
+         Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '&lt;br/&gt;' +
+         Highcharts.numberFormat(this.y, 2);
+      }
+   };
+   var plotOptions = {
+      area: {
+         pointStart: 1940,
+         marker: {
+            enabled: false,
+            symbol: 'circle',
+            radius: 2,
+            states: {
+               hover: {
+                 enabled: true
+               }
+            }
+         }
+      }
+   };
+   var legend = {
+      enabled: false
+   };
+   var exporting = {
+      enabled: false
+   };
+   var series= [{
+      name: 'Random data',
+      data: (function () {
+         // generate an array of random data
+         var data = [],time = (new Date()).getTime(),i;
+         for (i = -19; i &lt;= 0; i += 1) {
+            data.push({
+               x: time + i * 1000,
+               y: Math.random()
+            });
+         }
+         return data;
+      }())    
+   }];     
+      
+   var json = {};   
+   json.chart = chart; 
+   json.title = title;     
+   json.tooltip = tooltip;
+   json.xAxis = xAxis;
+   json.yAxis = yAxis; 
+   json.legend = legend;  
+   json.exporting = exporting;   
+   json.series = series;
+   json.plotOptions = plotOptions;
+   
+   
+   Highcharts.setOptions({
+      global: {
+         useUTC: false
+      }
+   });
+   $('#container').highcharts(json);
+  
+});
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p><a href="https://www.runoob.com/try/tryit.php?filename=highcharts_dynamic_spline" class="ext"></a></p>
+<p>以上实例输出结果为：</p>
+
+<p><a href="highcharts-pie-charts.html"><img src="img/7e8b1108e92edc52.gif" alt="Highcharts 饼图" loading="lazy">Highcharts 饼图</a></p>
+<hr>
+<h3>通过点击添加数据</h3>
+<h4>chart.events</h4>
+<p>在 chart.event 属性中添加 click 方法（整个图表的绘图区上所发生的点击事件）。该方法在图表绘图区上发生点击时会添加新的数据点。 </p>
+<pre>
+chart: {
+   events: {
+      click: function (e) {
+         // 获取点击坐标和数据项
+         var x = e.xAxis[0].value,
+         y = e.yAxis[0].value,
+         series = this.series[0];
+         // 添加点击的坐标
+         series.addPoint([x, y]);
+      }
+   }
+}
+</pre>
+<h4>实例</h4>
+<p>文件名：highcharts_dynamic_click.htm</p>
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Highcharts 教程 | 菜鸟教程(runoob.com)&lt;/title&gt;
+   &lt;script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"&gt;&lt;/script&gt;
+   &lt;script src="/try/demo_source/highcharts.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="container" style="width: 550px; height: 400px; margin: 0 auto"&gt;&lt;/div&gt;
+&lt;script language="JavaScript"&gt;
+$(document).ready(function() {  
+   var chart = {
+      type: 'scatter',
+      margin: [70, 50, 60, 80],      
+      events: {
+         click: function (e) {
+            // find the clicked values and the series
+            var x = e.xAxis[0].value,
+            y = e.yAxis[0].value,
+            series = this.series[0];
+            // Add it
+            series.addPoint([x, y]);
+         }
+      }
+   };
+   var title = {
+      text: 'User supplied data'   
+   };   
+   var subtitle = {
+      text: 'Click the plot area to add a point. Click a point to remove it.'
+   };
+   var xAxis = {
+      gridLineWidth: 1,
+      minPadding: 0.2,
+      maxPadding: 0.2,
+      maxZoom: 60
+   };
+   var yAxis = {
+      title: {
+         text: 'Value'
+      },
+      minPadding: 0.2,
+      maxPadding: 0.2,
+      maxZoom: 60,
+      plotLines: [{
+         value: 0,
+         width: 1,
+         color: '#808080'
+      }]
+   };   
+   var legend = {
+      enabled: false
+   };
+   var exporting = {
+      enabled: false
+   };
+   var plotOptions = {
+      series: {
+         lineWidth: 1,
+         point: {
+            events: {
+               'click': function () {
+                  if (this.series.data.length &gt; 1) {
+                     this.remove();
+                  }
+               }
+            }
+         }
+      }
+   };
+        
+   var series= [{
+      data: [[20, 20], [80, 80]]
+   }];     
+      
+   var json = {};   
+   json.chart = chart; 
+   json.title = title;     
+   json.subtitle = subtitle;
+   json.xAxis = xAxis;
+   json.yAxis = yAxis; 
+   json.legend = legend;  
+   json.exporting = exporting;  
+   json.series = series;    
+   json.plotOptions = plotOptions;    
+   $('#container').highcharts(json);
+  
+});
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p><a href="https://www.runoob.com/try/tryit.php?filename=highcharts_dynamic_click" class="ext"></a></p>
+<p>以上实例输出结果为：</p></div></section>
+<section class="ch" id="c13"><h2>13. Highcharts 组合图<a class="chsrc" href="https://www.runoob.com/highcharts/highcharts-combinations.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>本章节我们将为大家介绍 Highcharts 的组合图。</p>
+<table>
+<tbody><tr><th>序号</th><th>图表类型</th></tr>
+<tr><td>1</td><td><a href="https://www.runoob.com/highcharts/highcharts-combinations-column.html" class="ext">柱形图，线条图，饼图</a></td></tr>
+<tr><td>2</td><td><a href="https://www.runoob.com/highcharts/highcharts-combinations-dualaxes.html" class="ext">双Y轴, 柱形图，线条图</a></td></tr>
+<tr><td>3</td><td><a href="https://www.runoob.com/highcharts/highcharts-combinations-axes.html" class="ext">多Y轴</a></td></tr>
+<tr><td>4</td><td><a href="https://www.runoob.com/highcharts/highcharts-combinations-scatter.html" class="ext">散点图上添加回归线</a></td></tr>
+</tbody></table></div></section>
+<section class="ch" id="c14"><h2>14. Highcharts 3D图<a class="chsrc" href="https://www.runoob.com/highcharts/highcharts-3d-charts.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>本章节我们将为大家介绍 Highcharts 的3D图。</p>
+<table>
+<tbody><tr><th>序号</th><th>图表类型</th></tr>
+<tr><td>1</td><td><a href="https://www.runoob.com/highcharts/highcharts-3d-column.html" class="ext">3D 柱形图</a></td></tr>
+<tr><td>2</td><td><a href="https://www.runoob.com/highcharts/highcharts-3d-column-null.html" class="ext">带空值的3D 柱形图</a></td></tr>
+<tr><td>3</td><td><a href="https://www.runoob.com/highcharts/highcharts-3d-stacking.html" class="ext">堆叠 3D 柱形图</a></td></tr>
+<tr><td>4</td><td><a href="https://www.runoob.com/highcharts/highcharts-3d-pie.html" class="ext">3D 饼图</a></td></tr>
+<tr><td>5</td><td><a href="https://www.runoob.com/highcharts/highcharts-3d-donut.html" class="ext">3D 圆环图 </a></td></tr>
+</tbody></table></div></section>
+<section class="ch" id="c15"><h2>15. Highcharts 测量图<a class="chsrc" href="https://www.runoob.com/highcharts/highcharts-angular-gauges.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>本章节我们将为大家介绍 Highcharts 的测量图。</p>
+
+<table>
+<tbody><tr><th>序号</th><th>图表类型</th></tr>
+<tr><td>1</td><td><a href="https://www.runoob.com/highcharts/highcharts-guage-angular.html" class="ext">测量图</a></td></tr>
+<tr><td>2</td><td><a href="https://www.runoob.com/highcharts/highcharts-guage-solid.html" class="ext">圆形进度条式测量图</a></td></tr>
+<tr><td>3</td><td><a href="https://www.runoob.com/highcharts/highcharts-guage-clock.html" class="ext">时钟</a></td></tr>
+<tr><td>4</td><td><a href="https://www.runoob.com/highcharts/highcharts-guage-dualaxes.html" class="ext">双轴车速表 </a></td></tr>
+<tr><td>5</td><td><a href="https://www.runoob.com/highcharts/highcharts-guage-vumeter.html" class="ext">音量表（VU Meter） </a></td></tr>
+</tbody></table></div></section>
+<section class="ch" id="c16"><h2>16. Highcharts 树状图(Treemap)<a class="chsrc" href="https://www.runoob.com/highcharts/highcharts-tree-maps.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>本章节我们将为大家介绍 Highcharts 的热点图。</p>
+<p>我们在前面的章节已经了解了 Highcharts 配置语法。接下来让我们来看下 Highcharts 的其他配置。</p>
+<hr>
+<h3>树状图</h3>
+<h4>series 配置</h4>
+<p>
+设置 series 的 type 属性为 treemap ，series.type 描述了数据列类型。默认值为 "line"。
+</p>
+<pre>
+var chart = {
+   type: 'treemap'
+};
+</pre>
+<h4>实例</h4>
+<p>文件名：highcharts_tree_map.htm</p>
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8" /&gt;
+&lt;title&gt;Highcharts 教程 | 菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="http://code.highcharts.com/highcharts.js"&gt;&lt;/script&gt;
+&lt;script src="http://code.highcharts.com/modules/treemap.js"&gt;&lt;/script&gt;    
+&lt;script src="http://code.highcharts.com/modules/heatmap.js"&gt;&lt;/script&gt;  
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="container" style="width: 550px; height: 400px; margin: 0 auto"&gt;&lt;/div&gt;
+&lt;script language="JavaScript"&gt;
+$(document).ready(function() {    
+   var title = {
+      text: 'Highcharts Treemap'   
+   };       
+   
+   var colorAxis = {
+      minColor: '#FFFFFF',
+      maxColor: Highcharts.getOptions().colors[0]
+   };
+   
+   var series= [{
+     type: "treemap",
+     layoutAlgorithm: 'squarified',
+     data: [{
+        name: 'A',
+        value: 6,
+        colorValue: 1
+     }, {
+        name: 'B',
+        value: 6,
+        colorValue: 2
+     }, {
+        name: 'C',
+        value: 4,
+        colorValue: 3
+     }, {
+        name: 'D',
+        value: 3,
+        colorValue: 4
+     }, {
+        name: 'E',
+        value: 2,
+        colorValue: 5
+     }, {
+        name: 'F',
+        value: 2,
+        colorValue: 6
+     }, {
+        name: 'G',
+        value: 1,
+        colorValue: 7
+     }]
+   }];     
+      
+   var json = {};     
+   json.title = title;          
+   json.colorAxis = colorAxis;   
+   json.series = series;       
+   
+   $('#container').highcharts(json);
+});
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p><a href="https://www.runoob.com/try/tryit.php?filename=highcharts_tree_map" class="ext"></a></p>
+<p>以上实例输出结果为：</p>
+
+<hr>
+<h3>不同等级树状图</h3>
+<p>以下实例使用不同颜色来标识不同等级的树状图。</p>
+<h4>实例</h4>
+<p>文件名：highcharts_tree_levels.htm（完整源码请点击实例查看）</p>
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8" /&gt;
+&lt;title&gt;Highcharts 教程 | 菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="http://code.highcharts.com/highcharts.js"&gt;&lt;/script&gt;
+&lt;script src="http://code.highcharts.com/modules/treemap.js"&gt;&lt;/script&gt;    
+&lt;script src="http://code.highcharts.com/modules/heatmap.js"&gt;&lt;/script&gt;  
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="container" style="width: 550px; height: 400px; margin: 0 auto"&gt;&lt;/div&gt;
+&lt;script language="JavaScript"&gt;
+$(document).ready(function() {    
+   var title = {
+      text: 'Fruit consumption'   
+   };        
+   
+   var series = [{
+      type: "treemap",
+      layoutAlgorithm: 'stripes',
+      alternateStartingDirection: true,
+      levels: [{
+         level: 1,
+         layoutAlgorithm: 'sliceAndDice',
+         dataLabels: {
+            enabled: true,
+            align: 'left',
+            verticalAlign: 'top',
+            style: {
+               fontSize: '15px',
+               fontWeight: 'bold'
+            }
+         }
+      }],
+      data: [{
+         id: 'A',
+         name: 'Apples',
+         color: "#EC2500"
+      }, {
+         id:'B',
+         name: 'Bananas',
+         color: "#ECE100"
+      }, {
+         id: 'O',
+         name: 'Oranges',
+         color: '#EC9800'
+      }, {
+         name: 'Anne',
+         parent: 'A',
+         value: 5
+      }, {
+         name: 'Rick',
+         parent: 'A',
+         value: 3
+      }, {
+         name: 'Peter',
+         parent: 'A',
+         value: 4
+      }, {
+         name: 'Anne',
+         parent: 'B',
+         value: 4
+      }, {
+         name: 'Rick',
+         parent: 'B',
+         value: 10
+      }, {
+         name: 'Peter',
+         parent: 'B',
+         value: 1
+      }, {
+         name: 'Anne',
+         parent: 'O',
+         value: 1
+      }, {
+         name: 'Rick',
+         parent: 'O',
+         value: 3
+      }, {
+         name: 'Peter',
+         parent: 'O',
+         value: 3
+      }, {
+         name: 'Susanne',
+         parent: 'Kiwi',
+         value: 2,
+         color: '#9EDE00'
+      }]
+   }]; 
+      
+   var json = {};     
+   json.title = title;            
+   json.series = series;       
+   
+   $('#container').highcharts(json);
+});
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p><a href="https://www.runoob.com/try/tryit.php?filename=highcharts_tree_levels" class="ext"></a></p>
+<p>以上实例输出结果为：</p>
+
+<hr><h3>大数据量树状图</h3>
+<p> 以下实例颜色了大数据量的树状图，具体实例数据可通过点击"尝试一下"查看。</p>
+<p>文件名：highcharts_tree_largemap.htm</p>
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8" /&gt;
+&lt;title&gt;Highcharts 教程 | 菜鸟教程(runoob.com)&lt;/title&gt;
+&lt;script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="http://code.highcharts.com/highcharts.js"&gt;&lt;/script&gt;   
+&lt;script src="http://code.highcharts.com/modules/treemap.js"&gt;&lt;/script&gt;    
+&lt;script src="http://code.highcharts.com/modules/heatmap.js"&gt;&lt;/script&gt;  
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="container" style="width: 550px; height: 400px; margin: 0 auto"&gt;&lt;/div&gt;
+&lt;script language="JavaScript"&gt;
+$(document).ready(function() { 
+//省略部分 js 代码
+ var data = {……};
+ var points = [],
+        region_p,
+        region_val,
+        region_i,
+        country_p,
+        country_i,
+        cause_p,
+        cause_i,
+        cause_name = [];
+    cause_name['Communicable &amp; other Group I'] = 'Communicable diseases';
+    cause_name['Noncommunicable diseases'] = 'Non-communicable diseases';
+    cause_name['Injuries'] = 'Injuries';
+    region_i = 0;
+    for (var region in data) {
+        region_val = 0;
+        region_p = {
+            id: "id_" + region_i,
+            name: region,
+            color: Highcharts.getOptions().colors[region_i]
+        };
+        country_i = 0;
+        for (var country in data[region]) {
+            country_p = {
+                id: region_p.id + "_" + country_i,
+                name: country,
+                parent: region_p.id
+            };
+            points.push(country_p);
+            cause_i = 0;
+            for (var cause in data[region][country]) {
+                cause_p = {
+                    id: country_p.id + "_" + cause_i,
+                    name: cause_name[cause],
+                    parent: country_p.id,
+                    value: Math.round(+data[region][country][cause])
+                };
+                region_val += cause_p.value;
+                points.push(cause_p);
+                cause_i++;
+            }
+            country_i++;
+        }
+        region_p.value = Math.round(region_val / country_i);
+        points.push(region_p);
+        region_i++;
+    }
+   var chart = {
+      renderTo: 'container'
+   };
+
+   var title = {
+      text: 'Global Mortality Rate 2012, per 100 000 population'   
+   };        
+   
+   var subtitle: {
+      text: 'Click points to drill down. Source: &lt;a href="http://apps.who.int/gho/data/node.main.12?lang=en"&gt;WHO&lt;/a&gt;.'
+   };
+   
+   var series = [{
+      type: "treemap",
+      layoutAlgorithm: 'squarified',
+      allowDrillToNode: true,
+      dataLabels: {
+         enabled: false
+      },
+      levelIsConstant: false,
+      levels: [{
+         level: 1,
+         dataLabels: {
+            enabled: true
+         },
+      borderWidth: 3
+      }],
+      data: points
+   }]; 
+      
+   var json = {};     
+   json.title = title;            
+   json.series = series;       
+   
+   $('#container').highcharts(json);
+});
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<p><a href="https://www.runoob.com/try/tryit.php?filename=highcharts_tree_largemap" class="ext"></a></p>
+<p>以上实例输出结果为：</p></div></section>
+<footer><p>离线版 · 内容抓取自 runoob.com，仅用于个人离线阅读；页面结构与广告已去除，原文版权归菜鸟教程及原作者。</p><p><a href="index.html">← 返回总索引</a></p></footer></body></html>

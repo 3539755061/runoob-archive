@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="310" viewBox="0 0 940 310" role="img" aria-label="AI 自动生成工作周报">
+<rect width="940" height="310" rx="17" fill="#f5f8fb"/>
+<rect x="1" y="1" width="938" height="308" rx="16" fill="none" stroke="#d9e3ec"/>
+<text x="32" y="44" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-weight="700" font-size="23" fill="#213a53">AI 自动生成工作周报</text>
+<text x="32" y="68" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" fill="#667e93">工作场景 · 分步执行 · 人工验收</text>
+<rect x="32.0" y="97" width="208.5" height="162" rx="13" fill="white" stroke="#d9e3ec"/>
+<rect x="46.0" y="113" width="34" height="34" rx="10" fill="#e0ecf4"/>
+<text x="63.0" y="136" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#213a53">01</text>
+<text x="47.0" y="183" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="600" fill="#213a53">汇集输入</text>
+<path d="M243.5 180 L252.5 180" stroke="#db915d" stroke-width="3" stroke-linecap="round"/>
+<rect x="254.5" y="97" width="208.5" height="162" rx="13" fill="white" stroke="#d9e3ec"/>
+<rect x="268.5" y="113" width="34" height="34" rx="10" fill="#e5f2ed"/>
+<text x="285.5" y="136" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#213a53">02</text>
+<text x="269.5" y="183" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="600" fill="#213a53">分类整理</text>
+<path d="M466.0 180 L475.0 180" stroke="#db915d" stroke-width="3" stroke-linecap="round"/>
+<rect x="477.0" y="97" width="208.5" height="162" rx="13" fill="white" stroke="#d9e3ec"/>
+<rect x="491.0" y="113" width="34" height="34" rx="10" fill="#f9e9dd"/>
+<text x="508.0" y="136" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#213a53">03</text>
+<text x="492.0" y="183" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="600" fill="#213a53">生成周报</text>
+<path d="M688.5 180 L697.5 180" stroke="#db915d" stroke-width="3" stroke-linecap="round"/>
+<rect x="699.5" y="97" width="208.5" height="162" rx="13" fill="white" stroke="#d9e3ec"/>
+<rect x="713.5" y="113" width="34" height="34" rx="10" fill="#e9e6f2"/>
+<text x="730.5" y="136" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#213a53">04</text>
+<text x="714.5" y="183" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="18" font-weight="600" fill="#213a53">核对后发送</text>
+<text x="32" y="287" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" fill="#6c8093">RUNOOB · AI 应用教程 · 示例工作流程</text></svg>

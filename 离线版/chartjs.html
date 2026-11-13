@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chart.js 教程 · 离线版</title>
+<link rel="stylesheet" href="css/offline.css">
+</head><body>
+<nav class="topbar"><a href="index.html">← 返回总索引</a><span>·</span><span>A 前端与界面</span>
+<span>·</span><span>12 章</span></nav>
+<h1>Chart.js 教程</h1>
+<p class="docmeta">来源：<a class="ext" href="https://www.runoob.com/chartjs/chartjs-tutorial.html">https://www.runoob.com/chartjs/chartjs-tutorial.html</a><br>
+适用性：<b style="color:#0b6bcb">可用</b>
+｜ 时效：在役 ｜ 抓取：2026-11-13 ｜ 本页为离线阅读版，章节按教程侧栏顺序合并，广告与评论已去除。</p>
+<details class="toc-ch"><summary>本篇目录（12 章，点击展开）</summary><ol>
+<li><a href="#c1">Chart.js 教程</a></li>
+<li><a href="#c2">Chart.js 安装</a></li>
+<li><a href="#c3">Chart.js 使用</a></li>
+<li><a href="#c4">Chart.js 柱形图</a></li>
+<li><a href="#c5">Chart.js 气泡图</a></li>
+<li><a href="#c6">Chart.js 环形图</a></li>
+<li><a href="#c7">Chart.js 饼图</a></li>
+<li><a href="#c8">Chart.js 折线图</a></li>
+<li><a href="#c9">Chart.js 混合图</a></li>
+<li><a href="#c10">Chart.js 极地图</a></li>
+<li><a href="#c11">Chart.js 雷达图</a></li>
+<li><a href="#c12">Chart.js 散点图</a></li>
+</ol></details>
+<section class="ch" id="c1"><h2>1. Chart.js 教程<a class="chsrc" href="https://www.runoob.com/chartjs/chartjs-tutorial.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><img src="img/938f8196d236febe.png" loading="lazy">
+<p>Chart.js 是一个简单、灵活的 JavaScript 图表工具。</p>
+<p>Chart.js 是一个基于 HTML5 技术的 JavaScript 图表工具。</p>
+<p>Chart.js:使用 &lt;canvas&gt; 标签的实现简洁HTML5图表</p>
+<p>Chart.js 能够很简单便捷的在 Web 网站或是 Web 应用程序添加有交互性的图表</p>
+<p>Chart.js 免费提供给个人学习、个人网站和非商业用途使用。</p>
+<hr>
+<h4>Chart.js 特性</h4>
+<ul><li>
+<p>Chart.js 是开源的，由社区共同维护的开源项目。</p>
+</li><li>
+
+<p>Chart.js支持 8 种图表类型，每种方式都具有动态效果并且可定制。</p>
+
+</li><li>
+<p>Chart.js 使用 HTML5 Canvas 技术，在所有现代浏览器（IE11+）上都有高效的绘图效率。</p>
+</li><li>
+
+<p>Chart.js  是响应式，可以根据窗口尺寸的变化重绘所有图表，展现更加细腻。</p>
+</li></ul>
+
+<h4>Chart.js 相关资料</h4>
+<ul><li>
+Chart.js 官网：<a href="https://www.chartjs.org/" class="ext">https://www.chartjs.org/</a></li><li>
+Chart.js Github：<a href="https://github.com/chartjs/Chart.js" class="ext">https://github.com/chartjs/Chart.js</a></li><li>
+Chart.js 文档：<a href="https://www.chartjs.org/docs/latest/" class="ext">https://www.chartjs.org/docs/latest/</a></li><li>
+Chart.js 实例：<a href="https://www.chartjs.org/docs/latest/samples/information.html" class="ext">https://www.chartjs.org/docs/latest/samples/information.html</a></li></ul></div></section>
+<section class="ch" id="c2"><h2>2. Chart.js 安装<a class="chsrc" href="https://www.runoob.com/chartjs/chartjs-install.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>
+Chart.js 提供了多种安装方式，适合不同的开发场景：</p>
+	<ul>
+<li>
+NPM/Yarn - 适合使用构建工具的项目开发</li>
+	<li>
+CDN - 适合快速原型开发和学习</li>
+	<li>
+GitHub - 适合需要最新特性或参与贡献的开发</li></ul>
+
+<hr>
+<h3>1. 通过 NPM/Yarn 安装</h3>
+<p>
+NPM (Node Package Manager) 是 JavaScript 的包管理工具，适合现代前端项目开发。</p>
+
+<h4>安装步骤</h4><pre>
+# 使用 npm 安装
+npm install chart.js
+
+# 或者使用 yarn 安装
+yarn add chart.js</pre>
+<h4>在项目中引入</h4><p>
+安装完成后，你可以在 JavaScript 文件中这样引入 Chart.js：</p>
+
+<h3>实例</h3> 
+<span style="color:#006600">// 引入整个 Chart.js 库</span><br>
+<span style="color:#FF0000">import</span> Chart from <span style="color:#3366CC">'chart.js/auto'</span><span style="color:#339933">;</span><br>
+<br>
+<span style="color:#006600">// 或者按需引入特定图表类型（减小打包体积）</span><br>
+<span style="color:#FF0000">import</span> <span style="color:#009900">{</span> Line <span style="color:#009900">}</span> from <span style="color:#3366CC">'chart.js'</span><span style="color:#339933">;</span><br>
+
+<h4>版本管理</h4><p>
+要安装特定版本的 Chart.js，可以指定版本号：</p>
+<pre>
+npm install chart.js@3.9.1</pre>
+
+<h3>
+2. 通过 CDN 使用</h3><p>
+CDN (Content Delivery Network) 是通过网络直接加载库文件的方式，适合快速原型开发。</p>
+
+<h4>推荐 CDN 地址</h4><pre>
+&lt;!-- 字节跳动 CDN（国内推荐） --&gt;
+&lt;script src="&lt;script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/Chart.js/3.7.1/chart.min.js"&gt;&lt;/script&gt;"&gt;&lt;/script&gt;
+
+&lt;!-- Staticfile CDN（国内备选） --&gt;
+&lt;script src="https://cdn.staticfile.net/Chart.js/3.9.1/chart.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- cdnjs CDN（海外推荐） --&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"&gt;&lt;/script&gt;</pre>
+
+<h3>实例</h3> 
+<span style="color:#555">&lt;!DOCTYPE html&gt;</span><br>
+<span style="color:#170">&lt;<span style="color:#170">html</span>&gt;</span><br>
+<span style="color:#170">&lt;<span style="color:#170">head</span>&gt;</span><br>
+    <span style="color:#170">&lt;<span style="color:#170">title</span>&gt;</span>Chart.js CDN 示例<span style="color:#170">&lt;<span style="color:#66cc66">/</span><span style="color:#170">title</span>&gt;</span><br>
+    <span style="color:#808080">&lt;!-- 引入 Chart.js --&gt;</span><br>
+   <span style="color:#170">&lt;<span style="color:#170">script</span> <span style="color:#00c">src</span><span style="color:#66cc66">=</span><span style="color:#a11">"&lt;script src="</span>https:<span style="color:#66cc66">//</span>lf6-cdn-tos.bytecdntp.com<span style="color:#66cc66">/</span>cdn<span style="color:#66cc66">/</span>expire-<span style="color:#cc66cc">1</span>-M<span style="color:#66cc66">/</span>Chart.js<span style="color:#66cc66">/</span>3.7.1<span style="color:#66cc66">/</span>chart.<span style="color:#00c">min</span>.js<span style="color:#a11">"&gt;&lt;/script&gt;</span></span>"&gt;<span style="color:#170">&lt;<span style="color:#66cc66">/</span><span style="color:#170">script</span>&gt;</span><br>
+<span style="color:#170">&lt;<span style="color:#66cc66">/</span><span style="color:#170">head</span>&gt;</span><br>
+<span style="color:#170">&lt;<span style="color:#170">body</span>&gt;</span><br>
+    <span style="color:#170">&lt;<span style="color:#170">div</span> <span style="color:#00c">style</span><span style="color:#66cc66">=</span><span style="color:#a11">"width: 600px; height: 400px;"</span>&gt;</span><br>
+        <span style="color:#170">&lt;<span style="color:#170">canvas</span> <span style="color:#00c">id</span><span style="color:#66cc66">=</span><span style="color:#a11">"myChart"</span>&gt;&lt;<span style="color:#66cc66">/</span><span style="color:#170">canvas</span>&gt;</span><br>
+    <span style="color:#170">&lt;<span style="color:#66cc66">/</span><span style="color:#170">div</span>&gt;</span><br>
+<br>
+    <span style="color:#170">&lt;<span style="color:#170">script</span>&gt;</span><br>
+        // 获取 canvas 元素<br>
+        const ctx = document.getElementById('myChart').getContext('2d');<br>
+        <br>
+        // 创建图表<br>
+        const myChart = new Chart(ctx, {<br>
+            type: 'bar', // 图表类型<br>
+            data: {<br>
+                labels: ['一月', '二月', '三月', '四月', '五月', '六月'],<br>
+                datasets: [{<br>
+                    label: '月度销售额',<br>
+                    data: [12, 19, 3, 5, 2, 3],<br>
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)'<br>
+                }]<br>
+            },<br>
+            options: {<br>
+                responsive: true, // 响应式设计<br>
+                scales: {<br>
+                    y: {<br>
+                        beginAtZero: true // y轴从0开始<br>
+                    }<br>
+                }<br>
+            }<br>
+        });<br>
+    <span style="color:#170">&lt;<span style="color:#66cc66">/</span><span style="color:#170">script</span>&gt;</span><br>
+<span style="color:#170">&lt;<span style="color:#66cc66">/</span><span style="color:#170">body</span>&gt;</span><br>
+<span style="color:#170">&lt;<span style="color:#66cc66">/</span><span style="color:#170">html</span>&gt;</span><br>
+
+<br>
+<a href="https://www.runoob.com/try/try.php?filename=trychartjs_install_demo1" class="ext">尝试一下 »</a>
+
+<p>本系列会采用国内的 CDN 地址来测试，如下实例：</p>
+<h3>实例</h3> 
+<span style="color:#170">&lt;<span style="color:#170">script</span> <span style="color:#00c">src</span><span style="color:#66cc66">=</span><span style="color:#a11">"https://cdn.staticfile.net/Chart.js/3.9.1/chart.js"</span>&gt;&lt;<span style="color:#66cc66">/</span><span style="color:#170">script</span>&gt;</span><br>
+<span style="color:#170">&lt;<span style="color:#170">script</span>&gt;</span><br>
+    const myChart = new Chart(ctx, {...});<br>
+<span style="color:#170">&lt;<span style="color:#66cc66">/</span><span style="color:#170">script</span>&gt;</span><br>
+<hr>
+<h3>
+3. 从 GitHub 获取</h3>
+<p>
+GitHub 是开源项目的托管平台，适合需要最新特性或参与项目贡献的开发者。</p>
+<h4>
+获取方式</h4><p>
+克隆仓库（需要 Git）：</p>
+<pre>
+git clone https://github.com/chartjs/Chart.js.git</pre>
+<h4>下载 ZIP 文件</h4>
+	<ul>
+<li>
+访问 <a href="https://github.com/chartjs/Chart.js" class="ext">Chart.js GitHub</a></li>
+
+	<li>点击 "Code" 按钮</li>
+	<li>
+选择 "Download ZIP"</li></ul>
+
+<h4>
+构建项目</h4><p>
+下载后，你可以构建自己的 Chart.js 版本：</p>
+<pre>
+cd Chart.js
+npm install
+npm run build</pre><p>
+构建完成后，可以在 dist/ 目录找到生成的文件。</p><hr>
+<h3>安装方式对比</h3>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>优点</th>
+<th>缺点</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NPM/Yarn</td>
+<td>版本管理方便，适合现代前端项目</td>
+<td>需要构建工具</td>
+<td>正式项目开发</td>
+</tr>
+<tr>
+<td>CDN</td>
+<td>简单快捷，无需构建</td>
+<td>依赖网络，版本更新不及时</td>
+<td>快速原型、学习</td>
+</tr>
+<tr>
+<td>GitHub</td>
+<td>获取最新代码，可自定义</td>
+<td>需要手动构建</td>
+<td>高级开发、贡献代码</td>
+</tr>
+</tbody></table></div></section>
+<section class="ch" id="c3"><h2>3. Chart.js 使用<a class="chsrc" href="https://www.runoob.com/chartjs/chartjs-usage.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>
+使用 Chart.js 创建图表，需要初始化 Chart 类，并传入图表节点：</p>
+<p>HTML Canvas 代码，图表显示位置：</p> 
+ 
+<span style="color:#170">&lt;<span style="color:#170">canvas</span> <span style="color:#00c">id</span><span style="color:#66cc66">=</span><span style="color:#a11">"myChart"</span> <span style="color:#00c">width</span><span style="color:#66cc66">=</span><span style="color:#a11">"400"</span> <span style="color:#00c">height</span><span style="color:#66cc66">=</span><span style="color:#a11">"400"</span>&gt;&lt;<span style="color:#66cc66">/</span><span style="color:#170">canvas</span>&gt;</span><br>
+
+ 
+       <p>
+通过不同方式获取节点：</p>
+<h3>初始化方式</h3> 
+<span style="color:#006600">//以下方式都可以</span><br>
+<span style="color:#000066">const</span> ctx <span style="color:#339933">=</span> document.<span style="color:#660066">getElementById</span><span style="color:#009900">(</span><span style="color:#3366CC">'myChart'</span><span style="color:#009900">)</span><span style="color:#339933">;</span>  <span style="color:#006600">// 获取节点</span><br>
+<span style="color:#000066">const</span> ctx <span style="color:#339933">=</span> document.<span style="color:#660066">getElementById</span><span style="color:#009900">(</span><span style="color:#3366CC">'myChart'</span><span style="color:#009900">)</span>.<span style="color:#660066">getContext</span><span style="color:#009900">(</span><span style="color:#3366CC">'2d'</span><span style="color:#009900">)</span><span style="color:#339933">;</span>  <span style="color:#006600">// getContext() 方法返回 canvas 的上下文</span><br>
+<span style="color:#000066">const</span> ctx <span style="color:#339933">=</span> $<span style="color:#009900">(</span><span style="color:#3366CC">'#myChart'</span><span style="color:#009900">)</span><span style="color:#339933">;</span> <span style="color:#006600">// jQuery 获取</span><br>
+<span style="color:#000066">const</span> ctx <span style="color:#339933">=</span> <span style="color:#3366CC">'myChart'</span><span style="color:#339933">;</span> <span style="color:#006600">// 传入节点 ID </span><br>
+
+<p>
+通过以上代码获得元素节点后，我们就可以创建自己的图表类型了。</p>
+<p>以下实例我们创建一个简单的折线图：</p>
+<h3>实例</h3> 
+<span style="color:#000066">const</span> ctx <span style="color:#339933">=</span> document.<span style="color:#660066">getElementById</span><span style="color:#009900">(</span><span style="color:#3366CC">'myChart'</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> labels <span style="color:#339933">=</span> <span style="color:#009900">[</span><span style="color:#3366CC">'一月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'二月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'三月份'</span><span style="color:#339933">,</span><span style="color:#3366CC">'四月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'五月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'六月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'七月份'</span><span style="color:#009900">]</span><span style="color:#339933">;</span>  <span style="color:#006600">// 设置 X 轴上对应的标签</span><br>
+<span style="color:#000066">const</span> data <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  labels<span style="color:#339933">:</span> labels<span style="color:#339933">,</span><br>
+  datasets<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#009900">{</span><br>
+    label<span style="color:#339933">:</span> <span style="color:#3366CC">'我的第一个折线图'</span><span style="color:#339933">,</span><br>
+    data<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#CC0000">65</span><span style="color:#339933">,</span> <span style="color:#CC0000">59</span><span style="color:#339933">,</span> <span style="color:#CC0000">80</span><span style="color:#339933">,</span> <span style="color:#CC0000">81</span><span style="color:#339933">,</span> <span style="color:#CC0000">56</span><span style="color:#339933">,</span> <span style="color:#CC0000">55</span><span style="color:#339933">,</span> <span style="color:#CC0000">40</span><span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+    fill<span style="color:#339933">:</span> <span style="color:#003366">false</span><span style="color:#339933">,</span><br>
+    borderColor<span style="color:#339933">:</span> <span style="color:#3366CC">'rgb(75, 192, 192)'</span><span style="color:#339933">,</span> <span style="color:#006600">// 设置线的颜色</span><br>
+    tension<span style="color:#339933">:</span> <span style="color:#CC0000">0.1</span><br>
+  <span style="color:#009900">}</span><span style="color:#009900">]</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> config <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  type<span style="color:#339933">:</span> <span style="color:#3366CC">'line'</span><span style="color:#339933">,</span> <span style="color:#006600">// 设置图表类型</span><br>
+  data<span style="color:#339933">:</span> data<span style="color:#339933">,</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> myChart <span style="color:#339933">=</span> <span style="color:#000066">new</span> Chart<span style="color:#009900">(</span>ctx<span style="color:#339933">,</span> config<span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<br>
+<a href="https://www.runoob.com/try/try.php?filename=trychartjs_line" class="ext">尝试一下 »</a>
+<p>以上实例输出结果为：</p>
+
+<p>
+以下实例创建一个柱形图，显示不同颜色的票数。</p>
+
+<h3>实例</h3> 
+<span style="color:#000066">const</span> ctx <span style="color:#339933">=</span> document.<span style="color:#660066">getElementById</span><span style="color:#009900">(</span><span style="color:#3366CC">'myChart'</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> myChart <span style="color:#339933">=</span> <span style="color:#000066">new</span> Chart<span style="color:#009900">(</span>ctx<span style="color:#339933">,</span> <span style="color:#009900">{</span><br>
+    type<span style="color:#339933">:</span> <span style="color:#3366CC">'bar'</span><span style="color:#339933">,</span><br>
+    data<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+        labels<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#3366CC">'Red'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'Blue'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'Yellow'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'Green'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'Purple'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'Orange'</span><span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+        datasets<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#009900">{</span><br>
+            label<span style="color:#339933">:</span> <span style="color:#3366CC">'# 票数'</span><span style="color:#339933">,</span><br>
+            data<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#CC0000">12</span><span style="color:#339933">,</span> <span style="color:#CC0000">19</span><span style="color:#339933">,</span> <span style="color:#CC0000">3</span><span style="color:#339933">,</span> <span style="color:#CC0000">5</span><span style="color:#339933">,</span> <span style="color:#CC0000">2</span><span style="color:#339933">,</span> <span style="color:#CC0000">3</span><span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+            backgroundColor<span style="color:#339933">:</span> <span style="color:#009900">[</span><br>
+                <span style="color:#3366CC">'rgba(255, 99, 132, 0.2)'</span><span style="color:#339933">,</span><br>
+                <span style="color:#3366CC">'rgba(54, 162, 235, 0.2)'</span><span style="color:#339933">,</span><br>
+                <span style="color:#3366CC">'rgba(255, 206, 86, 0.2)'</span><span style="color:#339933">,</span><br>
+                <span style="color:#3366CC">'rgba(75, 192, 192, 0.2)'</span><span style="color:#339933">,</span><br>
+                <span style="color:#3366CC">'rgba(153, 102, 255, 0.2)'</span><span style="color:#339933">,</span><br>
+                <span style="color:#3366CC">'rgba(255, 159, 64, 0.2)'</span><br>
+            <span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+            borderColor<span style="color:#339933">:</span> <span style="color:#009900">[</span><br>
+                <span style="color:#3366CC">'rgba(255, 99, 132, 1)'</span><span style="color:#339933">,</span><br>
+                <span style="color:#3366CC">'rgba(54, 162, 235, 1)'</span><span style="color:#339933">,</span><br>
+                <span style="color:#3366CC">'rgba(255, 206, 86, 1)'</span><span style="color:#339933">,</span><br>
+                <span style="color:#3366CC">'rgba(75, 192, 192, 1)'</span><span style="color:#339933">,</span><br>
+                <span style="color:#3366CC">'rgba(153, 102, 255, 1)'</span><span style="color:#339933">,</span><br>
+                <span style="color:#3366CC">'rgba(255, 159, 64, 1)'</span><br>
+            <span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+            borderWidth<span style="color:#339933">:</span> <span style="color:#CC0000">1</span><br>
+        <span style="color:#009900">}</span><span style="color:#009900">]</span><br>
+    <span style="color:#009900">}</span><span style="color:#339933">,</span><br>
+    options<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+        scales<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+            y<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+                beginAtZero<span style="color:#339933">:</span> <span style="color:#003366">true</span><br>
+            <span style="color:#009900">}</span><br>
+        <span style="color:#009900">}</span><br>
+    <span style="color:#009900">}</span><br>
+<span style="color:#009900">}</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<br>
+<a href="https://www.runoob.com/try/try.php?filename=trychartjs_intro" class="ext">尝试一下 »</a>
+<p>以上实例输出结果为：</p>
+
+<hr><h3>
+配置对象结构</h3>
+<p>配置对象常用结构如下：</p>
+
+<span style="color:#000066">const</span> config <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  type<span style="color:#339933">:</span> <span style="color:#3366CC">'line'</span><br>
+  data<span style="color:#339933">:</span> <span style="color:#009900">{</span><span style="color:#009900">}</span><br>
+  options<span style="color:#339933">:</span> <span style="color:#009900">{</span><span style="color:#009900">}</span><br>
+  plugins<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#009900">]</span><br>
+<span style="color:#009900">}</span><br>
+
+<p><strong>参数说明：</strong></p>
+<ul>
+<li><span class="marked">type</span> -- 指定图表的类型</li>
+<li><span class="marked">data</span> -- 图表中展示的数据集</li>
+<li><span class="marked">options</span> -- 一些可选项配置，不同类型图表有不同配置</li>
+<li><span class="marked">plugins</span> -- 插件</li>
+</ul></div></section>
+<section class="ch" id="c4"><h2>4. Chart.js 柱形图<a class="chsrc" href="https://www.runoob.com/chartjs/chartjs-type-bar.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>柱形图是一种以长方形的长度为变量的统计图表。</p><p>
+柱形图用来比较两个或以上的价值（不同时间或者不同条件），只有一个变量，通常利用于较小的数据集分析。</p>
+<p>
+柱形图的 <strong>type</strong> 属性为 <span class="marked">bar</span> ，type 描述了图表类型。</p>
+
+<pre>const config = {
+  type: 'bar',
+  data: data,
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  },
+};</pre>
+<p>接下来我们创建一个简单的柱形图：</p>
+<h3>实例</h3> 
+<span style="color:#000066">const</span> ctx <span style="color:#339933">=</span> document.<span style="color:#660066">getElementById</span><span style="color:#009900">(</span><span style="color:#3366CC">'myChart'</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> labels <span style="color:#339933">=</span> <span style="color:#009900">[</span><span style="color:#3366CC">'一月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'二月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'三月份'</span><span style="color:#339933">,</span><span style="color:#3366CC">'四月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'五月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'六月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'七月份'</span><span style="color:#009900">]</span><span style="color:#339933">;</span>  <span style="color:#006600">// 设置 X 轴上对应的标签</span><br>
+<span style="color:#000066">const</span> data <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  labels<span style="color:#339933">:</span> labels<span style="color:#339933">,</span><br>
+  datasets<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#009900">{</span><br>
+    label<span style="color:#339933">:</span> <span style="color:#3366CC">'我的第一个柱形图'</span><span style="color:#339933">,</span><br>
+    data<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#CC0000">65</span><span style="color:#339933">,</span> <span style="color:#CC0000">59</span><span style="color:#339933">,</span> <span style="color:#CC0000">80</span><span style="color:#339933">,</span> <span style="color:#CC0000">81</span><span style="color:#339933">,</span> <span style="color:#CC0000">56</span><span style="color:#339933">,</span> <span style="color:#CC0000">55</span><span style="color:#339933">,</span> <span style="color:#CC0000">40</span><span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+    backgroundColor<span style="color:#339933">:</span> <span style="color:#009900">[</span>      <span style="color:#006600">// 设置每个柱形图的背景颜色</span><br>
+      <span style="color:#3366CC">'rgba(255, 99, 132, 0.2)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgba(255, 159, 64, 0.2)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgba(255, 205, 86, 0.2)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgba(75, 192, 192, 0.2)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgba(54, 162, 235, 0.2)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgba(153, 102, 255, 0.2)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgba(201, 203, 207, 0.2)'</span><br>
+    <span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+    borderColor<span style="color:#339933">:</span> <span style="color:#009900">[</span>     <span style="color:#006600">//设置每个柱形图边框线条颜色</span><br>
+      <span style="color:#3366CC">'rgb(255, 99, 132)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgb(255, 159, 64)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgb(255, 205, 86)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgb(75, 192, 192)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgb(54, 162, 235)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgb(153, 102, 255)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgb(201, 203, 207)'</span><br>
+    <span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+    borderWidth<span style="color:#339933">:</span> <span style="color:#CC0000">1</span>     <span style="color:#006600">// 设置线条宽度</span><br>
+  <span style="color:#009900">}</span><span style="color:#009900">]</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> config <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  type<span style="color:#339933">:</span> <span style="color:#3366CC">'bar'</span><span style="color:#339933">,</span> <span style="color:#006600">// 设置图表类型</span><br>
+  data<span style="color:#339933">:</span> data<span style="color:#339933">,</span>  <span style="color:#006600">// 设置数据集</span><br>
+  options<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+    scales<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+      y<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+        beginAtZero<span style="color:#339933">:</span> <span style="color:#003366">true</span> <span style="color:#006600">// 设置 y 轴从 0 开始</span><br>
+      <span style="color:#009900">}</span><br>
+    <span style="color:#009900">}</span><br>
+  <span style="color:#009900">}</span><span style="color:#339933">,</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> myChart <span style="color:#339933">=</span> <span style="color:#000066">new</span> Chart<span style="color:#009900">(</span>ctx<span style="color:#339933">,</span> config<span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<br>
+<a href="https://www.runoob.com/try/try.php?filename=trychartjs_bar" class="ext">尝试一下 »</a>
+
+<p>以上实例输出结果为：</p>
+
+<h4>水平柱形图</h4>
+
+<p>水平柱形图是垂直条形图的变，常用于显示数据趋势，以及并排比较多个数据集。</p> <p>
+设置水平柱形图需要将选项对象中的 indexAxis 属性设置为 <span class="marked">y</span>，indexAxis 属性的默认值为 <span class="marked">x</span>。</p>
+
+<h3>实例</h3> 
+<span style="color:#000066">const</span> ctx <span style="color:#339933">=</span> document.<span style="color:#660066">getElementById</span><span style="color:#009900">(</span><span style="color:#3366CC">'myChart'</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> labels <span style="color:#339933">=</span> <span style="color:#009900">[</span><span style="color:#3366CC">'一月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'二月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'三月份'</span><span style="color:#339933">,</span><span style="color:#3366CC">'四月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'五月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'六月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'七月份'</span><span style="color:#009900">]</span><span style="color:#339933">;</span>  <span style="color:#006600">// 设置 X 轴上对应的标签</span><br>
+<span style="color:#000066">const</span> data <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  labels<span style="color:#339933">:</span> labels<span style="color:#339933">,</span><br>
+  datasets<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#009900">{</span><br>
+    axis<span style="color:#339933">:</span> <span style="color:#3366CC">'y'</span><span style="color:#339933">,</span><br>
+    label<span style="color:#339933">:</span> <span style="color:#3366CC">'我的第一个柱形图'</span><span style="color:#339933">,</span><br>
+    data<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#CC0000">65</span><span style="color:#339933">,</span> <span style="color:#CC0000">59</span><span style="color:#339933">,</span> <span style="color:#CC0000">80</span><span style="color:#339933">,</span> <span style="color:#CC0000">81</span><span style="color:#339933">,</span> <span style="color:#CC0000">56</span><span style="color:#339933">,</span> <span style="color:#CC0000">55</span><span style="color:#339933">,</span> <span style="color:#CC0000">40</span><span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+    fill<span style="color:#339933">:</span> <span style="color:#003366">false</span><span style="color:#339933">,</span><br>
+    backgroundColor<span style="color:#339933">:</span> <span style="color:#009900">[</span>      <span style="color:#006600">// 设置每个柱形图的背景颜色</span><br>
+      <span style="color:#3366CC">'rgba(255, 99, 132, 0.2)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgba(255, 159, 64, 0.2)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgba(255, 205, 86, 0.2)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgba(75, 192, 192, 0.2)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgba(54, 162, 235, 0.2)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgba(153, 102, 255, 0.2)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgba(201, 203, 207, 0.2)'</span><br>
+    <span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+    borderColor<span style="color:#339933">:</span> <span style="color:#009900">[</span>     <span style="color:#006600">//设置每个柱形图边框线条颜色</span><br>
+      <span style="color:#3366CC">'rgb(255, 99, 132)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgb(255, 159, 64)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgb(255, 205, 86)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgb(75, 192, 192)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgb(54, 162, 235)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgb(153, 102, 255)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgb(201, 203, 207)'</span><br>
+    <span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+    borderWidth<span style="color:#339933">:</span> <span style="color:#CC0000">1</span>     <span style="color:#006600">// 设置线条宽度</span><br>
+  <span style="color:#009900">}</span><span style="color:#009900">]</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> config <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  type<span style="color:#339933">:</span> <span style="color:#3366CC">'bar'</span><span style="color:#339933">,</span> <span style="color:#006600">// 设置图表类型</span><br>
+  data<span style="color:#339933">:</span> data<span style="color:#339933">,</span>  <span style="color:#006600">// 设置数据集</span><br>
+  options<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+    indexAxis<span style="color:#339933">:</span> <span style="color:#3366CC">'y'</span><span style="color:#339933">,</span><br>
+  <span style="color:#009900">}</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> myChart <span style="color:#339933">=</span> <span style="color:#000066">new</span> Chart<span style="color:#009900">(</span>ctx<span style="color:#339933">,</span> config<span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<br>
+<a href="https://www.runoob.com/try/try.php?filename=trychartjs_bar2" class="ext">尝试一下 »</a>
+<p>以上实例输出结果为：</p></div></section>
+<section class="ch" id="c5"><h2>5. Chart.js 气泡图<a class="chsrc" href="https://www.runoob.com/chartjs/chartjs-bubble.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>
+气泡图用于展示三个变量之间的关系。</p><p>
+气泡的位置由前两个变量决定，对应的是 X 轴和 Y 轴，第三个参数为气泡的大小。</p>
+<pre>{
+    // X 轴对应值
+    x: number,
+
+    // Y 轴对应值
+    y: number,
+
+    // 气泡半径，单位为像素
+    r: number
+}</pre>
+<p>
+泡图的 <strong>type</strong> 属性为 <span class="marked">bubble</span> ，type 描述了图表类型。</p>
+
+<pre>
+const config = {
+  type: 'bubble',
+  data: data,
+  options: {}
+};
+</pre>
+<p>接下来我们创建一个简单的气泡图：</p>
+<h3>实例</h3> 
+<span style="color:#000066">const</span> ctx <span style="color:#339933">=</span> document.<span style="color:#660066">getElementById</span><span style="color:#009900">(</span><span style="color:#3366CC">'myChart'</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> data <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  datasets<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#009900">{</span><br>
+    label<span style="color:#339933">:</span> <span style="color:#3366CC">'气泡图实例'</span><span style="color:#339933">,</span><br>
+    data<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#009900">{</span><br>
+      x<span style="color:#339933">:</span> <span style="color:#CC0000">20</span><span style="color:#339933">,</span> <span style="color:#006600">// X 轴</span><br>
+      y<span style="color:#339933">:</span> <span style="color:#CC0000">30</span><span style="color:#339933">,</span> <span style="color:#006600">// Y 轴</span><br>
+      r<span style="color:#339933">:</span> <span style="color:#CC0000">15</span>   <span style="color:#006600">// 气泡半径</span><br>
+    <span style="color:#009900">}</span><span style="color:#339933">,</span> <span style="color:#009900">{</span><br>
+      x<span style="color:#339933">:</span> <span style="color:#CC0000">30</span><span style="color:#339933">,</span><br>
+      y<span style="color:#339933">:</span> <span style="color:#CC0000">20</span><span style="color:#339933">,</span><br>
+      r<span style="color:#339933">:</span> <span style="color:#CC0000">20</span><br>
+    <span style="color:#009900">}</span><span style="color:#339933">,</span> <span style="color:#009900">{</span><br>
+      x<span style="color:#339933">:</span> <span style="color:#CC0000">40</span><span style="color:#339933">,</span><br>
+      y<span style="color:#339933">:</span> <span style="color:#CC0000">10</span><span style="color:#339933">,</span><br>
+      r<span style="color:#339933">:</span> <span style="color:#CC0000">10</span><br>
+    <span style="color:#009900">}</span><span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+    backgroundColor<span style="color:#339933">:</span> <span style="color:#3366CC">'rgb(255, 99, 132)'</span><br>
+  <span style="color:#009900">}</span><span style="color:#009900">]</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> config <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  type<span style="color:#339933">:</span> <span style="color:#3366CC">'bubble'</span><span style="color:#339933">,</span> <span style="color:#006600">// 设置图表类型</span><br>
+  data<span style="color:#339933">:</span> data<span style="color:#339933">,</span>  <span style="color:#006600">// 设置数据集</span><br>
+  options<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+    <br>
+  <span style="color:#009900">}</span><span style="color:#339933">,</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> myChart <span style="color:#339933">=</span> <span style="color:#000066">new</span> Chart<span style="color:#009900">(</span>ctx<span style="color:#339933">,</span> config<span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<br>
+<a href="https://www.runoob.com/try/try.php?filename=trychartjs_bubble" class="ext">尝试一下 »</a>
+
+<p>以上实例输出结果为：</p></div></section>
+<section class="ch" id="c6"><h2>6. Chart.js 环形图<a class="chsrc" href="https://www.runoob.com/chartjs/chartjs-doughnut.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>
+环形图又叫做甜甜圈图，其本质是饼图将中间区域挖空。</p><p>
+环形图是由两个及两个以上大小不一的饼图叠在一起，挖去中间的部分所构成的图形。</p>
+<ul><li>
+<p>饼图是用圆形及圆内扇形的角度来表示数值大小的图形，它主要用于表示一个样本（或总体）中各组成部分的数据占全部数据的比例，对于研究结构性问题十分有用。</p>
+<li>	<li><p>环形图与饼图类似，但又有区别。环形图中间有一个"空洞"，每个样本用一个环来表示，样本中的每一部分数据用环中的一段表示。因此环形图可显示多个样本各部分所占的相应比例，从而有利于构成的比较研究。</p></li>
+</li></li></ul>
+<p>
+环形图 <strong>type</strong> 属性为 <span class="marked">doughnut</span> ，type 描述了图表类型。</p>
+
+<pre>
+const config = {
+  type: 'doughnut',
+  data: data,
+};
+</pre>
+<p>接下来我们创建一个简单的环形图：</p>
+<h3>实例</h3> 
+<span style="color:#000066">const</span> ctx <span style="color:#339933">=</span> document.<span style="color:#660066">getElementById</span><span style="color:#009900">(</span><span style="color:#3366CC">'myChart'</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> data <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  labels<span style="color:#339933">:</span> <span style="color:#009900">[</span><br>
+    <span style="color:#3366CC">'Red'</span><span style="color:#339933">,</span><br>
+    <span style="color:#3366CC">'Blue'</span><span style="color:#339933">,</span><br>
+    <span style="color:#3366CC">'Yellow'</span><br>
+  <span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+  datasets<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#009900">{</span><br>
+    label<span style="color:#339933">:</span> <span style="color:#3366CC">'环形图实例'</span><span style="color:#339933">,</span><br>
+    data<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#CC0000">300</span><span style="color:#339933">,</span> <span style="color:#CC0000">50</span><span style="color:#339933">,</span> <span style="color:#CC0000">100</span><span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+    backgroundColor<span style="color:#339933">:</span> <span style="color:#009900">[</span><br>
+      <span style="color:#3366CC">'rgb(255, 99, 132)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgb(54, 162, 235)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgb(255, 205, 86)'</span><br>
+    <span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+    hoverOffset<span style="color:#339933">:</span> <span style="color:#CC0000">4</span><br>
+  <span style="color:#009900">}</span><span style="color:#009900">]</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> config <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  type<span style="color:#339933">:</span> <span style="color:#3366CC">'doughnut'</span><span style="color:#339933">,</span><br>
+  data<span style="color:#339933">:</span> data<span style="color:#339933">,</span><br>
+  options<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+    responsive<span style="color:#339933">:</span> <span style="color:#003366">true</span><span style="color:#339933">,</span> <span style="color:#006600">// 设置图表为响应式，根据屏幕窗口变化而变化</span><br>
+    maintainAspectRatio<span style="color:#339933">:</span> <span style="color:#003366">false</span><span style="color:#339933">,</span><span style="color:#006600">// 保持图表原有比例</span><br>
+    scales<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+      yAxes<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#009900">{</span><br>
+        ticks<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+          beginAtZero<span style="color:#339933">:</span><span style="color:#003366">true</span><br>
+                <span style="color:#009900">}</span><br>
+          <span style="color:#009900">}</span><span style="color:#009900">]</span><br>
+    <span style="color:#009900">}</span><br>
+  <span style="color:#009900">}</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> myChart <span style="color:#339933">=</span> <span style="color:#000066">new</span> Chart<span style="color:#009900">(</span>ctx<span style="color:#339933">,</span> config<span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<br>
+<a href="https://www.runoob.com/try/try.php?filename=trychartjs_doughnut" class="ext">尝试一下 »</a>
+
+<p>以上实例输出结果为：</p></div></section>
+<section class="ch" id="c7"><h2>7. Chart.js 饼图<a class="chsrc" href="https://www.runoob.com/chartjs/chartjs-pie.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>
+饼图，或称饼状图，是一个划分为几个扇形的圆形统计图表，用于描述量、频率或百分比之间的相对关系。在饼图中，每个扇区的弧长（以及圆心角和面积）大小为其所表示的数量的比例。这些扇区合在一起刚好是一个完全的圆形。顾名思义，这些扇区拼成了一个切开的饼形图案。</p>
+
+<p>
+饼图 <strong>type</strong> 属性为 <span class="marked">pie</span> ，type 描述了图表类型。</p>
+
+<pre>
+const config = {
+  type: 'pie',
+  data: data,
+};
+</pre>
+<p>接下来我们创建一个简单的饼图：</p>
+<h3>实例</h3> 
+<span style="color:#000066">const</span> ctx <span style="color:#339933">=</span> document.<span style="color:#660066">getElementById</span><span style="color:#009900">(</span><span style="color:#3366CC">'myChart'</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> data <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  labels<span style="color:#339933">:</span> <span style="color:#009900">[</span><br>
+    <span style="color:#3366CC">'Red'</span><span style="color:#339933">,</span><br>
+    <span style="color:#3366CC">'Blue'</span><span style="color:#339933">,</span><br>
+    <span style="color:#3366CC">'Yellow'</span><br>
+  <span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+  datasets<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#009900">{</span><br>
+    label<span style="color:#339933">:</span> <span style="color:#3366CC">'饼图实例'</span><span style="color:#339933">,</span><br>
+    data<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#CC0000">300</span><span style="color:#339933">,</span> <span style="color:#CC0000">50</span><span style="color:#339933">,</span> <span style="color:#CC0000">100</span><span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+    backgroundColor<span style="color:#339933">:</span> <span style="color:#009900">[</span><br>
+      <span style="color:#3366CC">'rgb(255, 99, 132)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgb(54, 162, 235)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgb(255, 205, 86)'</span><br>
+    <span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+    hoverOffset<span style="color:#339933">:</span> <span style="color:#CC0000">4</span><br>
+  <span style="color:#009900">}</span><span style="color:#009900">]</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> config <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  type<span style="color:#339933">:</span> <span style="color:#3366CC">'pie'</span><span style="color:#339933">,</span><br>
+  data<span style="color:#339933">:</span> data<span style="color:#339933">,</span><br>
+  options<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+    responsive<span style="color:#339933">:</span> <span style="color:#003366">true</span><span style="color:#339933">,</span> <span style="color:#006600">// 设置图表为响应式，根据屏幕窗口变化而变化</span><br>
+    maintainAspectRatio<span style="color:#339933">:</span> <span style="color:#003366">false</span><span style="color:#339933">,</span><span style="color:#006600">// 保持图表原有比例</span><br>
+    scales<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+      yAxes<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#009900">{</span><br>
+        ticks<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+          beginAtZero<span style="color:#339933">:</span><span style="color:#003366">true</span><br>
+                <span style="color:#009900">}</span><br>
+          <span style="color:#009900">}</span><span style="color:#009900">]</span><br>
+    <span style="color:#009900">}</span><br>
+  <span style="color:#009900">}</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> myChart <span style="color:#339933">=</span> <span style="color:#000066">new</span> Chart<span style="color:#009900">(</span>ctx<span style="color:#339933">,</span> config<span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<br>
+<a href="https://www.runoob.com/try/try.php?filename=trychartjs_pie" class="ext">尝试一下 »</a>
+
+<p>以上实例输出结果为：</p></div></section>
+<section class="ch" id="c8"><h2>8. Chart.js 折线图<a class="chsrc" href="https://www.runoob.com/chartjs/chartjs-line.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>
+折线图是排列在工作表的列或行中的数据可以绘制到折线图中。</p><p>
+
+折线图可以显示随时间（根据常用比例设置）而变化的连续数据，因此非常适用于显示在相等时间间隔下数据的趋势。</p>
+<p>
+折线图 <strong>type</strong> 属性为 <span class="marked">line</span> ，type 描述了图表类型。</p>
+
+<pre>
+const config = {
+  type: 'line',
+  data: data,
+};
+</pre>
+<p>接下来我们创建一个简单的折线图：</p>
+<h3>实例</h3> 
+<span style="color:#000066">const</span> ctx <span style="color:#339933">=</span> document.<span style="color:#660066">getElementById</span><span style="color:#009900">(</span><span style="color:#3366CC">'myChart'</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> labels <span style="color:#339933">=</span> <span style="color:#009900">[</span><span style="color:#3366CC">'一月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'二月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'三月份'</span><span style="color:#339933">,</span><span style="color:#3366CC">'四月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'五月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'六月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'七月份'</span><span style="color:#009900">]</span><span style="color:#339933">;</span>  <span style="color:#006600">// 设置 X 轴上对应的标签</span><br>
+<span style="color:#000066">const</span> data <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  labels<span style="color:#339933">:</span> labels<span style="color:#339933">,</span><br>
+  datasets<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#009900">{</span><br>
+    label<span style="color:#339933">:</span> <span style="color:#3366CC">'我的第一个折线图'</span><span style="color:#339933">,</span><br>
+    data<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#CC0000">65</span><span style="color:#339933">,</span> <span style="color:#CC0000">59</span><span style="color:#339933">,</span> <span style="color:#CC0000">80</span><span style="color:#339933">,</span> <span style="color:#CC0000">81</span><span style="color:#339933">,</span> <span style="color:#CC0000">56</span><span style="color:#339933">,</span> <span style="color:#CC0000">55</span><span style="color:#339933">,</span> <span style="color:#CC0000">40</span><span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+    fill<span style="color:#339933">:</span> <span style="color:#003366">false</span><span style="color:#339933">,</span><br>
+    borderColor<span style="color:#339933">:</span> <span style="color:#3366CC">'rgb(75, 192, 192)'</span><span style="color:#339933">,</span> <span style="color:#006600">// 设置线的颜色</span><br>
+    tension<span style="color:#339933">:</span> <span style="color:#CC0000">0.1</span><br>
+  <span style="color:#009900">}</span><span style="color:#009900">]</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> config <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  type<span style="color:#339933">:</span> <span style="color:#3366CC">'line'</span><span style="color:#339933">,</span> <span style="color:#006600">// 设置图表类型</span><br>
+  data<span style="color:#339933">:</span> data<span style="color:#339933">,</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> myChart <span style="color:#339933">=</span> <span style="color:#000066">new</span> Chart<span style="color:#009900">(</span>ctx<span style="color:#339933">,</span> config<span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<br>
+<a href="https://www.runoob.com/try/try.php?filename=trychartjs_line" class="ext">尝试一下 »</a>
+<p>
+<p>以上实例输出结果为：</p>
+
+<p>接下来我们丰富一下折线图，添加选项，设置如下：</p>
+
+<h3>实例</h3> 
+<span style="color:#000066">const</span> ctx <span style="color:#339933">=</span> document.<span style="color:#660066">getElementById</span><span style="color:#009900">(</span><span style="color:#3366CC">'myChart'</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> labels <span style="color:#339933">=</span> <span style="color:#009900">[</span><span style="color:#3366CC">'一月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'二月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'三月份'</span><span style="color:#339933">,</span><span style="color:#3366CC">'四月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'五月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'六月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'七月份'</span><span style="color:#009900">]</span><span style="color:#339933">;</span>  <span style="color:#006600">// 设置 X 轴上对应的标签</span><br>
+<span style="color:#000066">const</span> data <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  labels<span style="color:#339933">:</span> labels<span style="color:#339933">,</span><br>
+  datasets<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#009900">{</span><br>
+    label<span style="color:#339933">:</span> <span style="color:#3366CC">'我的第一个折线图'</span><span style="color:#339933">,</span><br>
+    data<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#CC0000">65</span><span style="color:#339933">,</span> <span style="color:#CC0000">59</span><span style="color:#339933">,</span> <span style="color:#CC0000">80</span><span style="color:#339933">,</span> <span style="color:#CC0000">81</span><span style="color:#339933">,</span> <span style="color:#CC0000">56</span><span style="color:#339933">,</span> <span style="color:#CC0000">55</span><span style="color:#339933">,</span> <span style="color:#CC0000">40</span><span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+    fill<span style="color:#339933">:</span> <span style="color:#003366">false</span><span style="color:#339933">,</span><br>
+    borderColor<span style="color:#339933">:</span> <span style="color:#3366CC">'rgb(75, 192, 192)'</span><span style="color:#339933">,</span> <span style="color:#006600">// 设置线的颜色</span><br>
+        backgroundColor<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#3366CC">'rgba(179, 0, 33, 0.5)'</span><span style="color:#009900">]</span><span style="color:#339933">,</span><span style="color:#006600">// 设置点的填充色</span><br>
+        pointStyle<span style="color:#339933">:</span> <span style="color:#3366CC">'circle'</span><span style="color:#339933">,</span>     <span style="color:#006600">//设置点类型为圆点</span><br>
+    pointRadius<span style="color:#339933">:</span> <span style="color:#CC0000">6</span><span style="color:#339933">,</span>    <span style="color:#006600">//设置圆点半径</span><br>
+    pointHoverRadius<span style="color:#339933">:</span> <span style="color:#CC0000">10</span><span style="color:#339933">,</span> <span style="color:#006600">//设置鼠标移动上去后圆点半径</span><br>
+    tension<span style="color:#339933">:</span> <span style="color:#CC0000">0.1</span><br>
+  <span style="color:#009900">}</span><span style="color:#009900">]</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> config <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  type<span style="color:#339933">:</span> <span style="color:#3366CC">'line'</span><span style="color:#339933">,</span> <span style="color:#006600">// 设置图表类型</span><br>
+  data<span style="color:#339933">:</span> data<span style="color:#339933">,</span><br>
+  options<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+    responsive<span style="color:#339933">:</span> <span style="color:#003366">true</span><span style="color:#339933">,</span>  <span style="color:#006600">// 设置图表为响应式</span><br>
+<br>
+    interaction<span style="color:#339933">:</span> <span style="color:#009900">{</span>  <span style="color:#006600">// 设置每个点的交互</span><br>
+      intersect<span style="color:#339933">:</span> <span style="color:#003366">false</span><span style="color:#339933">,</span><br>
+    <span style="color:#009900">}</span><span style="color:#339933">,</span><br>
+    scales<span style="color:#339933">:</span> <span style="color:#009900">{</span>  <span style="color:#006600">// 设置 X 轴与 Y 轴</span><br>
+      x<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+        display<span style="color:#339933">:</span> <span style="color:#003366">true</span><span style="color:#339933">,</span><br>
+        title<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+          display<span style="color:#339933">:</span> <span style="color:#003366">true</span><span style="color:#339933">,</span><br>
+          text<span style="color:#339933">:</span> <span style="color:#3366CC">'日期'</span><br>
+        <span style="color:#009900">}</span><br>
+      <span style="color:#009900">}</span><span style="color:#339933">,</span><br>
+      y<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+        display<span style="color:#339933">:</span> <span style="color:#003366">true</span><span style="color:#339933">,</span><br>
+        title<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+          display<span style="color:#339933">:</span> <span style="color:#003366">true</span><span style="color:#339933">,</span><br>
+          text<span style="color:#339933">:</span> <span style="color:#3366CC">'票数'</span><br>
+        <span style="color:#009900">}</span><br>
+      <span style="color:#009900">}</span><br>
+    <span style="color:#009900">}</span><br>
+  <span style="color:#009900">}</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> myChart <span style="color:#339933">=</span> <span style="color:#000066">new</span> Chart<span style="color:#009900">(</span>ctx<span style="color:#339933">,</span> config<span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<br>
+<a href="https://www.runoob.com/try/try.php?filename=trychartjs_line2" class="ext">尝试一下 »</a>
+
+<p>以上实例输出结果为：</p>
+
+<h4>垂直折线图</h4>
+<p>垂直折线图是水平折线图的变体。 </p><p>
+垂直折线图需要将选项对象中的 indexAxis 属性设置为 <span class="marked">y</span>，indexAxis 属性的默认值为 <strong>x</strong>。</p>
+
+<h3>实例</h3> 
+<span style="color:#000066">const</span> ctx <span style="color:#339933">=</span> document.<span style="color:#660066">getElementById</span><span style="color:#009900">(</span><span style="color:#3366CC">'myChart'</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> labels <span style="color:#339933">=</span> <span style="color:#009900">[</span><span style="color:#3366CC">'一月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'二月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'三月份'</span><span style="color:#339933">,</span><span style="color:#3366CC">'四月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'五月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'六月份'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'七月份'</span><span style="color:#009900">]</span><span style="color:#339933">;</span>  <span style="color:#006600">// 设置 X 轴上对应的标签</span><br>
+<span style="color:#000066">const</span> data <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  labels<span style="color:#339933">:</span> labels<span style="color:#339933">,</span><br>
+  datasets<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#009900">{</span><br>
+    label<span style="color:#339933">:</span> <span style="color:#3366CC">'我的第一个折线图'</span><span style="color:#339933">,</span><br>
+    data<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#CC0000">65</span><span style="color:#339933">,</span> <span style="color:#CC0000">59</span><span style="color:#339933">,</span> <span style="color:#CC0000">80</span><span style="color:#339933">,</span> <span style="color:#CC0000">81</span><span style="color:#339933">,</span> <span style="color:#CC0000">56</span><span style="color:#339933">,</span> <span style="color:#CC0000">55</span><span style="color:#339933">,</span> <span style="color:#CC0000">40</span><span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+    fill<span style="color:#339933">:</span> <span style="color:#003366">false</span><span style="color:#339933">,</span><br>
+    borderColor<span style="color:#339933">:</span> <span style="color:#3366CC">'rgb(75, 192, 192)'</span><span style="color:#339933">,</span> <span style="color:#006600">// 设置线的颜色</span><br>
+        backgroundColor<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#3366CC">'rgba(179, 0, 33, 0.5)'</span><span style="color:#009900">]</span><span style="color:#339933">,</span><span style="color:#006600">// 设置点的填充色</span><br>
+        pointStyle<span style="color:#339933">:</span> <span style="color:#3366CC">'circle'</span><span style="color:#339933">,</span>     <span style="color:#006600">//设置点类型为圆点</span><br>
+    pointRadius<span style="color:#339933">:</span> <span style="color:#CC0000">6</span><span style="color:#339933">,</span>    <span style="color:#006600">//设置圆点半径</span><br>
+    pointHoverRadius<span style="color:#339933">:</span> <span style="color:#CC0000">10</span><span style="color:#339933">,</span> <span style="color:#006600">//设置鼠标移动上去后圆点半径</span><br>
+    tension<span style="color:#339933">:</span> <span style="color:#CC0000">0.1</span><br>
+  <span style="color:#009900">}</span><span style="color:#009900">]</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> config <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  type<span style="color:#339933">:</span> <span style="color:#3366CC">'line'</span><span style="color:#339933">,</span> <span style="color:#006600">// 设置图表类型</span><br>
+  data<span style="color:#339933">:</span> data<span style="color:#339933">,</span><br>
+  options<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+    indexAxis<span style="color:#339933">:</span> <span style="color:#3366CC">'y'</span><span style="color:#339933">,</span> <span style="color:#006600">// 设置垂直折线图</span><br>
+    responsive<span style="color:#339933">:</span> <span style="color:#003366">true</span><span style="color:#339933">,</span>  <span style="color:#006600">// 设置图表为响应式</span><br>
+<br>
+    interaction<span style="color:#339933">:</span> <span style="color:#009900">{</span>  <span style="color:#006600">// 设置每个点的交互</span><br>
+      intersect<span style="color:#339933">:</span> <span style="color:#003366">false</span><span style="color:#339933">,</span><br>
+    <span style="color:#009900">}</span><span style="color:#339933">,</span><br>
+    scales<span style="color:#339933">:</span> <span style="color:#009900">{</span>  <span style="color:#006600">// 设置 X 轴与 Y 轴</span><br>
+      x<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+                beginAtZero<span style="color:#339933">:</span> <span style="color:#003366">true</span><span style="color:#339933">,</span><span style="color:#006600">// 设置 X 轴从 0 开始</span><br>
+        display<span style="color:#339933">:</span> <span style="color:#003366">true</span><span style="color:#339933">,</span><br>
+        title<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+          display<span style="color:#339933">:</span> <span style="color:#003366">true</span><span style="color:#339933">,</span><br>
+          text<span style="color:#339933">:</span> <span style="color:#3366CC">'日期'</span><br>
+        <span style="color:#009900">}</span><br>
+      <span style="color:#009900">}</span><span style="color:#339933">,</span><br>
+      y<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+        display<span style="color:#339933">:</span> <span style="color:#003366">true</span><span style="color:#339933">,</span><br>
+        title<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+          display<span style="color:#339933">:</span> <span style="color:#003366">true</span><span style="color:#339933">,</span><br>
+          text<span style="color:#339933">:</span> <span style="color:#3366CC">'票数'</span><br>
+        <span style="color:#009900">}</span><br>
+      <span style="color:#009900">}</span><br>
+    <span style="color:#009900">}</span><br>
+  <span style="color:#009900">}</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> myChart <span style="color:#339933">=</span> <span style="color:#000066">new</span> Chart<span style="color:#009900">(</span>ctx<span style="color:#339933">,</span> config<span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<br>
+<a href="https://www.runoob.com/try/try.php?filename=trychartjs_line3" class="ext">尝试一下 »</a>
+<p>以上实例输出结果为：</p>
+			
+						
+			
+			
+		
+
+		
+		
+
+		
+		
+		
+</p></div></section>
+<section class="ch" id="c9"><h2>9. Chart.js 混合图<a class="chsrc" href="https://www.runoob.com/chartjs/chartjs-scatter.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>Chart.js 可以创建由两种或多种不同图表类型组合而成的混合图表，比如条形图与折线图的混合。</p>
+<p>创建混合图表时，我们在每个数据集上指定图表类型。</p>
+<p>混合图 <strong>type</strong> 属性为 <span class="marked">scatter</span>。</p>
+<p>
+柱形图 <strong>type</strong> 属性为 <span class="marked">bar</span> ，折线图 <strong>type</strong> 属性为 <span class="marked">line</span> ，
+type 描述了图表类型。</p>
+
+<pre>
+const mixedChart = new Chart(ctx, {
+    data: {
+        datasets: [{
+            type: 'bar',
+            label: '柱形图数据集',
+            data: [45, 49,52, 48]
+        }, {
+            type: 'line',
+            label: '折线图数据集',
+            data: [50, 40, 45, 49],
+        }],
+        labels: ['一月份', '二月份', '三月份', '四月份']
+    },
+    options: options
+});
+ 
+</pre>
+<p>接下来我们创建一个简单的混合图：</p>
+<h3>实例</h3> 
+<span style="color:#000066">const</span> ctx <span style="color:#339933">=</span> document.<span style="color:#660066">getElementById</span><span style="color:#009900">(</span><span style="color:#3366CC">'myChart'</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> data <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  labels<span style="color:#339933">:</span> <span style="color:#009900">[</span><br>
+    <span style="color:#3366CC">'一月份'</span><span style="color:#339933">,</span><br>
+    <span style="color:#3366CC">'二月份'</span><span style="color:#339933">,</span><br>
+    <span style="color:#3366CC">'三月份'</span><span style="color:#339933">,</span><br>
+    <span style="color:#3366CC">'四月份'</span><br>
+  <span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+  datasets<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#009900">{</span><br>
+    type<span style="color:#339933">:</span> <span style="color:#3366CC">'bar'</span><span style="color:#339933">,</span><br>
+    label<span style="color:#339933">:</span> <span style="color:#3366CC">'柱形图数据集'</span><span style="color:#339933">,</span><br>
+    data<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#CC0000">45</span><span style="color:#339933">,</span> <span style="color:#CC0000">49</span><span style="color:#339933">,</span><span style="color:#CC0000">52</span><span style="color:#339933">,</span> <span style="color:#CC0000">48</span><span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+    borderColor<span style="color:#339933">:</span> <span style="color:#3366CC">'rgb(255, 99, 132)'</span><span style="color:#339933">,</span><br>
+    backgroundColor<span style="color:#339933">:</span> <span style="color:#3366CC">'rgba(255, 99, 132, 0.2)'</span><br>
+  <span style="color:#009900">}</span><span style="color:#339933">,</span> <span style="color:#009900">{</span><br>
+    type<span style="color:#339933">:</span> <span style="color:#3366CC">'line'</span><span style="color:#339933">,</span><br>
+    label<span style="color:#339933">:</span> <span style="color:#3366CC">'折线图数据集'</span><span style="color:#339933">,</span><br>
+    data<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#CC0000">50</span><span style="color:#339933">,</span> <span style="color:#CC0000">40</span><span style="color:#339933">,</span> <span style="color:#CC0000">45</span><span style="color:#339933">,</span> <span style="color:#CC0000">49</span><span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+    fill<span style="color:#339933">:</span> <span style="color:#003366">false</span><span style="color:#339933">,</span><br>
+    borderColor<span style="color:#339933">:</span> <span style="color:#3366CC">'rgb(54, 162, 235)'</span><br>
+  <span style="color:#009900">}</span><span style="color:#009900">]</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> config <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  type<span style="color:#339933">:</span> <span style="color:#3366CC">'scatter'</span><span style="color:#339933">,</span><br>
+  data<span style="color:#339933">:</span> data<span style="color:#339933">,</span><br>
+  options<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+    responsive<span style="color:#339933">:</span> <span style="color:#003366">true</span><span style="color:#339933">,</span> <span style="color:#006600">// 设置图表为响应式，根据屏幕窗口变化而变化</span><br>
+    maintainAspectRatio<span style="color:#339933">:</span> <span style="color:#003366">false</span><span style="color:#339933">,</span><span style="color:#006600">// 保持图表原有比例</span><br>
+    scales<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+      y<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+        beginAtZero<span style="color:#339933">:</span> <span style="color:#003366">true</span><br>
+      <span style="color:#009900">}</span><br>
+    <span style="color:#009900">}</span><br>
+  <span style="color:#009900">}</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> myChart <span style="color:#339933">=</span> <span style="color:#000066">new</span> Chart<span style="color:#009900">(</span>ctx<span style="color:#339933">,</span> config<span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<br>
+<a href="https://www.runoob.com/try/try.php?filename=trychartjs_scatter" class="ext">尝试一下 »</a>
+
+<p>以上实例输出结果为：</p></div></section>
+<section class="ch" id="c10"><h2>10. Chart.js 极地图<a class="chsrc" href="https://www.runoob.com/chartjs/chartjs-polararea.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>极区图类似于饼图，但每个数据集具有相同的角度，线段的半径根据提供的值有所不同。</p>
+
+<p>混合图 <strong>type</strong> 属性为 <span class="marked">polarArea</span>。</p>
+
+<pre>
+const config = {
+  type: 'polarArea',
+  data: data,
+  options: {}
+};
+</pre>
+<p>接下来我们创建一个简单的极地图：</p>
+<h3>实例</h3> 
+<span style="color:#000066">const</span> ctx <span style="color:#339933">=</span> document.<span style="color:#660066">getElementById</span><span style="color:#009900">(</span><span style="color:#3366CC">'myChart'</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> data <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  labels<span style="color:#339933">:</span> <span style="color:#009900">[</span><br>
+    <span style="color:#3366CC">'Red'</span><span style="color:#339933">,</span><br>
+    <span style="color:#3366CC">'Green'</span><span style="color:#339933">,</span><br>
+    <span style="color:#3366CC">'Yellow'</span><span style="color:#339933">,</span><br>
+    <span style="color:#3366CC">'Grey'</span><span style="color:#339933">,</span><br>
+    <span style="color:#3366CC">'Blue'</span><br>
+  <span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+  datasets<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#009900">{</span><br>
+    label<span style="color:#339933">:</span> <span style="color:#3366CC">'极地图实例'</span><span style="color:#339933">,</span><br>
+    data<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#CC0000">11</span><span style="color:#339933">,</span> <span style="color:#CC0000">16</span><span style="color:#339933">,</span> <span style="color:#CC0000">7</span><span style="color:#339933">,</span> <span style="color:#CC0000">3</span><span style="color:#339933">,</span> <span style="color:#CC0000">14</span><span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+    backgroundColor<span style="color:#339933">:</span> <span style="color:#009900">[</span><br>
+      <span style="color:#3366CC">'rgb(255, 99, 132)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgb(75, 192, 192)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgb(255, 205, 86)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgb(201, 203, 207)'</span><span style="color:#339933">,</span><br>
+      <span style="color:#3366CC">'rgb(54, 162, 235)'</span><br>
+    <span style="color:#009900">]</span><br>
+  <span style="color:#009900">}</span><span style="color:#009900">]</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> config <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  type<span style="color:#339933">:</span> <span style="color:#3366CC">'polarArea'</span><span style="color:#339933">,</span><br>
+  data<span style="color:#339933">:</span> data<span style="color:#339933">,</span><br>
+  options<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+    responsive<span style="color:#339933">:</span> <span style="color:#003366">true</span><span style="color:#339933">,</span> <span style="color:#006600">// 设置图表为响应式，根据屏幕窗口变化而变化</span><br>
+    maintainAspectRatio<span style="color:#339933">:</span> <span style="color:#003366">false</span><span style="color:#339933">,</span><span style="color:#006600">// 保持图表原有比例</span><br>
+  <span style="color:#009900">}</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> myChart <span style="color:#339933">=</span> <span style="color:#000066">new</span> Chart<span style="color:#009900">(</span>ctx<span style="color:#339933">,</span> config<span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<br>
+<a href="https://www.runoob.com/try/try.php?filename=trychartjs_polarArea" class="ext">尝试一下 »</a>
+
+<p>以上实例输出结果为：</p></div></section>
+<section class="ch" id="c11"><h2>11. Chart.js 雷达图<a class="chsrc" href="https://www.runoob.com/chartjs/chartjs-radar.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>雷达图是一种显示多个数据点及其之间变化的方式。</p>
+<p>
+雷达图是以从同一点开始的轴上表示的三个或更多个定量变量的二维图表的形式显示多变量数据的图形方法。</p><p>
+轴的相对位置和角度通常是无信息的。</p>
+
+<p>混合图 <strong>type</strong> 属性为 <span class="marked">radar</span>。</p>
+
+<pre>
+const config = {
+  type: 'radar',
+  data: data,
+  options: {
+    elements: {
+      line: {
+        borderWidth: 3 // 设置线条宽度
+      }
+    }
+  },
+};
+</pre>
+<p>接下来我们创建一个简单的雷达图：</p>
+<h3>实例</h3> 
+<span style="color:#000066">const</span> ctx <span style="color:#339933">=</span> document.<span style="color:#660066">getElementById</span><span style="color:#009900">(</span><span style="color:#3366CC">'myChart'</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> data <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  labels<span style="color:#339933">:</span> <span style="color:#009900">[</span><br>
+    <span style="color:#3366CC">'Eating'</span><span style="color:#339933">,</span><br>
+    <span style="color:#3366CC">'Drinking'</span><span style="color:#339933">,</span><br>
+    <span style="color:#3366CC">'Sleeping'</span><span style="color:#339933">,</span><br>
+    <span style="color:#3366CC">'Designing'</span><span style="color:#339933">,</span><br>
+    <span style="color:#3366CC">'Coding'</span><span style="color:#339933">,</span><br>
+    <span style="color:#3366CC">'Cycling'</span><span style="color:#339933">,</span><br>
+    <span style="color:#3366CC">'Running'</span><br>
+  <span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+  datasets<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#009900">{</span><br>
+    label<span style="color:#339933">:</span> <span style="color:#3366CC">'第一个数据集'</span><span style="color:#339933">,</span><br>
+    data<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#CC0000">65</span><span style="color:#339933">,</span> <span style="color:#CC0000">59</span><span style="color:#339933">,</span> <span style="color:#CC0000">90</span><span style="color:#339933">,</span> <span style="color:#CC0000">81</span><span style="color:#339933">,</span> <span style="color:#CC0000">56</span><span style="color:#339933">,</span> <span style="color:#CC0000">55</span><span style="color:#339933">,</span> <span style="color:#CC0000">40</span><span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+    fill<span style="color:#339933">:</span> <span style="color:#003366">true</span><span style="color:#339933">,</span><br>
+    backgroundColor<span style="color:#339933">:</span> <span style="color:#3366CC">'rgba(255, 99, 132, 0.2)'</span><span style="color:#339933">,</span><br>
+    borderColor<span style="color:#339933">:</span> <span style="color:#3366CC">'rgb(255, 99, 132)'</span><span style="color:#339933">,</span><br>
+    pointBackgroundColor<span style="color:#339933">:</span> <span style="color:#3366CC">'rgb(255, 99, 132)'</span><span style="color:#339933">,</span><br>
+    pointBorderColor<span style="color:#339933">:</span> <span style="color:#3366CC">'#fff'</span><span style="color:#339933">,</span><br>
+    pointHoverBackgroundColor<span style="color:#339933">:</span> <span style="color:#3366CC">'#fff'</span><span style="color:#339933">,</span><br>
+    pointHoverBorderColor<span style="color:#339933">:</span> <span style="color:#3366CC">'rgb(255, 99, 132)'</span><br>
+  <span style="color:#009900">}</span><span style="color:#339933">,</span> <span style="color:#009900">{</span><br>
+    label<span style="color:#339933">:</span> <span style="color:#3366CC">'第二个数据集'</span><span style="color:#339933">,</span><br>
+    data<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#CC0000">28</span><span style="color:#339933">,</span> <span style="color:#CC0000">48</span><span style="color:#339933">,</span> <span style="color:#CC0000">40</span><span style="color:#339933">,</span> <span style="color:#CC0000">19</span><span style="color:#339933">,</span> <span style="color:#CC0000">96</span><span style="color:#339933">,</span> <span style="color:#CC0000">27</span><span style="color:#339933">,</span> <span style="color:#CC0000">100</span><span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+    fill<span style="color:#339933">:</span> <span style="color:#003366">true</span><span style="color:#339933">,</span><br>
+    backgroundColor<span style="color:#339933">:</span> <span style="color:#3366CC">'rgba(54, 162, 235, 0.2)'</span><span style="color:#339933">,</span><br>
+    borderColor<span style="color:#339933">:</span> <span style="color:#3366CC">'rgb(54, 162, 235)'</span><span style="color:#339933">,</span><br>
+    pointBackgroundColor<span style="color:#339933">:</span> <span style="color:#3366CC">'rgb(54, 162, 235)'</span><span style="color:#339933">,</span><br>
+    pointBorderColor<span style="color:#339933">:</span> <span style="color:#3366CC">'#fff'</span><span style="color:#339933">,</span><br>
+    pointHoverBackgroundColor<span style="color:#339933">:</span> <span style="color:#3366CC">'#fff'</span><span style="color:#339933">,</span><br>
+    pointHoverBorderColor<span style="color:#339933">:</span> <span style="color:#3366CC">'rgb(54, 162, 235)'</span><br>
+  <span style="color:#009900">}</span><span style="color:#009900">]</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> config <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  type<span style="color:#339933">:</span> <span style="color:#3366CC">'radar'</span><span style="color:#339933">,</span><br>
+  data<span style="color:#339933">:</span> data<span style="color:#339933">,</span><br>
+  options<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+    responsive<span style="color:#339933">:</span> <span style="color:#003366">true</span><span style="color:#339933">,</span> <span style="color:#006600">// 设置图表为响应式，根据屏幕窗口变化而变化</span><br>
+    maintainAspectRatio<span style="color:#339933">:</span> <span style="color:#003366">false</span><span style="color:#339933">,</span><span style="color:#006600">// 保持图表原有比例</span><br>
+    elements<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+      line<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+        borderWidth<span style="color:#339933">:</span> <span style="color:#CC0000">3</span> <span style="color:#006600">// 设置线条宽度</span><br>
+      <span style="color:#009900">}</span><br>
+    <span style="color:#009900">}</span><br>
+  <span style="color:#009900">}</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> myChart <span style="color:#339933">=</span> <span style="color:#000066">new</span> Chart<span style="color:#009900">(</span>ctx<span style="color:#339933">,</span> config<span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<br>
+<a href="https://www.runoob.com/try/try.php?filename=trychartjs_radar" class="ext">尝试一下 »</a>
+
+<p>以上实例输出结果为：</p></div></section>
+<section class="ch" id="c12"><h2>12. Chart.js 散点图<a class="chsrc" href="https://www.runoob.com/chartjs/chartjs-scatter2.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>
+散点图是由两组数据构成多个坐标点，考察坐标点的分布，判断两变量之间是否存在某种关联或总结坐标点的分布模式。</p>
+<p>数据结构：</p>
+<pre>data: [{
+        x: 10,
+        y: 20
+    }, {
+        x: 15,
+        y: 10
+    }]</pre>
+<p>散点图 <strong>type</strong> 属性为 <span class="marked">scatter</span>。</p>
+
+<pre>
+const config = {
+  type: 'scatter',
+  data: data,
+  options: {
+    scales: {
+      x: {
+        type: 'linear',
+        position: 'bottom'
+      }
+    }
+  }
+};
+</pre>
+<p>接下来我们创建一个简单的散点图：</p>
+<h3>实例</h3> 
+<span style="color:#000066">const</span> ctx <span style="color:#339933">=</span> document.<span style="color:#660066">getElementById</span><span style="color:#009900">(</span><span style="color:#3366CC">'myChart'</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> data <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  datasets<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#009900">{</span><br>
+    label<span style="color:#339933">:</span> <span style="color:#3366CC">'散点图实例'</span><span style="color:#339933">,</span><br>
+    data<span style="color:#339933">:</span> <span style="color:#009900">[</span><span style="color:#009900">{</span><br>
+      x<span style="color:#339933">:</span> <span style="color:#339933">-</span><span style="color:#CC0000">10</span><span style="color:#339933">,</span><br>
+      y<span style="color:#339933">:</span> <span style="color:#CC0000">0</span><br>
+    <span style="color:#009900">}</span><span style="color:#339933">,</span> <span style="color:#009900">{</span><br>
+      x<span style="color:#339933">:</span> <span style="color:#CC0000">0</span><span style="color:#339933">,</span><br>
+      y<span style="color:#339933">:</span> <span style="color:#CC0000">10</span><br>
+    <span style="color:#009900">}</span><span style="color:#339933">,</span> <span style="color:#009900">{</span><br>
+      x<span style="color:#339933">:</span> <span style="color:#CC0000">10</span><span style="color:#339933">,</span><br>
+      y<span style="color:#339933">:</span> <span style="color:#CC0000">5</span><br>
+    <span style="color:#009900">}</span><span style="color:#339933">,</span> <span style="color:#009900">{</span><br>
+      x<span style="color:#339933">:</span> <span style="color:#CC0000">0.5</span><span style="color:#339933">,</span><br>
+      y<span style="color:#339933">:</span> <span style="color:#CC0000">5.5</span><br>
+    <span style="color:#009900">}</span><span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+    backgroundColor<span style="color:#339933">:</span> <span style="color:#3366CC">'rgb(255, 99, 132)'</span><br>
+  <span style="color:#009900">}</span><span style="color:#009900">]</span><span style="color:#339933">,</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> config <span style="color:#339933">=</span> <span style="color:#009900">{</span><br>
+  type<span style="color:#339933">:</span> <span style="color:#3366CC">'scatter'</span><span style="color:#339933">,</span><br>
+  data<span style="color:#339933">:</span> data<span style="color:#339933">,</span><br>
+  options<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+    responsive<span style="color:#339933">:</span> <span style="color:#003366">true</span><span style="color:#339933">,</span> <span style="color:#006600">// 设置图表为响应式，根据屏幕窗口变化而变化</span><br>
+    maintainAspectRatio<span style="color:#339933">:</span> <span style="color:#003366">false</span><span style="color:#339933">,</span><span style="color:#006600">// 保持图表原有比例</span><br>
+    scales<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+      x<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+        type<span style="color:#339933">:</span> <span style="color:#3366CC">'linear'</span><span style="color:#339933">,</span><br>
+        position<span style="color:#339933">:</span> <span style="color:#3366CC">'bottom'</span><br>
+      <span style="color:#009900">}</span><br>
+    <span style="color:#009900">}</span><br>
+  <span style="color:#009900">}</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<span style="color:#000066">const</span> myChart <span style="color:#339933">=</span> <span style="color:#000066">new</span> Chart<span style="color:#009900">(</span>ctx<span style="color:#339933">,</span> config<span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<br>
+<a href="https://www.runoob.com/try/try.php?filename=trychartjs_scatter2" class="ext">尝试一下 »</a>
+
+<p>以上实例输出结果为：</p></div></section>
+<footer><p>离线版 · 内容抓取自 runoob.com，仅用于个人离线阅读；页面结构与广告已去除，原文版权归菜鸟教程及原作者。</p><p><a href="index.html">← 返回总索引</a></p></footer></body></html>

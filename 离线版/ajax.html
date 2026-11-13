@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AJAX 教程 · 离线版</title>
+<link rel="stylesheet" href="css/offline.css">
+</head><body>
+<nav class="topbar"><a href="index.html">← 返回总索引</a><span>·</span><span>A 前端与界面</span>
+<span>·</span><span>13 章</span></nav>
+<h1>AJAX 教程</h1>
+<p class="docmeta">来源：<a class="ext" href="https://www.runoob.com/ajax/ajax-tutorial.html">https://www.runoob.com/ajax/ajax-tutorial.html</a><br>
+适用性：<b style="color:#b26a00">谨慎</b>
+｜ 时效：维护期 ｜ 抓取：2026-11-13 ｜ 本页为离线阅读版，章节按教程侧栏顺序合并，广告与评论已去除。</p>
+<details class="toc-ch"><summary>本篇目录（13 章，点击展开）</summary><ol>
+<li><a href="#c1">AJAX 教程</a></li>
+<li><a href="#c2">AJAX 简介</a></li>
+<li><a href="#c3">AJAX 实例</a></li>
+<li><a href="#c4">XHR 创建对象</a></li>
+<li><a href="#c5">XHR 请求</a></li>
+<li><a href="#c6">XHR 响应</a></li>
+<li><a href="#c7">XHR readyState</a></li>
+<li><a href="#c8">AJAX ASP/PHP</a></li>
+<li><a href="#c9">AJAX 数据库</a></li>
+<li><a href="#c10">AJAX XML</a></li>
+<li><a href="#c11">AJAX 实例</a></li>
+<li><a href="#c12">AJAX JSON 实例</a></li>
+<li><a href="#c13">Fetch API</a></li>
+</ol></details>
+<section class="ch" id="c1"><h2>1. AJAX 教程<a class="chsrc" href="https://www.runoob.com/ajax/ajax-tutorial.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><br>
+<p>AJAX = Asynchronous JavaScript and XML（异步的 JavaScript 和 XML）。</p>
+<p>AJAX 不是新的编程语言，而是一种使用现有标准的新方法。</p>
+<p>AJAX 最大的优点是在不重新加载整个页面的情况下，可以与服务器交换数据并更新部分网页内容。</p>
+<p>AJAX 不需要任何浏览器插件，但需要用户允许 JavaScript 在浏览器上执行。</p>
+<p>XMLHttpRequest 只是实现 Ajax 的一种方式，当然也可以使用 <a href="#c13">fetch API</a> 等现代方法。</p>
+
+<br>
+<h3>AJAX 实例</h3>
+
+<h3>使用 AJAX 修改该文本内容</h3>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryajax_first" class="ext">尝试一下 »</a>
+
+<br><br><p><a href="ajax-intro.html"><b>现在开始学习 AJAX !</b></a></p>
+<hr><h3>阅读本教程前，您需要了解的知识：</h3>
+<p>阅读本教程，您需要有以下基础：</p>
+<ul>
+<li><a href="html.html#c1">HTML</a> 和 <a href="css.html#c1">CSS</a> 基础</li>
+<li><a href="js.html#c1">JavaScript</a> 基础</li>
+</ul>
+<p>如果您想学习这些基础知识，您可以在我们的首页找到相应的教程<a href="zookeeper.html#c38">菜鸟教程</a>。</p>
+<hr><h3>AJAX 应用</h3>
+<ul><li><p>
+运用 XHTML+CSS 来表达资讯；</p></li><li><p>
+运用 JavaScript 操作 DOM（Document Object Model）来执行动态效果；</p></li><li><p>
+运用 XML 和 XSLT 操作资料;</p></li><li><p>
+运用 XMLHttpRequest 或新的 Fetch API 与网页服务器进行异步资料交换；</p></li><li><p>
+<strong>注意：</strong>AJAX 与 Flash、Silverlight 和 Java Applet 等 RIA 技术是有区分的。</p></li></ul></div></section>
+<section class="ch" id="c2"><h2>2. AJAX 简介<a class="chsrc" href="https://www.runoob.com/ajax/ajax-intro.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>AJAX 是一种在无需重新加载整个网页的情况下，能够更新部分网页的技术。</p>
+<p>
+AJAX 通过在后台与服务器交换数据，并能够更新部分网页内容。</p>
+<hr>
+<h3>您应当具备的基础知识</h3>
+
+<p>在继续学习之前，您需要对下面的知识有基本的了解：</p>
+
+<ul>
+<li>HTML / XHTML</li>
+<li>CSS</li>
+<li>JavaScript / DOM</li>
+</ul>
+
+<p>如果您希望首先学习这些项目，请在我们的<a href="https://www.runoob.com" class="ext" title="菜鸟教程">首页</a>访问这些教程。</p>
+
+<hr>
+<h3>什么是 AJAX ？</h3>
+
+<p>AJAX = 异步 JavaScript 和 XML。</p>
+
+<p>AJAX 是一种用于创建快速动态网页的技术。</p>
+
+<p>通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。</p>
+
+<p>传统的网页（不使用 AJAX）如果需要更新内容，必需重载整个网页面。</p>
+
+<p>有很多使用 AJAX 的应用程序案例：微博、淘宝、知乎等。</p>
+
+<hr>
+<h3>AJAX 工作原理</h3><ol><li><strong>事件触发</strong>（如点击按钮或页面加载）。</li><li><strong>AJAX 请求</strong>：通过 JavaScript 创建一个 <code>XMLHttpRequest</code> 对象，向服务器发送请求。</li><li><strong>服务器处理请求</strong>：服务器（通常使用 PHP、Node.js 等）接收请求，处理并返回响应数据（JSON、XML、HTML等）。</li><li><strong>AJAX 响应处理</strong>：浏览器接收响应，使用 JavaScript 在页面上更新内容，而无需重新加载整个页面。</li></ol>
+<p><img src="img/f4ceeb4200cde7ea.png" alt="AJAX" loading="lazy"></p>
+<hr>
+<h3>AJAX是基于现有的Internet标准</h3>
+<p>AJAX是基于现有的Internet标准，并且联合使用它们：</p>
+<ul>
+<li>XMLHttpRequest 对象 (异步的与服务器交换数据)</li>
+<li>JavaScript/DOM (信息显示/交互)</li>
+<li>CSS (给数据定义样式)</li>
+<li>XML (作为转换数据的格式)</li>
+</ul>
+<p><img src="img/4b10aab21427d9a3.gif" alt="lamp" loading="lazy">  
+AJAX应用程序与浏览器和平台无关的！</p>
+<hr>
+<h3>Google Suggest</h3>
+
+<p>在 2005 年，Google 通过其 Google Suggest 使 AJAX 变得流行起来。</p>
+
+<p>Google Suggest 使用 AJAX 创造出动态性极强的 web 界面：当您在谷歌的搜索框输入关键字时，JavaScript 会把这些字符发送到服务器，然后服务器会返回一个搜索建议的列表。</p>
+
+<hr>
+<h3>今天就开始使用 AJAX</h3>
+
+<p>AJAX 基于已有的标准。这些标准已被大多数开发者使用多年。</p>
+
+<p>请阅读下一章，看看 AJAX 是如何工作的！</p></div></section>
+<section class="ch" id="c3"><h2>3. AJAX 实例<a class="chsrc" href="https://www.runoob.com/ajax/ajax-example.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>为了帮助您理解 AJAX 的工作原理，我们创建了一个小型的 AJAX 应用程序:</p>
+
+<h3>实例</h3>
+
+<h3>使用 AJAX 修改该文本内容</h3>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryajax_first" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>AJAX 实例解析</h3>
+<p>上面的 AJAX 应用程序包含一个 div 和一个按钮。</p>
+<p>div 部分用于显示来自服务器的信息。当按钮被点击时，它负责调用名为 loadXMLDoc() 的函数：</p>
+
+<span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">myDiv</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">h2</span><span class="hl-brackets">&gt;</span><span class="hl-code">使用 AJAX 修改该文本内容</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">h2</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">button</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">button</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-var">onclick</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">loadXMLDoc()</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">修改内容</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">button</span><span class="hl-brackets">&gt;</span>
+
+<p>接下来，在页面的 head 部分添加一个  &lt;script&gt; 标签。该标签中包含了这个 loadXMLDoc() 函数： </p>
+
+<span class="hl-brackets">&lt;</span><span class="hl-reserved">head</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+function loadXMLDoc()
+{
+    .... AJAX 脚本执行 ...
+}
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">head</span><span class="hl-brackets">&gt;</span>
+
+<p>下面的章节会为您讲解 AJAX 的工作原理。</p></div></section>
+<section class="ch" id="c4"><h2>4. XHR 创建对象<a class="chsrc" href="https://www.runoob.com/ajax/ajax-xmlhttprequest-create.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>XMLHttpRequest 是 AJAX 的基础。</p>
+<hr>
+<h3>XMLHttpRequest 对象</h3>
+
+<p>所有现代浏览器均支持 XMLHttpRequest 对象（IE5 和 IE6 使用 ActiveXObject）。</p>
+
+<p>XMLHttpRequest 用于在后台与服务器交换数据。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。</p>
+
+<hr>
+<h3>创建 XMLHttpRequest 对象</h3>
+<p>所有现代浏览器（IE7+、Edge、Firefox、Chrome、Safari 以及 Opera）均内建 XMLHttpRequest 对象。</p>
+
+<p>创建 XMLHttpRequest 对象的语法：</p>
+<pre>var xhr = new XMLHttpRequest();</pre>
+<p>老版本的 Internet Explorer （IE5 和 IE6）使用 ActiveX 对象：</p>
+<pre>var xhr = new ActiveXObject("Microsoft.XMLHTTP");</pre>
+<p>为了应对所有的现代浏览器，包括 IE5 和 IE6（<strong>现在应该很少人使用了</strong>），请检查浏览器是否支持 XMLHttpRequest 对象。如果支持，则创建 XMLHttpRequest 对象。如果不支持，则创建 ActiveXObject ：</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">;
+</span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-builtin">window</span><span class="hl-code">.</span><span class="hl-identifier">XMLHttpRequest</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-comment">//</span><span class="hl-comment">  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">XMLHttpRequest</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-code"> </span><span class="hl-reserved">else</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-comment">//</span><span class="hl-comment"> IE6, IE5 浏览器执行代码</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">ActiveXObject</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Microsoft.XMLHTTP</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryajax_first" class="ext">尝试一下 »</a>
+
+<p>创建一个 XMLHttpRequest 对象的示例：</p>
+<h3>实例</h3> 
+<span style="color:#006600">// 创建 XMLHttpRequest 对象</span><br>
+<span style="color:#000066">var</span> xhr <span style="color:#339933">=</span> <span style="color:#000066">new</span> XMLHttpRequest<span style="color:#009900">(</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<br>
+<span style="color:#006600">// 配置请求</span><br>
+xhr.<span style="color:#660066">open</span><span style="color:#009900">(</span><span style="color:#3366CC">'GET'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'https://api.example.com/data'</span><span style="color:#339933">,</span> <span style="color:#003366">true</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<br>
+<span style="color:#006600">// 设置请求头（如果需要的话）</span><br>
+<span style="color:#006600">// xhr.setRequestHeader('Content-Type', 'application/json');</span><br>
+<br>
+<span style="color:#006600">// 定义回调函数</span><br>
+xhr.<span style="color:#660066">onload</span> <span style="color:#339933">=</span> <span style="color:#000066">function</span> <span style="color:#009900">(</span><span style="color:#009900">)</span> <span style="color:#009900">{</span><br>
+    <span style="color:#000066">if</span> <span style="color:#009900">(</span>xhr.<span style="color:#660066">status</span> <span style="color:#339933">&gt;=</span> <span style="color:#CC0000">200</span> <span style="color:#339933">&amp;&amp;</span> xhr.<span style="color:#660066">status</span> <span style="color:#339933">&lt;</span> <span style="color:#CC0000">300</span><span style="color:#009900">)</span> <span style="color:#009900">{</span><br>
+        <span style="color:#006600">// 请求成功，处理响应</span><br>
+        console.<span style="color:#660066">log</span><span style="color:#009900">(</span><span style="color:#3366CC">'Response:'</span><span style="color:#339933">,</span> xhr.<span style="color:#660066">responseText</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+    <span style="color:#009900">}</span> <span style="color:#000066">else</span> <span style="color:#009900">{</span><br>
+        <span style="color:#006600">// 处理错误</span><br>
+        console.<span style="color:#660066">error</span><span style="color:#009900">(</span><span style="color:#3366CC">'Error:'</span><span style="color:#339933">,</span> xhr.<span style="color:#660066">statusText</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+    <span style="color:#009900">}</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<br>
+<span style="color:#006600">// 处理网络错误</span><br>
+xhr.<span style="color:#660066">onerror</span> <span style="color:#339933">=</span> <span style="color:#000066">function</span> <span style="color:#009900">(</span><span style="color:#009900">)</span> <span style="color:#009900">{</span><br>
+    console.<span style="color:#660066">error</span><span style="color:#009900">(</span><span style="color:#3366CC">'Request failed'</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<span style="color:#009900">}</span><span style="color:#339933">;</span><br>
+<br>
+<span style="color:#006600">// 发送请求</span><br>
+xhr.<span style="color:#660066">send</span><span style="color:#009900">(</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+
+<p>在下一章中，您将学习发送服务器请求的知识。</p></div></section>
+<section class="ch" id="c5"><h2>5. XHR 请求<a class="chsrc" href="https://www.runoob.com/ajax/ajax-xmlhttprequest-send.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>XMLHttpRequest 对象用于和服务器交换数据。</p>
+<hr>
+<h3>向服务器发送请求</h3>
+<p>如需将请求发送到服务器，我们使用 <strong>XMLHttpRequest</strong> 对象的 <strong>open()</strong> 和 <strong>send()</strong> 方法：</p>
+<pre>xmlhttp.open("GET","ajax_info.txt",true);
+xmlhttp.send();</pre>
+
+<br><table>
+
+<tbody><tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+
+<tr>
+<td>open(<i>method</i>,<i>url</i>,<i>async</i>)</td>
+<td>
+	<p>规定请求的类型、URL 以及是否异步处理请求。</p>
+	<ul>
+	<li><i>method</i>：请求的类型；GET 或 POST</li>
+	<li><i>url</i>：文件在服务器上的位置</li>
+	<li><i>async</i>：true（异步）或 false（同步）</li>
+	</ul>
+	</td>
+</tr>
+
+<tr>
+<td>send(<i>string</i>)</td>
+<td>
+	<p>将请求发送到服务器。</p>
+	<ul>
+	<li><i>string</i>：仅用于 POST 请求</li>
+	</ul>
+</td>
+</tr>
+</tbody></table>
+<br><hr>
+<h3>GET 还是 POST？</h3>
+
+<p>与 POST 相比，GET 更简单也更快，并且在大部分情况下都能用。</p>
+
+<p>然而，在以下情况中，请使用 POST 请求：</p>
+
+<ul>
+<li>不愿使用缓存文件（更新服务器上的文件或数据库）</li>
+<li>向服务器发送大量数据（POST 没有数据量限制）</li>
+<li>发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠</li>
+</ul>
+<p><img src="img/9235a3691944af75.jpeg" loading="lazy"></p>
+<hr>
+<h3>GET 请求</h3>
+
+<p>一个简单的 GET 请求：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">open</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">GET</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">/try/ajax/demo_get.php</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-reserved">true</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">send</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryajax_get" class="ext">尝试一下 »</a>
+
+<p>在上面的例子中，您可能得到的是缓存的结果。</p>
+
+<p>为了避免这种情况，请向 URL 添加一个唯一的 ID：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">open</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">GET</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">/try/ajax/demo_get.php?t=</span><span class="hl-quotes">"</span><span class="hl-code"> + </span><span class="hl-builtin">Math</span><span class="hl-code">.</span><span class="hl-identifier">random</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">,</span><span class="hl-reserved">true</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">send</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryajax_get_unique" class="ext">尝试一下 »</a>
+
+<p>如果您希望通过 GET 方法发送信息，请向 URL 添加信息：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">open</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">GET</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">/try/ajax/demo_get2.php?fname=Henry&amp;lname=Ford</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-reserved">true</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">send</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryajax_get2" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>POST 请求</h3>
+
+<p>一个简单 POST 请求：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">open</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">POST</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">/try/ajax/demo_post.php</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-reserved">true</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">send</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryajax_post" class="ext">尝试一下 »</a>
+
+<p>如果需要像 HTML 表单那样 POST 数据，请使用 setRequestHeader() 来添加 HTTP 头。然后在 send() 方法中规定您希望发送的数据：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">open</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">POST</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">/try/ajax/demo_post2.php</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-reserved">true</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">setRequestHeader</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Content-type</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">application/x-www-form-urlencoded</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">send</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">fname=Henry&amp;lname=Ford</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryajax_post2" class="ext">尝试一下 »</a>
+
+<br><table>
+<tr>
+<th>方法</th>
+    <th>描述</th>
+  </tr>
+<tr>
+<td>setRequestHeader(<i>header,value</i>)</td>
+ <td>
+	<p>向请求添加 HTTP 头。</p>
+	<ul>
+	<li><i>header</i>: 规定头的名称</li>
+	<li><i>value</i>: 规定头的值</li>
+	</ul>
+</td>
+</tr>
+</table>
+<br><hr>
+<h3>url - 服务器上的文件</h3>
+
+<p>open() 方法的 <i>url</i> 参数是服务器上文件的地址：</p>
+
+<pre>xmlhttp.open("GET","ajax_test.html",true);</pre>
+<p>该文件可以是任何类型的文件，比如 .txt 和 .xml，或者服务器脚本文件，比如 .asp 和 .php （在传回响应之前，能够在服务器上执行任务）。</p>
+
+<hr>
+<h3>异步 - True 或 False？</h3>
+
+<p>AJAX 指的是异步 JavaScript 和 XML（Asynchronous JavaScript and XML）。</p>
+
+<p>XMLHttpRequest 对象如果要用于 AJAX 的话，其 open() 方法的 async 参数必须设置为 true：</p>
+
+<pre>xmlhttp.open("GET","ajax_test.html",true);</pre>
+<p>对于 web 开发人员来说，发送异步请求是一个巨大的进步。很多在服务器执行的任务都相当费时。AJAX 出现之前，这可能会引起应用程序挂起或停止。</p>
+
+<p>通过 AJAX，JavaScript 无需等待服务器的响应，而是：</p>
+
+<ul>
+<li>在等待服务器响应时执行其他脚本</li>
+<li>当响应就绪后对响应进行处理</li>
+</ul>
+
+<hr>
+<h3>Async=true</h3>
+<p>当使用 async=true 时，请规定在响应处于 onreadystatechange 事件中的就绪状态时执行的函数：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">onreadystatechange</span><span class="hl-code">=</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">readyState</span><span class="hl-code">==</span><span class="hl-number">4</span><span class="hl-code"> &amp;&amp; </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">status</span><span class="hl-code">==</span><span class="hl-number">200</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">myDiv</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code">=</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">responseText</span><span class="hl-code">;
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">open</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">GET</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">/try/ajax/ajax_info.txt</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-reserved">true</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">send</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryajax_first" class="ext">尝试一下 »</a>
+
+<p>您将在稍后的章节学习更多有关 onreadystatechange 的内容。</p>
+
+<hr>
+
+<h3>Async = false</h3>
+
+<p>如需使用 async=false，请将 open() 方法中的第三个参数改为 false：</p>
+
+<pre>xmlhttp.open("GET","test1.txt",false);</pre>
+
+<p>我们不推荐使用 async=false，但是对于一些小型的请求，也是可以的。</p>
+
+<p>请记住，JavaScript 会等到服务器响应就绪才继续执行。如果服务器繁忙或缓慢，应用程序会挂起或停止。</p>
+
+<p><b>注意：</b>当您使用 async=false 时，请不要编写 onreadystatechange 函数 - 把代码放到 send() 语句后面即可：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">open</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">GET</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">/try/ajax/ajax_info.txt</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-reserved">false</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">send</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">myDiv</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code">=</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">responseText</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryajax_asyncfalse" class="ext">尝试一下 »</a></div></section>
+<section class="ch" id="c6"><h2>6. XHR 响应<a class="chsrc" href="https://www.runoob.com/ajax/ajax-xmlhttprequest-response.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>服务器响应</h3>
+<p>如需获得来自服务器的响应，请使用 XMLHttpRequest 对象的 responseText 或 responseXML 属性。</p>
+<table>
+
+<tbody><tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+
+<tr>
+<td>responseText</td>
+<td>获得字符串形式的响应数据。</td>
+</tr>
+
+<tr>
+<td>responseXML</td>
+<td>获得 XML 形式的响应数据。</td>
+</tr>
+</tbody></table>
+<br><hr>
+<h3> responseText 属性</h3>
+<p>如果来自服务器的响应并非 XML，请使用 responseText 属性。</p>
+
+<p>responseText 属性返回字符串形式的响应，因此您可以这样使用：</p>
+
+<h3>实例</h3>
+
+document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+<br><a href="https://www.runoob.com/try/try.php?filename=tryajax_first" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>responseXML 属性</h3>
+
+<p>如果来自服务器的响应是 XML，而且需要作为 XML 对象进行解析，请使用 responseXML 属性：</p>
+
+<h3>实例</h3>
+<p>请求 <a href="https://www.runoob.com/try/demo_source/cd_catalog.xml" class="ext">cd_catalog.xml</a> 文件，并解析响应：</p>
+
+<span class="hl-identifier">xmlDoc</span><span class="hl-code">=</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">responseXML</span><span class="hl-code">;
+</span><span class="hl-identifier">txt</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-quotes">"</span><span class="hl-code">;
+</span><span class="hl-identifier">x</span><span class="hl-code">=</span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">getElementsByTagName</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">ARTIST</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-reserved">for</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">i</span><span class="hl-code">=</span><span class="hl-number">0</span><span class="hl-code">;</span><span class="hl-identifier">i</span><span class="hl-code">&lt;</span><span class="hl-identifier">x</span><span class="hl-code">.</span><span class="hl-identifier">length</span><span class="hl-code">;</span><span class="hl-identifier">i</span><span class="hl-code">++</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">txt</span><span class="hl-code">=</span><span class="hl-identifier">txt</span><span class="hl-code"> + </span><span class="hl-identifier">x</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">childNodes</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">nodeValue</span><span class="hl-code"> + </span><span class="hl-quotes">"</span><span class="hl-string">&lt;br&gt;</span><span class="hl-quotes">"</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">myDiv</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code">=</span><span class="hl-identifier">txt</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryajax_responsexml" class="ext">尝试一下 »</a></div></section>
+<section class="ch" id="c7"><h2>7. XHR readyState<a class="chsrc" href="https://www.runoob.com/ajax/ajax-xmlhttprequest-onreadystatechange.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>onreadystatechange 事件</h3>
+<p>当请求被发送到服务器时，我们需要执行一些基于响应的任务。</p>
+
+<p>每当 readyState 改变时，就会触发 onreadystatechange 事件。</p>
+
+<p>readyState 属性存有 XMLHttpRequest 的状态信息。</p>
+
+<p>下面是 XMLHttpRequest 对象的三个重要的属性：</p>
+
+<table>
+<tr>
+<th>属性</th>
+    <th>描述</th>
+  </tr>
+<tr>
+<td>onreadystatechange</td>
+    <td>存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。</td>
+  </tr>
+<tr>
+<td>readyState</td>
+    <td>	<p>存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。</p>
+	<ul>
+	<li>0: 请求未初始化</li>
+	<li>1: 服务器连接已建立</li>
+	<li>2: 请求已接收</li>
+	<li>3: 请求处理中</li>
+	<li>4: 请求已完成，且响应已就绪</li>
+	</ul>
+</td>
+  </tr>
+<tr>
+<td>status</td>
+    <td>200: "OK"<br>
+	404: 未找到页面</td>
+  </tr>
+</table>
+<p>在 onreadystatechange 事件中，我们规定当服务器响应已做好被处理的准备时所执行的任务。</p>
+
+<p>当 readyState 等于 4 且状态为 200 时，表示响应已就绪：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">onreadystatechange</span><span class="hl-code">=</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">readyState</span><span class="hl-code">==</span><span class="hl-number">4</span><span class="hl-code"> &amp;&amp; </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">status</span><span class="hl-code">==</span><span class="hl-number">200</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">myDiv</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code">=</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">responseText</span><span class="hl-code">;
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-brackets">}</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryajax_first" class="ext">尝试一下 »</a>
+
+<p><b>注意：</b> onreadystatechange 事件被触发 4 次（0 - 4）, 分别是： 0-1、1-2、2-3、3-4，对应着 readyState 的每个变化。</p>
+<hr>
+<h3>使用回调函数</h3>
+<p>回调函数是一种以参数形式传递给另一个函数的函数。</p>
+
+<p>如果您的网站上存在多个 AJAX 任务，那么您应该为创建 XMLHttpRequest 对象编写一个<em>标准</em>的函数，并为每个 AJAX 任务调用该函数。</p>
+
+<p>该函数调用应该包含 URL 以及发生 onreadystatechange 事件时执行的任务（每次调用可能不尽相同）：</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">myFunction</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">loadXMLDoc</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">/try/ajax/ajax_info.txt</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">readyState</span><span class="hl-code">==</span><span class="hl-number">4</span><span class="hl-code"> &amp;&amp; </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">status</span><span class="hl-code">==</span><span class="hl-number">200</span><span class="hl-brackets">)</span><span class="hl-code">
+        </span><span class="hl-brackets">{</span><span class="hl-code">
+            </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">myDiv</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code">=</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">responseText</span><span class="hl-code">;
+        </span><span class="hl-brackets">}</span><span class="hl-code">
+    </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryajax_callback" class="ext">尝试一下 »</a></div></section>
+<section class="ch" id="c8"><h2>8. AJAX ASP/PHP<a class="chsrc" href="https://www.runoob.com/ajax/ajax-asp-php.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>AJAX 用于创造动态性更强的应用程序。</p>
+<hr>
+<h3>AJAX ASP/PHP 实例</h3>
+<p>下面的例子将为您演示当用户在输入框中键入字符时，网页如何与 web 服务器进行通信：
+请在下面的输入框中键入字母（A - Z）：</p>
+
+<h3>实例</h3>
+
+<p><b>在输入框中尝试输入字母 a:</b></p>
+
+<p>提示信息: <span></span></p> 
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryajax_suggest" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>实例解析 - showHint() 函数</h3>
+<p>当用户在上面的输入框中键入字符时，会执行函数 "showHint()" 。该函数由 "onkeyup" 事件触发：</p> 
+
+<span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">showHint</span><span class="hl-brackets">(</span><span class="hl-identifier">str</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">;
+    </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">str</span><span class="hl-code">.</span><span class="hl-identifier">length</span><span class="hl-code">==</span><span class="hl-number">0</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-brackets">{</span><span class="hl-code"> 
+        </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">txtHint</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-quotes">"</span><span class="hl-code">;
+        </span><span class="hl-reserved">return</span><span class="hl-code">;
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+    </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-builtin">window</span><span class="hl-code">.</span><span class="hl-identifier">XMLHttpRequest</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-comment">//</span><span class="hl-comment"> IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码</span><span class="hl-comment"></span><span class="hl-code">
+        </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">XMLHttpRequest</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+    </span><span class="hl-reserved">else</span><span class="hl-code">
+    </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-comment">//</span><span class="hl-comment"> IE6, IE5 浏览器执行代码</span><span class="hl-comment"></span><span class="hl-code">
+        </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">ActiveXObject</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Microsoft.XMLHTTP</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+    </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">onreadystatechange</span><span class="hl-code">=</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">readyState</span><span class="hl-code">==</span><span class="hl-number">4</span><span class="hl-code"> &amp;&amp; </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">status</span><span class="hl-code">==</span><span class="hl-number">200</span><span class="hl-brackets">)</span><span class="hl-code">
+        </span><span class="hl-brackets">{</span><span class="hl-code">
+            </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">txtHint</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code">=</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">responseText</span><span class="hl-code">;
+        </span><span class="hl-brackets">}</span><span class="hl-code">
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+    </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">open</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">GET</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">/try/ajax/gethint.php?q=</span><span class="hl-quotes">"</span><span class="hl-code">+</span><span class="hl-identifier">str</span><span class="hl-code">,</span><span class="hl-reserved">true</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">send</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span>
+
+<p>源代码解析：</p>
+<p>如果输入框为空 <span class="marked">str.length==0</span>，则该函数清空 <strong>txtHint</strong> 占位符的内容，并退出函数。</p>
+
+<p>如果输入框不为空，<span class="marked">showHint()</span> 函数执行以下任务：</p>
+<ul>
+<li>创建 <strong>XMLHttpRequest</strong> 对象</li>
+<li>当服务器响应就绪时执行函数</li>
+<li>把请求发送到服务器上的文件</li>
+<li>请注意我们向 URL 添加了一个参数 q （带有输入框的内容）</li>
+</ul>
+
+<hr>
+<h3>AJAX 服务器页面 - ASP 和 PHP</h3>
+
+<p>以上实例 JavaScript 调用的服务器页面是 PHP 文件，名为 <strong>gethint.php</strong>。</p>
+
+<p>下面，我们创建了两个版本的服务器文件，一个用 ASP 编写，另一个用 PHP 编写。</p>
+
+<h3> ASP 文件</h3>
+<p>"gethint.asp" 中的源代码会检查一个名字数组，然后向浏览器返回相应的名字：</p>
+<pre>
+&lt;%
+response.expires=-1
+dim a(30)
+'Fill up array with names
+a(1)="Anna"
+a(2)="Brittany"
+a(3)="Cinderella"
+a(4)="Diana"
+a(5)="Eva"
+a(6)="Fiona"
+a(7)="Gunda"
+a(8)="Hege"
+a(9)="Inga"
+a(10)="Johanna"
+a(11)="Kitty"
+a(12)="Linda"
+a(13)="Nina"
+a(14)="Ophelia"
+a(15)="Petunia"
+a(16)="Amanda"
+a(17)="Raquel"
+a(18)="Cindy"
+a(19)="Doris"
+a(20)="Eve"
+a(21)="Evita"
+a(22)="Sunniva"
+a(23)="Tove"
+a(24)="Unni"
+a(25)="Violet"
+a(26)="Liza"
+a(27)="Elizabeth"
+a(28)="Ellen"
+a(29)="Wenche"
+a(30)="Vicky"
+
+'get the q parameter from URL
+q=ucase(request.querystring("q"))
+
+'lookup all hints from array if length of q&gt;0
+if len(q)&gt;0 then
+  hint=""
+  for i=1 to 30
+    if q=ucase(mid(a(i),1,len(q))) then
+      if hint="" then
+        hint=a(i)
+      else
+        hint=hint &amp; " , " &amp; a(i)
+      end if
+    end if
+  next
+end if
+
+'Output "no suggestion" if no hint were found
+'or output the correct values
+if hint="" then
+  response.write("no suggestion")
+else
+  response.write(hint)
+end if
+%&gt;
+</pre>
+
+<br><hr>
+<h3>PHP 文件</h3>
+
+<p>下面的代码用 PHP 编写，与上面的 ASP 代码作用是一样的。</p>
+
+<pre>
+&lt;?php
+// Fill up array with names
+$a[]="Anna";
+$a[]="Brittany";
+$a[]="Cinderella";
+$a[]="Diana";
+$a[]="Eva";
+$a[]="Fiona";
+$a[]="Gunda";
+$a[]="Hege";
+$a[]="Inga";
+$a[]="Johanna";
+$a[]="Kitty";
+$a[]="Linda";
+$a[]="Nina";
+$a[]="Ophelia";
+$a[]="Petunia";
+$a[]="Amanda";
+$a[]="Raquel";
+$a[]="Cindy";
+$a[]="Doris";
+$a[]="Eve";
+$a[]="Evita";
+$a[]="Sunniva";
+$a[]="Tove";
+$a[]="Unni";
+$a[]="Violet";
+$a[]="Liza";
+$a[]="Elizabeth";
+$a[]="Ellen";
+$a[]="Wenche";
+$a[]="Vicky";
+
+//get the q parameter from URL
+$q=$_GET["q"];
+
+//lookup all hints from array if length of q&gt;0
+if (strlen($q) &gt; 0)
+{
+  $hint="";
+  for($i=0; $i&lt;count($a); $i++)
+  {
+    if (strtolower($q)==strtolower(substr($a[$i],0,strlen($q))))
+    {
+      if ($hint=="")
+      {
+        $hint=$a[$i];
+      }
+      else
+      {
+        $hint=$hint." , ".$a[$i];
+      }
+    }
+  }
+}
+
+// Set output to "no suggestion" if no hint were found
+// or to the correct values
+if ($hint == "")
+{
+  $response="no suggestion";
+}
+else
+{
+  $response=$hint;
+}
+
+//output the response
+echo $response;
+?&gt;
+</pre></div></section>
+<section class="ch" id="c9"><h2>9. AJAX 数据库<a class="chsrc" href="https://www.runoob.com/ajax/ajax-database.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>AJAX 可用来与数据库进行动态通信。</p>
+<hr>
+<h3>AJAX 数据库实例</h3>
+<p>下面的例子将演示网页如何通过 AJAX 从数据库读取信息：
+请在下面的下拉列表中选择一个客户：</p>
+
+<h3>实例</h3>
+
+<br>
+客户信息将显示在这...
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryajax_database" class="ext">尝试一下 »</a>
+
+<br><hr>
+
+<h3>实例解释 - showCustomer() 函数</h3>
+<p>当用户在上面的下拉列表中选择某个客户时，会执行名为 "showCustomer()" 的函数。该函数由 "onchange" 事件触发：</p> 
+
+<span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">showCustomer</span><span class="hl-brackets">(</span><span class="hl-identifier">str</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">;
+    </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">str</span><span class="hl-code"> == </span><span class="hl-quotes">"</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">txtHint</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> = </span><span class="hl-quotes">"</span><span class="hl-quotes">"</span><span class="hl-code">;
+        </span><span class="hl-reserved">return</span><span class="hl-code">
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+    </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-builtin">window</span><span class="hl-code">.</span><span class="hl-identifier">XMLHttpRequest</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-identifier">xmlhttp</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">XMLHttpRequest</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-brackets">}</span><span class="hl-code"> </span><span class="hl-reserved">else</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-identifier">xmlhttp</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">ActiveXObject</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Microsoft.XMLHTTP</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+    </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">onreadystatechange</span><span class="hl-code"> = </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">readyState</span><span class="hl-code"> == </span><span class="hl-number">4</span><span class="hl-code"> &amp;&amp; </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">status</span><span class="hl-code"> == </span><span class="hl-number">200</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+            </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">txtHint</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> = </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">responseText</span><span class="hl-code">
+        </span><span class="hl-brackets">}</span><span class="hl-code">
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+    </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">open</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">GET</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">/try/ajax/getcustomer.php?q=</span><span class="hl-quotes">"</span><span class="hl-code"> + </span><span class="hl-identifier">str</span><span class="hl-code">, </span><span class="hl-reserved">true</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">send</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">}</span>
+
+<p>showCustomer() 函数执行以下任务：</p>
+<ul>
+<li>检查是否已选择某个客户</li>
+<li>创建 XMLHttpRequest 对象</li>
+<li>当服务器响应就绪时执行所创建的函数</li>
+<li>把请求发送到服务器上的文件</li>
+<li>请注意我们向 URL 添加了一个参数 q （带有输入域中的内容）</li>
+</ul>
+
+<hr>
+<h3>AJAX 服务器页面</h3>
+
+<p>由上面的 JavaScript 调用的服务器页面是 PHP 文件，名为 "getcustomer.php"。</p>
+
+<p>用 PHP 编写服务器文件也很容易，或者用其他服务器语言。请看<a href="php.html#c65" title="PHP 和 AJAX MySQL 数据库实例">用 PHP 编写的相应的例子</a>。</p>
+
+<p>"getcustomer.php" 中的源代码负责对数据库进行查询，然后用 HTML 表格返回结果：</p>
+
+<pre>
+&lt;%
+response.expires=-1
+sql="SELECT * FROM CUSTOMERS WHERE CUSTOMERID="
+sql=sql &amp; "'" &amp; request.querystring("q") &amp; "'"
+
+set conn=Server.CreateObject("ADODB.Connection")
+conn.Provider="Microsoft.Jet.OLEDB.4.0"
+conn.Open(Server.Mappath("/db/northwind.mdb"))
+set rs=Server.CreateObject("ADODB.recordset")
+rs.Open sql,conn
+
+response.write("&lt;table&gt;")
+do until rs.EOF
+  for each x in rs.Fields
+    response.write("&lt;tr&gt;&lt;td&gt;&lt;b&gt;" &amp; x.name &amp; "&lt;/b&gt;&lt;/td&gt;")
+    response.write("&lt;td&gt;" &amp; x.value &amp; "&lt;/td&gt;&lt;/tr&gt;")
+  next
+  rs.MoveNext
+loop
+response.write("&lt;/table&gt;")
+%&gt;
+</pre></div></section>
+<section class="ch" id="c10"><h2>10. AJAX XML<a class="chsrc" href="https://www.runoob.com/ajax/ajax-xmlfile.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>AJAX 可用来与 XML 文件进行交互式通信。</p>
+<hr>
+<h3>AJAX XML 实例</h3>
+<p>下面的例子将演示网页如何使用 AJAX 来读取来自 XML 文件的信息：</p>
+
+<h3>实例</h3>
+
+<br>
+
+<br>
+<table></table>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryajax_xml2" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>实例解析 - loadXMLDoc() 函数</h3>
+<p>当用户点击上面的"获取我收藏的 CD"这个按钮，就会执行 loadXMLDoc() 函数。</p>
+
+<p>loadXMLDoc() 函数创建 XMLHttpRequest 对象，添加当服务器响应就绪时执行的函数，并将请求发送到服务器。</p>
+
+<p>当服务器响应就绪时，会构建一个 HTML 表格，从 XML 文件中提取节点（元素），最后使用 XML 数据的 填充 id="demo"  的表格元素：
+</p>
+
+<h3>异步加载 XML 文档</h3>
+
+<span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">loadXMLDoc</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">xhttp</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">XMLHttpRequest</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+  </span><span class="hl-identifier">xhttp</span><span class="hl-code">.</span><span class="hl-identifier">onreadystatechange</span><span class="hl-code"> = </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-reserved">this</span><span class="hl-code">.</span><span class="hl-identifier">readyState</span><span class="hl-code"> == </span><span class="hl-number">4</span><span class="hl-code"> &amp;&amp; </span><span class="hl-reserved">this</span><span class="hl-code">.</span><span class="hl-identifier">status</span><span class="hl-code"> == </span><span class="hl-number">200</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">myFunction</span><span class="hl-brackets">(</span><span class="hl-reserved">this</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+  </span><span class="hl-brackets">}</span><span class="hl-code">;
+  </span><span class="hl-identifier">xhttp</span><span class="hl-code">.</span><span class="hl-identifier">open</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">GET</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">cd_catalog.xml</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-reserved">true</span><span class="hl-brackets">)</span><span class="hl-code">;
+  </span><span class="hl-identifier">xhttp</span><span class="hl-code">.</span><span class="hl-identifier">send</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">myFunction</span><span class="hl-brackets">(</span><span class="hl-identifier">xml</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">i</span><span class="hl-code">;
+  </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">xmlDoc</span><span class="hl-code"> = </span><span class="hl-identifier">xml</span><span class="hl-code">.</span><span class="hl-identifier">responseXML</span><span class="hl-code">;
+  </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">table</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">&lt;tr&gt;&lt;th&gt;Artist&lt;/th&gt;&lt;th&gt;Title&lt;/th&gt;&lt;/tr&gt;</span><span class="hl-quotes">"</span><span class="hl-code">;
+  </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">x</span><span class="hl-code"> = </span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">getElementsByTagName</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">CD</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+  </span><span class="hl-reserved">for</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">i</span><span class="hl-code"> = </span><span class="hl-number">0</span><span class="hl-code">; </span><span class="hl-identifier">i</span><span class="hl-code"> &lt;</span><span class="hl-identifier">x</span><span class="hl-code">.</span><span class="hl-identifier">length</span><span class="hl-code">; </span><span class="hl-identifier">i</span><span class="hl-code">++</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code"> 
+    </span><span class="hl-identifier">table</span><span class="hl-code"> += </span><span class="hl-quotes">"</span><span class="hl-string">&lt;tr&gt;&lt;td&gt;</span><span class="hl-quotes">"</span><span class="hl-code"> +
+    </span><span class="hl-identifier">x</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">getElementsByTagName</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">ARTIST</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">childNodes</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">nodeValue</span><span class="hl-code"> +
+    </span><span class="hl-quotes">"</span><span class="hl-string">&lt;/td&gt;&lt;td&gt;</span><span class="hl-quotes">"</span><span class="hl-code"> +
+    </span><span class="hl-identifier">x</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">getElementsByTagName</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">TITLE</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">childNodes</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">nodeValue</span><span class="hl-code"> +
+    </span><span class="hl-quotes">"</span><span class="hl-string">&lt;/td&gt;&lt;/tr&gt;</span><span class="hl-quotes">"</span><span class="hl-code">;
+  </span><span class="hl-brackets">}</span><span class="hl-code">
+  </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">demo</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> = </span><span class="hl-identifier">table</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span>
+
+<br><hr>
+<h3>AJAX 服务器页面</h3>
+<p>上面这个例子中使用的服务器页面实际上是一个名为 "<a href="https://www.runoob.com/try/demo_source/cd_catalog.xml" class="ext">cd_catalog.xml</a>"  XML 文件。</p></div></section>
+<section class="ch" id="c11"><h2>11. AJAX 实例<a class="chsrc" href="https://www.runoob.com/ajax/ajax-examples.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+
+<img src="img/22fab39e8e98ea93.gif" alt="实例" loading="lazy"><h3>AJAX 实例</h3>
+
+<p><a href="https://www.runoob.com/try/try.php?filename=tryajax_first" class="ext">一个简单的AJAX实例</a></p>
+<p>创建一个简单的XMLHttpRequest，从一个TXT文件中返回数据。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=tryajax_xml" class="ext">用AJAX加载 XML 文件</a></p>
+<p>创建一个简单的XMLHttpRequest，从一个XML文件中返回数据。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=tryajax_header" class="ext">用AJAX进行一次 HEAD 请求</a></p>
+<p>检索资源（文件）的头信息。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=tryajax_lastmodified" class="ext">用AJAX进行一次指定的 HEAD 请求</a></p>
+<p>检索资源（文件）的指定头信息。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=tryajax_suggest" class="ext">用AJAX从ASP 文件返回数据</a></p>
+<p>当用户在文本框内键入字符时网页如何与Web服务器进行通信</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=tryajax_database" class="ext">用AJAX从数据库返回数据</a></p>
+<p>用AJAX网页如何获取数据库中的信息</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=tryajax_xml2" class="ext">用AJAX从XML 文件返回数据</a></p>
+<p>创建一个XMLHttpRequest从XML文件中检索数据并显示在一个HTML表格中。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=tryajax_callback" class="ext">用callback函数的AJAX实例</a></p>
+<p>用一个callback函数创建一个XMLHttpRequest，并从一个TXT文件中检索数据。</p></div></section>
+<section class="ch" id="c12"><h2>12. AJAX JSON 实例<a class="chsrc" href="https://www.runoob.com/ajax/ajax-json.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>AJAX 可用来与 JSON 文件进行交互式通信。</p>
+<hr>
+<h3>AJAX JSON 实例</h3>
+<p>下面的例子将演示网页如何使用 AJAX 来读取来自 JSON 文件的信息：</p>
+
+<h3>实例</h3>
+
+<br>
+
+<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryajax_json" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>实例解析 - loadXMLDoc() 函数</h3>
+<p>当用户点击上面的<strong>"获取课程数据"</strong>这个按钮，就会执行 loadXMLDoc() 函数。</p>
+
+<p>loadXMLDoc() 函数创建 XMLHttpRequest 对象，添加当服务器响应就绪时执行的函数，并将请求发送到服务器。</p>
+
+<p>当服务器响应就绪时，我们就使用 <a href="json.html#c7">JSON.parse()</a> 方法将数据转换为 JavaScript 对象。：
+</p>
+
+<h3>异步加载 JSON 文档</h3>
+
+<span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">loadXMLDoc</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">;
+  </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-builtin">window</span><span class="hl-code">.</span><span class="hl-identifier">XMLHttpRequest</span><span class="hl-brackets">)</span><span class="hl-code">
+  </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-comment">//</span><span class="hl-comment"> IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">XMLHttpRequest</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+  </span><span class="hl-brackets">}</span><span class="hl-code">
+  </span><span class="hl-reserved">else</span><span class="hl-code">
+  </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-comment">//</span><span class="hl-comment"> IE6, IE5 浏览器执行代码</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">ActiveXObject</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Microsoft.XMLHTTP</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+  </span><span class="hl-brackets">}</span><span class="hl-code">
+  </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">onreadystatechange</span><span class="hl-code">=</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">
+  </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">readyState</span><span class="hl-code">==</span><span class="hl-number">4</span><span class="hl-code"> &amp;&amp; </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">status</span><span class="hl-code">==</span><span class="hl-number">200</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-brackets">{</span><span class="hl-code">
+      </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">myArr</span><span class="hl-code"> = </span><span class="hl-identifier">JSON</span><span class="hl-code">.</span><span class="hl-identifier">parse</span><span class="hl-brackets">(</span><span class="hl-reserved">this</span><span class="hl-code">.</span><span class="hl-identifier">responseText</span><span class="hl-brackets">)</span><span class="hl-code">;
+      </span><span class="hl-identifier">myFunction</span><span class="hl-brackets">(</span><span class="hl-identifier">myArr</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+  </span><span class="hl-brackets">}</span><span class="hl-code">
+  </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">open</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">GET</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">/try/ajax/json_ajax.json</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-reserved">true</span><span class="hl-brackets">)</span><span class="hl-code">;
+  </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">setRequestHeader</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Content-Type</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">application/json;charset=UTF-8</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+  </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">send</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">myFunction</span><span class="hl-brackets">(</span><span class="hl-identifier">arr</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">out</span><span class="hl-code"> = </span><span class="hl-quotes">"</span><span class="hl-quotes">"</span><span class="hl-code">;
+  </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">i</span><span class="hl-code">;
+  </span><span class="hl-reserved">for</span><span class="hl-brackets">(</span><span class="hl-identifier">i</span><span class="hl-code"> = </span><span class="hl-number">0</span><span class="hl-code">; </span><span class="hl-identifier">i</span><span class="hl-code"> &lt; </span><span class="hl-identifier">arr</span><span class="hl-code">.</span><span class="hl-identifier">length</span><span class="hl-code">; </span><span class="hl-identifier">i</span><span class="hl-code">++</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">out</span><span class="hl-code"> += </span><span class="hl-quotes">'</span><span class="hl-string">&lt;a href="</span><span class="hl-quotes">'</span><span class="hl-code"> + </span><span class="hl-identifier">arr</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">url</span><span class="hl-code"> + </span><span class="hl-quotes">'</span><span class="hl-string">"&gt;</span><span class="hl-quotes">'</span><span class="hl-code"> + 
+    </span><span class="hl-identifier">arr</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">title</span><span class="hl-code"> + </span><span class="hl-quotes">'</span><span class="hl-string">&lt;/a&gt;&lt;br&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
+  </span><span class="hl-brackets">}</span><span class="hl-code">
+ </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">myDiv</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code">=</span><span class="hl-identifier">out</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span>
+
+<br><hr>
+<h3>AJAX 服务器页面</h3>
+<p>上面这个例子中使用的服务器页面实际上是一个名为 "<a href="https://www.runoob.com/try/ajax/json_ajax.json" class="ext">json_ajax.json</a>" JSON 文件。</p>
+<p>JSON 数据如下：</p>
+<h3>json_ajax.json 文件：</h3> <span class="hl-brackets">[</span><span class="hl-code">
+  </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-quotes">"</span><span class="hl-string">title</span><span class="hl-quotes">"</span><span class="hl-code">: </span><span class="hl-quotes">"</span><span class="hl-string">JavaScript 教程</span><span class="hl-quotes">"</span><span class="hl-code">,
+    </span><span class="hl-quotes">"</span><span class="hl-string">url</span><span class="hl-quotes">"</span><span class="hl-code">: </span><span class="hl-quotes">"</span><span class="hl-string">https://www.runoob.com/js/</span><span class="hl-quotes">"</span><span class="hl-code">
+  </span><span class="hl-brackets">}</span><span class="hl-code">,
+  </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-quotes">"</span><span class="hl-string">title</span><span class="hl-quotes">"</span><span class="hl-code">: </span><span class="hl-quotes">"</span><span class="hl-string">HTML 教程</span><span class="hl-quotes">"</span><span class="hl-code">,
+    </span><span class="hl-quotes">"</span><span class="hl-string">url</span><span class="hl-quotes">"</span><span class="hl-code">: </span><span class="hl-quotes">"</span><span class="hl-string">https://www.runoob.com/html/</span><span class="hl-quotes">"</span><span class="hl-code">
+  </span><span class="hl-brackets">}</span><span class="hl-code">,
+  </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-quotes">"</span><span class="hl-string">title</span><span class="hl-quotes">"</span><span class="hl-code">: </span><span class="hl-quotes">"</span><span class="hl-string">CSS 教程</span><span class="hl-quotes">"</span><span class="hl-code">,
+    </span><span class="hl-quotes">"</span><span class="hl-string">url</span><span class="hl-quotes">"</span><span class="hl-code">: </span><span class="hl-quotes">"</span><span class="hl-string">https://www.runoob.com/css/</span><span class="hl-quotes">"</span><span class="hl-code">
+  </span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-brackets">]</span>
+
+<p>发送 JSON 数据：</p>
+
+<pre>
+xmlhttp.send(JSON.stringify({ "email": "admin@runoob.com", "response": { "name": "runoob" } }));</pre></div></section>
+<section class="ch" id="c13"><h2>13. Fetch API<a class="chsrc" href="https://www.runoob.com/ajax/fetch-api.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>
+Fetch API 是一种现代的、功能强大的网络请求工具，它允许你通过 JavaScript 异步地请求资源，而不需要使用传统的 XMLHttpRequest 对象。</p>
+<p>Fetch API 可以简洁地发起 HTTP 请求，并处理服务器的响应。</p>
+<p>Fetch API 基于 Promise 设计，使得异步操作更加简洁和易于理解。</p>
+<p><strong>Fetch 优点：</strong></p>
+<ul><li>基于 <strong>Promises</strong>，代码更加简洁和易读。</li><li>更好的错误处理机制：只在网络错误（如无法连接服务器）时返回 <code>catch</code>，而非状态码错误。</li><li>支持多种数据格式（JSON、文本、二进制等）。</li><li>可以处理跨域请求，通过 <code>CORS</code> 机制配置。</li></ul>
+<h4>fetch 的基本用法</h4><p>
+fetch 的语法相当简洁，最基本的形式是：</p>
+
+<pre>fetch(url)
+  .then(response =&gt; response.json()) // 解析 JSON 数据
+  .then(data =&gt; console.log(data))   // 处理数据
+  .catch(error =&gt; console.error('Error:', error)); // 错误处理</pre>
+<p><strong>参数：</strong></p><ul><li><strong>url</strong>：要发送请求的目标 URL。</li><li><strong>options</strong>（可选）：可以指定请求方法（GET、POST 等）、请求头、请求体等内容。</li></ul>
+<h4>
+返回值</h4><p>
+返回一个 Promise 对象，Promise 在请求成功时返回 Response 对象，在请求失败时被拒绝。</p>
+<hr>
+<h3>使用 Fetch</h3>
+<p><strong>1、基本 GET 请求：</strong></p>
+
+<h3>实例</h3> 
+fetch<span style="color:#009900">(</span><span style="color:#3366CC">'https://api.example.com/data'</span><span style="color:#009900">)</span><br>
+    .<span style="color:#660066">then</span><span style="color:#009900">(</span>response <span style="color:#339933">=&gt;</span> response.<span style="color:#660066">json</span><span style="color:#009900">(</span><span style="color:#009900">)</span><span style="color:#009900">)</span><br>
+    .<span style="color:#660066">then</span><span style="color:#009900">(</span>data <span style="color:#339933">=&gt;</span> console.<span style="color:#660066">log</span><span style="color:#009900">(</span>data<span style="color:#009900">)</span><span style="color:#009900">)</span><br>
+    .<span style="color:#000066">catch</span><span style="color:#009900">(</span>error <span style="color:#339933">=&gt;</span> console.<span style="color:#660066">error</span><span style="color:#009900">(</span><span style="color:#3366CC">'Error:'</span><span style="color:#339933">,</span> error<span style="color:#009900">)</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<p>
+在这个例子中，fetch 默认执行 GET 请求，返回的 response 是一个 Response 对象，通过调用 .json() 方法来解析 JSON 数据。</p>
+<p><strong>
+2、发送 POST 请求：</strong></p>
+
+<h3>实例</h3> 
+fetch<span style="color:#009900">(</span><span style="color:#3366CC">'https://api.example.com/data'</span><span style="color:#339933">,</span> <span style="color:#009900">{</span><br>
+    method<span style="color:#339933">:</span> <span style="color:#3366CC">'POST'</span><span style="color:#339933">,</span> <span style="color:#006600">// 指定请求方法</span><br>
+    headers<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+        <span style="color:#3366CC">'Content-Type'</span><span style="color:#339933">:</span> <span style="color:#3366CC">'application/json'</span><br>
+    <span style="color:#009900">}</span><span style="color:#339933">,</span><br>
+    body<span style="color:#339933">:</span> JSON.<span style="color:#660066">stringify</span><span style="color:#009900">(</span><span style="color:#009900">{</span><br>
+        key<span style="color:#339933">:</span> <span style="color:#3366CC">'value'</span><br>
+    <span style="color:#009900">}</span><span style="color:#009900">)</span><br>
+<span style="color:#009900">}</span><span style="color:#009900">)</span><br>
+.<span style="color:#660066">then</span><span style="color:#009900">(</span>response <span style="color:#339933">=&gt;</span> response.<span style="color:#660066">json</span><span style="color:#009900">(</span><span style="color:#009900">)</span><span style="color:#009900">)</span><br>
+.<span style="color:#660066">then</span><span style="color:#009900">(</span>data <span style="color:#339933">=&gt;</span> console.<span style="color:#660066">log</span><span style="color:#009900">(</span>data<span style="color:#009900">)</span><span style="color:#009900">)</span><br>
+.<span style="color:#000066">catch</span><span style="color:#009900">(</span>error <span style="color:#339933">=&gt;</span> console.<span style="color:#660066">error</span><span style="color:#009900">(</span><span style="color:#3366CC">'Error:'</span><span style="color:#339933">,</span> error<span style="color:#009900">)</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+
+<p>这里，我们通过设置 method 为 'POST' 来发送 POST 请求，并在请求体 body 中发送 JSON 格式的数据。</p>
+<p><strong>
+3、处理响应状态：</strong></p>
+
+<h3>实例</h3> 
+fetch<span style="color:#009900">(</span><span style="color:#3366CC">'https://api.example.com/data'</span><span style="color:#009900">)</span><br>
+    .<span style="color:#660066">then</span><span style="color:#009900">(</span>response <span style="color:#339933">=&gt;</span> <span style="color:#009900">{</span><br>
+        <span style="color:#000066">if</span> <span style="color:#009900">(</span><span style="color:#339933">!</span>response.<span style="color:#660066">ok</span><span style="color:#009900">)</span> <span style="color:#009900">{</span><br>
+            <span style="color:#000066">throw</span> <span style="color:#000066">new</span> Error<span style="color:#009900">(</span><span style="color:#3366CC">'Network response was not ok '</span> <span style="color:#339933">+</span> response.<span style="color:#660066">statusText</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+        <span style="color:#009900">}</span><br>
+        <span style="color:#000066">return</span> response.<span style="color:#660066">json</span><span style="color:#009900">(</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+    <span style="color:#009900">}</span><span style="color:#009900">)</span><br>
+    .<span style="color:#660066">then</span><span style="color:#009900">(</span>data <span style="color:#339933">=&gt;</span> console.<span style="color:#660066">log</span><span style="color:#009900">(</span>data<span style="color:#009900">)</span><span style="color:#009900">)</span><br>
+    .<span style="color:#000066">catch</span><span style="color:#009900">(</span>error <span style="color:#339933">=&gt;</span> console.<span style="color:#660066">error</span><span style="color:#009900">(</span><span style="color:#3366CC">'Error:'</span><span style="color:#339933">,</span> error<span style="color:#009900">)</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<p>
+在处理响应时，我们首先检查响应状态是否成功（response.ok），如果不成功则抛出错误。</p>
+<p><strong>
+4、发送带凭据的请求：</strong></p>
+
+<h3>实例</h3> 
+fetch<span style="color:#009900">(</span><span style="color:#3366CC">'https://api.example.com/data'</span><span style="color:#339933">,</span> <span style="color:#009900">{</span><br>
+    credentials<span style="color:#339933">:</span> <span style="color:#3366CC">'include'</span> <span style="color:#006600">// 包括 cookies 在请求中</span><br>
+<span style="color:#009900">}</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+
+<p>使用 credentials: 'include' 可以在跨域请求中发送 cookies。</p>
+<p><strong>
+5、使用 Request 和 Response 对象：</strong></p>
+
+<h3>实例</h3> 
+<span style="color:#000066">const</span> request <span style="color:#339933">=</span> <span style="color:#000066">new</span> Request<span style="color:#009900">(</span><span style="color:#3366CC">'flowers.jpg'</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+fetch<span style="color:#009900">(</span>request<span style="color:#009900">)</span><br>
+    .<span style="color:#660066">then</span><span style="color:#009900">(</span>response <span style="color:#339933">=&gt;</span> response.<span style="color:#660066">blob</span><span style="color:#009900">(</span><span style="color:#009900">)</span><span style="color:#009900">)</span><br>
+    .<span style="color:#660066">then</span><span style="color:#009900">(</span>imageBlob <span style="color:#339933">=&gt;</span> <span style="color:#009900">{</span><br>
+        <span style="color:#000066">const</span> imageObjectUrl <span style="color:#339933">=</span> URL.<span style="color:#660066">createObjectURL</span><span style="color:#009900">(</span>imageBlob<span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+        img.<span style="color:#660066">src</span> <span style="color:#339933">=</span> imageObjectUrl<span style="color:#339933">;</span><br>
+    <span style="color:#009900">}</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<p>
+你可以创建 Request 对象来定制请求，fetch 会返回一个 Response 对象，你可以用它来获取不同类型的响应体，如 blob、text、json 等。</p>
+<p><strong>
+6、错误处理：</strong></p>
+
+<h3>实例</h3> 
+fetch<span style="color:#009900">(</span><span style="color:#3366CC">'https://api.example.com/data'</span><span style="color:#009900">)</span><br>
+    .<span style="color:#660066">then</span><span style="color:#009900">(</span>response <span style="color:#339933">=&gt;</span> <span style="color:#009900">{</span><br>
+        <span style="color:#000066">if</span> <span style="color:#009900">(</span>response.<span style="color:#660066">ok</span><span style="color:#009900">)</span> <span style="color:#009900">{</span><br>
+            <span style="color:#000066">return</span> response.<span style="color:#660066">json</span><span style="color:#009900">(</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+        <span style="color:#009900">}</span><br>
+        <span style="color:#000066">throw</span> <span style="color:#000066">new</span> Error<span style="color:#009900">(</span><span style="color:#3366CC">'Something went wrong'</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+    <span style="color:#009900">}</span><span style="color:#009900">)</span><br>
+    .<span style="color:#660066">then</span><span style="color:#009900">(</span>data <span style="color:#339933">=&gt;</span> console.<span style="color:#660066">log</span><span style="color:#009900">(</span>data<span style="color:#009900">)</span><span style="color:#009900">)</span><br>
+    .<span style="color:#000066">catch</span><span style="color:#009900">(</span>error <span style="color:#339933">=&gt;</span> console.<span style="color:#660066">error</span><span style="color:#009900">(</span><span style="color:#3366CC">'Error:'</span><span style="color:#339933">,</span> error<span style="color:#009900">)</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<p>
+在链式调用中，任何地方抛出的错误都会被 .catch() 捕获。</p>
+<p><strong>
+7、设置请求头</strong></p>
+<p>可以通过 headers 属性为请求添加自定义的 HTTP 头信息，例如 Content-Type、Authorization 等。</p>
+
+<h3>实例</h3> 
+fetch<span style="color:#009900">(</span><span style="color:#3366CC">'https://example.com/api'</span><span style="color:#339933">,</span> <span style="color:#009900">{</span><br>
+    method<span style="color:#339933">:</span> <span style="color:#3366CC">'POST'</span><span style="color:#339933">,</span><br>
+    headers<span style="color:#339933">:</span> <span style="color:#009900">{</span><br>
+        <span style="color:#3366CC">'Content-Type'</span><span style="color:#339933">:</span> <span style="color:#3366CC">'application/json'</span><span style="color:#339933">,</span><br>
+        <span style="color:#3366CC">'Authorization'</span><span style="color:#339933">:</span> <span style="color:#3366CC">'Bearer your-token'</span><br>
+    <span style="color:#009900">}</span><span style="color:#339933">,</span><br>
+    body<span style="color:#339933">:</span> JSON.<span style="color:#660066">stringify</span><span style="color:#009900">(</span><span style="color:#009900">{</span> name<span style="color:#339933">:</span> <span style="color:#3366CC">'John'</span><span style="color:#339933">,</span> age<span style="color:#339933">:</span> <span style="color:#CC0000">30</span> <span style="color:#009900">}</span><span style="color:#009900">)</span><br>
+<span style="color:#009900">}</span><span style="color:#009900">)</span><br>
+.<span style="color:#660066">then</span><span style="color:#009900">(</span>response <span style="color:#339933">=&gt;</span> response.<span style="color:#660066">json</span><span style="color:#009900">(</span><span style="color:#009900">)</span><span style="color:#009900">)</span><br>
+.<span style="color:#660066">then</span><span style="color:#009900">(</span>data <span style="color:#339933">=&gt;</span> console.<span style="color:#660066">log</span><span style="color:#009900">(</span>data<span style="color:#009900">)</span><span style="color:#009900">)</span><br>
+.<span style="color:#000066">catch</span><span style="color:#009900">(</span>error <span style="color:#339933">=&gt;</span> console.<span style="color:#660066">error</span><span style="color:#009900">(</span><span style="color:#3366CC">'Error:'</span><span style="color:#339933">,</span> error<span style="color:#009900">)</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+
+<p><strong>8、处理非 200 的响应状态</strong></p><p>
+fetch 不会自动将 HTTP 错误状态（如 404 或 500）作为拒绝的 Promise，仍然需要检查响应状态。</p>
+
+<h3>实例</h3> 
+fetch<span style="color:#009900">(</span><span style="color:#3366CC">'https://example.com/api'</span><span style="color:#009900">)</span><br>
+  .<span style="color:#660066">then</span><span style="color:#009900">(</span>response <span style="color:#339933">=&gt;</span> <span style="color:#009900">{</span><br>
+    <span style="color:#000066">if</span> <span style="color:#009900">(</span><span style="color:#339933">!</span>response.<span style="color:#660066">ok</span><span style="color:#009900">)</span> <span style="color:#009900">{</span> <span style="color:#006600">// 检查响应状态</span><br>
+      <span style="color:#000066">throw</span> <span style="color:#000066">new</span> Error<span style="color:#009900">(</span><span style="color:#3366CC">'Network response was not ok '</span> <span style="color:#339933">+</span> response.<span style="color:#660066">statusText</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+    <span style="color:#009900">}</span><br>
+    <span style="color:#000066">return</span> response.<span style="color:#660066">json</span><span style="color:#009900">(</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+  <span style="color:#009900">}</span><span style="color:#009900">)</span><br>
+  .<span style="color:#660066">then</span><span style="color:#009900">(</span>data <span style="color:#339933">=&gt;</span> console.<span style="color:#660066">log</span><span style="color:#009900">(</span>data<span style="color:#009900">)</span><span style="color:#009900">)</span><br>
+  .<span style="color:#000066">catch</span><span style="color:#009900">(</span>error <span style="color:#339933">=&gt;</span> console.<span style="color:#660066">error</span><span style="color:#009900">(</span><span style="color:#3366CC">'Fetch error:'</span><span style="color:#339933">,</span> error<span style="color:#009900">)</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+
+<p><strong>9、发送表单数据</strong></p><p>
+可以使用 FormData 对象将表单数据发送给服务器：</p>
+
+<h3>实例</h3> 
+<span style="color:#000066">const</span> formData <span style="color:#339933">=</span> <span style="color:#000066">new</span> FormData<span style="color:#009900">(</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+formData.<span style="color:#660066">append</span><span style="color:#009900">(</span><span style="color:#3366CC">'username'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'John'</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+formData.<span style="color:#660066">append</span><span style="color:#009900">(</span><span style="color:#3366CC">'email'</span><span style="color:#339933">,</span> <span style="color:#3366CC">'john@example.com'</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<br>
+fetch<span style="color:#009900">(</span><span style="color:#3366CC">'https://example.com/api/form'</span><span style="color:#339933">,</span> <span style="color:#009900">{</span><br>
+    method<span style="color:#339933">:</span> <span style="color:#3366CC">'POST'</span><span style="color:#339933">,</span><br>
+    body<span style="color:#339933">:</span> formData<br>
+<span style="color:#009900">}</span><span style="color:#009900">)</span><br>
+.<span style="color:#660066">then</span><span style="color:#009900">(</span>response <span style="color:#339933">=&gt;</span> response.<span style="color:#660066">text</span><span style="color:#009900">(</span><span style="color:#009900">)</span><span style="color:#009900">)</span><br>
+.<span style="color:#660066">then</span><span style="color:#009900">(</span>data <span style="color:#339933">=&gt;</span> console.<span style="color:#660066">log</span><span style="color:#009900">(</span>data<span style="color:#009900">)</span><span style="color:#009900">)</span><br>
+.<span style="color:#000066">catch</span><span style="color:#009900">(</span>error <span style="color:#339933">=&gt;</span> console.<span style="color:#660066">error</span><span style="color:#009900">(</span><span style="color:#3366CC">'Error:'</span><span style="color:#339933">,</span> error<span style="color:#009900">)</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+
+<p><strong>10、跨域请求</strong></p>
+<p>如果需要进行跨域请求，可以在服务器端设置 CORS（Cross-Origin Resource Sharing）。在前端，也可以通过 credentials 选项来指定是否发送 cookies 等凭据。</p>
+
+<h3>实例</h3> 
+fetch<span style="color:#009900">(</span><span style="color:#3366CC">'https://example.com/api'</span><span style="color:#339933">,</span> <span style="color:#009900">{</span><br>
+    method<span style="color:#339933">:</span> <span style="color:#3366CC">'GET'</span><span style="color:#339933">,</span><br>
+    credentials<span style="color:#339933">:</span> <span style="color:#3366CC">'include'</span> <span style="color:#006600">// 允许跨域请求时携带 cookie</span><br>
+<span style="color:#009900">}</span><span style="color:#009900">)</span><br>
+.<span style="color:#660066">then</span><span style="color:#009900">(</span>response <span style="color:#339933">=&gt;</span> response.<span style="color:#660066">json</span><span style="color:#009900">(</span><span style="color:#009900">)</span><span style="color:#009900">)</span><br>
+.<span style="color:#660066">then</span><span style="color:#009900">(</span>data <span style="color:#339933">=&gt;</span> console.<span style="color:#660066">log</span><span style="color:#009900">(</span>data<span style="color:#009900">)</span><span style="color:#009900">)</span><br>
+.<span style="color:#000066">catch</span><span style="color:#009900">(</span>error <span style="color:#339933">=&gt;</span> console.<span style="color:#660066">error</span><span style="color:#009900">(</span><span style="color:#3366CC">'Error:'</span><span style="color:#339933">,</span> error<span style="color:#009900">)</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+
+<hr>
+<h3>
+Fetch 与 PHP</h3><p>
+在 PHP 中使用 AJAX 请求与在其他后端语言中使用 AJAX 没有本质区别。PHP 脚本会在服务器端接收请求、处理数据，然后返回响应。</p><p>客户端 JavaScript 代码使用 Fetch API 发送请求和处理响应。</p><p>
+
+例如，如果你有一个 PHP 文件 server.php，它接收一个 GET 请求并返回一些数据，你可以这样使用 Fetch：</p>
+
+<h3>实例</h3> 
+fetch<span style="color:#009900">(</span><span style="color:#3366CC">'server.php?query=123'</span><span style="color:#009900">)</span><br>
+    .<span style="color:#660066">then</span><span style="color:#009900">(</span>response <span style="color:#339933">=&gt;</span> response.<span style="color:#660066">json</span><span style="color:#009900">(</span><span style="color:#009900">)</span><span style="color:#009900">)</span><br>
+    .<span style="color:#660066">then</span><span style="color:#009900">(</span>data <span style="color:#339933">=&gt;</span> console.<span style="color:#660066">log</span><span style="color:#009900">(</span>data<span style="color:#009900">)</span><span style="color:#009900">)</span><br>
+    .<span style="color:#000066">catch</span><span style="color:#009900">(</span>error <span style="color:#339933">=&gt;</span> console.<span style="color:#660066">error</span><span style="color:#009900">(</span><span style="color:#3366CC">'Error:'</span><span style="color:#339933">,</span> error<span style="color:#009900">)</span><span style="color:#009900">)</span><span style="color:#339933">;</span><br>
+<p>
+在 PHP 端，你将解析请求参数并返回响应：</p>
+
+<h3>实例</h3> 
+<span style="color:#170">&lt;?php</span><br>
+<span style="color:#170"><span style="color:#66cc66">//</span> server.php</span><br>
+<span style="color:#170">$queryString <span style="color:#66cc66">=</span> $_SERVER<span style="color:#66cc66">[</span><span style="color:#a11">'QUERY_STRING'</span><span style="color:#66cc66">]</span>;</span><br>
+<span style="color:#170">parse_str<span style="color:#66cc66">(</span>$queryString, $params<span style="color:#66cc66">)</span>;</span><br>
+<span style="color:#170">$responseData <span style="color:#66cc66">=</span> array<span style="color:#66cc66">(</span><span style="color:#a11">'status'</span> <span style="color:#66cc66">=</span>&gt;</span> 'success', 'data' =&gt; $params);<br>
+echo json_encode($responseData);<br>
+?&gt;<br>
+<p>
+这样，你就可以在客户端使用 Fetch API 与 PHP 后端进行通信了。</p></div></section>
+<footer><p>离线版 · 内容抓取自 runoob.com，仅用于个人离线阅读；页面结构与广告已去除，原文版权归菜鸟教程及原作者。</p><p><a href="index.html">← 返回总索引</a></p></footer></body></html>

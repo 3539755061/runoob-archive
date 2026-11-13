@@ -1,0 +1,4675 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>jQuery Mobile 教程 · 离线版</title>
+<link rel="stylesheet" href="css/offline.css">
+</head><body>
+<nav class="topbar"><a href="index.html">← 返回总索引</a><span>·</span><span>E 移动与桌面</span>
+<span>·</span><span>32 章</span></nav>
+<h1>jQuery Mobile 教程</h1>
+<p class="docmeta">来源：<a class="ext" href="https://www.runoob.com/jquerymobile/jquerymobile-tutorial.html">https://www.runoob.com/jquerymobile/jquerymobile-tutorial.html</a><br>
+适用性：<b style="color:#c62828">弃用</b>
+｜ 时效：历史 ｜ 抓取：2026-11-13 ｜ 本页为离线阅读版，章节按教程侧栏顺序合并，广告与评论已去除。</p>
+<details class="toc-ch"><summary>本篇目录（32 章，点击展开）</summary><ol>
+<li><a href="#c1">jQuery Mobile 教程</a></li>
+<li><a href="#c2">jQuery Mobile 简介</a></li>
+<li><a href="#c3">jQuery Mobile 安装</a></li>
+<li><a href="#c4">jQuery Mobile 页面</a></li>
+<li><a href="#c5">jQuery Mobile 过渡</a></li>
+<li><a href="#c6">jQuery Mobile 按钮</a></li>
+<li><a href="#c7">jQuery Mobile 按钮图标</a></li>
+<li><a href="#c8">jQuery Mobile 弹窗</a></li>
+<li><a href="#c9">jQuery Mobile 工具栏</a></li>
+<li><a href="#c10">jQuery Mobile 导航栏</a></li>
+<li><a href="#c11">jQuery Mobile 面板</a></li>
+<li><a href="#c12">jQuery Mobile 可折叠块</a></li>
+<li><a href="#c13">jQuery Mobile 表格</a></li>
+<li><a href="#c14">jQuery Mobile 网格</a></li>
+<li><a href="#c15">jQuery Mobile 列表视图</a></li>
+<li><a href="#c16">jQuery Mobile 列表内容</a></li>
+<li><a href="#c17">jQuery Mobile 过滤</a></li>
+<li><a href="#c18">jQuery Mobile 表单基础</a></li>
+<li><a href="#c19">jQuery Mobile 表单输入</a></li>
+<li><a href="#c20">jQuery Mobile 表单选择</a></li>
+<li><a href="#c21">jQuery Mobile 表单滑动条</a></li>
+<li><a href="#c22">jQuery Mobile 主题</a></li>
+<li><a href="#c23">jQuery Mobile 事件</a></li>
+<li><a href="#c24">jQuery Mobile 触摸事件</a></li>
+<li><a href="#c25">jQuery Mobile 滚屏事件</a></li>
+<li><a href="#c26">jQuery Mobile 方向改变事件</a></li>
+<li><a href="#c27">jQuery Mobile 实例</a></li>
+<li><a href="#c28">jQuery Mobile Data 属性</a></li>
+<li><a href="#c29">jQuery Mobile 图标</a></li>
+<li><a href="#c30">jQuery Mobile 事件</a></li>
+<li><a href="#c31">jQuery Mobile页面事件</a></li>
+<li><a href="#c32">jQuery Mobile CSS 类</a></li>
+</ol></details>
+<section class="ch" id="c1"><h2>1. jQuery Mobile 教程<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-tutorial.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><br>
+<img src="img/8a79c6760f820552.jpg" alt="jquerymobile" loading="lazy">
+<p>jQuery Mobile 是用于创建移动 Web 应用的前端开发框架。</p>
+<p>jQuery Mobile 可以应用于智能手机与平板电脑。</p>
+<p>jQuery Mobile 使用 HTML5 &amp; CSS3 最小的脚本来布局网页。</p>
+
+<br><br><h3>在线实例</h3>
+<p>通过我们的在线编辑器，你可以编辑代码，并查看运行结果。</p>
+
+<h3>实例</h3>
+
+<span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">data-role</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">page</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">pageone</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+  </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">data-role</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">header</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">h1</span><span class="hl-brackets">&gt;</span><span class="hl-code">页面标题</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">h1</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+  </span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+ 
+  </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">data-role</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">content</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">p</span><span class="hl-brackets">&gt;</span><span class="hl-code">页面内容</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">p</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+  </span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+ 
+  </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">data-role</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">footer</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">h1</span><span class="hl-brackets">&gt;</span><span class="hl-code">页面底部内容</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">h1</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+  </span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span> 
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_example" class="ext">尝试一下 »</a>
+
+<p><b>点击 "尝试一下" 按钮查看实例运行结果。</b></p>
+
+<h3>jQuery Mobile 实例</h3>
+<p>通过实例学习！在菜鸟教程中你可以通过大量的jQuery Mobile在线实例来学习该技术。</p>
+<ul>
+<li><a href="jquerymobile-examples.html">jQuery Mobile 实例</a></li>
+</ul>
+<br><h3>jQuery Mobile 参考手册</h3>
+<p>在菜鸟教程中你可以查看完整的 jQuery Mobile 属性参考手册。</p>
+<ul>
+<li><a href="jquerymobile-ref-data.html">jQuery Mobile Data 参考手册</a></li>
+</ul>
+<br></div></section>
+<section class="ch" id="c2"><h2>2. jQuery Mobile 简介<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-intro.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>jQuery Mobile 是一个用于创建移动端web应用的的前端框架。</p>
+<hr>
+<h3>学习本教程前你需要先了解</h3>
+<p>在开始学习 jQuery Mobile 前, 你应该了解一下基础知识：</p>
+<ul>
+<li>HTML</li>
+	<li>CSS</li>
+	<li>jQuery</li>
+</ul>
+<p>如果你想学习这些知识，你可以访问本站的<a href="https://www.runoob.com//www.runoob.com/" class="ext">首页</a>。</p>
+<hr>
+<h3>什么是 jQuery Mobile?</h3>
+<p>jQuery Mobile 是针对触屏智能手机与平板电脑的网页开发框架。</p>
+<p>jQuery Mobile 工作于所有主流的智能手机和平板电脑上：</p>
+<img src="img/13f420c5806b3e23.jpg" loading="lazy"><p>jQuery Mobile 构建于 jQuery 以及 jQuery UI类库之上，如果您了解 jQuery，您可以很容易的学习 jQuery Mobile。 </p>
+<p>jQuery Mobile 使用了极少的 HTML5、CSS3、JavaScript 和  AJAX 脚本代码来完成页面的布局渲染。</p>
+<hr>
+<h3>为什么使用 jQuery Mobile?</h3>
+<p>通过使用jQuery Mobile 可以 "写更少的代码，做更多的事情" : 它可以通过一个灵活及简单的方式来布局网页，且兼容所有移动设备。</p>
+
+<table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="lamp" loading="lazy"></th>
+<td>
+不同设备使用了不同开发语言，jQuery Mobile可以很好的兼容不同的设备或操作系统：
+<ul>
+<li>Android 和  Blackberry（黑莓） 使用JAVA语言。</li>
+	<li>iOS 使用 Objective C 语言</li>
+	<li>Windows Phone 使用 C# 和 .net, 等。</li>
+</ul>
+<strong>jQuery Mobile 解决了不同设备兼容的问题，因为它只使用HTML，CSS和
+JavaScript，这是所有移动网络浏览器的标准！</strong>
+</td>
+</tr></table>
+<br><hr>
+<h3>最好的阅读体验</h3>
+<p>尽管jQuery Mobile兼容所有的移动设备，但是并不能完全兼容PC机（由于有限的CSS3支持）。</p>
+<p><strong>为了更好的阅读本教程，建议您使用 Google Chrome 浏览器。</strong></p></div></section>
+<section class="ch" id="c3"><h2>3. jQuery Mobile 安装<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-install.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>在你的网页中添加 jQuery Mobile </h3>
+<p>你可以通过以下几种方式将jQuery Mobile添加到你的网页中：</p>
+<ul>
+<li>从 CDN 中加载 jQuery Mobile  (推荐)</li>
+	<li> 从jQuerymobile.com 下载 jQuery Mobile库</li>
+</ul>
+<hr>
+<h3>从 CDN 中加载 jQuery Mobile</h3>
+<table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="lamp" loading="lazy"></th>
+<td>CDN的全称是Content Delivery Network，即内容分发网络。其基本思路是尽可能避开互联网上有可能影响数据传输速度和稳定性的瓶颈和环节，使内容传输的更快、更稳定。.</td>
+</tr></table>
+<p>使用 jQuery 内核, 你不需要在电脑上安装任何东西; 你仅仅需要在你的网页中加载以下层叠样式 (.css) 和  JavaScript 库 (.js) 就能够使用 jQuery Mobile:</p>
+
+<h3>jQuery Mobile CDN:</h3>
+
+&lt;head&gt;<br><br>&lt;!-- meta使用viewport以确保页面可自由缩放 --&gt;<br>&lt;meta name="viewport" content="width=device-width, 
+  initial-scale=1"&gt;<br><br>&lt;!-- 引入 jQuery Mobile 样式 --&gt;<br>
+  &lt;link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"&gt;<br>
+  <br>&lt;!-- 引入 jQuery 库 --&gt;<br>
+  &lt;script src="http://code.jquery.com/jquery-1.11.3.min.js"&gt;&lt;/script&gt;<br>
+  <br>&lt;!-- 引入 jQuery Mobile 库 --&gt;<br>
+  &lt;script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"&gt;&lt;/script&gt;<br><br>
+&lt;/head&gt;
+<br>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lib_jquery1" class="ext">尝试一下 »</a>
+
+<p>国内用户推荐使用百度CDN：</p>
+
+<h3>jQuery Mobile CDN(百度):</h3>
+
+&lt;head&gt;<br><br>&lt;!-- meta使用viewport以确保页面可自由缩放 --&gt;<br>&lt;meta name="viewport" content="width=device-width, 
+  initial-scale=1"&gt;<br><br>&lt;!-- 引入 jQuery Mobile 样式 --&gt;<br>
+  &lt;link rel="stylesheet" href="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css"&gt;<br>
+  <br>&lt;!-- 引入 jQuery 库 --&gt;<br>
+  &lt;script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"&gt;&lt;/script&gt;<br>
+  <br>&lt;!-- 引入 jQuery Mobile 库 --&gt;<br>
+  &lt;script src="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"&gt;&lt;/script&gt;<br><br>
+&lt;/head&gt;
+<br>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lib_jquery" class="ext">尝试一下 »</a>
+
+<p>本教程引用的库为百度 CDN 资源库。</p>
+<br><hr>
+<h3>下载 jQuery Mobile</h3>
+<p>如果你想将 jQuery Mobile 放于你的主机中,你可以从
+<a href="http://jquerymobile.com/download/" class="ext">jQuerymobile.com</a>下载该文件。</p>
+
+<pre>
+&lt;head&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+&lt;link rel="stylesheet" href="jquery.mobile-1.4.5.css"&gt;
+&lt;script src="jquery.js"&gt;&lt;/script&gt;
+&lt;script src="jquery.mobile-1.4.5.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+</pre>
+<p><b>提示：</b> 将下载的文件放置于与网页同一目录下。<br></p>
+<table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="lamp" loading="lazy"></th>
+<td>
+<b>你是否想知道为什么在 &lt;script&gt; 标签中 没有插入 type="text/javascript" ?</b><br><br>
+在 HTML5 已经不需要该属性。 JavaScript 在所有现代浏览器中是 HTML5 的默认脚本语言！</td>
+</tr></table></div></section>
+<section class="ch" id="c4"><h2>4. jQuery Mobile 页面<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-pages.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>开始学习 jQuery Mobile</h3>
+
+<table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="lamp" loading="lazy"></th>
+<td>
+尽管jQuery Mobile兼容所有的移动设备，但是并不能完全兼容PC机（由于有限的CSS3支持）。
+<br><br>为了更好的阅读本教程，建议您使用 Google Chrome 浏览器。</td>
+</tr></table>
+<br>
+<h3>实例</h3>
+
+	&lt;body&gt;<br>&lt;div <span class="marked">data-role="page"</span>&gt;<br><br>  &lt;div 
+  <span class="marked">data-role="header"</span>&gt;<br>    &lt;h1&gt;欢迎来到我的主页&lt;/h1&gt;<br>  &lt;/div&gt;<br><br>  
+  &lt;div <span class="marked">data-role="main" class="ui-content"</span>&gt;<br>    &lt;p&gt;我现在是一个移动端开发者!!&lt;/p&gt;<br>  
+  &lt;/div&gt;<br><br>  &lt;div <span class="marked">data-role="footer"</span>&gt;<br>    &lt;h1&gt;底部文本&lt;/h1&gt;<br>  &lt;/div&gt;<br><br>&lt;/div&gt;<br>&lt;/body&gt;
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_start" class="ext">尝试一下 »</a>
+
+<h4>实例解析：</h4>
+<ul>
+	<li>data-role="page" 是在浏览器中显示的页面。</li>
+	<li>data-role="header" 是在页面顶部创建的工具条 (通常用于标题或者搜索按钮)</li>
+	<li>data-role="main" 定义了页面的内容，比如文本， 图片，表单，按钮等。</li>
+	<li>"ui-content" 类用于在页面添加内边距和外边距。</li>
+	<li>data-role="footer" 用于创建页面底部工具条。</li>
+	<li>在这些容器中你可以添加任何 HTML 元素 - 段落, 图片, 标题, 列表等。</li>
+</ul>
+<table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="lamp" loading="lazy"></th>
+<td>jQuery Mobile 依赖 HTML5 data-* 属性来支持各种 UI 元素、过渡和页面结构。不支持它们的浏览器将以静默方式弃用它们。</td>
+</tr></table>
+<br><hr>
+<h3>在页面中添加 jQuery Mobile</h3>
+<p>使用 jQuery Mobile, 你可以在单个 HTML 文件中创建多个不同的页面。</p>
+<p>你可以使用不同的href属性来区分使用同一个唯一id的页面：</p>
+
+<h3>实例</h3>
+
+	&lt;div data-role="page" <span class="marked">id="pageone"</span>&gt;<br>
+	  &lt;div data-role="main" class="ui-content"&gt;<br>    &lt;a <span class="marked">href="#pagetwo"</span>&gt;跳转到第二个页面&lt;/a&gt;<br>  &lt;/div&gt;<br>&lt;/div&gt;<br><br>&lt;div data-role="page" 
+	<span class="marked">id="pagetwo"</span>&gt;<br>  &lt;div 
+	data-role="main" class="ui-content"&gt;<br>    &lt;a <span class="marked">href="#pageone"</span>&gt;跳转到第一个页面&lt;/a&gt;<br>  &lt;/div&gt;<br>&lt;/div&gt;
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_pages" class="ext">尝试一下 »</a>
+
+<p><strong>注意：</strong> 当web应用有大量的内容（文本，图片，脚本等）将会严重影响加载时间。如果你不想使用内页链接可以使用外部文件：</p>
+<pre>
+&lt;a href="externalfile.html"&gt;访问外部文件&lt;/a&gt;
+</pre>
+<hr>
+<h3>页面作为对话框使用</h3>
+<p>对话框是用于显示页面信息显示或者表单信息的输入。</p>
+<p>在链接中添加data-rel="dialog"让用户点击链接时弹出对话框:</p>
+
+<h3>实例</h3>
+
+	&lt;div data-role="page" id="pageone"&gt;<br>  &lt;div 
+  data-role="main" class="ui-content"&gt;<br>    &lt;a href="#pagetwo"&gt;跳转到第二个页面&lt;/a&gt;<br>  
+  &lt;/div&gt;<br>&lt;/div&gt;<br><br>&lt;div data-role="page" 
+  <span class="marked">data-dialog="true"</span> id="pagetwo"&gt;<br>  &lt;div 
+  data-role="main" class="ui-content"&gt;<br>    
+  &lt;a href="#pageone"&gt;跳转到第一个页面&lt;/a&gt;<br>  &lt;/div&gt;<br>&lt;/div&gt;
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_dialog" class="ext">尝试一下 »</a></div></section>
+<section class="ch" id="c5"><h2>5. jQuery Mobile 过渡<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-transitions.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>jQuery Mobile 包含 CSS3 效果让您选择页面打开的方式。</p>
+<hr>
+<h3>jQuery Mobile 页面切换效果</h3>
+<p>jQuery Mobile 提供了各种页面切换到下一个页面的效果。</p>
+<p><strong>注意：</strong>为了实现页面切换效果，浏览器必须支持 CSS3 3D 切换：</p>
+<table>
+  <tbody><tr>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>                
+  </tr>
+  <tr>
+    <td>12.0</td>
+    <td>10.0</td>
+    <td>16.0</td>
+    <td>4.0</td>
+    <td>15.0</td>
+  </tr>
+</tbody></table>
+<p>
+表格中的数字为支持 3D 旋转的最小浏览器版本号。</p>
+<p>
+页面过渡效果可被应用于任何使用 data-transition 属性的链接或表单：
+</p>
+
+<p>页面切换效果可被应用于任何使用 data-transition 属性的链接或表单提交：</p>
+<pre>
+&lt;a href="#anylink" data-transition="slide"&gt;切换到第二个页面&lt;/a&gt;
+</pre>
+<p>下面的表格显示了通过使用 data-transition 属性后可用的页面切换：</p>
+<table>
+  <tbody><tr>
+    <th>过渡</th>
+    <th>描述</th>
+    <th>页面</th>    
+    <th>对话框</th>  
+  </tr>  
+  <tr>
+    <td>fade</td>
+    <td>默认。淡入到下一页</td>
+    <td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_trans_fade" class="ext">尝试一下</a></td>
+    <td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_trans_fade2" class="ext">尝试一下</a></td>
+  </tr>
+  <tr>
+    <td>flip</td>
+    <td>从后向前翻转到下一页</td>
+    <td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_trans_flip" class="ext">尝试一下</a></td>
+    <td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_trans_flip2" class="ext">尝试一下</a></td> 
+ </tr>
+  <tr>
+    <td>flow</td>
+    <td>抛出当前页，进入下一页</td>
+    <td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_trans_flow" class="ext">尝试一下</a></td>
+    <td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_trans_flow2" class="ext">尝试一下</a></td>
+  </tr>
+  <tr>
+    <td>pop</td>
+    <td>像弹出窗口那样转到下一页。</td>
+    <td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_trans_pop" class="ext">尝试一下</a></td>
+    <td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_trans_pop2" class="ext">尝试一下</a></td>
+  </tr>
+   <tr>
+    <td>slide</td>
+    <td>从右向左滑动到下一页。</td>
+    <td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_trans_slide" class="ext">尝试一下</a></td>
+    <td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_trans_slide2" class="ext">尝试一下</a></td>
+  </tr>
+ <tr>
+    <td>slidefade</td>
+    <td>从右向左滑动并淡入到下一页。</td>
+    <td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_trans_slidefade" class="ext">尝试一下</a></td>
+    <td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_trans_slidefade2" class="ext">尝试一下</a></td>
+  </tr>
+ <tr>
+    <td>slideup</td>
+    <td>从下到上滑动到下一页。</td>
+    <td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_trans_slideup" class="ext">尝试一下</a></td>
+    <td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_trans_slideup2" class="ext">尝试一下</a></td>
+  </tr>
+ <tr>
+    <td>slidedown</td>
+    <td>从上到下滑动到下一页。 </td>
+    <td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_trans_slidedown" class="ext">尝试一下</a></td>
+    <td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_trans_slidedown2" class="ext">尝试一下</a></td>
+  </tr>
+   <tr>
+    <td>turn</td>
+    <td>转向下一页。</td>
+    <td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_trans_turn" class="ext">尝试一下</a></td>
+    <td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_trans_turn2" class="ext">尝试一下</a></td>
+  </tr>
+ <tr>
+    <td>none</td>
+    <td>无过渡效果。</td>
+    <td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_trans_none" class="ext">尝试一下</a></td>
+    <td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_trans_none2" class="ext">尝试一下</a></td>
+  </tr>
+</tbody></table>
+<br><table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="lamp" loading="lazy"></th>
+    <td>在 jQuery Mobile 的所有链接上，默认使用淡入淡出的效果（如果浏览器支持）。
+    </td>
+  </tr></table>
+<p><strong>提示：</strong>上面的所有效果支持后退行为。例如，如果您想要页面从左向右滑动，而不是从右向左滑动，请使用带有 "reverse" 值的 data-direction 属性。在后退按钮上这是默认的。</p>
+
+<h3>实例</h3>
+
+	&lt;a href="#pagetwo" data-transition="slide" 
+	<span class="marked">data-direction="reverse"</span>&gt;切换&lt;/a&gt;
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_trans_reverse" class="ext">尝试一下 »</a></div></section>
+<section class="ch" id="c6"><h2>6. jQuery Mobile 按钮<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-buttons.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>Mobile 应用程序是建立在您想要显示的简单的点击事物上。</p>
+<hr>
+<br>
+
+<br><hr>
+<h3>在 jQuery Mobile 中创建按钮</h3>
+<p>在 jQuery Mobile 中，按钮可通过三种方式创建：</p>
+<ul>
+<li>使用 &lt;button&gt; 元素</li>
+	<li>使用 &lt;input&gt; 元素</li>
+	<li>使用带有 data-role="button" 的 &lt;a&gt; 元素</li>
+</ul>
+
+	<h3>&lt;button&gt;</h3>
+
+	&lt;button&gt;按钮&lt;/button&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_button_button" class="ext">尝试一下 »</a>
+
+<br>
+	<h3>&lt;input&gt;</h3>
+
+	&lt;input type="button" value="按钮"&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_button_input" class="ext">尝试一下 »</a>
+
+<br>
+	<h3>&lt;a&gt;</h3>
+
+	&lt;a href="#" <span class="marked">data-role="button"</span>&gt;按钮&lt;/a&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_button_a" class="ext">尝试一下 »</a>
+
+<br><table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="lamp" loading="lazy"></th>
+<td>在 jQuery Mobile 中，按钮会自动样式化，让它们在移动设备上更具吸引力和可用性。<strong>我们推荐您使用带有 data-role="button" 的 &lt;a&gt; 元素在页面间进行链接，使用 &lt;input&gt; 或 &lt;button&gt; 元素进行表单提交。</strong>
+</td>
+</tr></table>
+<br><hr>
+<h3>导航按钮</h3>
+<p>如需通过按钮在页面间进行链接，请使用带有 data-role="button" 属性的 &lt;a&gt; 元素：</p>
+
+	<h3>实例</h3>
+
+	&lt;<span class="marked">a href="#pagetwo" data-role="button"</span>&gt;访问第二个页面&lt;/a&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_button" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>内联按钮</h3>
+<p>默认情况下，按钮占满整个屏幕宽度。如果你想要一个仅是与内容一样宽的按钮，或者如果您想要并排显示两个或多个按钮，请添加 data-inline="true"：</p>
+
+	<h3>实例</h3>
+
+	&lt;a href="#pagetwo" data-role="button" <span class="marked">data-inline="true"</span>&gt;访问第二个页面&lt;/a&gt;<br>
+
+	<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_button_inline" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>组合按钮</h3>
+<p>jQuery Mobile 提供了一个简单的方法来将按钮组合在一起。</p>
+<p>请把 data-role="controlgroup" 属性和 data-type="horizontal|vertical" 一起使用来规定是否水平或垂直组合按钮：</p>
+
+	<h3>实例</h3>
+
+	&lt;div <span class="marked">data-role="controlgroup" data-type="horizontal"</span>&gt;<br>  
+	&lt;a href="#anylink" data-role="button"&gt;按钮 1&lt;/a&gt;<br>  &lt;a href="#anylink" 
+	data-role="button"&gt;按钮 2&lt;/a&gt;<br>  &lt;a href="#anylink" 
+	data-role="button"&gt;按钮 3&lt;/a&gt;<br>&lt;/div&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_button_group" class="ext">尝试一下 »</a>
+
+<br><table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="lamp" loading="lazy"></th>
+<td>默认情况下，组合按钮是垂直组合，它们之间没有外边距和空间。并且只有第一个和最后一个按钮是圆角，以便它们组合在一起的时候创建一个漂亮的外观。</td>
+</tr></table>
+<br><hr>
+<h3>后退按钮</h3>
+<p>如需创建后退按钮，请使用 data-rel="back" 属性（这会忽略锚的 href 值）：</p>
+
+	<h3>实例</h3>
+
+	&lt;a href="#" data-role="button" <span class="marked">data-rel="back"</span>&gt;返回&lt;/a&gt;<br>
+
+	<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_button_back" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>更多链接按钮实例</h3>
+<table>
+<tr>
+<th>类</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+<tr>
+<td>ui-btn-b</td>
+<td>修改按钮颜色为黑色，字体为白色(默认为灰色背景，黑色字体)。</td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_button_black" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>ui-corner-all</td>
+<td>为按钮添加圆角</td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_button_corners" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>ui-mini</td>
+<td>制作小按钮</td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_button_mini" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>ui-shadow</td>
+<td>为按钮添加阴影</td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_button_shadow" class="ext">尝试一下</a></td>
+</tr>
+</table>
+<br>
+<table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="Note" loading="lazy"></th>
+<td>如果你需要使用更多的样式，每个样式类使用空格隔开，如： class="ui-btn ui-btn-inline ui-btn-corner-all ui-shadow"<br>
+<br>默认情况下 &lt;input&gt; 按钮有圆角及阴影效果。 &lt;a&gt; 和 
+&lt;button&gt; 元素没有。</td>
+</tr></table>
+<p>
+更完整的CSS类，请查看我们的
+<a href="jquerymobile-ref-css.html">jQuery Mobile CSS 类参考手册</a>。</p>
+<p>下一章演示如何在按钮上加上图标。</p></div></section>
+<section class="ch" id="c7"><h2>7. jQuery Mobile 按钮图标<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-icons.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>jQuery Mobile 提供了一套让按钮看起来更称心如意的图标。</p>
+<hr>
+<br>
+
+<br><hr>
+<h3>添加图标到 jQuery Mobile 按钮</h3>
+<p>
+我们可以使用 ui-icon 类将图标添加到按钮上，并可以使用指定类来设置按钮位置。</p>
+<pre>
+&lt;a href="#anylink" class="ui-btn ui-icon-search ui-btn-icon-left"&gt;Search&lt;/a&gt;
+</pre>
+<p><strong>注意：</strong> 在其他方式的按钮上，如列表或表单中的按钮需要使用 data-icon 属性。在接下来的章节中我们会具体介绍。</p>
+<p>下面我们列出一些 jQuery Mobile 提供的可用图标：</p>
+<table>
+<tbody><tr>
+<th>按钮类</th>
+<th>描述</th>
+<th>按钮</th>
+<th>实例</th>
+</tr>
+<tr>
+<td><span>ui-icon-arrow-l</span></td>
+<td>左箭头</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icon_arrow-l" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>ui-icon-arrow-r</td>
+<td>右箭头</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icon_arrow-r" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>ui-icon-info</td>
+<td>信息</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icon_info" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>ui-icon-delete</td>
+<td>删除</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icon_delete" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>ui-icon-back</td>
+<td>后退</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icon_back" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>ui-icon-audio</td>
+<td>扬声器</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icon_audio" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>ui-icon-lock</td>
+<td>挂锁</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icon_lock" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>ui-icon-search</td>
+<td>搜索</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icon_search" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>ui-icon-alert</td>
+<td>警告</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icon_alert" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>ui-icon-grid</td>
+<td>网格</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icon_grid" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>ui-icon-home</td>
+<td>主页</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icon_home" class="ext">尝试一下</a></td>
+</tr>
+</tbody></table>
+<p>如需查看所有 jQuery Mobile 按钮图标的完整参考手册，请访问我们的 <a href="jquerymobile-ref-icons.html">jQuery Mobile 图标参考手册</a>。</p>
+<hr>
+<h3>定位图标</h3>
+<p>您也可以规定图标定位在按钮的什么部位：顶部（top）、右侧（right）、底部（bottom）、左侧（left）。</p>
+<p>请使用 ui-btn-icon 属性来指定位置：</p>
+
+	<h3>图标的位置：</h3>
+
+	&lt;a href="#anylink" class="ui-btn <span class="marked">ui-icon-search ui-btn-icon-top"</span>&gt;顶部&lt;/a&gt;<br>&lt;a href="#anylink" 
+  class="ui-btn <span class="marked">ui-icon-search ui-btn-icon-right"</span>&gt;右侧&lt;/a&gt;<br>&lt;a href="#anylink" 
+  class="ui-btn <span class="marked">ui-icon-search ui-btn-icon-bottom"</span>&gt;底部&lt;/a&gt;<br>&lt;a href="#anylink" 
+  class="ui-btn <span class="marked">ui-icon-search ui-btn-icon-left"</span>&gt;左侧&lt;/a&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_icon_positions" class="ext">尝试一下 »</a>
+
+<br>
+<table><tbody><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="Note" loading="lazy"></th>
+<td>如果你未指定按钮图片的位置，图标将不显示。</td>
+</tr></tbody></table>
+<hr>
+<h3>只显示图标</h3>
+<p>如果你只想显示图标，可以使用 "notext":</p>
+ <h3>实例：</h3>  
+&lt;a href="#anylink" class="ui-btn ui-icon-search 
+  <span class="marked">ui-btn-icon-notext"</span>&gt;搜索&lt;/a&gt;<br>
+  <br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_icon_notext" class="ext">尝试一下 »</a> 
+<hr>
+<h3>移除圆圈</h3>
+<p>默认情况下，所有的图标都有一个灰色的圆圈。如果你不需要它，可以在元素中使用 "ui-nodisc-icon" 类：</p>
+
+<h3>实例</h3>
+
+  &lt;a href="#anylink" class="ui-btn ui-icon-search 
+  ui-btn-icon-left"&gt;使用圆圈 (默认)&lt;/a&gt;<br>&lt;a href="#anylink" class="ui-btn ui-icon-search 
+  ui-btn-icon-left <span class="marked">ui-nodisc-icon"</span>&gt;去掉圆圈&lt;/a&gt;<br><br>
+  <a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icon_disc" class="ext">尝试一下 »</a>
+<hr>
+<h3>黑色、白色按钮</h3>
+<p>
+默认情况下，所有图标都是白色的。
+如果需要改变图标颜色为黑色，可以在元素添加 "ui-alt-icon"：</p>
+
+<h3>实例</h3>
+
+  &lt;a href="#anylink" class="ui-btn ui-icon-search 
+  ui-btn-icon-left"&gt;白色&lt;/a&gt;<br>&lt;a href="#anylink" class="ui-btn ui-icon-search 
+  ui-btn-icon-left <span class="marked">ui-alt-icon"</span>&gt;黑色&lt;/a&gt;<br><br>
+  <a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icon_alt" class="ext">尝试一下 »</a>
+<hr>
+
+<img src="img/22fab39e8e98ea93.gif" alt="实例" loading="lazy"><h3>更多实例</h3>
+
+<p><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icon_disc2" class="ext">向容器添加
+"ui-nodisc-icon" 类</a><br>
+使用 "ui-nodisc-icon" 类的实例。</p>
+<p><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icon_alt2" class="ext">向容器添加
+"ui-alt-icon" 类</a><br>
+使用 "ui-alt-icon" 类的实例。</p></div></section>
+<section class="ch" id="c8"><h2>8. jQuery Mobile 弹窗<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-popups.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>弹窗是一个非常流行的对话框，弹窗可以覆盖在页面上展示。</p>
+<p>弹窗可用于显示一段文本，图片，地图或其他内容。</p>
+
+<p>创建一个弹窗，需要使用 &lt;a&gt; 和 &lt;div&gt; 元素。在 &lt;a&gt; 元素上添加 data-rel="popup" 
+属性， &lt;div&gt; 元素添加 data-role="popup" 属性。
+接着我们为 &lt;div&gt; 指定 id， 然后设置 &lt;a&gt; 的 href 值为 &lt;div&gt; 指定的 id。
+ &lt;div&gt; 中的内容为弹窗显示的内容。</p>
+ <p><strong>注意:</strong>  &lt;div&gt; 弹窗与点击的 &lt;a&gt; 链接必须在同一个页面上。</p>
+
+	<h3>实例</h3>
+	
+&lt;<span class="marked">a href="#myPopup" data-rel="popup"</span> class="ui-btn ui-btn-inline 
+	ui-corner-all"&gt;显示弹窗&lt;/a&gt;<br><br>&lt;<span class="marked">div data-role="popup" id="myPopup"</span>&gt;<br>  &lt;p&gt;这是一个简单的弹窗&lt;/p&gt;<br>&lt;/div&gt;
+	
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_popup_basic" class="ext">尝试一下 »</a> 
+
+<p>如果你需要为弹窗添加内边距与外边距可以在 &lt;div&gt; 中添加 "ui-content" 类:</p>
+
+	<h3>实例</h3>
+	
+&lt;div 
+	data-role="popup" id="myPopup" <span class="marked">
+	class="ui-content"</span>&gt;
+	
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_popup_content" class="ext">尝试一下 »</a> 
+
+<hr>
+<h3>关闭弹窗</h3>
+<p>默认情况下，点击弹窗之外的区域或按下 "Esc" 键即可关闭弹窗。
+如果你不想点击弹窗之外的区域关闭弹窗可以在添加上添加 data-dismissible="false" 属性（不推荐）。
+你也可以在弹窗上添加关闭按钮，按钮上使用 data-rel="back" 
+属性，并通过样式来控制按钮的位置。</p>
+<table>
+<tbody><tr>
+<th>描述</th>
+<th>实例</th>
+</tr>
+<tr>
+<td>右侧关闭按钮</td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_popup_rightclose" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>左侧关闭按钮</td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_popup_leftclose" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>使用 data-dismissible 属性</td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_popup_undismissible" class="ext">尝试一下</a></td>
+</tr>
+</tbody></table>
+<hr>
+<h3>定位弹窗</h3><p>
+默认情况下，弹窗会直接显示在点击元素的上方，如果需要控制弹窗的位置，可以在用于打开弹窗的点击链接上使用 data-position-to 属性。 
+</p><p>控制弹窗位置的三种方式：</p>
+
+<table>
+<tbody><tr>
+<th>属性值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data-position-to="window"</td>
+<td>弹窗在窗口居中显示</td>
+</tr>
+<tr>
+<td>data-position-to="#myId"</td>
+<td>弹窗显示在知道的 #id 元素上</td>
+</tr>
+<tr>
+<td>data-position-to="origin"</td>
+<td>默认。弹窗显示在点击的元素上。</td>
+</tr>
+</tbody></table>
+
+	<h3>实例</h3>
+	
+&lt;a href="#myPopup1" data-rel="popup" class="ui-btn" <span class="marked">data-position-to="window"</span>&gt;Window&lt;/a&gt;<br>&lt;a href="#myPopup2" data-rel="popup" 
+	class="ui-btn" <span class="marked">data-position-to="#demo"&gt;</span>id="demo"&lt;/a&gt;<br>&lt;a href="#myPopup3" 
+	data-rel="popup" class="ui-btn" <span class="marked">data-position-to="origin"</span>&gt;Origin&lt;/a&gt;
+	
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_popup_position" class="ext">尝试一下 »</a> 
+
+<hr>
+<h3>过渡</h3>
+<p>默认情况下，弹窗是没有过渡效果的。如果你需要你可以通过 data-transition="value" 属性来添加过渡效果（<a href="#c5">jQuery Mobile 过渡</a>）：</p>
+
+	<h3>所有过渡效果实例</h3>
+	
+&lt;a href="#myPopup" data-rel="popup" class="ui-btn" <span class="marked">data-transition="fade"</span>&gt;Fade&lt;/a&gt;
+	
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_popup_transitions" class="ext">尝试一下 »</a> 
+
+<hr>
+<h3>弹窗方向小边框</h3>
+<p>如果需要添加弹窗方向小边框，可以使用 data-arrow 属性，并指定值 
+"l" (左边), "t" (顶部), "r" (右边) or "b" (底部):</p>
+
+	<h3>实例</h3>
+	
+&lt;a href="#myPopup" data-rel="popup" class="ui-btn"&gt;打开弹窗&lt;/a&gt;<br><br>&lt;div data-role="popup" id="myPopup" class="ui-content" 
+	<span class="marked">data-arrow="l"</span>&gt;<br>  &lt;p&gt;左边框的方向。&lt;/p&gt;<br>&lt;/div&gt;
+	
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_popup_arrow" class="ext">尝试一下 »</a> 
+
+<hr>
+<h3>弹窗对话框</h3><p>你可以将弹窗制作为一个标准的对话框 (头部, 内容和底部标记):</p>
+
+	<h3>实例</h3>
+	
+&lt;a href="#myPopupDialog" data-rel="popup" class="ui-btn"&gt;打开对话框弹窗&lt;/a&gt;<br><br>&lt;div data-role="popup" id="myPopupDialog"&gt;<br>  &lt;div 
+	data-role="header"&gt;&lt;h1&gt;头部文本..&lt;/h1&gt;&lt;/div&gt;<br>  &lt;div 
+	data-role="main" class="ui-content"&gt;&lt;p&gt;一些文本..&lt;/p&gt;&lt;a href="#"&gt;一些链接..&lt;/a&gt;<br>  &lt;div data-role="footer"&gt;&lt;h1&gt;底部文本..&lt;/h1&gt;&lt;/div&gt;<br>
+	&lt;/div&gt;
+	
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_popup_dialog" class="ext">尝试一下 »</a> 
+
+<hr>
+<h3>图片弹窗</h3>
+你可以在弹窗中显示图片:
+
+	<h3>实例</h3>
+	
+&lt;a href="#myPopup" data-rel="popup" data-position-to="window"&gt;<br>&lt;img src="/wp-content/uploads/2015/10/runoob.jpeg" 
+	alt="Runoob" style="width:200px;"&gt;&lt;/a&gt;<br><br>&lt;div data-role="popup" 
+	id="myPopup"&gt;<br>  &lt;img src="/wp-content/uploads/2015/10/runoob.jpeg" 
+	style="width:800px;height:400px;" alt="Runoob"&gt;<br>&lt;/div&gt;
+	
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_popup_image" class="ext">尝试一下 »</a> 
+
+<hr>
+<h3>弹窗背景覆盖</h3>
+<p>你可以使用 data-overlay-theme 属性在弹窗后添加背景颜色。</p>
+<p>默认情况下覆盖的背景色的透明的。使用 data-overlay-theme="a" 添加浅色背景，使用 data-overlay-theme="b" 添加深色的覆盖背景：</p>
+
+	<h3>实例</h3>
+	
+&lt;a href="#myPopup" data-rel="popup"&gt;Show Popup&lt;/a&gt;<br><br>&lt;div data-role="popup" id="myPopup"
+	<span class="marked">data-overlay-theme="b"</span>&gt;<br>  &lt;p&gt;在我身后有个深色背景。&lt;/p&gt;<br>&lt;/div&gt;
+	
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_popup_overlay" class="ext">尝试一下 »</a> 
+
+<p>一般图片弹窗经常使用背景覆盖：</p>
+
+	<h3>实例</h3>
+	
+&lt;a href="#myPopup" data-rel="popup" data-position-to="window"&gt;<br>&lt;img src="/wp-content/uploads/2015/10/runoob.jpeg" 
+	alt="Runoob" style="width:200px;"&gt;&lt;/a&gt;<br><br>&lt;div data-role="popup" 
+	id="myPopup"
+	<span class="marked">data-overlay-theme="b"</span>&gt;<br>  &lt;img src="/wp-content/uploads/2015/10/runoob.jpeg" 
+	style="width:800px;height:400px;" alt="Runoob"&gt;<br>&lt;/div&gt;
+	
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_popup_image_b" class="ext">尝试一下 »</a> 
+
+<p><strong>注意：</strong> 在接下来的章节中，你将了解到如何在弹窗中使用表单。</p></div></section>
+<section class="ch" id="c9"><h2>9. jQuery Mobile 工具栏<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-toolbars.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>工具栏元素通常位于头部和尾部内 - 让导航易于访问：</p>
+
+<br><hr>
+<h3>头部栏</h3>
+<p>头部栏一般包含页面标题/logo 或一两个按钮（通常是首页、选项或搜索）。</p>
+<p>您可以添加按钮到头部的左侧或右侧。</p>
+<p>下面的代码，将添加一个按钮到头部标题文本的左侧，添加一个按钮到头部标题文本的右侧：</p>
+
+<h3>实例</h3>
+
+&lt;div data-role="header"&gt;<br>  &lt;a href="#" 
+	class="ui-btn ui-icon-home ui-btn-icon-left"&gt;主页&lt;/a&gt;<br>  &lt;h1&gt;欢迎访问我的主页&lt;/h1&gt;<br>  
+	&lt;a href="#" class="ui-btn ui-icon-search ui-btn-icon-left"&gt;搜索&lt;/a&gt;<br>&lt;/div&gt;	
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_header" class="ext">尝试一下 »</a>
+
+<p>下面的代码，将添加一个按钮到头部标题文本的左侧：</p>
+
+	<h3>实例</h3>
+	
+&lt;div data-role="header"&gt;<br>  &lt;a href="#" 
+	class="ui-btn <span class="marked">ui-btn-left</span> ui-icon-home ui-btn-icon-left"&gt;主页&lt;/a&gt;<br>  &lt;h1&gt;欢迎访问我的主页&lt;/h1&gt;<br>&lt;/div&gt;
+	
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_header_left" class="ext">尝试一下 »</a> 
+
+<p>但是，如果您把按钮链接放置在 &lt;h1&gt; 元素之后，将无法显示右侧的文本。要添加一个按钮到头部标题的右侧，请指定 class 为 "ui-btn-right"：</p>
+ <h3>实例</h3> 
+&lt;div data-role="header"&gt;<br>  &lt;h1&gt;欢迎访问我的主页&lt;/h1&gt;<br>  
+	&lt;a href="#" 
+	class="ui-btn <span class="marked">ui-btn-right</span> ui-icon-home ui-btn-icon-left"&gt;搜索&lt;/a&gt;<br>&lt;/div&gt;
+  <br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_header_class" class="ext">尝试一下 »</a> 
+<br><table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="lamp" loading="lazy"></th>
+<td>头部可以包含一个或两个按钮，而尾部没有限制。</td>
+</tr></table>
+<br><hr>
+<h3>尾部栏</h3>
+<p>尾部栏比头部栏更灵活 - 在整个页面中它们更具功能性和可变性，因此可以包含尽可能多的按钮：</p>
+
+<h3>实例</h3>
+
+&lt;div data-role="footer"&gt;<br>  &lt;a href="#" 
+	class="ui-btn ui-icon-plus ui-btn-icon-left"&gt;在Facebook上关注我&lt;/a&gt;<br>  &lt;a href="#" class="ui-btn ui-icon-plus ui-btn-icon-left"&gt;在Twitter上关注我&lt;/a&gt;<br>  
+	&lt;a href="#" class="ui-btn ui-icon-plus ui-btn-icon-left"&gt;在Instagram上关注我&lt;/a&gt;<br>&lt;/div&gt;
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_footer" class="ext">尝试一下 »</a>
+
+<p><strong>注意：</strong>尾部的样式与头部不同（没有内边距和空间，且按钮不居中）。我们可以使用简单的样式来解决这个问题：</p>
+
+	<h3>实例</h3>
+	
+&lt;div data-role="footer" style="text-align:center;"&gt;
+	
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_footer_class" class="ext">尝试一下 »</a> 
+
+<p>您还可以将尾部中的按钮进行水平或垂直组合：</p>
+
+<h3>实例</h3>
+
+&lt;div data-role="footer" style="text-align:center;"&gt;<br>  &lt;div <span class="marked">data-role="controlgroup" 
+	data-type="horizontal"</span>&gt;<br>    &lt;a href="#" 
+	class="ui-btn ui-icon-plus ui-btn-icon-left"&gt;在Facebook上关注我&lt;/a&gt;<br>    &lt;a href="#" class="ui-btn ui-icon-plus ui-btn-icon-left"&gt;在Twitter上关注我&lt;/a&gt;<br>    &lt;a href="#" 
+	class="ui-btn ui-icon-plus ui-btn-icon-left"&gt;在Instagram上关注我&lt;/a&gt;<br>  
+	&lt;/div&gt;<br>&lt;/div&gt;
+	
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_footer_grouped_horizontal" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>定位头部栏和尾部栏</h3>
+
+<p>头部和尾部可以通过三种方式进行定位：</p>
+<ul>
+<li>Inline - 默认。头部栏和尾部栏与页面内容内联。</li>
+	<li>Fixed - 头部栏和尾部栏固定在页面的顶部和底部。</li>
+	<li>Fullscreen - 与 Fixed 定位模式基本相同，头部栏和尾部栏固定在页面的顶部和底部。但是当他工具栏滚动出屏幕之外时，不会自动重新显示，除非点击屏幕，这对于图片或视频类有提升代入感的应用是非常有用的。注意这种模式下工具栏会遮住页面内容，所以最好用在比较特殊的场合下。</li>
+</ul>
+<p>使用 data-position 属性来定位头部栏和尾部栏：</p>
+
+<h3>Inline 定位（默认）</h3>
+
+	&lt;div data-role="header" <span class="marked">data-position="inline"</span>&gt;&lt;/div&gt;<br>&lt;div data-role="footer"
+	<span class="marked">data-position="inline"</span>&gt;&lt;/div&gt;
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_toolbars_inline" class="ext">尝试一下 »</a>
+
+<br>
+<h3>Fixed 定位</h3>
+
+	&lt;div data-role="header" <span class="marked">data-position="fixed"</span>&gt;&lt;/div&gt;<br>&lt;div data-role="footer"
+	<span class="marked">data-position="fixed"</span>&gt;&lt;/div&gt;
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_toolbars_fixed" class="ext">尝试一下 »</a>
+
+<p>要启用全屏定位，请使用 data-position="fixed"，并添加 data-fullscreen 属性到元素：</p>
+
+<h3>Fullscreen 定位</h3>
+
+	&lt;div data-role="header" 
+	data-position="fixed" <span class="marked">data-fullscreen="true"</span>&gt;&lt;/div&gt;<br>&lt;div data-role="footer"
+	data-position="fixed" <span class="marked">data-fullscreen="true"</span>&gt;&lt;/div&gt;
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_toolbars_fullscreen" class="ext">尝试一下 »</a>
+
+<p><strong>提示：</strong>全屏定位适用于照片、图像和视频。</p>
+<p><strong>提示：</strong>固定定位和全屏定位中，通过点击屏幕将隐藏和显示头部栏和尾部栏。</p>
+
+<hr>
+
+<img src="img/22fab39e8e98ea93.gif" alt="实例" loading="lazy"><h3>更多实例</h3>
+
+<p><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_header_footer_icons" class="ext">
+在工具栏上只显示图标</a><br>
+在工具栏上只显示图标可以使用 ui-btn-icon-notext 类。</p></div></section>
+<section class="ch" id="c10"><h2>10. jQuery Mobile 导航栏<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-navbars.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>导航栏是由一组水平排列的链接组成，通常包含在头部或尾部内。</p>
+
+<p>默认情况下，导航栏中的链接将自动变成按钮（不需要 data-role="button"）。</p>
+<p>使用 data-role="navbar" 属性来定义导航栏：</p>
+
+<h3>实例</h3>
+	
+		&lt;div data-role="header"&gt;<br> 
+		&lt;div <span class="marked">data-role="navbar"</span>&gt;<br>    &lt;ul&gt;<br>      &lt;li&gt;&lt;a href="#anylink"&gt;首页&lt;/a&gt;&lt;/li&gt;<br>      &lt;li&gt;&lt;a href="#anylink"&gt;页面二&lt;/a&gt;&lt;/li&gt;<br>      
+		&lt;li&gt;&lt;a href="#anylink"&gt;搜索&lt;/a&gt;&lt;/li&gt;<br>    &lt;/ul&gt;<br>
+		 
+		&lt;/div&gt;<br>&lt;/div&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_navbars" class="ext">尝试一下 »</a>
+
+<br><table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="lamp" loading="lazy"></th>
+<td>默认情况下，按钮的宽度与它的内容一样。使用一个无序列表来平均地划分按钮的宽度：1 个按钮占 100% 宽度，2 个按钮则各占 50% 的宽度，3 个按钮则每个占 33.3% 的宽度，依此类推。然而，如果您在导航栏中指定了超过 5 个按钮，将会拆成多行（查看"更多实例"）。<br>
+</td>
+</tr></table>
+<hr>
+<h3>导航按钮图标</h3>
+<p>我们可以使用 data-icon 属性为导航按钮添加图标:</p>
+
+	<h3>实例</h3>
+	
+&lt;a href="#anylink" <span class="marked">data-icon="search"</span>&gt;搜索&lt;/a&gt;<br>
+	
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_navbars2" class="ext">尝试一下 »</a> 
+
+<p>data-icon 属性与在图标章节中的 CSS 类使用相同的值。CSS 类使用方法 class="ui-icon-<em>value</em>", 
+data-icon 属性使用方法 data-icon="<em>value</em>"。</p>
+<table>
+<tbody><tr></tr>
+<tr>
+<th>属性值</th>
+<th>描述</th>
+<th>图标</th>
+</tr>
+<tr>
+<td>data-icon="home"</td>
+<td>首页</td>
+<td></td>
+</tr>
+<tr>
+<td>data-icon="arrow-r"</td>
+<td>右边箭头</td>
+<td></td>
+</tr>
+<tr>
+<td>data-icon="search"</td>
+<td>搜索</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>如需查看所有 jQuery Mobile 按钮图标的完整参考手册，请访问我们的 <a href="jquerymobile-ref-icons.html">jQuery Mobile 图标参考手册</a>。</p>
+<hr>
+<h3>定位图标</h3>
+<p>就像 "ui-btn-icon-<em>position</em>" 类一样 (图标章节有详细说明), 你可以设置图标显示的位置：  top（头部）, right（右侧）, bottom（底部） 或 left（左侧）。</p>
+
+<p>图标位置在导航栏容器上设置，使用 <strong>data-iconpos</strong> 属性来指定位置：</p>
+
+<table>
+<tbody><tr>
+<th>属性值</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+<tr>
+<td>data-iconpos="top"</td>
+<td>图标顶部对齐</td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_navbars_pos_top" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>data-iconpos="right"</td>
+<td>图标右侧对齐</td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_navbars_pos_right" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>data-iconpos="bottom"</td>
+<td>图标底部对齐</td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_navbars_pos_bottom" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>data-iconpos="left"</td>
+<td>图标左侧对齐</td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_navbars_pos_left" class="ext">尝试一下</a></td>
+</tr>
+</tbody></table>
+
+<table><tbody><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="Note" loading="lazy"></th>
+<td> 默认情况， 导航按钮的图标位于文本之上 (data-iconpos="top")。</td>
+</tr>
+</tbody></table>
+
+<hr>
+<h3>激活按钮</h3>
+<p>当导航栏中的某个链接被点击，它将获得被选中（按下）的外观。</p>
+<p>如果想在不点击链接时获得这种外观，请使用 class="ui-btn-active"：</p>
+
+<h3>实例</h3>
+	
+		&lt;li&gt;&lt;a href="#anylink" <span class="marked">class="ui-btn-active"</span>&gt;首页&lt;/a&gt;&lt;/li&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_navbars_class_active" class="ext">尝试一下 »</a>
+
+<p>对于多个页面，您可能想要每个按钮的选中外观代表当前用户所在的页面。要做到这一点，请添加 "ui-state-persist" 和 "ui-btn-active" 到链接的 class：</p>
+
+<h3>实例</h3>
+	
+		&lt;li&gt;&lt;a href="#anylink" 
+		<span class="marked">class="ui-btn-active ui-state-persist"</span>&gt;首页&lt;/a&gt;&lt;/li&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_navbars_class_persist" class="ext">尝试一下 »</a>
+
+<br><hr>
+
+<img src="img/22fab39e8e98ea93.gif" alt="实例" loading="lazy"><h3>更多实例</h3>
+
+<p><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_navbars_content" class="ext">内容中的导航栏</a><br>
+如何在 data-role="content" 内添加导航栏。</p>
+
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_navbars_footer" class="ext">尾部中的导航栏</a><br>
+如何在尾部内添加导航栏。</p>
+
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_navbars_footer_icons" class="ext">导航栏中的定位图标</a><br>
+如何在尾部内的导航栏中定位图标。</p>
+
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_navbars_wrap" class="ext">超过 5 个按钮</a><br>
+导航栏中 10 个按钮的演示。</p></div></section>
+<section class="ch" id="c11"><h2>11. jQuery Mobile 面板<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-panels.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p> jQuery Mobile 中的面板会在屏幕的左侧向右侧划出。</p>
+
+<p>通过向指定 id 的 &lt;div&gt; 元素添加 data-role="panel" 属性来创建面板。</p>
+<p>在 &lt;div&gt; 中添加 HTML 标记来显示你的面板内容：</p>
+<pre>
+&lt;div data-role="panel" id="myPanel"&gt;
+  &lt;h2&gt;面板标题..&lt;/h2&gt;
+  &lt;p&gt;文本内容..&lt;/p&gt;
+&lt;/div&gt;
+</pre>
+<p><strong>注意：</strong>  panel 标记必须置于头部、内容、底部组成的页面之前或之后。  </p>
+<p>要访问面板，需要创建一个指向面板 &lt;div&gt; id 的链接，点击该链接即可打开面板:</p>
+<pre>
+&lt;a href="#myPanel" class="ui-btn ui-btn-inline"&gt;打开面板&lt;/a&gt;
+</pre>
+<p>简单的面板实例</p>
+
+	<h3>实例</h3>
+	
+&lt;div data-role="page" id="pageone"&gt;<br>  &lt;div 
+	<span class="marked">data-role="panel" id="myPanel"</span>&gt;
+	<br>    &lt;h2&gt;面板头部..&lt;/h2&gt;<br>    &lt;p&gt;面板内容..&lt;/p&gt;<br>  &lt;/div&gt; <br><br>  &lt;div 
+	data-role="header"&gt;<br>    &lt;h1&gt;标准页面头部&lt;/h1&gt;<br>  
+	&lt;/div&gt;<br><br>  &lt;div data-role="main" class="ui-content"&gt;<br>    
+	&lt;p&gt;点击下面按钮打开面板。&lt;/p&gt;<br>    &lt;a 
+	<span class="marked">href="#myPanel"</span> class="ui-btn ui-btn-inline"&gt;打开面板&lt;/a&gt;<br>  &lt;/div&gt;<br><br>  &lt;div data-role="footer"&gt;<br>    
+	&lt;h1&gt;底部文本&lt;/h1&gt;<br>  &lt;/div&gt; <br>&lt;/div&gt;<br>
+	
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_panels_basic" class="ext">尝试一下 »</a> 
+
+<hr>
+<h3>关闭面板</h3>
+<p>你可以通过点击面板外部区域或按下 Esc 键或滑动来关闭面板。你可以通过使用 data-* 属性来禁用滑动和点击来关闭面板：</p>
+<table>
+<tbody><tr>
+<th>属性</th>
+<th>值</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+<tr>
+<td>data-dismissible</td>
+<td><strong>true</strong> | false</td>
+<td>指定面板是否可以通过点击面板外部区域来关闭。 </td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_panels_dismissible" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>data-swipe-close</td>
+<td><strong>true</strong> | false</td>
+<td>指定是否可以通过滑动来关闭。</td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_panels_swipe" class="ext">尝试一下</a></td>
+</tr>
+</tbody></table>
+<p>你可以使用按钮来关闭面板：仅需要在面板的 &lt;div&gt; 中添加 data-rel="close" 属性。
+从性能上考虑，我们需要键关闭链接的 href 属性指向页面的 ID 。</p>
+
+	<h3>实例</h3>
+	
+&lt;div 
+	data-role="panel" id="myPanel"&gt;
+	<br>  &lt;h2&gt;面板头部..&lt;/h2&gt;<br>  &lt;p&gt;面板中的一些文本内容..&lt;/p&gt;<br>  &lt;a 
+	<span class="marked">href="#pageone" data-rel="close"</span> class="ui-btn ui-btn-inline"&gt;关闭面板&lt;/a&gt;<br>&lt;/div&gt;
+<br>
+	
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_panels_closebtn" class="ext">尝试一下 »</a> 
+
+<hr>
+<h3>面板展示</h3>
+<p>你可以通过使用 data-display 属性来控制面板的展示方式:</p>
+
+<table>
+<tbody><tr>
+<th>属性值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data-display="overlay"</td>
+<td>在内容上显示面板</td>
+</tr>
+<tr>
+<td>data-display="push"</td>
+<td>是同时"推动"面板和页面。</td>
+</tr>
+<tr>
+<td>data-display="reveal"</td>
+<td>默认值，将页面像幻灯片一样从屏幕划出，将面板显示出来</td>
+</tr>
+</tbody></table>
+
+	<h3>实例</h3>
+	
+&lt;div data-role="panel" id="overlayPanel" <span class="marked">data-display="overlay"</span>&gt;<br>&lt;div 
+	data-role="panel" id="revealPanel" <span class="marked">data-display="reveal"</span>&gt;<br>&lt;div 
+	data-role="panel" id="pushPanel" <span class="marked">data-display="push"</span>&gt;
+<br>
+	
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_panels_display" class="ext">尝试一下 »</a> 
+
+<hr>
+<h3>面板定位</h3>
+<p>默认情况下，面板会显示在屏幕的左侧。如果想让面板出现在屏幕的右侧，可以指定 data-position="right" 属性。 </p>
+
+	<h3>实例</h3>
+	
+&lt;div 
+	data-role="panel" id="myPanel" 
+	<span class="marked">data-position="right"</span>&gt;
+<br>
+	
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_panels_rightpos" class="ext">尝试一下 »</a> 
+
+<p>你可以指定面板的内容根据页面滚动而滚动。默认情况下面板是随着页面一起滚动的（但是面板的内容仍然位于页面顶部）。如果你需要实现面板内容固定不随页面滚动而滚动，可以在面板添加 the data-position-fixed="true" 属性:</p>
+
+	<h3>实例</h3>
+	
+&lt;div 
+	data-role="panel" id="myPanel" 
+	<span class="marked">data-position-fixed="true"</span>&gt;
+<br>
+	
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_panels_fixed" class="ext">尝试一下 »</a></div></section>
+<section class="ch" id="c12"><h2>12. jQuery Mobile 可折叠块<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-collapsibles.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>可折叠内容块</h3>
+<p>可折叠块允许您隐藏或显示内容 - 对于存储部分信息很有用。</p>
+
+<p>如需创建一个可折叠的内容块，需要为容器添加 data-role="collapsible" 属性。在容器（div）内，添加一个标题元素（H1-H6），后跟您想要进行扩展的 HTML 标记：</p>
+
+<h3>实例</h3>
+	
+		&lt;div <span class="marked">data-role="collapsible"</span>&gt;<br>  
+		&lt;h1&gt;点击我 - 我可以折叠!&lt;/h1&gt;<br>  &lt;p&gt;我是可折叠的内容。&lt;/p&gt;<br>
+		&lt;/div&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_collapsible" class="ext">尝试一下 »</a>
+
+<p>默认情况下，内容是被折叠起来的。如需在页面加载时展开内容，请使用 data-collapsed="false"：</p>
+
+<h3>实例</h3>
+	
+		&lt;div <span class="marked">data-role="collapsible" data-collapsed="false"</span>&gt;<br>  
+		&lt;h1&gt;点击我 - 我可以折叠!&lt;/h1&gt;<br>  &lt;p&gt;I'm 
+		现在我默认是展开的。&lt;/p&gt;<br>
+		&lt;/div&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_collapsible_false" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>嵌套可折叠块</h3>
+<p>可折叠的内容块是可以彼此嵌套的：</p>
+
+<h3>实例</h3>
+	
+		&lt;div <span class="marked">data-role="collapsible"</span>&gt;<br>  &lt;h1&gt;点击我 - 我可以折叠!&lt;/h1&gt;<br>
+		  &lt;p&gt;我是被展开的内容。&lt;/p&gt;<br>  &lt;div 
+		<span class="marked">data-role="collapsible"</span>&gt;<br>    &lt;h1&gt;点击我 - 我是嵌套的可折叠块！&lt;/h1&gt;<br>    &lt;p&gt;我是嵌套的可折叠块中被展开的内容。&lt;/p&gt;<br>  &lt;/div&gt;<br>&lt;/div&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_collapsible_nested" class="ext">尝试一下 »</a>
+
+<br><table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="lamp" loading="lazy"></th>
+<td>可折叠的内容块可以根据您的需要进行多次嵌套。</td>
+</tr></table>
+<br><hr>
+<h3>可折叠集合</h3>
+<p>可折叠集合是将可折叠块组合在一起（就像手风琴一样）。当一个新的块被展开时，所有其他的块都会被折叠起来。</p>
+<p>创建若干个可折叠的内容块，然后把可折叠内容块用带有 data-role="collapsible-set" 的新容器包围起来：</p>
+
+<h3>实例</h3>
+	
+		&lt;div <span class="marked">data-role="collapsible-set"</span>&gt;<br>  &lt;div 
+		data-role="collapsible"&gt;<br>    &lt;h1&gt;点击我 - 我可以折叠！&lt;/h1&gt;<br>    &lt;p&gt;我是被展开的内容。&lt;/p&gt;<br>  
+		&lt;/div&gt;<br>  &lt;div data-role="collapsible"&gt;<br>    
+		&lt;h1&gt;点击我 - 我可以折叠!&lt;/h1&gt;<br>    &lt;p&gt;我是被展开的内容。&lt;/p&gt;<br>  &lt;/div&gt;<br>&lt;/div&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_collapsible_sets" class="ext">尝试一下 »</a>
+
+<br><hr>
+
+<img src="img/22fab39e8e98ea93.gif" alt="实例" loading="lazy"><h3>更多实例</h3>
+
+<p><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_collapsible_inset" class="ext">通过 data-inset 属性取消圆角与外边距</a><br>
+如何取消可折叠块上的圆角与外边距。</p>
+
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_collapsible_mini" class="ext">通过 data-mini 属性迷你化可折叠块</a><br>
+如何让可折叠块更小。</p>
+
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_collapsible_icons" class="ext">
+通过 data-collapsed-icon 和 data-expanded-icon 改变图标</a><br>
+如何改变可折叠块的图标（默认是 + 和 -）。</p>
+<p><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_collapsible_popup" class="ext">弹窗中使用折叠</a><br>
+在弹窗中创建折叠项。</p>
+
+<p>
+<a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_collapsible_iconpos" class="ext">修改图标位置</a><br>
+在折叠项中如何修改图标的位置 (默认为在左边)。</p></div></section>
+<section class="ch" id="c13"><h2>13. jQuery Mobile 表格<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-tables.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>响应式表格</h3>
+<p>响应式设计一般用于适配用户各种移动设备。</p>
+<p>我们只需要使用一个简单的类名，jQuery Mobile 就能根据屏幕的尺寸自动调整页面内容。</p>
+<p>响应式表格让页面内容在移动端和桌面设备上能够很好的适配。</p>
+
+<p>响应式表格有两种类型： <strong>reflow(回流)</strong> 与 <strong>列切换</strong>。</p>
+<hr>
+<h3>回流表格</h3>
+<p>回流模型表格在屏幕尺寸足够大时是水平显示，而在屏幕尺寸达到足够小时，所有的数据会变成垂直显示。</p>
+
+<p>创建表格，在 &lt;table&gt; 元素上添加 data-role="table" 和 "ui-responsive" 类:</p>
+
+	<h3>实例</h3>
+	
+&lt;table <span class="marked">data-role="table" class="ui-responsive"</span>&gt;<br>
+	
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_tables_reflow" class="ext">尝试一下 »</a> 
+
+<table><tbody><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="Note" loading="lazy"></th>
+<td>对于响应式表格，你必须包含 &lt;thead&gt; 和 
+&lt;tbody&gt; 元素。<br>不要使用 rowspan 或 colspan 
+属性; 响应式表格中是不支持这两个属性的。</td>
+</tr></tbody></table>
+<hr>
+<h3>列切换</h3>
+<p>
+<p>列切换模型会在宽度不够时隐藏数据。</p>
+<p>列切换的表格创建方式如下：</p>
+<pre>
+&lt;table data-role="table" data-mode="columntoggle" class="ui-responsive" id="myTable"&gt;
+</pre>
+
+<p>默认情况下，jQuery Mobile 会先隐藏表格右侧的列。但是，你可以在表格头部(&lt;th&gt;)通过添加 data-priority  属性指定隐藏列的顺序，data-priority 的值可以是 1 (最高优先级) 到 6 (最低优先级):</p>
+<pre>
+&lt;th&gt;I will never be hidden&lt;/th&gt;
+&lt;th data-priority="1"&gt;我是非常重要的列 - 我不会被隐藏&lt;/th&gt;
+&lt;th data-priority="3"&gt;我是重要的列 - 我可能被隐藏&lt;/th&gt;
+&lt;th data-priority="5"&gt;我是不怎么重要的列 - 我最先被隐藏&lt;/th&gt;
+</pre>
+
+<table><tbody><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="Note" loading="lazy"></th>
+<td>如果你没为列指定优先级，则列会一直存在，不会被隐藏。</td>
+</tr></tbody></table>
+
+<p>把上面的两段代码组合起来即可创建一个列切换的表格，这样用户就可以自定义要隐藏表格的哪些列：</p>
+
+	<h3>实例</h3>
+	
+&lt;table <span class="marked">data-role="table" 
+	data-mode="columntoggle" class="ui-responsive" 
+		id="myTable"</span>&gt;<br>  
+		&lt;thead&gt;<br>    &lt;tr&gt;<br>      &lt;th 
+		<span class="marked">data-priority="6"</span>&gt;CustomerID&lt;/th&gt;<br>      &lt;th&gt;CustomerName&lt;/th&gt;<br>      
+		&lt;th <span class="marked">data-priority="1"</span>&gt;ContactName&lt;/th&gt;<br>      
+		&lt;th <span class="marked">data-priority="2"</span>&gt;Address&lt;/th&gt;<br>      &lt;th 
+		<span class="marked">data-priority="3"</span>&gt;City&lt;/th&gt;<br>      &lt;th 
+		<span class="marked">data-priority="4"</span>&gt;PostalCode&lt;/th&gt;<br>      &lt;th 
+		<span class="marked">data-priority="5"</span>&gt;Country&lt;/th&gt;<br>    &lt;/tr&gt;<br>  &lt;/thead&gt;<br> 
+		&lt;tbody&gt;<br>    &lt;tr&gt;<br>      &lt;td&gt;1&lt;/td&gt;<br>      &lt;td&gt;Alfreds 
+		Futterkiste&lt;/td&gt;<br>      &lt;td&gt;Maria Anders&lt;/td&gt;<br>
+		      &lt;td&gt;Obere Str. 57&lt;/td&gt;<br>
+		     
+		&lt;td&gt;Berlin&lt;/td&gt;<br>      &lt;td&gt;12209&lt;/td&gt;<br>      &lt;td&gt;Germany&lt;/td&gt;<br>    &lt;/tr&gt;<br>  
+		&lt;/tbody&gt;<br>&lt;/table&gt;<br>
+	
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_tables_columntoggle" class="ext">尝试一下 »</a> 
+
+<p>我们可以使用 data-column-btn-text 属性来修改切换表格的文本：</p>
+
+	<h3>实例</h3>
+	
+&lt;table data-role="table" 
+	data-mode="columntoggle" class="ui-responsive"
+		<span class="marked">data-column-btn-text="点我显示或隐藏列!"</span> 
+		id="myTable"&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_tables_btntext" class="ext">尝试一下 »</a> 
+
+<hr>
+<h3>表格样式</h3>
+<p>我们使用 "ui-shadow" 类来为表格添加阴影：</p>
+
+	<h3>添加阴影</h3>
+	
+&lt;table data-role="table" 
+	data-mode="columntoggle" class="ui-responsive <span class="marked">ui-shadow"</span> 
+		id="myTable"&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_tables_shadow" class="ext">尝试一下 »</a> 
+
+<p>使用 CSS 来进一步设置表格样式:</p>
+
+	<h3>为所有行添加底部边框</h3>
+	
+&lt;style&gt;<br>tr {<br>    border-bottom: 1px solid #d6d6d6;<br>}<br>
+		&lt;/style&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_tables_border" class="ext">尝试一下 »</a> 
+
+<br>
+
+	<h3>为 &lt;th&gt; 元素添加按钮及为偶数行添加背景
+</h3>
+	
+&lt;style&gt;<br>th {<br>    border-bottom: 1px solid 
+		#d6d6d6;<br>}<br><br>tr:nth-child(even) {<br>    background: #e9e9e9;<br>}<br>
+		&lt;/style&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_tables_bgcolor" class="ext">尝试一下 »</a> 
+
+			
+						
+			
+			
+		
+
+		
+		
+
+		
+		
+		
+</p></div></section>
+<section class="ch" id="c14"><h2>14. jQuery Mobile 网格<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-grids.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>jQuery Mobile 网格布局</h3>
+<p>jQuery Mobile 提供了一套基于 CSS 的分列布局。然而，在移动设备上，由于考虑手机的屏幕宽度狭窄，一般不建议使用分栏分列布局。</p>
+<p>但有时您想要将较小的元素（如按钮或导航标签）并排地排列在一起，就像是在一个表格中一样。这种情况下，推荐使用分列布局。</p>
+<p>网格中的列是等宽的（合计是 100%），没有边框、背景、margin 或 padding。</p>
+<p>这里有四种布局网格可供使用：</p>
+<table>
+<tr>
+<th>网格类</th>
+<th>列</th>
+<th>列宽</th>
+<th>对应</th>
+<th>实例</th>
+</tr>
+<tr>
+<td>ui-grid-solo</td>
+<td>1</td>
+<td>100%</td>
+<td>ui-block-a</td>
+<td><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_grid_solo" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>ui-grid-a</td>
+<td>2</td>
+<td>50% / 50%</td>
+<td>ui-block-a|b</td>
+<td><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_grid_a" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>ui-grid-b</td>
+<td>3</td>
+<td>33% / 33% / 33%</td>
+<td>ui-block-a|b|c </td>
+<td><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_grid_b" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>ui-grid-c</td>
+<td>4</td>
+<td>25% / 25% / 25% / 25%</td>
+<td>ui-block-a|b|c|d</td>
+<td><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_grid_c" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>ui-grid-d</td>
+<td>5</td>
+<td>20% / 20% / 20% / 20% / 20%</td>
+<td>ui-block-a|b|c|d|e</td>
+<td><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_grid_d" class="ext">尝试一下</a></td>
+</tr>
+</table>
+<br><table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="lamp" loading="lazy"></th>
+<td>在列容器内，子元素拥有的 class 为 ui-block-a|b|c|d|e 取决于列数。列会浮动并排。 
+<br><br><strong>实例 1:</strong>class 为 ui-grid-a（两列布局），您必须指定 ui-block-a 和 ui-block-b 的两个子元素。
+<br><br><strong>实例 2:</strong>class 为 ui-grid-b（三列布局），则必须添加 ui-block-a、ui-block-b 和 ui-block-c 的三个子元素。</td>
+</tr></table>
+<br><hr>
+<h3>自定义网格</h3>
+<p>通过使用CSS，您可以自定义列块：</p>
+
+	<h3>实例</h3>
+
+		&lt;style&gt;<br>.ui-block-a, .ui-block-b, .ui-block-c {<br>
+		   
+		background-color: lightgray;<br>    border: 1px solid black;<br>    height: 
+		100px;<br>    font-weight: bold;<br>    text-align: center;<br>    padding: 30px;<br>
+		}<br>&lt;/style&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_grid_css" class="ext">尝试一下 »</a>
+
+<p>您也可以通过使用内嵌样式来自定义块：</p>
+<pre>
+&lt;div class="ui-block-a" style="border: 1px solid black;"&gt;&lt;span&gt;Text..&lt;/span&gt;&lt;/div&gt;
+</pre><hr>
+<h3>多行</h3>
+<p>在列中也可以有多个行。</p>
+<p><strong>注意：</strong>ui-block-a-class 总是创建一个新行：</p>
+
+	<h3>实例</h3>
+
+		&lt;div class="ui-grid-b"&gt;<br>  &lt;div class="ui-block-a"&gt;&lt;span&gt;一些文本&lt;/span&gt;&lt;/div&gt;<br>  &lt;div class="ui-block-b"&gt;&lt;span&gt;一些文本&lt;/span&gt;&lt;/div&gt;<br>  &lt;div class="ui-block-c"&gt;&lt;span&gt;一些文本&lt;/span&gt;&lt;/div&gt;<br>  &lt;div class="ui-block-a"&gt;&lt;span&gt;一些文本&lt;/span&gt;&lt;/div&gt;<br>  &lt;div class="ui-block-b"&gt;&lt;span&gt;一些文本&lt;/span&gt;&lt;/div&gt;<br>  &lt;div class="ui-block-a"&gt;&lt;span&gt;一些文本&lt;/span&gt;&lt;/div&gt;<br>&lt;/div&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_grid_multiple" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>响应式网格</h3>
+<p>在小屏幕中，不建议一行中并排太多按钮（文本会缩短）。</p>
+
+<p>我们在容器使用 ui-responsive 类来创建响应式网格：</p>
+
+	<h3>实例
+</h3>
+	
+&lt;div class="ui-grid-b <span class="marked">ui-responsive"</span>&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_grid_responsive" class="ext">尝试一下 »</a></div></section>
+<section class="ch" id="c15"><h2>15. jQuery Mobile 列表视图<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-list-views.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+
+<br><hr>
+<h3>jQuery Mobile 列表视图</h3>
+<p> jQuery Mobile 中的列表视图是标准的HTML 列表; 有序(&lt;ol&gt;) 和
+无序(&lt;ul&gt;). </p>
+<p>列表视图是jQuery Mobile中功能强大的一个特性。它会使标准的无序或有序列表应用更广泛。应用方法就是在ul或ol标签中添加data-role="listview"属性。在每个项目(&lt;li&gt;)中添加链接，用户可以点击它：</p>
+
+	<h3>实例</h3>
+
+	&lt;ol <span class="marked">data-role="listview"</span>&gt;<br>  &lt;li&gt;&lt;a href="#"&gt;列表项m&lt;/a&gt;&lt;/li&gt;<br>
+	&lt;/ol&gt;<br><br>&lt;ul <span class="marked">data-role="listview"</span>&gt;<br>
+	 
+	&lt;li&gt;&lt;a href="#"&gt;列表项&lt;/a&gt;&lt;/li&gt;<br>&lt;/ul&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_views" class="ext">尝试一下 »</a>
+
+<p>列表样式的圆角和边缘，使用
+data-inset="true" 属性设置:</p>
+
+	<h3>实例</h3>
+
+	&lt;ul data-role="listview" <span class="marked">data-inset="true"</span>&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_inset" class="ext">尝试一下 »</a>
+
+<br><table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="lamp" loading="lazy"></th>
+<td>默认情况下，列表项的链接会自动变成一个按钮 
+(不需要 data-role="button")。</td>
+</tr></table>
+<br><hr>
+<h3>列表分隔</h3>
+<p>列表项也可以转化为列表分割项，用来组织列表，使列表项成组。</p>
+<p>指定列表分割，给列表项&lt;li&gt;元素添加 data-role="list-divider" 属性即可：</p>
+
+	<h3>实例</h3>
+
+	&lt;ul data-role="listview"&gt;<br> &lt;li <span class="marked">data-role="list-divider"</span>&gt;欧洲&lt;/li&gt;<br>  
+	&lt;li&gt;&lt;a href="#"&gt;法国&lt;/a&gt;&lt;/li&gt;<br>  &lt;li&gt;&lt;a href="#"&gt;德国&lt;/a&gt;&lt;/li&gt;<br>
+	&lt;/ul&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_dividers" class="ext">尝试一下 »</a>
+
+<p>如果你有一个字母顺序排列的列表，（例如一个电话簿）通过 &lt;ol&gt; 或者&lt;ul&gt; 元素的 data-autodividers="true" 属性设置可以配置为自动生成的项目的分隔:</p>
+
+	<h3>实例</h3>
+
+	&lt;ul data-role="listview" <span class="marked">data-autodividers="true"</span>&gt;<br>  &lt;li&gt;&lt;a href="#"&gt;Adele&lt;/a&gt;&lt;/li&gt;<br>  
+	&lt;li&gt;&lt;a href="#"&gt;Agnes&lt;/a&gt;&lt;/li&gt;<br>  &lt;li&gt;&lt;a href="#"&gt;Billy&lt;/a&gt;&lt;/li&gt;<br>  
+	&lt;li&gt;&lt;a href="#"&gt;Calvin&lt;/a&gt;&lt;/li&gt;<br>  ...<br>&lt;/ul&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_autodividers" class="ext">尝试一下 »</a>
+
+<br><table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="lamp" loading="lazy"></th>
+<td>data-autodividers="true" 可以配置为自动生成的项目的分隔。默认情况下，创建的分隔文本是列表项文本的第一个大写字母。</td>
+</tr></table>
+<hr>
+
+<img src="img/22fab39e8e98ea93.gif" alt="实例" loading="lazy"><h3>更多实例</h3>
+
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_readonly" class="ext">只读列表</a><br>
+如何创建一个不带链接的列表 (不会是个按钮且不可点击)。</p>
+<p>
+<a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_lists_panel" class="ext">面板</a><br>
+如何在列表中插入面板</p></div></section>
+<section class="ch" id="c16"><h2>16. jQuery Mobile 列表内容<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-list-content.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+
+<hr>
+<h3>jQuery Mobile 列表图标</h3>
+<p>默认情况下每个列表项都会包含一个箭头图标 "carat-r" (右箭头)。如果要修改这个图标可以使用 data-icon 属性:</p>
+
+ <h3>实例</h3> 
+&lt;ul data-role="listview"&gt; <br>  &lt;li&gt;&lt;a href="#"&gt;Default is right 
+	arrow&lt;/a&gt;&lt;/li&gt;<br>  &lt;li data-icon="plus"&gt;&lt;a href="#"&gt;data-icon="plus"&lt;/a&gt;&lt;/li&gt;<br>  
+	&lt;li data-icon="minus"&gt;&lt;a href="#"&gt;data-icon="minus"&lt;/a&gt;&lt;/li&gt;<br>  &lt;li 
+	data-icon="delete"&gt;&lt;a href="#"&gt;data-icon="delete"&lt;/a&gt;&lt;/li&gt;<br>  &lt;li 
+	data-icon="location"&gt;&lt;a href="#"&gt;data-icon="location"&lt;/a&gt;&lt;/li&gt; <br>  
+	&lt;li data-icon="false"&gt;&lt;a href="#"&gt;data-icon="false"&lt;/a&gt;&lt;/li&gt;<br>&lt;/ul&gt;<br>
+
+  <br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_change_icons" class="ext">尝试一下 »</a> 
+
+ <table><tbody><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="Note" loading="lazy"></th>
+<td>data-icon="false" 将会移除图标。</td>
+</tr></tbody></table>
+
+<p>更完整的 jQuery Mobile 按钮图标，请访问我们的 <a href="jquerymobile-ref-icons.html">jQuery Mobile 
+图标参考手册</a>。</p>
+<hr>
+<h3>16x16 图标</h3>
+<p>如果你想在你的列表添加标准的 16x16px 的图标, 可以在列表项中添加 &lt;img&gt; 元素，并使用 "ui-li-icon" 类:</p>
+ <h3>实例</h3> 
+&lt;ul data-role="listview"&gt;<br> 
+	&lt;li&gt;&lt;a href="#"&gt;&lt;img src="us.png" alt="USA" <span class="marked">class="ui-li-icon"</span>&gt;USA&lt;/a&gt;&lt;/li&gt;<br>&lt;/ul&gt;<br>
+ <br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_icons" class="ext">尝试一下 »</a> 
+<hr>
+<h3>jQuery Mobile 列表缩略图</h3>
+<p>大于 16x16px 的图像，请在链接中添加 &lt;img&gt; 元素。</p>
+<p>jQuery Mobile 将自动缩放图像到 80x80px:</p>
+
+	<h3>实例</h3>
+
+	&lt;ul data-role="listview"&gt;<br>  &lt;li&gt;&lt;a href="#"&gt;&lt;img src="chrome.png"&gt;&lt;/a&gt;&lt;/li&gt;<br>
+	&lt;/ul&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_thumbs" class="ext">尝试一下 »</a>
+
+<p>使用标准的HTML添加列表信息：</p>
+
+	<h3>实例</h3>
+
+	&lt;ul data-role="listview"&gt;<br>  &lt;li&gt;<br>    
+	&lt;a href="#"&gt;<br>    &lt;img src="chrome.png"&gt;<br>    
+	&lt;h2&gt;Google Chrome&lt;/h2&gt;<br>    &lt;p&gt;Google Chrome 免费的开源 web 浏览器。发布于 2008 年。&lt;/p&gt;<br>    &lt;/a&gt;<br>  
+	&lt;/li&gt;<br>&lt;/ul&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_thumbs2" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>jQuery Mobile 列表图标</h3>
+<p> 在列表 &lt;img&gt; 元素使用 class="ui-li-icon" 添加 16x16px 图标：</p>
+
+	<h3>实例</h3>
+
+	&lt;li&gt;&lt;a href="#"&gt;&lt;img src="us.png" alt="USA" <span class="marked">class="ui-li-icon"</span>&gt;USA&lt;/a&gt;&lt;/li&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_icons" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>分割按钮</h3>
+<p>在JQuery Mobile的列表中，有时需要对选项内容做两个不同的操作，这时，需要对选项中的链接按钮进行分割。实现分割的方法是在&lt;li&gt;元素中再增加一个&lt;a&gt;元素，便可以在页面实现分割效果。</p>
+
+<p>jQuery Mobile 会自动设置第二个链接为蓝色箭头的图标，图标的链接文字（如果有的话）将在用户将鼠标悬停在
+图标时显示:</p>
+
+	<h3>实例</h3>
+
+	&lt;ul data-role="listview"&gt;<br>  &lt;li&gt;<br>    
+	&lt;a href="#"&gt;&lt;img src="chrome.png"&gt;&lt;/a&gt;<br>    &lt;a href="#"&gt;Some 
+	Text&lt;/a&gt;<br>  &lt;/li&gt;<br>&lt;/ul&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_split" class="ext">尝试一下 »</a>
+
+<p>添加一些页面和对话框使链接功能更加丰富：</p>
+
+	<h3>实例</h3>
+
+	&lt;ul data-role="listview"&gt;<br>  &lt;li&gt;<br>    
+	&lt;a href="#"&gt;&lt;img src="chrome.png"&gt;&lt;/a&gt;<br>    &lt;a href="#download"
+	data-rel="dialog"&gt;下载浏览器&lt;/a&gt;<br>  &lt;/li&gt;<br>&lt;/ul&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_split2" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>气泡数字</h3>
+<p>气泡数字是用来显示列表项相关的数字，如在一个邮箱的邮件：</p>
+
+<p>如需添加气泡数字，请使用行内元素，比如 &lt;span&gt;，设置 class "ui-li-count" 属性并添加数字：</p>
+
+	<h3>实例</h3>
+
+	&lt;ul data-role="listview"&gt;<br>  &lt;li&gt;&lt;a href="#"&gt;收件箱&lt;span <span class="marked">class="ui-li-count"</span>&gt;25&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br>  
+	&lt;li&gt;&lt;a href="#"&gt;发件箱&lt;span <span class="marked">class="ui-li-count"</span>&gt;432&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br>  
+	&lt;li&gt;&lt;a href="#"&gt;垃圾箱&lt;span <span class="marked">class="ui-li-count"</span>&gt;7&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;<br>&lt;/ul&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_count" class="ext">尝试一下 »</a>
+
+<p><strong>注意：</strong>显示一个正确的气泡数字，必须修改编程方式。
+这将在以后的章节解释。</p>
+<hr>
+
+<img src="img/22fab39e8e98ea93.gif" alt="实例" loading="lazy"><h3>更多实例</h3>
+
+<p>
+<a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_lists_popup" class="ext">弹窗列表</a><br>
+如何创建弹窗列表</p>
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_change_icons" class="ext">改变列表项的默认链接图标</a><br>
+如何设置列表项的默认链接图标(默认是右箭头).</p>
+<p>
+<a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_lists_collapsible_popup" class="ext">可折叠弹窗列表</a><br>
+如何创建可折叠弹窗列表。</p>
+
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_collapsible" class="ext">可折叠的列表</a><br>
+如何创建显示/隐藏的列表。</p>
+
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_formatting" class="ext">更多内容格式</a><br>
+如何制作一个日历。</p></div></section>
+<section class="ch" id="c17"><h2>17. jQuery Mobile 过滤<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-filters.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+
+<h3>可过滤元素</h3>
+<p>所有的元素如果有一个或更多的子元素均可过滤。 </p>
+
+<p><strong>如何创建搜索字段:</strong></p>
+
+<ul>
+	<li>你想过滤的元素必须使用
+	data-filter="true" 属性。</li>
+	<li>创建 &lt;input&gt; 元素并指定 id，元素上加上
+	data-type="search" 属性。这样就能创建基本的搜索字段。将 &lt;input&gt; 元素放置于一个表单中，表单 &lt;form&gt; 元素使用 "ui-filterable" 类 - 该类会调整搜索字段与过滤元素的外边距。</li>
+	<li>接着为过滤的元素添加 data-input 属性。该值需要是 &lt;input&gt; 元素的 id。</li>
+</ul>
+<p>接下来我们创建一个可过滤的列表：</p>
+
+	<h3>列表中搜索元素</h3>
+	
+<span class="marked">&lt;form class="ui-filterable"&gt;<br>  &lt;input id="myFilter" 
+	data-type="search"&gt;<br>&lt;/form&gt;</span><br><br>&lt;ul data-role="listview" 
+	<span class="marked">data-filter="true" data-input="#myFilter"</span>&gt;<br>  &lt;li&gt;&lt;a href="#"&gt;Adele&lt;/a&gt;&lt;/li&gt;<br>  
+	&lt;li&gt;&lt;a href="#"&gt;Billy&lt;/a&gt;&lt;/li&gt;<br>  &lt;li&gt;&lt;a href="#"&gt;Calvin&lt;/a&gt;&lt;/li&gt;<br>
+	&lt;/ul&gt;<br>	
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_filter" class="ext">尝试一下 »</a> 
+
+<p><strong>提示:</strong> 可以在搜索字段中使用 placeholder 属性来设置提示信息：</p>
+
+	<h3>实例</h3>
+	
+&lt;input 
+	id="myFilter" data-type="search" <span class="marked">placeholder="根据名称搜索.."</span>&gt;<br>	
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_filter_placeholder" class="ext">尝试一下 »</a> 
+
+<hr>
+<h3>自定义过滤</h3>
+<p>一般的插入到各个列表项的文本就是作为过滤的文本使用(如 A 对应 "Adele" 或 "B" 
+对应 "Billy")。 但是，如果你想指定自定义的过滤的文本，你需要在子元素中使用 data-filtertext 属性:</p>
+
+	<h4>实例</h4>
+
+	&lt;li <span class="marked">data-filtertext="fav"</span>&gt;&lt;a href="#"&gt;Adele&lt;/a&gt;&lt;/li&gt;<br>
+<br>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_filtertext" class="ext">尝试一下 »</a>
+
+<table><tbody><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="Note" loading="lazy"></th>
+<td>如果你在元素中使用了 data-filtertext 属性，元素的源文本内容在过滤时将被忽略， 这时你如果还要查找列表项"Adele"，需要使用的关键字为：f, a, v 或 fav。</td>
+</tr></tbody></table>
+
+<img src="img/22fab39e8e98ea93.gif" alt="实例" loading="lazy"><h3>更多实例</h3>
+
+<p>
+<a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_filters_collapsibles" class="ext">过滤折叠列表</a><br>
+如何过滤折叠的列表。</p>
+
+<p>
+<a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_filters_tables" class="ext">过滤表格</a><br>
+如何过滤表格内容。</p>
+
+<p>
+<a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_filters_div" class="ext">过滤 &lt;div&gt; 元素</a><br>
+如何过滤 &lt;div&gt; 元素中包含的子 &lt;p&gt; 元素。</p></div></section>
+<section class="ch" id="c18"><h2>18. jQuery Mobile 表单基础<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-form-basic.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>jQuery Mobile 会自动为 HTML 表单自动添加样式，让它们看起来更具吸引力，触摸起来更具友好性。</p>
+<hr>
+
+<br><hr>
+<h3>jQuery Mobile 表单结构</h3>
+<p>jQuery Mobile 使用 CSS 为 HTML 表单元素添加样式，让它们更具吸引力，更易于使用。</p>
+<p>在 jQuery Mobile 中，您可以使用下列表单控件：</p>
+<ul>
+<li>文本输入框</li>
+	<li>搜索输入框</li>
+	<li>单选按钮</li>
+	<li>复选框</li>
+	<li>选择菜单</li>
+	<li>滑动条</li>
+	<li>翻转拨动开关</li>
+</ul>
+<p>当使用 jQuery Mobile 表单时，您应当知道：</p>
+<ul>
+<li>&lt;form&gt; 元素必须有一个 method 和一个 action 属性</li>
+	<li>每个表单元素必须有一个唯一的 "id" 属性。id 必须是整个站点所有页面上唯一的。这是因为 jQuery Mobile 的单页导航机制使得多个不同页面在同一时间被呈现</li>
+	<li>每个表单元素必须有一个标签。设置标签的 <strong>for</strong> 属性来匹配元素的 id</li>
+</ul>
+
+	<h3>实例</h3>
+	
+		&lt;form <span class="marked">method="post" action="demoform.html"</span>&gt;<br><span class="marked">  &lt;label for="fname"&gt;</span>姓名:<span class="marked">&lt;/label&gt;</span><br>  &lt;input 
+	type="text" name="fname" <span class="marked">id="fname"</span>&gt;<br>&lt;/form&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_label" class="ext">尝试一下 »</a>
+
+<p>如需隐藏标签，请使用 class ui-hidden-accessible。这在您把元素的 placeholder 属性作为标签时经常用到：</p>
+
+	<h3>实例</h3>
+	
+		&lt;form method="post" action="demoform.html"&gt;<br>  &lt;label for="fname" 
+		<span class="marked">class="ui-hidden-accessible"</span>&gt;姓名:&lt;/label&gt;<br>  &lt;input 
+		type="text" name="fname" id="fname" placeholder="姓名..."&gt;<br>
+		&lt;/form&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_label_placeholder" class="ext">尝试一下 »</a>
+
+<p><strong>提示：</strong>  我们可以使用
+ data-clear-btn="true" 属性来添加清除输入框内容的按钮 (一个在输入框右侧的 X 图标):</p>
+
+  <h3>实例</h3> 
+&lt;label for="fname"&gt;姓名:&lt;/label&gt;<br>&lt;input type="text" name="fname" 
+	id="fname" <span class="marked">data-clear-btn="true"</span>&gt;
+ <br>  <br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_clear" class="ext">尝试一下 »</a> 
+
+<table><tbody><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="Note" loading="lazy"></th>
+<td>清除输入框的按钮可以在 &lt;input&gt; 元素中使用，但不能在 &lt;textarea&gt; 中使用。 搜索框中 data-clear-btn 默认值为 "true" ，你可以使用 data-clear-btn="false" 移除该图标。</td>
+</tr></tbody></table>
+<hr>
+<h3>jQuery Mobile 表单图标</h3>
+<p>表单中的按钮代码是标准的 HTML &lt;input&gt; 元素 (button, 
+reset, submit)。他们会自动渲染样式，可以自动适配移动设备与桌面设备：</p>
+
+ <h3>实例</h3> 
+&lt;input type="button" value="按钮"&gt;<br>&lt;input type="reset" value="重置按钮"&gt;<br>&lt;input type="submit" value="提交按钮"&gt;
+ <br>  <br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_buttons" class="ext">尝试一下 »</a> 
+
+ <p>如果需要在 &lt;input&gt; 按钮中添加额外的样式，可以使用下表中的 data-* 属性：</p>
+
+ <table>
+<tbody><tr>
+<th>属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data-corners</td>
+<td><strong>true</strong> | false</td>
+<td>指定按钮是否有圆角</td>
+</tr>
+<tr>
+<td>data-icon</td>
+<td><a href="jquerymobile-ref-icons.html">图标参考手册</a></td>
+<td>指定按钮图标</td>
+</tr>
+<tr>
+<td>data-iconpos</td>
+<td><strong>left</strong> | right | top | bottom | notext</td>
+<td>指定图标位置</td>
+</tr>
+<tr>
+<td>data-inline</td>
+<td>true | <strong>false</strong></td>
+<td>指定是否内联按钮</td>
+</tr>
+<tr>
+<td>data-mini</td>
+<td>true | <strong>false</strong></td>
+<td>指定是否为迷你按钮</td>
+</tr>
+<tr>
+<td>data-shadow</td>
+<td><strong>true</strong> | false</td>
+<td>指定按钮是否添加阴影效果</td>
+</tr>
+</tbody></table>
+
+ <h3>按钮添加图标：</h3> 
+&lt;input type="button" value="按钮"&gt;<br>&lt;input type="reset" value="重置按钮"&gt;<br>&lt;input type="submit" value="提交按钮"&gt;
+ <br>  <br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_buttons2" class="ext">尝试一下 »</a> 
+<hr>
+<h3>字段容器</h3>
+<p>如需让标签和表单元素看起来更适应宽屏，请用带有 "ui-field-contain" 类的 &lt;div&gt; 或 &lt;fieldset&gt; 元素包围 label/form 元素：</p>
+
+	<h3>实例</h3>
+
+	&lt;form method="post" action="demoform.php"&gt;<br> 
+	&lt;div <span class="marked">class="ui-field-contain"</span>&gt;<br>    
+	&lt;label for="fname"&gt;姓:&lt;/label&gt;<br>    &lt;input 
+	type="text" name="fname" id="fname"&gt;<br>    &lt;label for="lname"&gt;姓:&lt;/label&gt;<br>    &lt;input type="text" name="lname" id="lname"&gt;<br>
+	  &lt;/div&gt;<br>
+	&lt;/form&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_fieldcontain" class="ext">尝试一下 »</a>
+
+<br><table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="lamp" loading="lazy"></th>
+<td>ui-field-contain 类基于页面的宽度为标签和表单控件添加样式。当页面的宽度大于 480px 时，它会自动把标签放置在与表单控件同一线上。当页面的宽度小于 480px 时，标签会被放置在表单元素的上面。</td>
+</tr></table>
+<p><strong>提示：</strong>为了防止 jQuery Mobile 为可点击元素自动添加样式，请使用 data-role="none" 属性：</p>
+
+	<h3>实例</h3>
+
+	&lt;label for="fname"&gt;姓名:&lt;/label&gt;<br>&lt;input type="text" name="fname" 
+	id="fname" <span class="marked">data-role="none"</span>&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_none" class="ext">尝试一下 »</a>
+
+<br><table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="lamp" loading="lazy"></th>
+<td>
+<strong>jQuery Mobile 中的表单提交</strong><br><br>jQuery Mobile 通过 AJAX 自动处理表单提交，并将试图集成服务器响应到应用程序的 DOM 中。</td>
+</tr></table></div></section>
+<section class="ch" id="c19"><h2>19. jQuery Mobile 表单输入<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-form-inputs.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>jQuery Mobile 文本输入框</h3>
+<p>输入字段是通过标准的 HTML 元素编码的，jQuery Mobile 将为它们添加样式使其看起来更具吸引力，在移动设备上更易使用。您也能使用新的 HTML5 的 &lt;input&gt; 类型：</p>
+
+	<h3>实例</h3>
+
+	&lt;form method="post" action="demo_form.php"&gt;<br>  &lt;div class="ui-field-contain"&gt;<br>    
+	&lt;label for="fullname"&gt;全名:&lt;/label&gt;<br>    &lt;input 
+	type="text" name="fullname" id="fullname"&gt;<br><br>    &lt;label 
+	for="bday"&gt;生日:&lt;/label&gt;<br>    &lt;input type="date" name="bday" 
+	id="bday"&gt;<br><br>    &lt;label for="email"&gt;E-mail:&lt;/label&gt;<br>    
+	&lt;input type="email" name="email" id="email" placeholder="你的电子邮箱.."&gt;<br>  
+	&lt;/div&gt;<br>&lt;/form&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_inputs" class="ext">尝试一下 »</a>
+
+<p><strong>提示：</strong>请使用 placeholder 来指定一个简短的描述，用来描述输入字段的期望值：</p>
+<pre>
+&lt;input placeholder="sometext"&gt;
+</pre><hr>
+<h3>文本域</h3>
+<p>对于多行文本输入可使用 &lt;textarea&gt; 。</p>
+<p><strong>注意：</strong>当您键入一些文本时，文本域会自动调整大小以适应新增加的行。</p>
+
+	<h3>实例</h3>
+
+	&lt;form method="post" action="demo_form.php"&gt;<br>  &lt;div class="ui-field-contain"&gt;<br>    
+	&lt;label for="info"&gt;附加信息:&lt;/label&gt;<br>    &lt;textarea 
+	name="addinfo" id="info"&gt;&lt;/textarea&gt;<br>  &lt;/div&gt;<br>&lt;/form&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_textarea" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>搜索输入框</h3>
+<p>type="search" 类型的输入框是在 HTML5 中新增的，它是为输入搜索定义文本字段：</p>
+
+	<h3>实例</h3>
+	
+		&lt;form method="post" action="demo_form.php"&gt;<br>  &lt;div class="ui-field-contain"&gt;<br>    
+		&lt;label for="search"&gt;搜索:&lt;/label&gt;<br>    &lt;input 
+		type="search" name="search" id="search"&gt;<br>  &lt;/div&gt;<br>&lt;/form&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_search" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>单选按钮</h3>
+<p>当用户在有限数量的选择中仅选取一个选项时，使用单选按钮。</p>
+<p>为了创建一系列单选按钮，请添加带有 type="radio" 的 input 以及相应的 label。把单选按钮包围在 &lt;fieldset&gt; 元素内。您也可以添加一个 &lt;legend&gt; 元素来定义 &lt;fieldset&gt; 的标题。</p>
+<p><strong>提示：</strong>请使用 data-role="controlgroup" 来把按钮组合在一起：</p>
+
+	<h3>实例</h3>
+
+	&lt;form method="post" action="demo_form.php"&gt;<br>  &lt;fieldset 
+	data-role="controlgroup"&gt;<br>    &lt;legend&gt;Choose your 
+	gender:&lt;/legend&gt;<br>      &lt;label 
+	for="male"&gt;Male&lt;/label&gt;<br>      &lt;input 
+	type="radio" name="gender" id="male" value="male"&gt;<br>      
+	&lt;label for="female"&gt;Female&lt;/label&gt;<br>      &lt;input 
+	type="radio" name="gender" id="female" value="female"&gt; <br>  &lt;/fieldset&gt;<br>
+	&lt;/form&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_radio" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>复选框</h3>
+<p>当用户在有限数量的选择中选取一个或多个选项时，使用复选框：</p>
+
+	<h3>实例</h3>
+
+	&lt;form method="post" action="demo_form.php"&gt;<br>  &lt;fieldset 
+	data-role="controlgroup"&gt;<br>    &lt;legend&gt;Choose as many 
+	favorite colors as you'd like:&lt;/legend&gt;<br>      
+	&lt;label for="red"&gt;Red&lt;/label&gt;<br>      &lt;input 
+	type="checkbox" name="favcolor" id="red" value="red"&gt;<br>      
+	&lt;label for="green"&gt;Green&lt;/label&gt;<br>      &lt;input 
+	type="checkbox" name="favcolor" id="green" value="green"&gt;<br>      
+	&lt;label for="blue"&gt;Blue&lt;/label&gt;<br>      &lt;input 
+	type="checkbox" name="favcolor" id="blue" value="blue"&gt; <br>  &lt;/fieldset&gt;<br>&lt;/form&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_checkbox" class="ext">尝试一下 »</a>
+
+<br><hr>
+
+<img src="img/22fab39e8e98ea93.gif" alt="实例" loading="lazy"><h3>更多实例</h3>
+
+<p>如需水平组合单选按钮或复选框，请使用 data-type="horizontal"：</p>
+
+	<h3>实例</h3>
+
+	&lt;fieldset data-role="controlgroup" data-type="horizontal"&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_horizontal" class="ext">尝试一下 »</a>
+
+<p>您也可以用一个 field 容器包围 &lt;fieldset&gt;：</p>
+
+	<h3>实例</h3>
+
+		&lt;div class="ui-field-contain"&gt;<br> 
+	&lt;fieldset data-role="controlgroup"&gt;<br>    
+		&lt;legend&gt;请选择您的性别:&lt;/legend&gt;<br>  
+	&lt;/fieldset&gt;<br>&lt;/div&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_radio_check_fieldcontain" class="ext">尝试一下 »</a>
+
+<p>如果您想要您的按钮中的一个预先选中，请使用 HTML 中 &lt;input&gt; 的 checked 属性：</p>
+
+	<h3>实例</h3>
+
+		&lt;input type="radio" checked&gt;<br>&lt;input type="checkbox" checked&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_checked" class="ext">尝试一下 »</a>
+
+<p>你可以将表单放在弹窗中：</p>
+ <h3>实例</h3> 
+&lt;a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline"&gt;Show Popup Form&lt;/a&gt;<br><br>&lt;div 
+		data-role="popup" id="myPopup" class="ui-content"&gt;<br>  &lt;form method="post" action="demoform.php"&gt;<br>    
+		&lt;div&gt;<br>      &lt;h3&gt;登录信息&lt;/h3&gt;<br>      
+		&lt;label for="usrnm" class="ui-hidden-accessible"&gt;用户名:&lt;/label&gt;<br>      
+		&lt;input type="text" name="user" id="usrnm" placeholder="用户名"&gt;<br>      
+		&lt;label for="pswd" class="ui-hidden-accessible"&gt;密码:&lt;/label&gt;<br>      
+		&lt;input type="password" name="passw" id="pswd" placeholder="密码"&gt;<br>    
+		&lt;/div&gt;<br>  &lt;/form&gt;<br>&lt;/div&gt;
+<br>  <br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_popup" class="ext">尝试一下 »</a></div></section>
+<section class="ch" id="c20"><h2>20. jQuery Mobile 表单选择<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-form-select.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>jQuery Mobile 选择菜单</h3>
+
+Iphone 上的选择菜单：
+Android/SGS4 设备上的选择菜单：
+<br><img src="img/a737c572ee389a82.jpg" loading="lazy"><p>&lt;select&gt; 元素创建带有若干选项的下拉列表。</p>
+<p>&lt;select&gt; 元素内的 &lt;option&gt; 元素定义了列表中的可用选项：</p>
+
+	<h3>实例</h3>
+
+		&lt;form method="post" action="demoform.html"&gt;<br>  &lt;fieldset 
+		class="ui-field-contain"&gt;<br>    &lt;label 
+		for="day"&gt;Select Day&lt;/label&gt;<br>    &lt;select name="day" id="day"&gt;<br>
+		      &lt;option value="mon"&gt;Monday&lt;/option&gt;<br>      &lt;option value="tue"&gt;Tuesday&lt;/option&gt;<br>
+		      &lt;option value="wed"&gt;Wednesday&lt;/option&gt;<br>    &lt;/select&gt;<br>
+		 
+		&lt;/fieldset&gt;<br>
+		&lt;/form&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_select" class="ext">尝试一下 »</a>
+
+<p><strong>提示：</strong>如果您有一个带有相关选项的很长的列表，请在 &lt;select&gt; 内使用 &lt;optgroup&gt; 元素：</p>
+
+	<h3>实例</h3>
+
+		&lt;select name="day" id="day"&gt;<br>   &lt;optgroup 
+		label="Weekdays"&gt;<br>    &lt;option value="mon"&gt;Monday&lt;/option&gt;<br>    
+		&lt;option value="tue"&gt;Tuesday&lt;/option&gt;<br>    &lt;option 
+		value="wed"&gt;Wednesday&lt;/option&gt;<br>  &lt;/optgroup&gt;<br>  &lt;optgroup 
+		label="Weekends"&gt;<br>    &lt;option 
+		value="sat"&gt;Saturday&lt;/option&gt;<br>    &lt;option 
+		value="sun"&gt;Sunday&lt;/option&gt;<br>  &lt;/optgroup&gt;<br>&lt;/select&gt;
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_select_optgroup" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>自定义选择菜单</h3>
+<p>本页顶部的图像，演示了移动平台上如何使用它们的方式展示一个选择菜单。</p>
+<p>如果您想要让选择菜单在所有的移动设备上都显示相同，请使用 jQuery 自带的自定义选择菜单，data-native-menu="false" 属性：</p>
+
+	<h3>实例</h3>
+
+		&lt;select name="day" id="day" <span class="marked">data-native-menu="false"</span>&gt;
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_select_native" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>多个选择</h3>
+<p>如需在选择菜单中选择多个选项，请在 &lt;select&gt; 元素中使用 multiple 属性：</p>
+
+	<h3>实例</h3>
+
+		&lt;select name="day" id="day" 
+		<span class="marked">multiple</span> data-native-menu="false"&gt;
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_select_multiple" class="ext">尝试一下 »</a>
+
+<br><hr>
+
+<img src="img/22fab39e8e98ea93.gif" alt="实例" loading="lazy"><h3>更多实例</h3>
+
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_select_group" class="ext">使用 
+data-role="controlgroup"</a><br>
+如何组合一个或多个选择菜单。</p>
+
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_select_horizontal" class="ext">使用 
+data-type="horizontal"</a><br>
+如何水平组合选择菜单。</p>
+
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_select_selected" class="ext">
+预选中选项</a><br>
+如何预选中一个选项。</p>
+
+<p>
+<a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_forms_select_mini" class="ext">使用 
+data-type="mini"</a><br>
+如何缩小选项菜单</p>
+<p>
+<a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_forms_select_popup" class="ext">弹窗选项</a><br>
+如何创建一个弹窗选项菜单。</p>
+<p>
+<a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_forms_collapsible" class="ext">可折叠表单</a><br>
+如何创建可折叠表单</p>
+<p>
+<a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_forms_select_icon" class="ext">修改默认选择项图标</a><br>
+如何修改选项菜单图标 (默认为 "arrow-d").</p>
+<p>
+<a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_forms_select_iconpos" class="ext">修改图标位置</a><br>
+如何修改图标显示的位置 (默认向右)。</p></div></section>
+<section class="ch" id="c21"><h2>21. jQuery Mobile 表单滑动条<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-form-sliders.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>jQuery Mobile 滑动条控件</h3>
+<p>滑动条允许您从一个范围的数字中选择一个值：</p><br>
+
+<p>如需创建滑动条，请使用 &lt;input type="range"&gt;：</p>
+
+	<h3>实例</h3>
+
+		&lt;form method="post" action="demoform.php"&gt;<br>  &lt;label for="points"&gt;进度:&lt;/label&gt;<br>
+		  &lt;<span class="marked">input type="range"</span> name="points" id="points" value="50" min="0" 
+		max="100"&gt;<br>&lt;/form&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_slider" class="ext">尝试一下 »</a>
+
+<p>使用以下属性来规定限制：</p>
+<ul>
+<li>max - 规定允许的最大值</li>
+	<li>min - 规定允许的最小值</li>
+	<li>step - 规定合法的数字间隔</li>
+	<li>value - 规定默认值</li>
+</ul>
+<p><strong>提示:</strong> 如果你想在按钮中显示进度的值可以添加
+data-show-value="true" 属性:</p>
+
+	<h3>实例</h3>
+
+		&lt;input type="range" <span class="marked">data-show-value="true"</span>&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_slider_showvalue" class="ext">尝试一下 »</a>
+
+<p><strong>提示:</strong> 如果你想在滑动按钮上显示进度（类似一个小弹窗）可以使用
+data-popup-enabled="true" 属性:</p>
+
+	<h3>实例</h3>
+
+		&lt;input type="range" <span class="marked">data-popup-enabled="true"</span>&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_slider_tooltip" class="ext">尝试一下 »</a>
+
+<p><strong>提示：</strong>如果您想要高亮突出显示滑动条的值，请添加 data-highlight="true"：</p>
+
+	<h3>实例</h3>
+
+		&lt;input type="range" <span class="marked">data-highlight="true"</span>&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_slider_highlight" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>拨动开关</h3>
+<p>拨动开关通常用于 on/off 或 true/false 按钮：</p><br>
+
+<p>我们可以使用 &lt;input type="checkbox"&gt; 元素并指定 data-role 为 
+"flipswitch" 来创建开关:</p>
+
+	<h3>实例</h3>
+
+&lt;form method="post" action="demoform.php"&gt;<br>
+		  &lt;label for="switch"&gt;切换开关：&lt;/label&gt;<br>    
+		&lt;input type="checkbox" data-role="flipswitch" name="switch" id="switch"&gt;<br>&lt;/form&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_select_switch" class="ext">尝试一下 »</a>
+
+<p>默认情况下，开关切换的文本为 "On" 和 "Off"。你可以使用
+data-on-text 和 data-off-text 属性来修改它：</p>
+
+	<h4>实例</h4>
+
+		&lt;input type="checkbox" data-role="flipswitch" name="switch" id="switch" 
+		<span class="marked">data-on-text="True" data-off-text="False"</span>&gt;<br>
+
+<br>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_select_switch_text" class="ext">尝试一下 »</a>
+
+<p><strong>提示:</strong>开关复选框可以使用 "checked" 属性来设置默认的选项：</p>
+
+	<h3>实例</h3>
+
+&lt;input type="checkbox" data-role="flipswitch" name="switch" id="switch"
+		<span class="marked">checked</span>&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_select_switch_selected" class="ext">尝试一下 »</a>
+
+<hr>
+
+<img src="img/22fab39e8e98ea93.gif" alt="实例" loading="lazy"><h3>更多实例</h3>
+
+<p><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_forms_slider_range" class="ext">区间滑块</a><br>
+制作一个区间值的滑块。</p>
+
+<p><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_forms_select_switch_css" class="ext">滑块样式</a><br>
+为滑块开关设置样式。</p></div></section>
+<section class="ch" id="c22"><h2>22. jQuery Mobile 主题<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-themes.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>jQuery Mobile 提供了 2 种不同的主题样式, 从 "a" 到 "b" - 每一种主题的按钮，工具条，内容块等等颜色都不一致，每个主题的视觉效果也不一样。</p>
+<p>通过设置元素的data-theme属性可以自定义应用的外观:</p>
+<pre>
+&lt;a href="#" class="ui-btn ui-btn-a|b"&gt;按钮&lt;/a&gt;</pre>
+<br>
+<table>
+<tbody><tr>
+<th>值</th>
+<th>描述</th>
+<th>实例</th>
+</tr>
+<tr>
+<td>a</td>
+<td>页面为灰色背景黑色文字<br>
+头部与底部均为灰色背景黑色文字<br>
+按钮为灰色背景黑色文字<br>
+激活的按钮和链接为白色文本蓝色背景<br>
+input 输入框中 placeholder 属性值为浅灰色，value 值为黑色</td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_themes_a" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>b</td>
+<td>
+页面为黑色背景白色文字<br>
+头部与底部均为黑色背景白色文字<br>
+按钮为白色文字木炭背景<br>
+激活的按钮和链接为白色文本蓝色背景<br>
+input 输入框中 placeholder 属性值为浅灰色，value 值为白色</td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_themes_b" class="ext">尝试一下</a></td>
+</tr>
+</tbody></table>
+<p>按钮样式使用 class="ui-btn",使用 "ui-btn-a|b" 类设置按钮为灰色（默认）或黑色：</p>
+<pre>
+&lt;a href="#" class="ui-btn ui-btn-a|b"&gt;按钮&lt;/a&gt;
+</pre>
+
+<br><table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="lamp" loading="lazy"></th>
+<td>
+"a" 主题的样式用于大多数元素，子元素通常继承父元素的样式。</td>
+</tr></table>
+<hr>
+<h3>主题头部和底部</h3>
+
+	<h3>实例</h3>
+
+		&lt;div data-role="header" data-theme="b"&gt;&lt;/div&gt;<br>&lt;div data-role="footer" 
+		data-theme="b"&gt;&lt;/div&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_bars" class="ext">尝试一下 »</a>
+
+<hr>
+
+<h3>主题对话框的头部底部</h3>
+
+	<h3>实例</h3>
+
+		&lt;div data-role="page" data-dialog="true" id="pagetwo"&gt;<br>  &lt;div 
+		data-role="header" data-theme="b"&gt;&lt;/div&gt;<br>  &lt;div 
+		data-role="footer" data-theme="b"&gt;&lt;/div&gt;<br>&lt;/div&gt; <br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_dialog" class="ext">尝试一下 »</a>
+
+<hr>
+
+<h3>主题按钮</h3>
+
+	<h3>实例</h3>
+
+		&lt;a href="#" class="ui-btn ui-btn-b"&gt;黑色按钮&lt;/a&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_buttons" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>主题图标</h3>
+
+	<h3>实例</h3>
+
+		&lt;a href="#" class="ui-btn ui-btn-b ui-icon-search 
+		ui-btn-icon-notext"&gt;Search&lt;/a&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_icons" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>主题弹窗</h3>
+
+	<h3>实例</h3>
+
+		&lt;div data-role="popup" id="myPopup" data-theme="b"&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_popups" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>头部和底部的主题按钮</h3>
+
+	<h3>实例</h3>
+
+&lt;div data-role="header"&gt;<br>  &lt;a href="#" class="ui-btn 
+		ui-btn-b"&gt;主页&lt;/a&gt;<br>  &lt;h1&gt;欢迎访问我的主页&lt;/h1&gt;<br>  
+		&lt;a href="#" class="ui-btn"&gt;搜索&lt;/a&gt;<br>&lt;/div&gt;<br><br>&lt;div data-role="footer"&gt;<br>
+		  &lt;a href="#" class="ui-btn ui-btn-b"&gt;在Facebook上关注我&lt;/a&gt;<br>  
+		&lt;a href="#" class="ui-btn"&gt;在Twitter上关注我&lt;/a&gt;<br>  &lt;a href="#" 
+		class="ui-btn ui-btn-b"&gt;在Instagram上关注我&lt;/a&gt;<br>&lt;/div&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_toolbars_buttons" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>主题导航栏</h3>
+
+	<h3>实例</h3>
+
+		&lt;div data-role="footer" data-theme="b"&gt;<br>  &lt;h1&gt;文本头部&lt;/h1&gt;<br>  &lt;div data-role="navbar"&gt;<br>    &lt;ul&gt;<br>      
+		&lt;li&gt;&lt;a href="#" data-icon="home" data-theme="a"&gt;Button 1&lt;/a&gt;&lt;/li&gt;<br>      
+		&lt;li&gt;&lt;a href="#" data-icon="arrow-r"&gt;Button 2&lt;/a&gt;&lt;/li&gt;<br>      
+		&lt;li&gt;&lt;a href="#" data-icon="arrow-r"&gt;Button 3&lt;/a&gt;&lt;/li&gt;<br>      
+		&lt;li&gt;&lt;a href="#" data-icon="search" data-theme="a"&gt;Button 4&lt;/a&gt;&lt;/li&gt;<br>    
+		&lt;/ul&gt;<br>  &lt;/div&gt; <br>&lt;/div&gt;<br>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_navbars" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>主题面板</h3>
+
+	<h3>实例</h3>
+
+		&lt;div data-role="panel" id="myPanel" data-theme="b"&gt;<br>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_panels" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>主题可折叠按钮和内容</h3>
+
+	<h3>实例</h3>
+
+		&lt;div data-role="collapsible" data-theme="b" data-content-theme="b"&gt;<br>  
+		&lt;h1&gt;Click me - I'm collapsible!&lt;/h1&gt;<br>  &lt;p&gt;I'm the expanded 
+		content.&lt;/p&gt;<br>&lt;/div&gt;<br>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_collapsibles" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>主题列表</h3>
+
+	<h3>实例</h3>
+
+	&lt;ul data-role="listview" data-theme="b"&gt;<br>  &lt;li&gt;&lt;a href="#"&gt;List 
+		Item&lt;/a&gt;&lt;/li&gt;<br>  &lt;li&gt;&lt;a href="#"&gt;List 
+		Item&lt;/a&gt;&lt;/li&gt;<br>  &lt;li data-theme="a"&gt;&lt;a href="#"&gt;List 
+		Item&lt;/a&gt;&lt;/li&gt;<br>  &lt;li&gt;&lt;a href="#"&gt;List Item&lt;/a&gt;&lt;/li&gt;<br>&lt;/ul&gt;<br>
+	
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_lists" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>主题分割按钮</h3>
+
+	<h3>实例</h3>
+
+		&lt;ul data-role="listview" data-split-theme="b"&gt;
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_split" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>主题可折叠列表</h3>
+
+	<h3>实例</h3>
+
+	&lt;div data-role="collapsible" data-theme="b" 
+		data-content-theme="b"&gt;<br>  &lt;ul data-role="listview"&gt;<br>    
+		&lt;li&gt;&lt;a href="#"&gt;Agnes&lt;/a&gt;&lt;/li&gt;<br>  &lt;/ul&gt;<br>&lt;/div&gt;
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_collapsible_lists" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>主题表单</h3>
+
+	<h3>实例</h3>
+
+		&lt;label for="name"&gt;Full Name:&lt;/label&gt;<br>&lt;input type="text" name="text" 
+		id="name" data-theme="b"&gt;<br><br>&lt;label for="colors"&gt;Choose Favorite 
+		Color:&lt;/label&gt;<br>&lt;select id="colors" 
+		name="colors" data-theme="b"&gt;<br>  &lt;option value="red"&gt;Red&lt;/option&gt;<br>  
+		&lt;option value="green"&gt;Green&lt;/option&gt;<br>  &lt;option 
+		value="blue"&gt;Blue&lt;/option&gt;<br>&lt;/select&gt;
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_forms" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>主题可折叠表单</h3>
+
+	<h3>实例</h3>
+
+		&lt;fieldset data-role="collapsible" data-theme="b" data-content-theme="b"&gt;<br>
+		&lt;legend&gt;Click me - I'm collapsible!&lt;/legend&gt;
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_collapsible_forms" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>添加新主题</h3>
+<p>jQuery Mobile 可以在移动页面添加新主题。</p>
+<p>通过修改 CSS 文件来添加或编辑新主题(如果你已经下载了 jQuery Mobile)。你只需要拷贝样式模块，然后重命令字母类名（c-z）,并在样式中添加你喜欢的颜色和字体。</p>
+<p>你也可以在 HTML 文档中添加主题的新样式， 工具条添加类： ui-bar-(a-z) ，文本内容添加类: ui-body-(a-z) ,页面添加类：ui-page-theme-(a-z)
+。</p>
+
+	<h3>实例</h3>
+
+		&lt;style&gt;<br>.ui-bar-f {<br>    color: red;<br>    background-color: yellow;<br>}<br><br>
+		.ui-body-f {<br>    font-weight: bold;<br>    color: white;<br>
+		   
+		background-color: purple;<br>}<br><br>.ui-page-theme-f {<br>
+		   
+		font-weight: bold;<br>    background-color: green;<br>}<br>&lt;/style&gt;<br>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_custom" class="ext">尝试一下 »</a>
+
+<br>
+<table><tbody><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="Note" loading="lazy"></th>
+<td>在之前的 jQuery Mobile 版本中, 使用 JavaScript 来为元素继承父主题样式。到了 1.4 版本后，框架更注重性能上的提升，已不再使用 JavaScript 来继承，而是使用纯 CSS。<br><br>
+jQuery Mobile 团队为此已经创建了一个工具，地址为 <a href="http://themeroller.jquerymobile.com/" class="ext">ThemeRoller</a>。你可以使用该工具来升级旧的主题，使其兼容新的版本。</td>
+</tr></tbody></table></div></section>
+<section class="ch" id="c23"><h2>23. jQuery Mobile 事件<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-events.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>事件 = 所有不同访问者访问页面的响应动作。</p>
+<hr>
+<h3>jQuery Mobile 事件</h3>
+<p>在jQuery Mobile你可以使用任何标准的 <a href="jquery.html#c33">jQuery 事件</a> 。</p> 
+<p>除此之外, jQuery Mobile 也提供了针对移动端浏览器的事件：</p>
+<ul>
+<li>触摸事件 - 当用户触摸屏幕时触发</li>
+	<li>滑动事件 - 当用户上下滑动时触发</li>
+	<li>定位事件 - 当设备水平或垂直翻转时触发</li>
+	<li>页面事件 - 当页面显示，隐藏，创建，加载或未加载时触发</li>
+</ul>
+<hr>
+<h3>初始化 jQuery Mobile 事件</h3>
+<p>在学习jQuery时我们学到了用$(document).ready()来使你的jQuery代码脚本在DOM元素加载完成后才开始执行：</p>
+
+<h3>jQuery document ready 事件</h3>
+
+	&lt;script&gt;<br>$(document).ready(function(){<br><br>   <i>// 编写jQuery方法...<br></i><br>
+});<br>&lt;/script&gt;
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_events_document_ready" class="ext">尝试一下 »</a>
+
+<p>但是，在 jQuery Mobile 中, 使用pageinit 事件来设置代码脚本在DOM元素加载完成后开始执行，所以要在任何新页面加载并创建是执行脚本，就需要绑定pageinit事件。</p>
+<p>第二个参数 ("<em>#pageone</em>")为指定事件的页面id：</p>
+
+<h3>jQuery Mobile pagecreate 事件</h3>
+
+	&lt;script&gt;<br>$(document).on("pagecreate","#pageone",function(){<br><br>   <i>// jQuery 事件...</i><br><br>});<br>&lt;/script&gt;
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_events_pageinit" class="ext">尝试一下 »</a>
+
+<br><table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="lamp" loading="lazy"></th>
+<td> <strong>注意：</strong> jQuery on() 方法用于绑定事件到选中的元素上。</td>
+</tr></table>
+<p>下一章节我们将更详细介绍 jQuery Mobile 事件。</p></div></section>
+<section class="ch" id="c24"><h2>24. jQuery Mobile 触摸事件<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-events-touch.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>触摸事件在用户触摸屏幕（页面）时触发。</p>
+
+<table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="lamp" loading="lazy"></th>
+<td>触摸事件同样可应用与桌面电脑上：<strong>点击或者滑动鼠标！</strong>
+</td>
+</tr></table>
+<br><hr>
+<h3>jQuery Mobile 点击</h3>
+<p>点击事件在用户点击元素时触发。</p>
+<p>如下实例：当点击 &lt;p&gt; 元素时，隐藏当前的 &lt;p&gt; 元素：</p>
+
+<h3>实例</h3>
+
+	$("p").on("tap",function(){<br>  $(this).hide();<br>});
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_events_tap" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>jQuery Mobile 点击不放（长按）</h3>
+<p>点击不放（长按） 事件在点击并不放（大约一秒）后触发</p>
+
+<h3>实例</h3>
+
+	$("p").on("taphold",function(){<br>  $(this).hide();<br>});
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_events_taphold" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>jQuery Mobile 滑动</h3>
+<p>滑动事件是在用户一秒内水平拖拽大于30PX，或者纵向拖曳小于20px的事件发生时触发的事件：</p>
+
+<h3>实例</h3>
+
+	$("p").on("swipe",function(){<br>  $("span").text("滑动检测!");<br>});
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_events_swipe" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>jQuery Mobile 向左滑动</h3>
+<p>向左滑动事件在用户向左拖动元素大于30px时触发：</p>
+
+<h3>实例</h3>
+
+	$("p").on("swipeleft",function(){<br>  alert("向左滑动!");<br>});
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_events_swipeleft" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>jQuery Mobile 向右滑动</h3>
+<p>向右滑动事件在用户向右拖动元素大于30px时触发：</p>
+
+<h3>实例</h3>
+
+	$("p").on("swiperight",function(){<br>  alert("向右滑动!");<br>});
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_events_swiperight" class="ext">尝试一下 »</a></div></section>
+<section class="ch" id="c25"><h2>25. jQuery Mobile 滚屏事件<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-events-scroll.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>jQuery Mobile 提供了两种滚屏事件：滚屏开始时触发和滚动结束时触发。</p>
+<hr>
+<h3>jQuery Mobile 滚屏开始（Scrollstart）</h3>
+<p>scrollstart 事件是在用户开始滚动页面时触发：</p>
+
+<h3>实例</h3>
+
+	$(document).on("scrollstart",function(){<br>  alert("开始滚动!");<br>});
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_events_scrollstart" class="ext">尝试一下 »</a>
+
+<br><table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="lamp" loading="lazy"></th>
+<td>
+<strong>注意：</strong>iOS 设备在滚屏时锁定 DOM 操作，这意味着当用户滚屏时不可能改变任何东西。然而，jQuery 团队正在为此寻找解决方案。</td>
+</tr></table>
+<br><hr>
+<h3>jQuery Mobile 滚屏结束（Scrollstop）</h3>
+<p>scrollstop 事件是在用户停止滚动页面时触发：</p>
+
+<h3>实例</h3>
+
+	$(document).on("scrollstop",function(){<br>  alert("停止滚动!");<br>});
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_events_scrollstop" class="ext">尝试一下 »</a>
+
+<br><br></div></section>
+<section class="ch" id="c26"><h2>26. jQuery Mobile 方向改变事件<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-events-orientation.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>jQuery Mobile 方向改变（orientationchange）事件</h3>
+<p>当用户垂直或水平旋转移动设备时，触发方向改变（orientationchange）事件。</p>
+
+<br><br><br><br><img src="img/9d4ab5e347ea5238.png" alt="Mobile" loading="lazy">
+<br><br><p>如需使用方向改变（orientationchange）事件，请附加它到 window 对象：</p>
+<pre>
+$(window).on("orientationchange",function(){
+    alert("方向有改变!");
+});
+</pre>
+<p>回调函数可有一个参数，event 对象，返回移动设备的方向："纵向"（设备保持在垂直位置）或"横向"（设备保持在水平位置）：</p>
+
+<h3>实例</h3>
+
+	$(window).on("orientationchange",function(event){<br>  
+	alert("方向是: " + event.orientation);<br>});
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_events_orientationchange" class="ext">尝试一下 »</a>
+
+<p>由于方向改变（orientationchange）事件绑定到 window 对象，我们可以使用 window.orientation 属性来设置不同的样式，以便区分纵向和横向的视图：</p>
+
+<h3>实例</h3>
+
+	$(window).on("orientationchange",function(){<br>  if(window.orientation 
+	== 0) // Portrait<br>  {<br>    $("p").css({"background-color":"yellow","font-size":"300%"});<br>  
+	}<br>  else // Landscape<br>  {<br>    $("p").css({"background-color":"pink","font-size":"200%"});<br>  
+	}<br>});
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_events_orientationchange2" class="ext">尝试一下 »</a>
+
+<br><table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="lamp" loading="lazy"></th>
+<td>window.orientation 属性针对纵向视图返回 0，针对横向视图返回 90 或 -90。</td>
+</tr></table>
+<br><br></div></section>
+<section class="ch" id="c27"><h2>27. jQuery Mobile 实例<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-examples.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p><b>jQuery Mobile 页面</b></p>
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_start" class="ext">一个基本的移动网页</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_pages" class="ext">多个页面</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_dialog" class="ext">对话框</a>
+</p>
+<p><b><a href="jquerymobile-pages.html">实例解释</a></b></p>
+<hr>
+<p><b>jQuery Mobile 页面切换</b></p>
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_trans_fade" class="ext">淡入效果</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_trans_flip" class="ext">从后向前翻转效果</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_trans_flow" class="ext">流动效果</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_trans_pop" class="ext">弹出效果</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_trans_slide" class="ext">滑动效果</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_trans_slidefade" class="ext">从右到左滑动并淡入效果</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_trans_slideup" class="ext">从下到上滑动效果</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_trans_slidedown" class="ext">从上到下滑动效果</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_trans_turn" class="ext">翻页效果</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_trans_none" class="ext">没有切换效果</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_trans_reverse" class="ext">颠倒效果</a>
+</p>
+<p><b><a href="jquerymobile-transitions.html">实例解释</a></b></p>
+<hr>
+<p><b>jQuery Mobile 按钮</b></p>
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_button" class="ext">创建按钮</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_button_inline" class="ext">内联按钮</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_button_group" class="ext">组合按钮</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_button_back" class="ext">后退按钮</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_button_corners" class="ext">带有圆角或不带有圆角的按钮</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_button_mini" class="ext">小尺寸或常规尺寸的按钮</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_button_shadow" class="ext">带有阴影或不带有阴影的按钮</a>
+</p>
+<p><b><a href="jquerymobile-buttons.html">实例解释</a></b></p>
+<hr>
+<p><b>jQuery Mobile 按钮图标</b></p>
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_icon_all" class="ext">添加图标到按钮</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_icon_positions" class="ext">定位图标</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_icon_notext" class="ext">只显示图标</a>
+</p>
+<p><b><a href="jquerymobile-icons.html">实例解释</a></b></p>
+<hr>
+<p><b>jQuery Mobile 工具栏</b></p>
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_toolbars_basic" class="ext">创建头部栏和尾部栏</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_header" class="ext">在头部栏添加按钮</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_header_left" class="ext">在头部栏左侧添加按钮</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_header_class" class="ext">在头部栏右侧添加按钮</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_footer" class="ext">带有按钮的尾部栏</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_footer_class" class="ext">带有居中对齐按钮的尾部栏</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_footer_grouped" class="ext">带有组合按钮的尾部栏</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_footer_grouped_horizontal" class="ext">带有水平组合按钮的尾部栏</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_toolbars_inline" class="ext">Inline 定位 - 头部栏和尾部栏与页面内容内联</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_toolbars_fixed" class="ext">Fixed 定位 - 头部栏和尾部栏固定在页面的顶部和底部</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_toolbars_fullscreen" class="ext">Fullscreen 定位 - 头部栏和尾部栏固定在页面的顶部和底部，但是会遮住页面内容</a>
+</p>
+<p><b><a href="jquerymobile-toolbars.html">实例解释</a></b></p>
+<hr>
+<p><b>jQuery Mobile 导航栏</b></p>
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_navbars" class="ext">创建导航栏</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_navbars_content" class="ext">内容中的导航栏</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_navbars_footer" class="ext">尾部中的导航栏</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_navbars_class_active" class="ext">在导航栏中为按钮添加被选中（按下）外观</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_navbars_class_persist" class="ext">持续添加被选中（按下）外观</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_navbars_footer_icons" class="ext">定位导航栏中的图标</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_navbars_wrap" class="ext">导航栏中 10 个按钮的演示</a>
+</p>
+<p><b><a href="jquerymobile-navbars.html">实例解释</a></b></p>
+<hr>
+<p><b>jQuery Mobile 可折叠块</b></p>
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_collapsible" class="ext">创建可折叠的内容块</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_collapsible_false" class="ext">当页面加载时展开内容</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_collapsible_nested" class="ext">嵌套可折叠块</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_collapsible_sets" class="ext">可折叠集合</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_collapsible_inset" class="ext">取消可折叠块上的圆角</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_collapsible_mini" class="ext">让可折叠块更小</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_collapsible_icons" class="ext">改变可折叠块的图标</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_collapsible" class="ext">可折叠列表</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_collapsible" class="ext">可折叠表单</a>
+</p>
+<p><b><a href="jquerymobile-collapsibles.html">实例解释</a></b></p>
+<hr>
+<p><b>jQuery Mobile 网格</b></p>
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_grid_a" class="ext">两列布局</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_grid_b" class="ext">三列布局</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_grid_c" class="ext">四列布局</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_grid_d" class="ext">五列布局</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_grid_css" class="ext">自定义网格</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_grid_multiple" class="ext">列内的多行</a>
+</p>
+<p><b><a href="jquerymobile-grids.html">实例解释</a></b></p>
+<hr>
+<p><b>jQuery Mobile 列表</b></p>
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_views" class="ext">创建列表视图</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_inset" class="ext">带圆角的列表视图</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_dividers" class="ext">列表分隔</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_autodividers" class="ext">自动分隔</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_filter" class="ext">创建搜索过滤</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_filter_placeholder" class="ext">改变搜索框内的文本</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_readonly" class="ext">创建只读列表</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_thumbs" class="ext">为列表项添加缩略图</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_thumbs2" class="ext">添加 HTML 元素，用信息填充列表项</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_icons" class="ext">添加图标到列表项</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_split" class="ext">创建带有分割按钮的列表</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_split2" class="ext">让列表项更具功能性</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_count" class="ext">创建计数气泡</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_change_icons" class="ext">为列表项创建默认链接图标</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_collapsible" class="ext">可折叠列表</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_lists_formatting" class="ext">创建日历</a>
+</p>
+<p><b><a href="jquerymobile-list-views.html">实例解释</a></b></p>
+<hr>
+<p><b>jQuery Mobile 表单</b></p>
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_inputs" class="ext">文本输入框</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_textarea" class="ext">文本输入域</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_search" class="ext">搜索输入框</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_radio" class="ext">单选按钮</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_checkbox" class="ext">复选框</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_horizontal" class="ext">水平组合单选按钮和复选框</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_radio_check_fieldcontain" class="ext">带有单选按钮和复选框的 Field 容器</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_checked" class="ext">预选中单选按钮/复选框</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_select" class="ext">创建选择菜单</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_select_optgroup" class="ext">创建带有分隔（optgroup）的选择菜单</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_select_native" class="ext">自定义选择菜单</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_select_multiple" class="ext">在选择菜单中选择多个选项</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_select_group" class="ext">组合选择菜单</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_select_horizontal" class="ext">水平组合选择菜单</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_select_selected" class="ext">预选中选项</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_collapsible" class="ext">可折叠表单</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_slider" class="ext">创建滑动条控件</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_slider_highlight" class="ext">高亮突出显示滑动条的值</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_select_switch" class="ext">创建拨动开关</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_forms_select_switch_selected" class="ext">预选中拨动开关</a>
+</p>
+<p><b><a href="jquerymobile-form-basic.html">实例解释</a></b></p>
+<hr>
+<p><b>jQuery Mobile 主题</b></p>
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_a" class="ext">主题 "a"</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_b" class="ext">主题 "b"</a>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_content" class="ext">主题头部、内容和尾部</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_dialog" class="ext">主题对话框</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_buttons" class="ext">主题按钮</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_icons" class="ext">主题图标</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_toolbars_buttons" class="ext">头部和尾部的主题按钮</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_navbars" class="ext">主题导航栏</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_collapsibles" class="ext">主题可折叠按钮和内容</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_lists" class="ext">主题列表</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_split" class="ext">主题分割按钮</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_collapsible_lists" class="ext">主题可折叠列表</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_forms" class="ext">主题表单</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_collapsible_forms" class="ext">主题可折叠表单</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_themes_custom" class="ext">自定义主题</a>
+</p>
+<p><b><a href="jquerymobile-themes.html">实例解释</a></b></p>
+<hr>
+<p><b>jQuery Mobile 触摸事件</b></p>
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_events_tap" class="ext">点击（Tap）事件</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_events_taphold" class="ext">点击不放（Taphold）事件</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_events_swipe" class="ext">滑动（Swipe）事件</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_events_swipeleft" class="ext">向左滑动（Swipeleft）事件</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_events_swiperight" class="ext">向右滑动（Swiperight）事件</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_events_scrollstart" class="ext">滚屏开始（Scrollstart）事件</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_events_scrollstop" class="ext">滚屏结束（Scrollstop）事件</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_events_orientationchange" class="ext">方向改变（Orientationchange）事件 - 提示方向</a>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_events_orientationchange2" class="ext">方向改变（Orientationchange）事件 - 为纵向和横向设置不同的样式</a>
+</p>
+<p><b><a href="jquerymobile-events-touch.html">实例解释</a></b></p>
+
+<br></div></section>
+<section class="ch" id="c28"><h2>28. jQuery Mobile Data 属性<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-ref-data.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>jQuery Data 属性</h3>
+<p>jQuery Mobile 使用 <a href="https://www.runoob.com/tags/att-object-data.html" class="ext">HTML5 data-* 属性</a>来为移动设备创建更具触摸友好性和吸引性的外观。</p>
+<p>在下面的参考列表中，<strong>粗体显示的值</strong>为默认值。</p>
+<hr>
+<h3>按钮</h3>
+<p><span class="deprecated">在1.4 版本以后已废弃。使用
+<a href="jquerymobile-ref-css.html">CSS 类</a> 替代。</span>带有 <span class="marked">data-role="button"</span> 的超链接。button 元素、工具栏中的链接以及 input 字段都会自动渲染成按钮样式，不需要添加 data-role="button"。</p>
+<table>
+<tr>
+<th>Data-属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data-corners</td>
+<td>
+<strong>true</strong> | false</td>
+<td>规定按钮是否圆角</td>
+</tr>
+<tr>
+<td>data-icon</td>
+<td><a href="jquerymobile-ref-icons.html">图标参考手册</a></td>
+<td>规定按钮的图标。默认没有图标。</td>
+</tr>
+<tr>
+<td>data-iconpos</td>
+<td>
+<strong>left</strong> | right | top | bottom | notext</td>
+<td>规定图标的位置</td>
+</tr>
+<tr>
+<td>data-iconshadow</td>
+<td>
+<strong>true</strong> | false</td>
+<td>规定按钮图标是否有阴影</td>
+</tr>
+<tr>
+<td>data-inline</td>
+<td>true | <strong>false</strong>
+</td>
+<td>规定按钮是否内联</td>
+</tr>
+<tr>
+<td>data-mini</td>
+<td>true | <strong>false</strong>
+</td>
+<td>规定按钮是小尺寸还是常规尺寸</td>
+</tr>
+<tr>
+<td>data-shadow</td>
+<td>
+<strong>true</strong> | false</td>
+<td>规定按钮是否有阴影</td>
+</tr>
+<tr>
+<td>data-theme</td>
+<td>
+<em>字母</em> (a-z)</td>
+<td>规定按钮的主题颜色</td>
+</tr>
+</table>
+<br><table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="lamp" loading="lazy"></th>
+<td>如需组合多个按钮，请使用带有 data-role="controlgroup" 属性和 data-type="horizontal|vertical" 的容器来规定是否水平或垂直组合按钮。</td>
+</tr></table>
+<br><hr>
+<h3>复选框</h3>
+<p>带有 <span class="marked">type="checkbox"</span> 的成双成对的 label 和 input。它们会被自动渲染成按钮样式，data-role 不是必需的。</p>
+<table>
+<tr>
+<th>Data-属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data-mini</td>
+<td>true | <strong>false</strong>
+</td>
+<td>规定复选框是小尺寸还是常规尺寸</td>
+</tr>
+<tr>
+<td>data-role</td>
+<td>none</td>
+<td>防止 jQuery Mobile 把复选框渲染成按钮样式</td>
+</tr>
+<tr>
+<td>data-theme</td>
+<td>
+<em>字母</em> (a-z)</td>
+<td>规定复选框的主题颜色</td>
+</tr>
+</table>
+<br><table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="lamp" loading="lazy"></th>
+<td>如需组合多个复选框，请使用带有 data-role="controlgroup" 属性和 data-type="horizontal|vertical" 的容器来规定是否水平或垂直组合复选框。</td>
+</tr></table>
+<br><hr>
+<h3>可折叠块</h3>
+<p>在带有 <span class="marked">data-role="collapsible"</span> 的容器内部的后跟任意 HTML 标记的标题元素。</p>
+<table>
+<tr>
+<th>Data-属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data-collapsed</td>
+<td>
+<strong>true</strong> | false</td>
+<td>规定内容是折叠还是展开</td>
+</tr>
+<tr>
+<td>data-collapsed-icon</td>
+<td><a href="jquerymobile-ref-icons.html">图标参考手册</a></td>
+<td>规定可折叠按钮的图标。默认是 "plus"</td>
+</tr>
+<tr>
+<td>data-content-theme</td>
+<td>
+<em>字母</em> (a-z)</td>
+<td>规定可折叠内容的主题颜色。是否为可折叠内容添加圆角</td>
+</tr>
+<tr>
+<td>data-expanded-icon</td>
+<td><a href="jquerymobile-ref-icons.html">图标参考手册</a></td>
+<td>规定当内容展开时可折叠按钮的图标。默认是 "minus"</td>
+</tr>
+<tr>
+<td>data-iconpos</td>
+<td>
+<strong>left</strong> | right | top | bottom</td>
+<td>规定图标的位置</td>
+</tr>
+<tr>
+<td>data-inset</td>
+<td>
+<strong>true</strong> | false</td>
+<td>规定可折叠按钮是否渲染成圆角且带外边距</td>
+</tr>
+<tr>
+<td>data-mini</td>
+<td>true | <strong>false</strong>
+</td>
+<td>规定可折叠按钮是小尺寸还是常规尺寸</td>
+</tr>
+<tr>
+<td>data-theme</td>
+<td>
+<em>字母</em> (a-z)</td>
+<td>规定可折叠按钮的主题颜色</td>
+</tr>
+</table>
+<br><hr>
+<h3>可折叠集合</h3>
+<p>在带有 <span class="marked">data-role="collapsible-set"</span> 的容器内部的可折叠内容块。</p>
+<table>
+<tr>
+<th>Data-属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data-collapsed-icon</td>
+<td><a href="jquerymobile-ref-icons.html">图标参考手册</a></td>
+<td>规定可折叠按钮的图标。默认是 "plus"</td>
+</tr>
+<tr>
+<td>data-content-theme</td>
+<td>
+<em>字母</em> (a-z)</td>
+<td>规定可折叠按钮的主题颜色</td>
+</tr>
+<tr>
+<td>data-expanded-icon</td>
+<td><a href="jquerymobile-ref-icons.html">图标参考手册</a></td>
+<td>规定当内容展开时可折叠按钮的图标。默认是 "minus"</td>
+</tr>
+<tr>
+<td>data-iconpos</td>
+<td>
+<strong>left</strong> | right | top | bottom | notext</td>
+<td>规定图标的位置</td>
+</tr>
+<tr>
+<td>data-inset</td>
+<td>
+<strong>true</strong> | false</td>
+<td>规定可折叠块是否渲染成圆角且带外边距</td>
+</tr>
+<tr>
+<td>data-mini</td>
+<td>true | <strong>false</strong>
+</td>
+<td>规定可折叠按钮是小尺寸还是常规尺寸</td>
+</tr>
+<tr>
+<td>data-theme</td>
+<td>
+<em>字母</em> (a-z)</td>
+<td>规定可折叠集合的主题颜色</td>
+</tr>
+</table>
+<br><hr>
+<h3>内容</h3>
+<p><span class="deprecated">在 1.4 版本已废弃, 1.5 版本后不再支持。</span> 使用 <span class="marked">data-role="content"</span> 的容器。</p>
+<table>
+<tr>
+<th>Data-属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data-theme</td>
+<td>
+<em>字母</em> (a-z)</td>
+<td>规定内容的主题颜色。</td>
+</tr>
+</table>
+<br><hr>
+<h3>控件组</h3>
+<p>带有 <span class="marked">data-role="controlgroup"</span> 的 &lt;div&gt; 或 &lt;fieldset&gt; 容器。 
+组合单个类型（基于链接的按钮、单选按钮、复选框、select 元素）的多个按钮样式的 input。对于组合表单复选框和单选按钮，推荐在带有 data-role="fieldcontain" 的 &lt;div&gt; 内使用 &lt;fieldset&gt; 容器来改进标签样式。</p>
+<table>
+<tr>
+<th>Data-属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data-mini</td>
+<td>true | <strong>false</strong>
+</td>
+<td>规定控件组是小尺寸还是常规尺寸</td>
+</tr>
+<tr>
+<td>data-type</td>
+<td>horizontal | <strong>vertical</strong>
+</td>
+<td>规定控件组是水平显示还是垂直显示</td>
+</tr>
+</table>
+<br><hr>
+<h3>对话框</h3>
+<p>带有 <span class="marked">data-role="dialog"</span> 的容器或带有 <span class="marked">data-rel="dialog"</span> 的链接。</p>
+<table>
+<tr>
+<th>Data-属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data-close-btn-text</td>
+<td><em>sometext</em></td>
+<td>规定对话框关闭按钮的文本</td>
+</tr>
+<tr>
+<td>data-dom-cache</td>
+<td>true | <strong>false</strong>
+</td>
+<td>规定是否清除各个页面的 jQuery DOM 缓存（如果设置为 true，您必须自己管理 DOM 并在所有移动设备上进行测试）</td>
+</tr>
+<tr>
+<td>data-overlay-theme</td>
+<td>
+<em>字母</em> (a-z)</td>
+<td>规定对话框页面的蒙版（背景）颜色</td>
+</tr>
+<tr>
+<td>data-theme</td>
+<td>
+<em>字母</em> (a-z)</td>
+<td>规定对话框页面的主题颜色</td>
+</tr>
+<tr>
+<td>data-title</td>
+<td><em>sometext</em></td>
+<td>规定对话框页面的标题</td>
+</tr>
+</table>
+<br><hr>
+<h3>增强</h3>
+<p>带有 <span class="marked">data-enhance="false"</span> 或 <span class="marked">data-ajax="false"</span> 的容器。</p>
+<table>
+<tr>
+<th>Data-属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data-enhance</td>
+<td>
+<strong>true </strong>| false</td>
+<td>如果设置为 "true"（默认），jQuery Mobile 会自动渲染页面，使其更适合于移动设备。如果设置为 "false"，框架将不会渲染页面</td>
+</tr>
+<tr>
+<td>data-ajax</td>
+<td>
+<strong>true </strong>| false</td>
+<td>规定是否通过 ajax 加载页面</td>
+</tr>
+</table>
+<p><strong>注意：</strong>data-enhance="false" 必须与 $.mobile.ignoreContentEnabled=true" 一同使用来阻止 jQuery Mobile 自动渲染页面。</p>
+<p>当 $.mobile.ignoreContentEnabled 设置为 true 时，data-ajax="false" 容器内的任何链接或表单元素将会被框架的导航功能忽略。</p>
+<hr>
+<h3>域容器</h3>
+
+<p><span class="deprecated"> 1.4  版本后已废弃，在 1.5 版本后不再支持，将使用 class="ui-fieldcontain 替代"。 </span> 包裹在 label/form 元素对，并带有 <span class="marked">data-role="fieldcontain"</span> 的容器。</p>
+<hr>
+<h3>固定工具栏</h3>
+<p>带有 <span class="marked">data-role="header"</span> 或 <span class="marked">data-role="footer"</span>，并带有 <span class="marked">data-position="fixed"</span> 属性的容器。</p>
+<table>
+<tr>
+<th>Data-属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data-disable-page-zoom</td>
+<td>
+<strong>true</strong> | false</td>
+<td>规定用户是否能缩放页面</td>
+</tr>
+<tr>
+<td>data-fullscreen</td>
+<td>true | <strong>false</strong>
+</td>
+<td>规定工具栏是否一直固定在顶部或底部</td>
+</tr>
+<tr>
+<td>data-tap-toggle</td>
+<td>
+<strong>true</strong> | false</td>
+<td>规定用户是否能够通过点击改变工具栏的可见性</td>
+</tr>
+<tr>
+<td>data-transition</td>
+<td>
+<strong>slide</strong> | fade | none</td>
+<td>规定当点击发生时的切换效果</td>
+</tr>
+<tr>
+<td>data-update-page-padding</td>
+<td>
+<strong>true</strong> | false</td>
+<td>规定页面顶部和底部的内边距是否在 resize、transition 和 "updatelayout" 事件发生时更新（jQuery Mobile 在 "pageshow" 事件发生时总是更新内边距）</td>
+</tr>
+<tr>
+<td>data-visible-on-page-show</td>
+<td>
+<strong>true</strong> | false</td>
+<td>规定当父页面显示时工具栏的可见性</td>
+</tr>
+</table>
+<br><hr>
+<h3>翻转拨动开关</h3>
+<p>一个带有 <span class="marked">data-role="slider"</span> 的 &lt;select&gt; 元素和两个 &lt;option&gt; 元素。</p>
+<table>
+<tr>
+<th>Data-属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data-mini</td>
+<td>true | <strong>false</strong>
+</td>
+<td>规定开关是小尺寸还是常规尺寸</td>
+</tr>
+<tr>
+<td>data-role</td>
+<td>none</td>
+<td>防止 jQuery Mobile 把拨动开关渲染成按钮样式</td>
+</tr>
+<tr>
+<td>data-theme</td>
+<td>
+<em>字母</em> (a-z)</td>
+<td>规定拨动开关的主题颜色</td>
+</tr>
+<tr>
+<td>data-track-theme</td>
+<td>
+<em>字母</em> (a-z)</td>
+<td>规定轨道的主题颜色</td>
+</tr>
+</table>
+<br><hr>
+<h3>尾部栏</h3>
+<p>带有 <span class="marked">data-role="footer"</span> 的容器。</p>
+<table>
+<tr>
+<th>Data-属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data-id</td>
+<td><em>sometext</em></td>
+<td>规定唯一 ID。对于持续的尾部栏是必需的</td>
+</tr>
+<tr>
+<td>data-position</td>
+<td>
+<strong>inline</strong> | fixed</td>
+<td>规定尾部栏是与页面内容内联还是保持固定在底部</td>
+</tr>
+<tr>
+<td>data-fullscreen</td>
+<td>true | <strong>false</strong>
+</td>
+<td>规定尾部栏是固定在底部还是覆盖在页面内容上（查看范围更大）</td>
+</tr>
+<tr>
+<td>data-theme</td>
+<td>
+<em>字母</em> (a-z)</td>
+<td>规定尾部栏的主题颜色。默认是 "a"</td>
+</tr>
+</table>
+<p><strong>注意：</strong>如需启用全屏定位，请使用 data-position="fixed"，然后添加 data-fullscreen 属性到元素上。</p>
+<hr>
+<h3>头部栏</h3>
+<p>带有 <span class="marked">data-role="header"</span> 的容器。</p>
+<table>
+<tr>
+<th>Data-属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data-id</td>
+<td><em>sometext</em></td>
+<td>规定唯一 ID。对于持续的头部栏是必需的</td>
+</tr>
+<tr>
+<td>data-position</td>
+<td>
+<strong>inline</strong> | fixed</td>
+<td>规定头部栏是与页面内容内联还是保持固定在顶部</td>
+</tr>
+<tr>
+<td>data-fullscreen</td>
+<td>true | <strong>false</strong>
+</td>
+<td>规定头部栏是固定在顶部还是覆盖在页面内容上（查看范围更大）</td>
+</tr>
+<tr>
+<td>data-theme</td>
+<td>
+<em>字母</em> (a-z)</td>
+<td>规定头部栏的主题颜色。默认是 "a"</td>
+</tr>
+</table>
+<p><strong>注意：</strong>如需启用全屏定位，请使用 data-position="fixed"，然后添加 data-fullscreen 属性到元素上。</p>
+<hr>
+<h3>链接</h3>
+<p>所有的链接，包含那些带有 data-role="button" 的链接和表单提交按钮。</p>
+<table>
+<tr>
+<th>Data-属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data-ajax</td>
+<td>
+<strong>true</strong> | false</td>
+<td>规定是否通过 ajax 加载页面来提高用户体验和交互。如果设置为 false，jQuery Mobile 将会执行一个正常的页面请求。</td>
+</tr>
+<tr>
+<td>data-direction</td>
+<td>reverse</td>
+<td>反向转换动画（仅用于页面和对话框）</td>
+</tr>
+<tr>
+<td>data-dom-cache</td>
+<td>true | <strong>false</strong>
+</td>
+<td>规定是否清除各个页面的 jQuery DOM 缓存（如果设置为 true，您必须自己管理 DOM 并在所有移动设备上进行测试）</td>
+</tr>
+<tr>
+<td>data-prefetch</td>
+<td>true | <strong>false</strong>
+</td>
+<td>规定是否预先读取页面到 DOM 中，以便当用户访问它们时可用</td>
+</tr>
+<tr>
+<td>data-rel</td>
+<td>back | dialog | external | popup</td>
+<td>规定链接行为的选项。Back - 回退到历史记录中的前一个页面。Dialog - 以对话框形式打开链接，不保存到历史记录中。External - 用于链接到另一个域。Popup - 打开一个弹出窗口。</td>
+</tr>
+<tr>
+<td>data-transition</td>
+<td>
+<strong>fade</strong> | flip | flow | pop | slide | slidedown | slidefade | slideup | turn | 
+none</td>
+<td>规定一个页面切换到下一个页面的效果。请查看我们的 <a href="jquerymobile-transitions.html">jQuery Mobile 页面切换</a>章节。</td>
+</tr>
+<tr>
+<td>data-position-to</td>
+<td>
+<strong>origin</strong> | jQuery selector | window</td>
+<td>规定弹出框的位置。Origin - 默认。定位弹窗在打开它的链接上。jQuery selector - 定位弹窗在指定元素上。Window - 定位弹窗在窗口屏幕的中央。</td>
+</tr>
+</table>
+<br><hr>
+<h3>列表</h3>
+<p>带有 <span class="marked">data-role="listview"</span> 的 &lt;ol&gt; 或 &lt;ul&gt;。</p>
+<table>
+<tr>
+<th>Data-属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data-autodividers</td>
+<td>true | <strong>false</strong>
+</td>
+<td>规定是否自动划分列表项</td>
+</tr>
+<tr>
+<td>data-count-theme</td>
+<td>
+<em>字母</em> (a-z)</td>
+<td>规定计数气泡的主题颜色。</td>
+</tr>
+<tr>
+<td>data-divider-theme</td>
+<td>
+<em>字母</em> (a-z)</td>
+<td>规定列表分隔的主题颜色。</td>
+</tr>
+<tr>
+<td>data-filter</td>
+<td>true | <strong>false</strong>
+</td>
+<td>规定是否在列表中添加搜索框</td>
+</tr>
+<tr>
+<td>data-filter-placeholder</td>
+<td><em>sometext</em></td>
+<td><span class="deprecated">1.4 版本后废弃。使用 HTML placeholder 属性替代。</span>规定搜索框内的文本。默认是 "Filter items..."</td>
+</tr>
+<tr>
+<td>data-filter-theme</td>
+<td>
+<em>字母</em> (a-z)</td>
+<td>规定搜索过滤的主题颜色。</td>
+</tr>
+<tr>
+<td>data-icon</td>
+<td><a href="jquerymobile-ref-icons.html">图标参考手册</a></td>
+<td>规定列表的图标</td>
+</tr>
+<tr>
+<td>data-inset</td>
+<td>true | <strong>false</strong>
+</td>
+<td>规定列表是否渲染成圆角且带外边距</td>
+</tr>
+<tr>
+<td>data-split-icon</td>
+<td><a href="jquerymobile-ref-icons.html">图标参考手册</a></td>
+<td>规定分割按钮的图表。默认是 "arrow-r"</td>
+</tr>
+<tr>
+<td>data-split-theme</td>
+<td>
+<em>字母</em> (a-z)</td>
+<td>规定分割按钮的主题颜色。</td>
+</tr>
+<tr>
+<td>data-theme</td>
+<td>
+<em>字母</em> (a-z)</td>
+<td>规定列表的主题颜色</td>
+</tr>
+</table>
+<br><hr>
+<h3>列表项</h3>
+<p>带有 <span class="marked">data-role="listview"</span> 的 &lt;ol&gt; 或 &lt;ul&gt; 内的 &lt;li&gt;。</p>
+<table>
+<tr>
+<th>Data-属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data-filtertext</td>
+<td><em>sometext</em></td>
+<td>规定当过滤元素时要搜索的文本。该文本将会被过滤，而不是实际的列表项文本</td>
+</tr>
+<tr>
+<td>data-icon</td>
+<td><a href="jquerymobile-ref-icons.html">图标参考手册</a></td>
+<td>规定列表项图标</td>
+</tr>
+<tr>
+<td>data-role</td>
+<td>list-divider</td>
+<td>规定列表项的分隔</td>
+</tr>
+<tr>
+<td>data-theme</td>
+<td>
+<em>字母</em> (a-z) </td>
+<td>规定列表项的主题颜色</td>
+</tr>
+</table>
+<p><strong>注意：</strong>data-icon 属性只作用于带有链接的列表项。</p>
+<hr>
+<h3>导航栏</h3>
+<p>带有 <span class="marked">data-role="navbar"</span> 容器内部的 &lt;li&gt; 元素。</p>
+<table>
+<tr>
+<th>Data-属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data-icon</td>
+<td><a href="jquerymobile-ref-icons.html">图标参考手册</a></td>
+<td>规定列表项的图标</td>
+</tr>
+<tr>
+<td>data-iconpos</td>
+<td>left | right | <strong>top</strong> | bottom | notext</td>
+<td>规定图标的位置</td>
+</tr>
+</table>
+<br><table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="lamp" loading="lazy"></th>
+<td>导航栏从他们的父容器中继承了主题样本。为导航栏设置 data-theme 属性是不可能的。可以为导航栏中的每个链接单独设置 data-theme 属性。</td>
+</tr></table>
+<br><hr>
+<h3>页面</h3>
+<p>带有 <span class="marked">data-role="page"</span> 的容器。</p>
+<table>
+<tr>
+<th>Data-属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data-add-back-btn</td>
+<td>true | <strong>false</strong>
+</td>
+<td>自动添加后退按钮，仅限头部栏</td>
+</tr>
+<tr>
+<td>data-back-btn-text</td>
+<td><em>sometext</em></td>
+<td>规定后退按钮的一些文本</td>
+</tr>
+<tr>
+<td>data-back-btn-theme</td>
+<td>
+<em>字母</em> (a-z)</td>
+<td>规定后退按钮的主题颜色</td>
+</tr>
+<tr>
+<td>data-close-btn-text</td>
+<td>
+<em>字母</em> (a-z) </td>
+<td>规定对话框上关闭按钮的一些文本</td>
+</tr>
+<tr>
+<td>data-dom-cache</td>
+<td>true | <strong>false</strong>
+</td>
+<td>规定是否清除各个页面的 jQuery DOM 缓存（如果设置为 true，您必须自己管理 DOM 并在所有移动设备上进行测试）</td>
+</tr>
+<tr>
+<td>data-overlay-theme</td>
+<td>
+<em>字母</em> (a-z) </td>
+<td>规定对话框页面的蒙版（背景）颜色</td>
+</tr>
+<tr>
+<td>data-theme</td>
+<td>
+<em>字母</em> (a-z) </td>
+<td>规定页面的主题颜色。</td>
+</tr>
+<tr>
+<td>data-title</td>
+<td><em>sometext</em></td>
+<td>规定页面标题</td>
+</tr>
+<tr>
+<td>data-url</td>
+<td>url</td>
+<td>更新 URL 的值，而不是用于请求页面的 URL</td>
+</tr>
+</table>
+<br><hr>
+<h3>弹窗</h3>
+<p>带有 <span class="marked">data-role="popup"</span> 的容器。</p>
+<table>
+<tr>
+<th>Data-属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data-corners</td>
+<td>
+<strong>true</strong> | false</td>
+<td>规定弹窗是否圆角</td>
+</tr>
+<tr>
+<td>data-overlay-theme</td>
+<td>
+<em>字母</em> (a-z) </td>
+<td>规定弹出框的蒙版（背景）颜色。默认是透明背景（无） </td>
+</tr>
+<tr>
+<td>data-shadow</td>
+<td>
+<strong>true</strong> | false</td>
+<td>规定弹出框是否有阴影</td>
+</tr>
+<tr>
+<td>data-theme</td>
+<td>
+<em>字母</em> (a-z) </td>
+<td>规定弹出框的主题颜色。默认是继承的，"none" 设置弹窗为透明的</td>
+</tr>
+<tr>
+<td>data-tolerance</td>
+<td>30, 15, 30, 15 </td>
+<td>规定窗口边缘（上 top、右 right、下 bottom、左 left）的距离</td>
+</tr>
+</table>
+<p>带有 <span class="marked">data-rel="popup"</span> 的锚：</p>
+<table>
+<tr>
+<th>Data-属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data-position-to</td>
+<td>
+<strong>origin</strong> | jQuery selector | window</td>
+<td>&gt;规定弹出框的位置。Origin - 默认。定位弹窗在打开它的链接上。jQuery selector - 定位弹窗在指定元素上。Window - 定位弹窗在窗口屏幕的中央。</td>
+</tr>
+<tr>
+<td>data-rel</td>
+<td>popup</td>
+<td>用于打开弹出框</td>
+</tr>
+<tr>
+<td>data-transition</td>
+<td>fade | flip | flow | pop | slide | slidedown | slidefade | slideup | turn | 
+<strong>none</strong>
+</td>
+<td>规定一个页面切换到下一个页面的效果。请查看我们的 <a href="jquerymobile-transitions.html">jQuery Mobile 页面切换</a>章节。</td>
+</tr>
+</table>
+<br><hr>
+<h3>单选按钮</h3>
+<p>带有 <span class="marked">type="radio"</span> 的成双成对的 label 和 input。它们会被自动渲染程按钮样式，data-role 不是必需的。</p>
+<table>
+<tr>
+<th>Data-属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data-mini</td>
+<td>true | <strong>false</strong>
+</td>
+<td>规定按钮是小尺寸还是常规尺寸</td>
+</tr>
+<tr>
+<td>data-role</td>
+<td>none</td>
+<td>防止 jQuery Mobile 渲染单选按钮的样式为增强状态的按钮，使元素以 HTML 原生的状态显示</td>
+</tr>
+<tr>
+<td>data-theme</td>
+<td>
+<em>字母</em> (a-z)</td>
+<td>规定单选按钮的主题颜色</td>
+</tr>
+</table>
+<br><table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="lamp" loading="lazy"></th>
+<td>如需组合多个单选按钮，请使用带有 data-role="controlgroup" 属性和 data-type="horizontal|vertical" 的容器来规定是否水平或垂直组合单选按钮。</td>
+</tr></table>
+<br><hr>
+<h3>选择</h3>
+<p>所有的 <span class="marked">&lt;select&gt;</span> 元素。这些会被自动渲染成按钮样式，date-role 是不必需的。</p>
+<table>
+<tr>
+<th>Data-属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data-icon</td>
+<td><a href="jquerymobile-ref-icons.html">图标参考手册</a></td>
+<td>规定 select 元素的图标。默认是 "arrow-d"</td>
+</tr>
+<tr>
+<td>data-iconpos</td>
+<td>left | <strong>right</strong> | top | bottom | notext</td>
+<td>规定图标的位置</td>
+</tr>
+<tr>
+<td>data-inline</td>
+<td>true | <strong>false</strong>
+</td>
+<td>规定 select 元素是否内联</td>
+</tr>
+<tr>
+<td>data-mini</td>
+<td>true | <strong>false</strong>
+</td>
+<td>规定 select 元素是小尺寸还是常规尺寸</td>
+</tr>
+<tr>
+<td>data-native-menu</td>
+<td>
+<strong>true</strong> | false</td>
+<td>当设置为 false 时，它使用 jQuery 自带的自定义的选择菜单（如果您想要让选择菜单在所有的移动设备上都显示相同，则推荐这么使用）</td>
+</tr>
+<tr>
+<td>data-overlay-theme</td>
+<td>
+<em>字母</em> (a-z)</td>
+<td>规定 jQuery 自带的自定义的选择菜单的主题颜色（与 data-native-menu="false" 一起使用）</td>
+</tr>
+<tr>
+<td>data-placeholder</td>
+<td>true | <strong>false</strong>
+</td>
+<td>可在一个非原生的选择菜单的 &lt;option&gt; 元素上设置</td>
+</tr>
+<tr>
+<td>data-role</td>
+<td>none</td>
+<td>防止 jQuery Mobile 把 select 元素渲染成按钮样式</td>
+</tr>
+<tr>
+<td>data-theme</td>
+<td>
+<em>字母</em> (a-z)</td>
+<td>规定 select 元素的主题颜色</td>
+</tr>
+</table>
+<br><table><tr>
+<th><img src="img/9cec019aff3b76c9.jpg" alt="lamp" loading="lazy"></th>
+<td>如需组合多个 select 元素，请使用带有 data-role="controlgroup" 属性和 data-type="horizontal|vertical" 的容器来规定是否水平或垂直组合 select 元素。</td>
+</tr></table>
+<br><hr>
+<h3>滑动块</h3>
+<p>带有 <span class="marked">type="range"</span> 的输入框。这些会被自动渲染成按钮样式，date-role 是不必需的。</p>
+<table>
+<tr>
+<th>Data-属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data-highlight</td>
+<td>true | <strong>false</strong>
+</td>
+<td>规定滑动轨道是否高亮突出显示</td>
+</tr>
+<tr>
+<td>data-mini</td>
+<td>true | <strong>false</strong>
+</td>
+<td>规定滑动块是小尺寸还是常规尺寸</td>
+</tr>
+<tr>
+<td>data-role</td>
+<td>none</td>
+<td>防止 jQuery Mobile 渲染滑动块控件为按钮样式</td>
+</tr>
+<tr>
+<td>data-theme</td>
+<td>
+<em>字母</em> (a-z) </td>
+<td>规定滑动块控件（输入框、手柄和轨道）的主题颜色</td>
+</tr>
+<tr>
+<td>data-track-theme</td>
+<td>
+<em>字母</em> (a-z) </td>
+<td>规定滑动块轨道的主题颜色</td>
+</tr>
+</table>
+<br><hr>
+<h3>文本输入框 &amp; 文本输入域</h3>
+<p>带有 <span class="marked">type="text|search|etc."</span> 的 input 或 <span class="marked">textarea 元素</span>。这些会被自动渲染成按钮样式，date-role 是不必需的。</p>
+<table>
+<tr>
+<th>Data-属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data-mini</td>
+<td>true | <strong>false</strong>
+</td>
+<td>规定输入框是小尺寸还是常规尺寸</td>
+</tr>
+<tr>
+<td>data-role</td>
+<td>none</td>
+<td>防止 jQuery Mobile 把输入框/输入域渲染成按钮样式</td>
+</tr>
+<tr>
+<td>data-theme</td>
+<td>
+<em>字母</em> (a-z) </td>
+<td>规定输入字段的主题颜色</td>
+</tr>
+</table>
+<br><br></div></section>
+<section class="ch" id="c29"><h2>29. jQuery Mobile 图标<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-ref-icons.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>我们可以使用图标类在 jQuery Mobile 中 &lt;a&gt; 和 &lt;button&gt; 元素上添加图标，并对图标进行定位，如下所示： </p>
+<br>
+	&lt;a href="#anylink" class="ui-btn <strong>ui-icon-refresh ui-btn-icon-left</strong>"&gt;刷新页面&lt;/a&gt;
+<a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_a" class="ext">尝试一下</a>    
+
+<br>
+
+	&lt;button class="ui-btn <strong>ui-icon-refresh ui-btn-icon-left</strong>"&gt;刷新页面&lt;/button&gt;
+	<a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_button" class="ext">尝试一下</a>    
+	<br>
+<p>在 &lt;input&gt; 按钮中添加图标，可以使用 data-icon 属性:</p>
+<br>
+
+	&lt;a href="#anylink" <strong>data-icon="refresh"</strong>&gt;刷新页面&lt;/a&gt;
+	<a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_input" class="ext">尝试一下</a>    
+	<br>
+<p>我们可以使用 data-icon 属性在导航按钮上添加图标:</p><br>
+
+	&lt;a href="#anylink" <strong>data-icon="refresh"</strong>&gt;刷新页面&lt;/a&gt;
+	<a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_navbar" class="ext">尝试一下</a>    
+	<br>
+<p>如果要在列表按钮中添加图标，可以在 &lt;li&gt; 中使用 data-icon 属性：</p>
+<br>
+
+&lt;li <strong>data-icon="refresh"</strong>&gt;&lt;a href="#"&gt;点我&lt;/a&gt;&lt;/li&gt;
+	<a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_list" class="ext">尝试一下</a>    
+	<br>
+<p>下面我们列出了 jQuery Mobile 提供的所有可用图标：</p>
+<table>
+<tbody><tr></tr>
+<tr>
+<th>值</th>
+<th>描述</th>
+<th>图标</th>
+<th>实例</th>
+</tr>
+<tr>
+<td>action</td>
+<td>动作</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_action" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>alert</td>
+<td>警告</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_alert" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>audio</td>
+<td>视频 / 音频 / 扬声器</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_audio" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>arrow-d-l</td>
+<td>左下角</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_arrow-d-l" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>arrow-d-r</td>
+<td>右下角</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_arrow-d-r" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>arrow-u-l</td>
+<td>左上角</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_arrow-u-l" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>arrow-u-r</td>
+<td>右上角</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_arrow-u-r" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>arrow-l</td>
+<td>左箭头</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_arrow-l" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>arrow-r</td>
+<td>右箭头</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_arrow-r" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>arrow-u</td>
+<td>上箭头</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_arrow-u" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>arrow-d</td>
+<td>下箭头</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_arrow-d" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>back</td>
+<td>返回</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_back" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>bars</td>
+<td>栏目</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_bars" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>bullets</td>
+<td>	
+栅栏 </td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_bullets" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>calendar</td>
+<td>日历</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_calendar" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>camera</td>
+<td>照相机</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_camera" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>carat-d</td>
+<td>向下</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_carat-d" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>carat-l</td>
+<td>向左</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_carat-l" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>carat-r</td>
+<td>向右</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_carat-r" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>carat-u</td>
+<td>向上</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_carat-u" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>check</td>
+<td>验证标记</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_check" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>clock</td>
+<td>时钟</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_clock" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>cloud</td>
+<td>云</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_cloud" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>comment</td>
+<td>评论</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_comment" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>delete</td>
+<td>删除 (X)</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_delete" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>edit</td>
+<td>编辑 / 铅笔</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_edit" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>eye</td>
+<td>眼睛</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_eye" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>forbidden</td>
+<td>禁止标记</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_forbidden" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>forward</td>
+<td>前进</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_forward" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>gear</td>
+<td>齿轮</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_gear" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>grid</td>
+<td>网格</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_grid" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>heart</td>
+<td>心 / 爱 标志</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_heart" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>home</td>
+<td>家（主页）</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_home" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>info</td>
+<td>信息</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_info" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>location</td>
+<td>定位 / GPS</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_location" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>lock</td>
+<td>锁 / 挂锁</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_lock" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>mail</td>
+<td>邮件 / 信封</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_mail" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>minus</td>
+<td>符号、减号</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_minus" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>navigation</td>
+<td>导航</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_navigation" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>phone</td>
+<td>电话</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_phone" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>power</td>
+<td>开关 (On/off)</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_power" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>plus</td>
+<td>加号</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_plus" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>recycle</td>
+<td>回收</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_recycle" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>refresh</td>
+<td>刷新</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_refresh" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>search</td>
+<td>搜索</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_search" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>shop</td>
+<td>商店、钱包、手提袋</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_shop" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>star</td>
+<td>星号</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_star" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>tag</td>
+<td>标签</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_tag" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>user</td>
+<td>用户</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_user" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>video</td>
+<td>摄像机</td>
+<td></td>
+<td><a href="https://www.runoob.com/try/tryit.php?filename=tryjqmob_icons_video" class="ext">尝试一下</a></td>
+</tr>
+</tbody></table></div></section>
+<section class="ch" id="c30"><h2>30. jQuery Mobile 事件<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-ref-events.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>jQuery Mobile 事件参考手册</h3>
+<p>以下列表为所有的 jQuery Mobile 事件。</p>
+<p><strong>注意：</strong>请使用 on() 方法绑定事件。</p>
+<table>
+<tbody><tr>
+<th>事件</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>hashchange</td>
+<td>启用可标记 #hash 历史，哈希值会在一次独立的点击时发生时变化，比如一个用户点击后退按钮，会通过 hashchange事件进行处理。</td>
+</tr>
+<tr>
+<td>navigate </td>
+<td>包裹了 hashchange 和 popstate 的事件</td>
+</tr>
+<tr>
+<td><a href="event-orientationchange.html">orientationchange</a></td>
+<td>方向改变事件,在用户垂直或者水平旋转移动设备时触发。</td>
+</tr>
+<tr>
+<td>pagebeforechange</td>
+<td>在页面切换之前，触发的事件。使用$.mobile.changePage()来切换页面，此方法触发2个事件，切换之前的pagebeforechange事件，和切换完成后pagechange（成功）或者pagechangefailed（失败）。</td>
+</tr>
+<tr>
+<td><a href="event-pagebeforecreate.html">pagebeforecreate</a></td>
+<td>页面初始化时，初始化之前触发。</td>
+</tr>
+<tr>
+<td><a href="event-pagebeforehide.html">pagebeforehide</a></td>
+<td>在页面切换后旧页面隐藏之前，触发的事件。</td>
+</tr>
+<tr>
+<td><a href="event-pagebeforeload.html">pagebeforeload</a></td>
+<td>在加载请求发出之前触发</td>
+</tr>
+<tr>
+<td><a href="event-pagebeforeshow.html">pagebeforeshow</a></td>
+<td>在页面切换后显示之前，触发的事件。</td>
+</tr>
+<tr>
+<td>pagechange</td>
+<td>在页面切换成功后，触发的事件。使用$.mobile.changePage()来切换页面，此方法触发2个事件，切换之前的pagebeforechange事件，和切换完成后pagechange（成功）或者pagechangefailed（失败）。</td>
+</tr>
+<tr>
+<td>pagechangefailed</td>
+<td>在页面切换失败时，触发的事件。使用$.mobile.changePage()来切换页面，此方法触发2个事件，切换之前的pagebeforechange事件，和切换完成后pagechange（成功）或者pagechangefailed（失败）。</td>
+</tr>
+<tr>
+<td><a href="event-pagecontainerbeforeload.html">pagecontainerbeforeload</a></td>
+<td>在载入任何请求前触发</td>
+</tr>
+<tr>
+<td><a href="event-pagecontainerload.html">pagecontainerload</a></td>
+<td>在页面成功载入并插入 DOM 后触发</td>
+</tr>
+<tr>
+<td><a href="event-pagecontainerloadfailed.html">pagecontainerloadfailed</a></td>
+<td>页面载入失败时触发</td>
+</tr>
+<tr>
+<td><a href="event-pagecreate.html">pagecreate</a></td>
+<td>在页面创建成功之后，触发的事件,但增强完成之前。</td>
+</tr>
+<tr>
+<td><a href="event-pagehide.html">pagehide</a></td>
+<td>在页面切换后老页面隐藏之后，触发的事件。</td>
+</tr>
+<tr>
+<td><a href="event-pageinit.html">pageinit</a></td>
+<td><span class="deprecated"> 1.4.0 版本后已废弃，使用 <a href="event-pagecreate.html">pagecreate</a> 替代。</span>在页面页面初始化时，触发的事件。</td>
+</tr>
+<tr>
+<td><a href="event-pageload.html">pageload</a></td>
+<td><span class="deprecated">1.4.0 版本后已废弃，使用 <a href="event-pagecontainerload.html">pagecontainerload</a> 替代。</span>在页面完全加载成功后触发。</td>
+</tr>
+<tr>
+<td><a href="event-pageloadfailed.html">pageloadfailed</a></td>
+<td><span class="deprecated">1.4.0 版本后已废弃，使用 <a href="event-pagecontainerloadfailed.html">pagecontainerloadfailed</a> 替代。</span>如果页面请求失败触发。</td>
+</tr>
+<tr>
+<td>pageremove</td>
+<td>在窗口视图从 DOM 中移除外部页面之前触发。</td>
+</tr>
+<tr>
+<td><a href="event-pageshow.html">pageshow</a></td>
+<td>在过渡动画完成后，在"到达"页面触发。</td>
+</tr>
+<tr>
+<td><a href="event-scrollstart.html">scrollstart</a></td>
+<td>当用户开始滚动页面时触发。</td>
+</tr>
+<tr>
+<td><a href="event-scrollstop.html">scrollstop</a></td>
+<td>当用户停止滚动页面时触发。</td>
+</tr>
+<tr>
+<td><a href="event-swipe.html">swipe</a></td>
+<td>当用户在元素上水平滑动时触发。</td>
+</tr>
+<tr>
+<td><a href="event-swipeleft.html">swipeleft</a></td>
+<td>当用户从左划过元素超过 30px 时触发。</td>
+</tr>
+<tr>
+<td><a href="event-swiperight.html">swiperight</a></td>
+<td>当用户从右划过元素超过 30px 时触发。</td>
+</tr>
+<tr>
+<td><a href="event-tap.html">tap</a></td>
+<td>当用户敲击某元素时触发。</td>
+</tr>
+<tr>
+<td><a href="event-taphold.html">taphold</a></td>
+<td>当元素敲击某元素并保持一秒时触发。</td>
+</tr>
+<tr>
+<td>throttledresize</td>
+<td>启用可标记 #hash 历史记录</td>
+</tr>
+<tr>
+<td>updatelayout</td>
+<td>由动态显示/隐藏内容的 jQuery Mobile 组件触发。</td>
+</tr>
+<tr>
+<td>vclick</td>
+<td>虚拟化的 click 事件处理器</td>
+</tr>
+<tr>
+<td>vmousecancel</td>
+<td>虚拟化的 mousecancel 事件处理器</td>
+</tr>
+<tr>
+<td>vmousedown</td>
+<td>虚拟化的 mousedown 事件处理器</td>
+</tr>
+<tr>
+<td>vmousemove</td>
+<td>虚拟化的 mousemove 事件处理器</td>
+</tr>
+<tr>
+<td>vmouseout</td>
+<td>虚拟化的 mouseout 事件处理器</td>
+</tr>
+<tr>
+<td>vmouseover</td>
+<td>虚拟化的 mouseover 事件处理器</td>
+</tr>
+<tr>
+<td>vmouseup</td>
+<td>虚拟化的 mouseup 事件处理器</td>
+</tr>
+</tbody></table></div></section>
+<section class="ch" id="c31"><h2>31. jQuery Mobile页面事件<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-events-page.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><h3>jQuery Mobile 页面事件</h3>
+<p>在 jQuery Mobile 中与页面打交道的事件被分为四类： </p>
+
+<ul>
+<li>Page Initialization - 在页面创建前，当页面创建时，以及在页面初始化之后</li>
+<li>Page Load/Unload - 当外部页面加载时、卸载时或遭遇失败时</li>
+<li>Page Transition - 在页面过渡之前和之后</li>
+<li>Page Change - 当页面被更改，或遭遇失败时</li>
+</ul>
+
+<p>如需关于所有 jQuery Mobile 事件的完整信息，请访问我们的 <a href="#c30" title="jQuery Mobile 事件">jQuery Mobile 事件参考手册</a>。</p>
+
+<hr>
+
+<h3>jQuery Mobile Initialization 事件</h3>
+
+<p>当 jQuery Mobile 中的一张典型页面进行初始化时，它会经历三个阶段：</p>
+
+<ul>
+<li>在页面创建前</li>
+<li>页面创建</li>
+<li>页面初始化</li>
+</ul>
+
+<p>每个阶段触发的事件都可用于插入或操作代码。</p>
+
+<table>
+<tr>
+<th>事件</th>
+<th>描述</th>
+</tr>
+
+<tr>
+<td>pagebeforecreate</td>
+<td>当页面即将初始化，并且在 jQuery Mobile 已开始增强页面之前，触发该事件。</td>
+</tr>
+
+<tr>
+<td>pagecreate</td>
+<td>当页面已创建，但增强完成之前，触发该事件。</td>
+</tr>
+
+<tr>
+<td>pageinit</td>
+<td>当页面已初始化，并且在 jQuery Mobile 已完成页面增强之后，触发该事件。</td>
+</tr>
+</table>
+
+<p>下面的例子演示在 jQuery Mobile 中创建页面时，何时触发每种事件：</p>
+
+<h3>实例</h3>
+
+	$(document).on("pagebeforecreate",function(event){<br>  
+	alert("pagebeforecreate 事件触发!");<br>}); <br>$(document).on("pagecreate",function(event){<br>  
+	alert("pagecreate 事件触发!");<br>});
+<br>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_events_page_initialization" class="ext">尝试一下 »</a>
+<br>
+<hr>
+
+<h3>jQuery Mobile Load 事件</h3>
+
+<p>页面加载事件属于外部页面。</p>
+
+<p>无论外部页面何时载入 DOM，将触发两个事件。第一个是 pagebeforeload，第二个是 pageload （成功）或 pageloadfailed（失败）。</p>
+
+<p>下表中解释了这些事件：</p>
+
+<table>
+<tr>
+<th>事件</th>
+<th>描述</th>
+</tr>
+
+<tr>
+<td>pagebeforeload</td>
+<td>在任何页面加载请求作出之前触发。</td>
+</tr>
+
+<tr>
+<td>pageload</td>
+<td>在页面已成功加载并插入 DOM 后触发。</td>
+</tr>
+
+<tr>
+<td>pageloadfailed</td>
+<td>如果页面加载请求失败，则触发该事件。默认地，将显示 "Error Loading Page" 消息。</td>
+</tr>
+</table>
+
+<p>下列演示 pageload 和 pagloadfailed 事件的工作原理：</p>
+
+<h3>实例</h3>
+
+	$(document).on("pageload",function(event,data){<br>  alert("触发 pageload 
+	事件！\nURL: " + data.url);<br>});<br>$(document).on("pageloadfailed",function(event,data){<br>  
+	alert(";抱歉，被请求页面不存在。");<br>});
+<br>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_events_pageload" class="ext">尝试一下 »</a>
+<br>
+<hr>
+
+<h3>jQuery Mobile 过渡事件</h3>
+
+<p>我们还可以在从一页过渡到下一页时使用事件。</p>
+
+<p>页面过渡涉及两个页面：一张"来"的页面和一张"去"的页面 - 这些过渡使当前活动页面（"来的"页面）到新页面（"去的"页面的改变过程变得更加动感。</p>
+
+<table>
+<tr>
+<th>事件</th>
+<th>描述</th>
+</tr>
+
+<tr>
+<td>pagebeforeshow</td>
+<td>在"去的"页面触发，在过渡动画开始前。</td>
+</tr>
+
+<tr>
+<td>pageshow</td>
+<td>在"去的"页面触发，在过渡动画完成后。</td>
+</tr>
+
+<tr>
+<td>pagebeforehide</td>
+<td>在"来的"页面触发，在过渡动画开始前。</td>
+</tr>
+
+<tr>
+<td>pagehide</td>
+<td>在"来的"页面触发，在过渡动画完成后。</td>
+</tr>
+</table>
+
+<p>下列演示了过渡时间的工作原理：</p>
+
+<h3>实例</h3>
+
+	$(document).on("pagebeforeshow","#pagetwo",function(){ //当进入页面二时
+	<br>  alert("页面二即将显示");<br>});<br>$(document).on("pageshow","#pagetwo",function(){ 
+	// 当进入页面二时<br>  alert("现在显示页面二");<br>});<br>$(document).on("pagebeforehide","#pagetwo",function(){ 
+	// 当进入页面二时<br>  alert("页面二即将隐藏");<br>
+	});<br>$(document).on("pagehide","#pagetwo",function(){ 
+	// When leaving pagetwo<br>  alert("现在隐藏页面二");<br>});
+<br>
+<a href="https://www.runoob.com/try/try.php?filename=tryjqmob_events_page_transitions" class="ext">尝试一下 »</a></div></section>
+<section class="ch" id="c32"><h2>32. jQuery Mobile CSS 类<a class="chsrc" href="https://www.runoob.com/jquerymobile/jquerymobile-ref-css.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>jQuery CSS 类</h3>
+<p>jQuery Mobile  CSS 类来设置不同元素的样式。</p>
+<p>以下列表包含了通用的 CSS 样式：</p>
+<hr>
+<h3>全局类</h3>
+<p>以下类可以在 jQuery Mobile 小工具中使用 (按钮，工具条，面板，表格，列表等。):</p>
+<table>
+<tr>
+<th>Class</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>ui-corner-all</td>
+<td>为元素添加圆角</td>
+</tr>
+<tr>
+<td>ui-shadow</td>
+<td>为元素添加阴影</td>
+</tr>
+<tr>
+<td>ui-overlay-shadow</td>
+<td>为元素添加多层阴影</td>
+</tr>
+<tr>
+<td>ui-mini</td>
+<td>让元素变小</td>
+</tr>
+</table>
+<br><hr>
+<h3>按钮类</h3>
+<p>除了全局类外，你可以向 &lt;a&gt; 或 
+&lt;button&gt; 元素添加以下类 (不是 &lt;input&gt; 按钮):</p>
+<table>
+<tr>
+<th>Class</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>ui-btn</td>
+<td>添加在 &lt;a&gt; 元素上并以按钮形式展示</td>
+</tr>
+<tr>
+<td>ui-btn-inline</td>
+<td>在同一行上显示按钮</td>
+</tr>
+<tr>
+<td>ui-btn-icon-top</td>
+<td>定位图标在按钮文本之上</td>
+</tr>
+<tr>
+<td>ui-btn-icon-right</td>
+<td>定位图标在按钮文本的右边</td>
+</tr>
+<tr>
+<td>ui-btn-icon-bottom</td>
+<td>定位图标在按钮文本之下</td>
+</tr>
+<tr>
+<td>ui-btn-icon-left</td>
+<td>定位图标在按钮文本的左边</td>
+</tr>
+<tr>
+<td>ui-btn-icon-notext</td>
+<td>只显示图标</td>
+</tr>
+<tr>
+<td>ui-btn-a|b</td>
+<td>指定按钮演示。"a" 是默认的 (灰色背景黑色文本样式),  "b" 修改颜色为黑色背景白色文本</td>
+</tr>
+</table>
+<br><hr>
+<h3>图标类</h3>
+<p>所有可用图片的类用在 &lt;a&gt; 和 &lt;button&gt; 元素上 (查看 <a href="jquerymobile-ref-icons.html">jQuery Mobile 图标参考手册</a> 了解如何在其他元素上使用):</p>
+<table>
+<tbody>
+<tr>
+<th>Class</th>
+<th>图标描述</th>
+<th>图标</th>
+</tr>
+<tr>
+<td>ui-icon-action</td>
+<td>动作 (一般用于页面跳转切换)</td>
+<td><img src="img/045d333c068ca130.jpg" alt="action" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-alert</td>
+<td>三角形内的感叹号</td>
+<td><img src="img/ab2fb8ab8c25c098.jpg" alt="alert" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-audio</td>
+<td>音响/音箱</td>
+<td><img src="img/b6a7db867251949a.jpg" alt="audio" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-arrow-d-l</td>
+<td>左下角箭头</td>
+<td><img src="img/c767a0f332584e3d.jpg" alt="arrow-d-l" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-arrow-d-r</td>
+<td>右下角箭头</td>
+<td><img src="img/642570f5db38af88.jpg" alt="arrow-d-r" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-arrow-u-l</td>
+<td>左上角箭头</td>
+<td><img src="img/c95907a010a140ce.jpg" alt="arrow-u-l" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-arrow-u-r</td>
+<td>右上角箭头</td>
+<td><img src="img/c499d73f3b6d9a4e.jpg" alt="arrow-u-r" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-arrow-l</td>
+<td>左角箭头</td>
+<td><img src="img/c9f6017e51194d0e.jpg" alt="arrow-l" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-arrow-r</td>
+<td>右角箭头</td>
+<td><img src="img/a4be14692072da33.jpg" alt="arrow-r" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-arrow-u</td>
+<td>向上箭头</td>
+<td><img src="img/73d8014f4e414c0e.jpg" alt="arrow-u" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-arrow-d</td>
+<td>向下箭头</td>
+<td><img src="img/6fad058253cd21b1.jpg" alt="arrow-d" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-back</td>
+<td>返回 </td>
+<td><img src="img/1faef12cc071f53b.jpg" alt="back" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-bars</td>
+<td>三条水平线，一般用于展示列表按钮图标</td>
+<td><img src="img/9cfb4e12a1857b04.jpg" alt="bars" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-bullets</td>
+<td>用于展示列表按钮图标</td>
+<td><img src="img/438bb5f8ba845da6.jpg" alt="bullets" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-calendar</td>
+<td>日历</td>
+<td><img src="img/d02d5ef1d334b0c6.jpg" alt="calendar" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-camera</td>
+<td>相机</td>
+<td><img src="img/4c8efac705839245.jpg" alt="camera" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-carat-d</td>
+<td>向下滑动图标</td>
+<td><img src="img/e19962e828c988e7.jpg" alt="carat-d" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-carat-l</td>
+<td>向左滑动图标</td>
+<td><img src="img/b919182181527bb6.jpg" alt="carat-l" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-carat-r</td>
+<td>向右滑动图标</td>
+<td><img src="img/99457b3ddcd6f382.jpg" alt="carat-r" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-carat-u</td>
+<td>向上滑动图标</td>
+<td><img src="img/ff6dee9752a566a9.jpg" alt="carat-u" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-check</td>
+<td>勾选</td>
+<td><img src="img/a117a2f5b0da167b.jpg" alt="check" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-clock</td>
+<td>闹钟</td>
+<td><img src="img/c7398647b9242cd6.jpg" alt="clock" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-cloud</td>
+<td>云</td>
+<td><img src="img/a4e7df4597f99ecd.jpg" alt="cloud" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-comment</td>
+<td>评论 / 消息</td>
+<td><img src="img/99ee19757fc11eb4.jpg" alt="comment" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-delete</td>
+<td>删除</td>
+<td><img src="img/fb95adb1717ae18f.jpg" alt="delete" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-edit</td>
+<td>编辑 / 铅笔</td>
+<td><img src="img/dae5ad29b058d1dd.jpg" alt="edit" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-eye</td>
+<td>眼睛</td>
+<td><img src="img/6cab6ad9a3a13452.jpg" alt="eye" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-forbidden</td>
+<td>禁用标识 sign</td>
+<td><img src="img/4ffb4129490c82d2.jpg" alt="forbidden" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-forward</td>
+<td>撤销 - (返回上一步)</td>
+<td><img src="img/b7f5b3373a663f6b.jpg" alt="forward" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-gear</td>
+<td>齿轮，一般用于设置按钮图标</td>
+<td><img src="img/e8c1947cb3941dbe.jpg" alt="gear" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-grid</td>
+<td>网格</td>
+<td><img src="img/e06ec9e4182841bd.jpg" alt="grid" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-heart</td>
+<td>心型，可用于文章收藏</td>
+<td><img src="img/8657ab06190b42ca.jpg" alt="heart" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-home</td>
+<td>主页</td>
+<td><img src="img/2cd85c976f0e3dea.jpg" alt="home" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-info</td>
+<td>信息</td>
+<td><img src="img/f287aa596c1943c0.jpg" alt="info" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-location</td>
+<td>定位</td>
+<td><img src="img/1a69b065a59c556a.jpg" alt="location" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-lock</td>
+<td>锁</td>
+<td><img src="img/216f180daa37796d.jpg" alt="lock" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-mail</td>
+<td>邮件 / 信封</td>
+<td><img src="img/64d066d16adcbc76.jpg" alt="mail" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-minus</td>
+<td>减号</td>
+<td><img src="img/c0597215d4ffabd3.jpg" alt="minus" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-navigation</td>
+<td>导航</td>
+<td><img src="img/0db8e5207fd15848.jpg" alt="navigation" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-phone</td>
+<td>电话</td>
+<td><img src="img/4dbe138ccc737f1d.jpg" alt="phone" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-power</td>
+<td>开关 (On/off)</td>
+<td><img src="img/aec180ac86313471.jpg" alt="power" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-plus</td>
+<td>加号</td>
+<td><img src="img/840f048346ba9779.jpg" alt="plus" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-recycle</td>
+<td>循环
+ 标识</td>
+<td><img src="img/554e8967fb2749ce.jpg" alt="recycle" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-refresh</td>
+<td>刷新</td>
+<td><img src="img/5718f2364f6db762.jpg" alt="refresh" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-search</td>
+<td>搜索 / 放大镜</td>
+<td><img src="img/b41400d6d75b962b.jpg" alt="search" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-shop</td>
+<td>商店/购物袋</td>
+<td><img src="img/f09ff77aa869de13.jpg" alt="shop" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-star</td>
+<td>星号</td>
+<td><img src="img/eb036e67237fdf25.jpg" alt="star" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-tag</td>
+<td>标签</td>
+<td><img src="img/0e5912b12e3fb872.jpg" alt="tag" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-user</td>
+<td>用户 / 人物</td>
+<td><img src="img/87f13cf12cade3fc.jpg" alt="user" loading="lazy"></td>
+</tr>
+<tr>
+<td>ui-icon-video</td>
+<td>视频 / 相机</td>
+<td><img src="img/8b944faf623aa369.jpg" alt="camera1" loading="lazy"></td>
+</tr>
+</tbody>
+</table>
+<br><hr>
+<h3>主题类 Classes</h3>
+<p>jQuery Mobile 提供了两个主题类: a (灰) 和 b (黑)。 但是，你可以创建你自己的自定义类 - 可定义到字母 "z" （查看 <a title="jQuery Mobile 主题" href="jquerymobile-themes.html"> jQuery Mobile 主题 </a>）。 
+下表列出了可用的主题类。
+字母 (a-z) 意为样式可以指定 a 到 z。例如
+ui-bar-a 或 ui-bar-b等。</p>
+<table>
+<tr>
+<th>Class</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>ui-bar-(a-z)</td>
+<td>指定栏目演示 - 头部，底部及其他栏目</td>
+</tr>
+<tr>
+<td>ui-body-(a-z)</td>
+<td>指定内容块的颜色 - 页面内容部分 (
+ 1.4.0 版本已废弃), 列表视图， 弹窗, 侧栏，面板，加载，折叠。</td>
+</tr>
+<tr>
+<td>ui-btn-(a-z)</td>
+<td>指定按钮颜色 </td>
+</tr>
+<tr>
+<td>ui-group-theme-(a-z)</td>
+<td>定义了控制组的演示 listviews 和 collapsible 集合。</td>
+</tr>
+<tr>
+<td>ui-overlay-(a-z)</td>
+<td>定义了页面背景颜色，包括对话框，弹窗和其他出现在最顶层的页面容器</td>
+</tr>
+<tr>
+<td>ui-page-theme-(a-z)</td>
+<td>定义了页面演示</td>
+</tr>
+</table>
+<br><hr>
+<h3>网格类</h3>
+<p>网格中的列是等宽的（合计是 100%），没有边框、背景、margin 或 padding。 这里有四种布局网格可供使用：</p>
+<table>
+<tr>
+<th>网格类</th>
+<th>列</th>
+<th>列宽</th>
+<th>对应</th>
+<th>实例</th>
+</tr>
+<tr>
+<td>ui-grid-solo</td>
+<td>1</td>
+<td>100%</td>
+<td>ui-block-a</td>
+<td><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_grid_solo" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>ui-grid-a</td>
+<td>2</td>
+<td>50% / 50%</td>
+<td>ui-block-a|b</td>
+<td><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_grid_a" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>ui-grid-b</td>
+<td>3</td>
+<td>33% / 33% / 33%</td>
+<td>ui-block-a|b|c </td>
+<td><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_grid_b" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>ui-grid-c</td>
+<td>4</td>
+<td>25% / 25% / 25% / 25%</td>
+<td>ui-block-a|b|c|d</td>
+<td><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_grid_c" class="ext">尝试一下</a></td>
+</tr>
+<tr>
+<td>ui-grid-d</td>
+<td>5</td>
+<td>20% / 20% / 20% / 20% / 20%</td>
+<td>ui-block-a|b|c|d|e</td>
+<td><a href="https://www.runoob.com/try/try.php?filename=tryjqmob_grid_d" class="ext">尝试一下</a></td>
+</tr>
+</table>
+<p>更多信息可以查看<a title="jQuery Mobile 表格" href="jquerymobile-grids.html"> jQuery Mobile 网格 </a> 章节。</p></div></section>
+<footer><p>离线版 · 内容抓取自 runoob.com，仅用于个人离线阅读；页面结构与广告已去除，原文版权归菜鸟教程及原作者。</p><p><a href="index.html">← 返回总索引</a></p></footer></body></html>

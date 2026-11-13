@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="310" viewBox="0 0 940 310" role="img" aria-label="从工作需求到可交付结果">
+<rect width="940" height="310" rx="17" fill="#f5f8fb"/><rect x="1" y="1" width="938" height="308" rx="16" fill="none" stroke="#d9e3ec"/>
+<text x="32" y="44" fill="#213a53" font-family="Arial,PingFang SC,Microsoft YaHei,sans-serif" font-size="23" font-weight="700">从工作需求到可交付结果</text>
+<rect x="32" y="83" width="280" height="161" rx="14" fill="#e5eef5"/>
+<text x="49" y="117" font-size="17" font-weight="700" fill="#213a53" font-family="Arial,PingFang SC,Microsoft YaHei,sans-serif">输入材料</text>
+<text x="49" y="155" font-family="Arial,PingFang SC,Microsoft YaHei,sans-serif" font-size="16" fill="#3d586d">准备一张有使用权的咖啡杯</text>
+<text x="49" y="178" font-family="Arial,PingFang SC,Microsoft YaHei,sans-serif" font-size="16" fill="#3d586d">参考图；明确镜头时长、比</text>
+<text x="49" y="201" font-family="Arial,PingFang SC,Microsoft YaHei,sans-serif" font-size="16" fill="#3d586d">例和场景。</text>
+<rect x="330" y="83" width="280" height="161" rx="14" fill="#e6f1ed"/>
+<text x="347" y="117" font-size="17" font-weight="700" fill="#213a53" font-family="Arial,PingFang SC,Microsoft YaHei,sans-serif">AI 处理</text>
+<text x="347" y="155" font-family="Arial,PingFang SC,Microsoft YaHei,sans-serif" font-size="16" fill="#3d586d">检查运动连续性与质量检查</text>
+<rect x="628" y="83" width="280" height="161" rx="14" fill="#fbede0"/>
+<text x="645" y="117" font-size="17" font-weight="700" fill="#213a53" font-family="Arial,PingFang SC,Microsoft YaHei,sans-serif">最终成果</text>
+<text x="645" y="155" font-family="Arial,PingFang SC,Microsoft YaHei,sans-serif" font-size="16" fill="#3d586d">一条短视频候选和镜头验收</text>
+<text x="645" y="178" font-family="Arial,PingFang SC,Microsoft YaHei,sans-serif" font-size="16" fill="#3d586d">表</text>
+<path d="M313 161 h16 M322 155 l7 6 -7 6" stroke="#db915d" stroke-width="3" fill="none"/>
+<path d="M611 161 h16 M620 155 l7 6 -7 6" stroke="#db915d" stroke-width="3" fill="none"/>
+<text x="32" y="284" font-family="Arial,PingFang SC,Microsoft YaHei,sans-serif" font-size="14" fill="#6c8093">材料与结果为教学示意，非产品界面截图</text></svg>

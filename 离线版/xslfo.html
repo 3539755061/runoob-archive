@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>XSL-FO 教程 · 离线版</title>
+<link rel="stylesheet" href="css/offline.css">
+</head><body>
+<nav class="topbar"><a href="index.html">← 返回总索引</a><span>·</span><span>H 遗留与历史技术</span>
+<span>·</span><span>13 章</span></nav>
+<h1>XSL-FO 教程</h1>
+<p class="docmeta">来源：<a class="ext" href="https://www.runoob.com/xslfo/xslfo-tutorial.html">https://www.runoob.com/xslfo/xslfo-tutorial.html</a><br>
+适用性：<b style="color:#c62828">弃用</b>
+｜ 时效：历史 ｜ 抓取：2026-11-13 ｜ 本页为离线阅读版，章节按教程侧栏顺序合并，广告与评论已去除。</p>
+<details class="toc-ch"><summary>本篇目录（13 章，点击展开）</summary><ol>
+<li><a href="#c1">XSL-FO 教程</a></li>
+<li><a href="#c2">XSLFO 简介</a></li>
+<li><a href="#c3">XSLFO 文档</a></li>
+<li><a href="#c4">XSLFO 区域</a></li>
+<li><a href="#c5">XSLFO 输出</a></li>
+<li><a href="#c6">XSLFO 流</a></li>
+<li><a href="#c7">XSLFO 页面</a></li>
+<li><a href="#c8">XSLFO 块</a></li>
+<li><a href="#c9">XSLFO 列表</a></li>
+<li><a href="#c10">XSLFO 表格</a></li>
+<li><a href="#c11">XSLFO &amp; XSLT</a></li>
+<li><a href="#c12">XSLFO 软件</a></li>
+<li><a href="#c13">XSL-FO 对象</a></li>
+</ol></details>
+<section class="ch" id="c1"><h2>1. XSL-FO 教程<a class="chsrc" href="https://www.runoob.com/xslfo/xslfo-tutorial.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><br>
+<p>XSL-FO 指可扩展样式表语言格式化对象（Extensible Stylesheet Language Formatting Objects）。</p>
+<p>XSL-FO 是用于格式化 XML 数据的语言</p>
+<p><b><a href="http://www.w3cschool.cc/xslfo/xslfo-intro.html" class="ext">现在开始学习XSL-FO!</a></b></p>
+
+<h3>内容列表</h3>
+<p><a href="http://www.w3cschool.cc/xslfo/xslfo-intro.html" class="ext">
+	XSLFO 简介	</a><br>
+XSL-FO 的简介。包括其概念和作用。
+</p>
+
+<p><a href="http://www.w3cschool.cc/xslfo/xslfo-documents.html" class="ext">
+	XSLFO 文档	</a><br>
+本章将解 XSL-FO 文档的结构。
+</p>
+
+<p><a href="http://www.w3cschool.cc/xslfo/xslfo-areas.html" class="ext">
+	XSLFO 区域	</a><br>
+本章讲解 XSL-FO 的区域模型（area model）。
+</p>
+
+<p><a href="http://www.w3cschool.cc/xslfo/xslfo-output.html" class="ext">
+	XSLFO 输出	</a><br>
+本章讲解 XSL-FO 文档的输出元素（Output Elements）。
+</p>
+
+<p><a href="http://www.w3cschool.cc/xslfo/xslfo-flow.html" class="ext">
+	XSLFO 流	</a><br>
+本章讲解 XSL-FO 文档的输出流（Output Flow）。
+</p>
+
+<p><a href="http://www.w3cschool.cc/xslfo/xslfo-pages.html" class="ext">
+	XSLFO 页面	</a><br>
+本章讲解 XSL-FO 如何定义页面的布局。
+</p>
+
+<p><a href="http://www.w3cschool.cc/xslfo/xslfo-blocks.html" class="ext">
+	XSLFO 块	</a><br>
+本章讲解 XSL-FO 输出块（output blocks）。
+</p>
+
+<p><a href="http://www.w3cschool.cc/xslfo/xslfo-lists.html" class="ext">
+	XSLFO 列表	</a><br>
+本章讲解 XSL-FO 如何定义列表。
+</p>
+
+<p><a href="http://www.w3cschool.cc/xslfo/xslfo-tables.html" class="ext">
+	XSLFO 表格	</a><br>
+本章讲解 XSL-FO 如何定义表格。
+</p>
+
+<p><a href="http://www.w3cschool.cc/xslfo/xslfo-xslt.html" class="ext">
+	XSLFO &amp; XSLT	</a><br>
+本章讲解 XSL-FO 如何使用 XSLT。
+</p>
+
+<p><a href="http://www.w3cschool.cc/xslfo/xslfo-software.html" class="ext">
+	XSLFO 软件	</a><br>
+本章介绍了我们最喜欢的XSL-FO软件。
+</p>
+
+<p> <a href="http://www.w3cschool.cc/xslfo/xslfo-reference.html" class="ext">
+	XSL-FO 对象参考手册	</a><br>
+完整的 XSL-FO 对象列表，以及它们的属性。</p></div></section>
+<section class="ch" id="c2"><h2>2. XSLFO 简介<a class="chsrc" href="https://www.runoob.com/xslfo/xslfo-intro.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>XSL-FO 用于格式化供输出的 XML 数据。</p>
+<hr>
+<h3>学习之前应当具备的基础知识</h3>
+<p>在您学习 XSL-FO 之前，应当对 XML 和 XML 命名空间有基本的了解。</p>
+<p>如果您希望首先学习这些项目，请阅读我们的 <a href="https://www.runoob.com/xml//xml/xml-tutorial.html" class="ext">XML 教程</a>。</p>
+<hr>
+<h3>什么是 XSL-FO？</h3>
+<ul>
+<li>XSL-FO 是用于格式化 XML 数据的语言</li>
+  <li>XSL-FO 指可扩展样式表语言格式化对象（Extensible Stylesheet Language Formatting Objects）</li>
+  <li>XSL-FO 是基于 XML</li>
+  <li>XSL-FO 是一个 W3C 推荐标准</li>
+  <li>XSL-FO 目前通常被称为 XSL</li>
+</ul>
+<hr>
+<h3>XSL-FO 与格式化有关</h3>
+<p>XSL-FO 是一种基于 XML 的标记语言，用于描述向屏幕、纸或者其他媒介输出 XML 数据的格式化（信息）。</p>
+<hr>
+<h3>XSL-FO 通常被称为 XSL</h3>
+<p>为什么会存在这样的混淆呢？XSL-FO 和 XSL 是一回事吗？</p>
+<p>可以这么说，不过我们需要向您作一个解释：</p>
+<p>样式化（Styling）是关于<b>转换信息</b>和<b>格式化信息</b>两方面。在万维网联盟（W3C）编写他们的首个 XSL 工作草案的时候，这个草案包括了有关转换和格式化 XML 文档的语言语法。</p>
+<p>后来，W3C 工作组把这个原始的草案分为独立的标准：</p>
+<ul>
+<li>
+<a href="xslt.html#c1">XSLT</a>，用于转换 XML 文档的语言</li>
+  <li>XSL 或 XSL-FO，用于格式化 XML 文档的语言</li>
+  <li>
+<a href="xpath.html#c1">XPath</a>，是通过元素和属性在 XML 文档中进行导航的语言</li>
+</ul>
+<p>本教程的其余内容均与格式化 XML 文档有关：XSL-FO，也被称为 XSL。</p>
+<hr>
+<h3>XSL-FO 是一个 Web 标准</h3>
+<p>XSL-FO 在 2001 年 10 月 15 日 被确立为 W3C 推荐标准。通常被称为 XSL。</p>
+<p>如需阅读更多有关 W3C 的 XSL 活动的内容，请阅读我们的
+<a href="w3c.html#c8">W3C 教程</a>。</p>
+<br></div></section>
+<section class="ch" id="c3"><h2>3. XSLFO 文档<a class="chsrc" href="https://www.runoob.com/xslfo/xslfo-documents.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>XSL-FO 文档</h3>
+<p>XSL-FO 文档是带有输出信息的 XML 文件。</p>
+<p>XSL-FO 文档存储在以 .fo 或 .fob 为文件扩展名的文件中。您也可以把 XSL-FO 文档存储为以 .xml 为扩展名的文件，这样做的话可以使 XSL-FO 文档更易被 XML 编辑器存取。</p>
+<hr>
+<h3>XSL-FO 文档结构</h3>
+<p>XSL-FO 的文档结构如下所示：</p>
+
+&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;<br><br>
+&lt;fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format"&gt;<br><br>
+&lt;fo:layout-master-set&gt;<br>
+   
+  &lt;fo:simple-page-master master-name="A4"&gt;<br>
+       
+    &lt;!-- Page template goes here --&gt;<br>
+   
+  &lt;/fo:simple-page-master&gt;<br>
+&lt;/fo:layout-master-set&gt;<br><br>
+&lt;fo:page-sequence master-reference="A4"&gt;<br>
+   
+  &lt;!-- Page content goes here --&gt;<br>
+&lt;/fo:page-sequence&gt;<br><br>
+&lt;/fo:root&gt;
+
+<h3>结构解释</h3>
+<p>XSL-FO 文档属于 XML 文档，因此也需要以 XML 声明来起始：</p>
+
+&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+
+<p>&lt;fo:root&gt; 元素是 XSL-FO 文档的根元素。这个根元素也要声明 XSL-FO 的命名空间：</p>
+
+&lt;fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format"&gt;<br>
+   
+  &lt;!-- The full XSL-FO document goes here --&gt;<br>
+&lt;/fo:root&gt;
+
+<p>&lt;fo:layout-master-set&gt; 元素包含一个或多个页面模板：</p>
+
+&lt;fo:layout-master-set&gt;<br>
+   
+  &lt;!-- All page templates go here --&gt;<br>
+&lt;/fo:layout-master-set&gt;
+
+<p>每个 &lt;fo:simple-page-master&gt; 元素包含一个单一的页面模板。每个模板必须有一个唯一的名称（master-name）：</p>
+
+&lt;fo:simple-page-master master-name="A4"&gt;<br>
+   
+  &lt;!-- One page template goes here --&gt;<br>
+&lt;/fo:simple-page-master&gt;
+
+<p>一个或多个 &lt;fo:page-sequence&gt; 元素可描述页面内容。master-reference 属性使用相同的名称来引用 simple-page-master 模板：</p>
+
+&lt;fo:page-sequence master-reference="A4"&gt;<br>
+   
+  &lt;!-- Page content goes here --&gt;<br>
+&lt;/fo:page-sequence&gt;
+
+<p><b>注释：</b>master-reference 的值 "A4" 实际上并没有描述某个预定义的页面格式。它仅仅是一个名称。您可以使用任何名称，比如 "MyPage"、"MyTemplate" 等等。</p>
+<br></div></section>
+<section class="ch" id="c4"><h2>4. XSLFO 区域<a class="chsrc" href="https://www.runoob.com/xslfo/xslfo-areas.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>XSL-FO 使用矩形框（区域）来显示输出。</p>
+<hr>
+<h3>XSL-FO 区域</h3>
+
+<p>XSL 格式化模型定义了一系列的矩形区域（框）来显示输出。</p>
+
+<p>所有的输出（文本、图片，等等）都会被格式化到这些框中，然后会被显示或打印到某个目标媒介。</p>
+
+<p>让我们研究一下下面这些区域：</p>
+
+<ul>
+<li>Pages（页面）</li>
+	<li>Regions（区）</li>
+	<li>Block areas（块区域）</li>
+	<li>Line areas（行区域）</li>
+	<li>Inline areas（行内区域）</li>
+</ul>
+<hr>
+<h3>XSL-FO Pages（页面）</h3>
+
+<p>XSL-FO 输出会被格式化到页面中。打印输出通常会分为许多分割的页面。浏览器输出经常会成为一个长的页面。</p>
+
+<p>XSL-FO Pages（页面）包含区（Region）。</p>
+
+<hr>
+<h3>XSL-FO Regions（区）</h3>
+
+<p>每个 XSL-FO 页面均包含一系列的 Regions（区）：</p>
+
+<ul>
+<li>region-body（页面的主体）</li>
+	<li>region-before（页面的页眉）</li>
+	<li>region-after（页面的页脚）</li>
+	<li>region-start（左侧栏）</li>
+	<li>region-end（右侧栏）</li>
+</ul>
+<p>XSL-FO Regions（区）包含块区域（Block Area）。</p>
+
+<hr>
+<h3>XSL-FO Block Areas（块区域）</h3>
+
+<p>XSL-FO Block Areas（块区域）定义了小的块元素（通常由一个新行开始），比如段落、表格以及列表。</p>
+
+<p>XSL-FO Block Areas（块区域）包含其他的块区域，不过大多数时候它们包含的是行区域（Line Area）。</p>
+
+<hr>
+<h3>XSL-FO Line Areas（行区域）</h3>
+
+<p>XSL-FO Line Areas（行区域）定义了块区域内部的文本行。</p>
+
+<p>XSL-FO Line Areas（行区域）包含行内区域（Inline Area）。</p>
+
+<hr>
+<h3>XSL-FO Inline Areas（行内区域）</h3>
+<p>XSL-FO Inline Areas（行内区域）定义了行内部的文本（着重号、单字符、图像，等等）。</p>
+<br></div></section>
+<section class="ch" id="c5"><h2>5. XSLFO 输出<a class="chsrc" href="https://www.runoob.com/xslfo/xslfo-output.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>XSL-FO 在 &lt;fo:flow&gt; 元素内部定义输出。</p>
+<hr>
+<h3>XSL-FO 页面（Page）、流（Flow）以及块（Block）</h3>
+<p>内容"块"会"流"入"页面"中，然后输出到媒介。</p>
+<p>XSL-FO 输出通常被嵌套在 &lt;fo:block&gt; 元素内，&lt;fo:block&gt; 嵌套于 &lt;fo:flow&gt; 元素内，&lt;fo:flow&gt; 嵌套于 &lt;fo:page-sequence&gt; 元素内：</p>
+
+&lt;fo:page-sequence&gt;<br>
+   
+  &lt;fo:flow flow-name="xsl-region-body"&gt;<br>
+       
+    &lt;fo:block&gt;<br>
+           
+      &lt;!-- Output goes here --&gt;<br>
+       
+    &lt;/fo:block&gt;<br>
+   
+  &lt;/fo:flow&gt;<br>
+&lt;/fo:page-sequence&gt;
+
+<br><hr>
+<h3>XSL-FO 实例</h3>
+<p>现在让我们看一个真实的 XSL-FO 实例：</p>
+
+&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;<br><br>
+&lt;fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format"&gt;<br><br>
+&lt;fo:layout-master-set&gt;<br>
+   
+  &lt;fo:simple-page-master master-name="A4"&gt;<br>
+   
+&lt;fo:region-body /&gt;<br>
+ 
+&lt;/fo:simple-page-master&gt;<br>
+&lt;/fo:layout-master-set&gt;<br><br>
+&lt;fo:page-sequence master-reference="A4"&gt;<br>
+   
+  &lt;fo:flow flow-name="xsl-region-body"&gt;<br>
+       
+    &lt;fo:block&gt;Hello RUNOOB&lt;/fo:block&gt;<br>
+   
+  &lt;/fo:flow&gt;<br>
+&lt;/fo:page-sequence&gt;<br><br>
+&lt;/fo:root&gt;
+
+<p>以上代码的输出如下所示：</p>
+
+Hello RUNOOB
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+<br></div></section>
+<section class="ch" id="c6"><h2>6. XSLFO 流<a class="chsrc" href="https://www.runoob.com/xslfo/xslfo-flow.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>XSL-FO 页面使用来自 &lt;fo:flow&gt; 元素的数据进行填充。</p>
+<hr>
+<h3>XSL-FO 页面序列（Page Sequences）</h3>
+
+<p>XSL-FO 使用 &lt;fo:page-sequence&gt; 元素来定义<b>输出页面</b>。</p>
+<p>每个<b>输出页面</b>都会引用一个定义<b>布局</b>的 page master。</p>
+<p>每个<b>输出页面</b>都有一个定义<b>输出</b>的 &lt;fo:flow&gt; 元素。</p>
+<p>每个<b>输出页面</b>均会<b>按序列（顺序）</b>被打印或显示。</p>
+
+<hr>
+<h3>XSL-FO 流（Flow）</h3>
+
+<p>XSL-FO 页面使用来自 &lt;fo:flow&gt; 元素的内容进行填充。</p>
+<p>&lt;fo:flow&gt; 元素包含所有被打印到页面的元素。</p>
+<p>当页面被印满以后，相同的 page master 会被一遍又一遍地被使用，直到所有文本被打印为止。</p>
+
+<hr>
+<h3>流动到何处？</h3>
+
+<p>&lt;fo:flow&gt; 元素有一个 "flow-name" 属性。</p>
+<p>flow-name 属性的值定义 &lt;fo:flow&gt; 元素的内容会去往何处。</p>
+<p>合法的值：</p>
+<ul>
+<li>xsl-region-body（进入 region-body）</li>
+	<li>xsl-region-before（进入 region-before）</li>
+	<li>xsl-region-after（进入 region-after）</li>
+	<li>xsl-region-start（进入 region-start）</li>
+	<li>xsl-region-end（进入 region-end）</li>
+</ul>
+<br></div></section>
+<section class="ch" id="c7"><h2>7. XSLFO 页面<a class="chsrc" href="https://www.runoob.com/xslfo/xslfo-pages.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>XSL-FO 使用名为 "Page Masters" 的页面模板来定义页面的布局。</p>
+<hr>
+<h3>XSL-FO 页面模板（Page Templates）</h3>
+<p>XSL-FO 使用名为 "Page Masters" 的页面模板来定义页面的布局。每个模板必须拥有一个唯一的名称：</p>
+
+&lt;fo:simple-page-master master-name="intro"&gt;<br>
+   
+  &lt;fo:region-body margin="5in" /&gt;<br>
+&lt;/fo:simple-page-master&gt;<br><br>
+&lt;fo:simple-page-master master-name="left"&gt;<br>
+   
+  &lt;fo:region-body margin-left="2in" margin-right="3in" /&gt;<br>
+&lt;/fo:simple-page-master&gt;<br><br>
+&lt;fo:simple-page-master master-name="right"&gt;<br>
+   
+  &lt;fo:region-body margin-left="3in" margin-right="2in" /&gt;<br>
+&lt;/fo:simple-page-master&gt;
+
+<p>在上面的实例中，三个 &lt;fo:simple-page-master&gt; 元素，定义了三个不同的模板。每个模板（page-master）都有不同的名称。</p>
+<p>第一个模板名为 "intro"。它可作为介绍页面的模板使用。</p>
+<p>第二个和第三个模板名为 "left" 和 "right"。它们可作为偶数和奇数页码的页面模板使用。</p>
+<hr>
+<h3>XSL-FO 页面尺寸（Page Size）</h3>
+<p>XSL-FO 使用下面的属性定义页面的尺寸：</p>
+<ul>
+<li>page-width 定义页面的宽度</li>
+	<li>page-height 定义页面的高度</li>
+</ul>
+<hr>
+<h3>XSL-FO 页面边距（Page Margins）</h3>
+<p>XSL-FO 使用下面的属性定义页面的边距：</p>
+<ul>
+<li>margin-top 定义上边距</li>
+	<li>margin-bottom 定义下边距</li>
+	<li>margin-left 定义左边距</li>
+	<li>margin-right 定义右边距</li>
+	<li>margin 定义所有边的边距</li>
+</ul>
+<hr>
+<h3>XSL-FO 页面区（Page Regions）</h3>
+<p>XSL-FO 使用下面的元素定义页面的区：</p>
+<ul>
+<li>region-body 定义主体区</li>
+	<li>region-before 定义顶部区（页眉）</li>
+	<li>region-after 定义底部区（页脚）</li>
+	<li>region-start 定义左侧区（左侧栏）</li>
+	<li>region-end 定义右侧区（右侧栏）</li>
+</ul>
+<p>请注意，region-before、region-after、region-start 以及 region-end 是主体区的一部分。为了避免主体区的文本覆盖到这些区域的文本，主体区的边距至少要等于其他区的尺寸。</p>
+
+<img src="img/c937cd0c2dc31eec.gif" alt="Margins and page layout" loading="lazy">
+
+<hr>
+<h3>XSL-FO 实例</h3>
+
+<p>这是从某个 XSL-FO 文档中提取的一个片断：</p>
+
+&lt;fo:simple-page-master master-name="A4" page-width="297mm"<br>
+page-height="210mm" margin-top="1cm" margin-bottom="1cm"<br>
+margin-left="1cm" margin-right="1cm"&gt;<br>
+   
+  &lt;fo:region-body   margin="3cm"/&gt;<br>
+   
+  &lt;fo:region-before extent="2cm"/&gt;<br>
+   
+  &lt;fo:region-after  extent="2cm"/&gt;<br>
+   
+  &lt;fo:region-start  extent="2cm"/&gt;<br>
+   
+  &lt;fo:region-end    extent="2cm"/&gt;<br>
+&lt;/fo:simple-page-master&gt;
+
+<p>上面的代码定义了一个名称为 "A4" 的 "Simple Page Master Template"。</p>
+<p>页面的宽度是 297 毫米，高度是 210 毫米。</p>
+<p>页面的四个边距（上边距、下边距、左边距、右边距）均为 1 厘米。</p>
+<p>主体的边距是 3 厘米（四个边都是）。</p>
+<p>主体的 before、after、start 以及 end 区均为 2 厘米。</p>
+<p>上面的实例中的主体的宽度可通过页面宽度减去左右边距以及 region-body 的边距来计算得出：</p>
+<p>297mm - (2 x 1cm) - (2 x 3cm) = 297mm - 20mm - 60mm = 217mm</p>
+
+<p>请注意，region（region-start 和 region-end）没有被计算进来。正如之前讲解过的，这些区（region）是主体的组成部分。</p>
+<br></div></section>
+<section class="ch" id="c8"><h2>8. XSLFO 块<a class="chsrc" href="https://www.runoob.com/xslfo/xslfo-blocks.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>XSL-FO 的输出位于块区域中。</p>
+<hr>
+<h3>XSL-FO 页面（Page）、流（Flow）以及块（Block）</h3>
+<p>内容"块"会"流"入"页面"中，然后输出到媒介。</p>
+<p>XSL-FO 输出通常被嵌套在 &lt;fo:block&gt; 元素内，&lt;fo:block&gt; 嵌套于 &lt;fo:flow&gt; 元素内，&lt;fo:flow&gt; 嵌套于 &lt;fo:page-sequence&gt; 元素内：</p>
+
+&lt;fo:page-sequence&gt;<br>
+   
+  &lt;fo:flow flow-name="xsl-region-body"&gt;<br>
+       
+    &lt;fo:block&gt;<br>
+           
+      &lt;!-- Output goes here --&gt;<br>
+       
+    &lt;/fo:block&gt;<br>
+   
+  &lt;/fo:flow&gt;<br>
+&lt;/fo:page-sequence&gt;
+<br><hr>
+<h3>块区域的属性</h3>
+<p>块是位于矩形框中的输出序列：</p>
+
+&lt;fo:block border-width="1mm"&gt;<br>
+ 
+This block of output will have a one millimeter border around it.<br>
+&lt;/fo:block&gt;
+
+<p>由于块区域是矩形框，所以可共享许多公共的区域属性：</p>
+<ul>
+<li>space before 和 space after</li>
+	<li>margin</li>
+	<li>border</li>
+	<li>padding</li>
+</ul>
+
+<img src="img/a9f0d822cc1ce586.gif" alt="Content Margins and Padding" loading="lazy">
+
+<p><b>space before</b> 和 <b>space after</b> 是块与块之间起分割作用的空白。</p>
+<p><b>margin</b> 是块外侧的空白区域。</p>
+<p><b>border</b> 是区域外部边缘的矩形。其四个边均可有不同的宽度。它也可被填充为不同的颜色和背景图像。</p>
+<p><b>padding</b> 是位于 border 与 content 区域之间的区域。</p>
+<p><b>content</b> 区域可包含实际的内容，比如文本、图片、图形等等。</p>
+<hr>
+<h3>块边距（Block Margin）</h3>
+<ul>
+<li>margin</li>
+	<li>margin-top</li>
+	<li>margin-bottom</li>
+	<li>margin-left</li>
+	<li>margin-right</li>
+</ul>
+<hr>
+<h3>块边框（Block Border）</h3>
+<p>边框样式属性：</p>
+<ul>
+<li>border-style</li>
+	<li>border-before-style</li>
+	<li>border-after-style</li>
+	<li>border-start-style</li>
+	<li>border-end-style</li>
+	<li>border-top-style（等同于 border-before）</li>
+	<li>border-bottom-style（等同于 border-after）</li>
+	<li>border-left-style（等同于 border-start）</li>
+	<li>border-right-style（等同于 border-end）</li>
+</ul>
+<p>边框颜色属性：</p>
+<ul>
+<li>border-color</li>
+	<li>border-before-color</li>
+	<li>border-after-color</li>
+	<li>border-start-color</li>
+	<li>border-end-color</li>
+	<li>border-top-color（等同于 border-before）</li>
+	<li>border-bottom-color（等同于 border-after）</li>
+	<li>border-left-color（等同于 border-start）</li>
+	<li>border-right-color（等同于 border-end）</li>
+</ul>
+<p>边框宽度属性：</p>
+<ul>
+<li>border-width</li>
+	<li>border-before-width</li>
+	<li>border-after-width</li>
+	<li>border-start-width</li>
+	<li>border-end-width</li>
+	<li>border-top-width（等同于 border-before）</li>
+	<li>border-bottom-width（等同于 border-after）</li>
+	<li>border-left-width（等同于 border-start）</li>
+	<li>border-right-width（等同于 border-end）</li>
+</ul>
+<hr>
+<h3>块填充（Block Padding）</h3>
+<ul>
+<li>padding</li>
+	<li>padding-before</li>
+	<li>padding-after</li>
+	<li>padding-start</li>
+	<li>padding-end</li>
+	<li>padding-top（等同于 padding-before）</li>
+	<li>padding-bottom（等同于 padding-after）</li>
+	<li>padding-left（等同于 padding-start）</li>
+	<li>padding-right（等同于 padding-end）</li>
+</ul>
+<hr>
+<h3>块背景（Block Background）</h3>
+<ul>
+<li>background-color</li>
+	<li>background-image</li>
+	<li>background-repeat </li>
+	<li>background-attachment（scroll 或 fixed）</li>
+</ul>
+<hr>
+<h3>块样式属性（Block Styling Attributes）</h3>
+<p>块是可被单独样式化的输出序列：</p>
+
+&lt;fo:block
+  font-size="12pt"
+  font-family="sans-serif"&gt;<br>
+ 
+This block of output will be written in a 12pt sans-serif font.<br>
+&lt;/fo:block&gt;
+
+<p>字体属性：</p>
+<ul>
+<li>font-family</li>
+	<li>font-weight</li>
+	<li>font-style</li>
+	<li>font-size</li>
+	<li>font-variant</li>
+</ul>
+<p>文本属性：</p>
+<ul>
+<li>text-align</li>
+	<li>text-align-last</li>
+	<li>text-indent</li>
+	<li>start-indent</li>
+	<li>end-indent </li>
+	<li>wrap-option（定义自动换行）</li>
+	<li>break-before（定义分页符）</li>
+	<li>break-after（定义分页符）</li>
+	<li>reference-orientation（定义 90" 增量的文字旋转） 
+	</li>
+</ul>
+<hr>
+<h3>实例</h3>
+
+&lt;fo:block
+    font-size="14pt" font-family="verdana" color="red"<br>
+    space-before="5mm" space-after="5mm"&gt;<br>
+ 
+RUNOOB<br>
+&lt;/fo:block&gt;<br><br>
+&lt;fo:block
+    text-indent="5mm"
+    font-family="verdana" font-size="12pt"&gt;<br>
+ 
+At RUNOOB you will find all the Web-building tutorials you<br>
+ 
+need, from basic HTML and XHTML to advanced XML, XSL, Multimedia and WAP.<br>
+&lt;/fo:block&gt;
+
+<p>结果：</p>
+<table><tr>
+<td>
+<p>RUNOOB</p>
+    <p>   At RUNOOB you will find all the Web-building 
+    tutorials you need, from basic HTML and XHTML to advanced XML, XSL, Multimedia and WAP.</p>
+  </td>
+  </tr></table>
+<p>请看上面的实例，如果要生成一个拥有许多标题和段落的文档，那么将会需要非常多的代码。</p>
+<p>通常，XSL-FO 文档不会像我们刚才所做的那样对格式化信息和内容进行组合。</p>
+<p>通过 XSLT 的些许帮助，我们就可以把格式化信息置入模板，然后编写出更纯净的内容。</p>
+<p>您会在本教程后面的章节学习到如何使用 XSLT 模板来组合 XSL-FO。</p>
+<br></div></section>
+<section class="ch" id="c9"><h2>9. XSLFO 列表<a class="chsrc" href="https://www.runoob.com/xslfo/xslfo-lists.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>XSL-FO 使用 &lt;fo:list-block&gt; 元素来定义列表。</p>
+<hr>
+<h3>XSL-FO 列表块（List Blocks）</h3>
+<p>有四种 XSL-FO 对象可用来创建列表：</p>
+<ul>
+<li>fo:list-block（包含整个列表） (contains the whole list)</li>
+	<li>fo:list-item（包含列表中的每个项目） (contains each item in the list)</li>
+	<li>fo:list-item-label（包含用于 list-item 的标签 - 典型地，包含一个数字或者字符的 &lt;fo:block&gt; ）</li>
+	<li>fo:list-item-body（包含 list-item 的内容/主体 - 典型地，一个或多个 &lt;fo:block&gt; 对象）</li>
+</ul>
+<p>一个 XSL-FO 列表实例:</p>
+
+&lt;fo:list-block&gt;<br><br>
+&lt;fo:list-item&gt;<br>
+  
+ &lt;fo:list-item-label&gt;<br>
+      
+   &lt;fo:block&gt;*&lt;/fo:block&gt;<br>
+  
+ &lt;/fo:list-item-label&gt;<br>
+  
+ &lt;fo:list-item-body&gt;<br>
+      
+   &lt;fo:block&gt;Volvo&lt;/fo:block&gt;<br>
+  
+ &lt;/fo:list-item-body&gt;<br>
+&lt;/fo:list-item&gt;<br><br>
+&lt;fo:list-item&gt;<br>
+  
+ &lt;fo:list-item-label&gt;<br>
+      
+   &lt;fo:block&gt;*&lt;/fo:block&gt;<br>
+  
+ &lt;/fo:list-item-label&gt;<br>
+  
+ &lt;fo:list-item-body&gt;<br>
+      
+   &lt;fo:block&gt;Saab&lt;/fo:block&gt;<br>
+  
+ &lt;/fo:list-item-body&gt;<br>
+&lt;/fo:list-item&gt;<br><br>
+&lt;/fo:list-block&gt;
+
+<p>上面代码的输出如下所示：</p>
+<table><tr><td>
+ * Volvo<br>
+ * Saab<br>
+</td></tr></table>
+<br></div></section>
+<section class="ch" id="c10"><h2>10. XSLFO 表格<a class="chsrc" href="https://www.runoob.com/xslfo/xslfo-tables.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>XSL-FO 使用 &lt;fo:table-and-caption&gt; 元素来定义表格。</p>
+<hr>
+<h3>XSL-FO 表格（Tables）</h3>
+<p>XSL-FO 表格模型与 HTML 表格模型不是完全不同的。</p>
+<p>有九种 XSL-FO 对象可用来创建表格：</p>
+<ul>
+<li>fo:table-and-caption</li>
+	<li>fo:table</li>
+	<li>fo:table-caption</li>
+	<li>fo:table-column</li>
+	<li>fo:table-header</li>
+	<li>fo:table-footer</li>
+	<li>fo:table-body</li>
+	<li>fo:table-row</li>
+	<li>fo:table-cell</li>
+</ul>
+<p>XSL-FO 使用 <b>&lt;fo:table-and-caption&gt;</b> 元素来定义表格。它包含一个 &lt;<b>fo:table</b>&gt; 以及一个可选的 <b>&lt;fo:caption&gt;</b> 元素。</p>
+<p>&lt;fo:table&gt; 元素包含可选的 <b>&lt;fo:table-column&gt;</b> 元素，一个可选的 <b>&lt;fo:table-header&gt;</b> 元素，一个 <b>&lt;fo:table-body&gt;</b> 元素，一个可选的 <b>&lt;fo:table-footer&gt;</b> 元素。这些元素中的每一个都可能拥有一个或多个 <b>&lt;fo:table-row&gt;</b> 元素，而 <b>&lt;fo:table-row&gt;</b> 同时会带有一个或多个 <b>&lt;fo:table-cell&gt;</b> 元素：</p>
+
+&lt;fo:table-and-caption&gt;<br>
+&lt;fo:table&gt;<br>
+&lt;fo:table-column column-width="25mm"/&gt;<br>
+&lt;fo:table-column column-width="25mm"/&gt;<br><br>
+&lt;fo:table-header&gt;<br>
+   
+  &lt;fo:table-row&gt;<br>
+       
+    &lt;fo:table-cell&gt;<br>
+           
+      &lt;fo:block font-weight="bold"&gt;Car&lt;/fo:block&gt;<br>
+       
+    &lt;/fo:table-cell&gt;<br>
+       
+    &lt;fo:table-cell&gt;<br>
+           
+      &lt;fo:block font-weight="bold"&gt;Price&lt;/fo:block&gt;<br>
+       
+    &lt;/fo:table-cell&gt;<br>
+   
+  &lt;/fo:table-row&gt;<br>
+&lt;/fo:table-header&gt;<br><br>
+&lt;fo:table-body&gt;<br>
+   
+  &lt;fo:table-row&gt;<br>
+       
+    &lt;fo:table-cell&gt;<br>
+           
+      &lt;fo:block&gt;Volvo&lt;/fo:block&gt;<br>
+       
+    &lt;/fo:table-cell&gt;<br>
+       
+    &lt;fo:table-cell&gt;<br>
+           
+      &lt;fo:block&gt;$50000&lt;/fo:block&gt;<br>
+       
+    &lt;/fo:table-cell&gt;<br>
+   
+  &lt;/fo:table-row&gt;<br>
+   
+  &lt;fo:table-row&gt;<br>
+       
+    &lt;fo:table-cell&gt;<br>
+           
+      &lt;fo:block&gt;SAAB&lt;/fo:block&gt;<br>
+       
+    &lt;/fo:table-cell&gt;<br>
+       
+    &lt;fo:table-cell&gt;<br>
+           
+      &lt;fo:block&gt;$48000&lt;/fo:block&gt;<br>
+       
+    &lt;/fo:table-cell&gt;<br>
+   
+  &lt;/fo:table-row&gt;<br>
+&lt;/fo:table-body&gt;<br><br>
+&lt;/fo:table&gt;<br>
+&lt;/fo:table-and-caption&gt;
+
+<p>以上代码的输出如下所示：</p>
+<table>
+<tr>
+<th>Car</th>
+    <th>Price</th>
+  </tr>
+<tr>
+<td>Volvo</td>
+    <td>$50000</td>
+  </tr>
+<tr>
+<td>SAAB</td>
+    <td>$48000</td>
+  </tr>
+</table>
+<br></div></section>
+<section class="ch" id="c11"><h2>11. XSLFO &amp; XSLT<a class="chsrc" href="https://www.runoob.com/xslfo/xslfo-xslt.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>XSL-FO 与 XSLT 可彼此互助。</p>
+<hr>
+<h3>还记得这个实例吗？</h3>
+
+&lt;fo:block
+    font-size="14pt" font-family="verdana" color="red"<br>
+    space-before="5mm" space-after="5mm"&gt;<br>
+ 
+RUNOOB<br>
+&lt;/fo:block&gt;<br><br>
+&lt;fo:block
+    text-indent="5mm"
+    font-family="verdana" font-size="12pt"&gt;<br>
+ 
+At RUNOOB you will find all the Web-building tutorials you<br>
+ 
+need, from basic HTML and XHTML to advanced XML, XSL, Multimedia and WAP.<br>
+&lt;/fo:block&gt;
+
+<p>结果：</p>
+<table><tr>
+<td>
+<p>RUNOOB</p>
+    <p>   At RUNOOB you will find all the Web-building 
+    tutorials you need, from basic HTML and XHTML to advanced XML, XSL, Multimedia and WAP.</p>
+  </td>
+  </tr></table>
+<p>上面的实例来自于有关 XSL-FO 块区域的那一章节。</p>
+<hr>
+<h3>来自 XSLT 的帮助</h3>
+<p>从文档移除 XSL-FO 信息：</p>
+
+&lt;header&gt;RUNOOB&lt;/header&gt;<br><br>
+&lt;paragraph&gt;At RUNOOB you will find all the Web-building tutorials you<br>
+need, from basic HTML and XHTML to advanced XML, XSL, Multimedia and WAP.<br>
+&lt;/paragraph&gt;
+
+<p>添加 XSLT 转换：</p>
+
+&lt;xsl:template match="header"&gt;<br>
+ 
+&lt;fo:block
+    font-size="14pt" font-family="verdana" color="red"<br>
+     
+    space-before="5mm" space-after="5mm"&gt;<br>
+       
+    &lt;xsl:apply-templates/&gt;<br>
+ 
+&lt;/fo:block&gt;<br>
+&lt;/xsl:template&gt;<br><br>
+&lt;xsl:template match="paragraph"&gt;<br>
+ 
+&lt;fo:block
+    text-indent="5mm"
+    font-family="verdana" font-size="12pt"&gt;<br>
+       
+    &lt;xsl:apply-templates/&gt;<br>
+ 
+&lt;/fo:block&gt;<br>
+&lt;/xsl:template&gt;
+
+<p>产生的结果是相同的：</p>
+<table><tr>
+<td>
+<p>RUNOOB</p>
+    <p>   At RUNOOB you will find all the Web-building 
+    tutorials you need, from basic HTML and XHTML to advanced XML, XSL, Multimedia and WAP.</p>
+  </td>
+  </tr></table>
+<br></div></section>
+<section class="ch" id="c12"><h2>12. XSLFO 软件<a class="chsrc" href="https://www.runoob.com/xslfo/xslfo-software.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>XSL-FO 需要格式化软件来产生输出。</p>
+<hr>
+<h3>XSL-FO 处理器</h3>
+
+<p>一个 XSL-FO 处理器是一个用于格式化输出 XSL 文档的软件程序。</p>
+
+<p>大多数的 XSL-FO 处理器可以输出 HTML、PDF 文档和质量打印。</p>
+
+<p>下面介绍一些知名的 XSL-FO 处理器。</p>
+<hr>
+<h3>Antenna House Formatter V5</h3>
+<p>Antenna House Formatter V5 是为 PDF 或打印格式化 XML 文档的软件程序。</p>
+<p>
+<a href="http://www.antennahouse.com" class="ext">访问 Antenna House</a></p>
+<hr>
+<h3>Altova 的 StyleVision</h3>
+<p>StyleVision 基于您的设计自动生成一致性标准的 XSLT 和 XSL:FO 样式表，以及相应的 HTML、RTF、PDF、
+Word 2007 输出，等等。</p>
+<p>
+<a href="http://www.altova.com/" class="ext">访问 Altova</a></p>
+<hr>
+<h3>Ecrion 的 XF 产品</h3>
+<p>XSL-FO 格式化的一些产品！</p>
+<p>
+<a href="http://www.ecrion.com/" class="ext">访问 Ecrion</a></p>
+<br></div></section>
+<section class="ch" id="c13"><h2>13. XSL-FO 对象<a class="chsrc" href="https://www.runoob.com/xslfo/xslfo-reference.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>XSL 格式化对象参考手册</h3>
+<p>将描述转换为呈现的过程被称为格式化（formatting）。</p>
+<table>
+<tr>
+<th>对象</th>
+<th>描述</th>
+</tr>
+<tr>
+<td><a href="obj-basic-link.html">basic-link</a></td>
+    <td>代表一个链接的起始资源。</td>
+  </tr>
+<tr>
+<td><a href="obj-bidi-override.html">bidi-override</a></td>
+    <td>重写默认 Unicode BIDI 的方向。</td>
+  </tr>
+<tr>
+<td><a href="obj-block.html">block</a></td>
+    <td>定义一个输出块（比如段落和标题）。</td>
+  </tr>
+<tr>
+<td><a href="obj-block-container.html">block-container</a></td>
+    <td>定义一个块级的引用区域（reference-area）。</td>
+  </tr>
+<tr>
+<td><a href="obj-character.html">character</a></td>
+    <td>规定将被映射为供呈现的字形的字符。</td>
+  </tr>
+<tr>
+<td><a href="obj-color-profile.html">color-profile</a></td>
+    <td>定义样式表的一个颜色配置文件。</td>
+  </tr>
+<tr>
+<td><a href="obj-conditional-page-master-reference.html">conditional-page-master-reference</a></td>
+    <td>规定一个当所定义的条件成立时使用的 page-master。</td>
+  </tr>
+<tr>
+<td><a href="obj-declarations.html">declarations</a></td>
+    <td>组合一个样式表的全局声明。</td>
+  </tr>
+<tr>
+<td><a href="obj-external-graphic.html">external-graphic</a></td>
+    <td>用于图像数据位于 XML 结果树之外的某个图形。</td>
+  </tr>
+<tr>
+<td><a href="obj-float.html">float</a></td>
+    <td>通常用于在页面起始处的一个单独区域里定位图像，或者通过将内容沿图像的一侧流动来定位图像到一侧。</td>
+  </tr>
+<tr>
+<td><a href="obj-flow.html">flow</a></td>
+    <td>包含要打印到页面的所有元素。</td>
+  </tr>
+<tr>
+<td><a href="obj-footnote.html">footnote</a></td>
+    <td>定义在页面的 region-body 内部的一个脚注。</td>
+  </tr>
+<tr>
+<td><a href="obj-footnote-body.html">footnote-body</a></td>
+    <td>定义脚注的内容。</td>
+  </tr>
+<tr>
+<td><a href="obj-initial-property-set.html">initial-property-set</a></td>
+    <td>格式化 &lt;fo:block&gt; 的第一行。</td>
+  </tr>
+<tr>
+<td><a href="obj-inline.html">inline</a></td>
+    <td>通过背景属性或将其嵌入一个边框来定义文本的一部分格式。</td>
+  </tr>
+<tr>
+<td><a href="obj-inline-container.html">inline-container</a></td>
+    <td>定义一个内联参考域（reference-area）。</td>
+  </tr>
+<tr>
+<td><a href="obj-instream-foreign-object.html">instream-foreign-object</a></td>
+    <td>用于内联图形或 "generic" 类对象。在其中，对象的数据以 &lt;fo:instream-foreign-object&gt; 的后代形式存在。</td>
+  </tr>
+<tr>
+<td><a href="obj-layout-master-set.html">layout-master-set</a></td>
+    <td>保存所有在文档中使用的宿主（master）。</td>
+  </tr>
+<tr>
+<td><a href="obj-leader.html">leader</a></td>
+    <td>
+	<p>用于生成 "." 符号来分隔内容表格中页面数字的标题，或创建表单中的输入字段，或创建水平规则。</p>
+</td>
+  </tr>
+<tr>
+<td><a href="obj-list-block.html">list-block</a></td>
+    <td>定义列表。</td>
+  </tr>
+<tr>
+<td><a href="obj-list-item.html">list-item</a></td>
+    <td>包含列表中的每个项。</td>
+  </tr>
+<tr>
+<td><a href="obj-list-item-body.html">list-item-body</a></td>
+    <td>包含了 list-item 的内容/主体。</td>
+  </tr>
+<tr>
+<td><a href="obj-list-item-label.html">list-item-label</a></td>
+    <td>包含了 list-item 标签（通常是数字、字符等）。</td>
+  </tr>
+<tr>
+<td><a href="obj-marker.html">marker</a></td>
+    <td>与 &lt;fo:retrieve-marker&gt; 一起使用来创建运行的页眉或页脚。</td>
+  </tr>
+<tr>
+<td><a href="obj-multi-case.html">multi-case</a></td>
+    <td>
+	<p>包含 XSL-FO 对象的每个供选择的子树（在 &lt;fo:multi-switch&gt; 内部）。父元素 &lt;fo:multi-switch&gt; 会选择要显示的那个选项并隐藏其余的选项。</p>
+</td>
+  </tr>
+<tr>
+<td><a href="obj-multi-properties.html">multi-properties</a></td>
+    <td>用于两个或多个属性集之间切换。</td>
+  </tr>
+<tr>
+<td><a href="obj-multi-property-set.html">multi-property-set</a></td>
+    <td>规定一个根据用户代理状态进行应用的可选的属性集。</td>
+  </tr>
+<tr>
+<td><a href="obj-multi-switch.html">multi-switch</a></td>
+    <td>保留一个或多个 &lt;fo:multi-case&gt; 对象，控制它们（由 &lt;fo:multi-toggle&gt; 触发）彼此之间的转换。</td>
+  </tr>
+<tr>
+<td><a href="obj-multi-toggle.html">multi-toggle</a></td>
+    <td>用于切换到另一个 &lt;fo:multi-case&gt;。</td>
+  </tr>
+<tr>
+<td><a href="obj-page-number.html">page-number</a></td>
+    <td>表示当前页码。</td>
+  </tr>
+<tr>
+<td><a href="obj-page-number-citation.html">page-number-citation</a></td>
+    <td>为页面引用页码，此页面包含由被引用对象返回的第一个正常区域。</td>
+  </tr>
+<tr>
+<td><a href="obj-page-sequence.html">page-sequence</a></td>
+    <td>页面输出元素的容器。每个页面布局将有一个 &lt;fo:page-sequence&gt; 对象。</td>
+  </tr>
+<tr>
+<td><a href="obj-page-sequence-master.html">page-sequence-master</a></td>
+    <td>规定要使用的 simple-page-masters 以及使用顺序。</td>
+  </tr>
+<tr>
+<td><a href="obj-region-after.html">region-after</a></td>
+    <td>定义页脚。</td>
+  </tr>
+<tr>
+<td><a href="obj-region-before.html">region-before</a></td>
+    <td>定义页眉。</td>
+  </tr>
+<tr>
+<td><a href="obj-region-body.html">region-body</a></td>
+    <td>定义页面主题。</td>
+  </tr>
+<tr>
+<td><a href="obj-region-end.html">region-end</a></td>
+    <td>定义页面的右侧栏。</td>
+  </tr>
+<tr>
+<td><a href="obj-region-start.html">region-start</a></td>
+    <td>定义页面的左侧栏。</td>
+  </tr>
+<tr>
+<td><a href="obj-repeatable-page-master-alternatives.html">repeatable-page-master-alternatives</a></td>
+    <td>规定一组 simple-page-master 的副本。</td>
+  </tr>
+<tr>
+<td><a href="obj-repeatable-page-master-reference.html">repeatable-page-master-reference</a></td>
+    <td>规定单个 simple-page-master 的副本。</td>
+  </tr>
+<tr>
+<td><a href="obj-retrieve-marker.html">retrieve-marker</a></td>
+    <td>与 &lt;fo:marker&gt; 一起使用来创建运行的页眉或页脚。</td>
+  </tr>
+<tr>
+<td><a href="obj-root.html">root</a></td>
+    <td>XSL-FO 文档的根（顶级）节点。</td>
+  </tr>
+<tr>
+<td><a href="obj-simple-page-master.html">simple-page-master</a></td>
+    <td>定义一个页面的尺寸和形状。</td>
+  </tr>
+<tr>
+<td><a href="obj-single-page-master-reference.html">single-page-master-reference</a></td>
+    <td>规定用在页面序列的给定点中的 page-master。</td>
+  </tr>
+<tr>
+<td><a href="obj-static-content.html">static-content</a></td>
+    <td>对象包含了静态内容（如：页眉和页脚），该静态内容将在多个页面中重复调用。</td>
+  </tr>
+<tr>
+<td><a href="obj-table.html">table</a></td>
+    <td>格式化表格的表格式材料。</td>
+  </tr>
+<tr>
+<td><a href="obj-table-and-caption.html">table-and-caption</a></td>
+    <td>格式化表格及其标题。</td>
+  </tr>
+<tr>
+<td><a href="obj-table-body.html">table-body</a></td>
+    <td>包含表格行和表格单元格的容器。</td>
+  </tr>
+<tr>
+<td><a href="obj-table-caption.html">table-caption</a></td>
+    <td>包含表格的标题。</td>
+  </tr>
+<tr>
+<td><a href="obj-table-cell.html">table-cell</a></td>
+    <td>定义表格单元格。</td>
+  </tr>
+<tr>
+<td><a href="obj-table-column.html">table-column</a></td>
+    <td>格式化表格的列。</td>
+  </tr>
+<tr>
+<td><a href="obj-table-footer.html">table-footer</a></td>
+    <td>定义表格的页脚。</td>
+  </tr>
+<tr>
+<td><a href="obj-table-header.html">table-header</a></td>
+    <td>定义表格的页眉。</td>
+  </tr>
+<tr>
+<td><a href="obj-table-row.html">table-row</a></td>
+    <td>定义表格行。</td>
+  </tr>
+<tr>
+<td><a href="obj-title.html">title</a></td>
+    <td>为一个 page-sequence 定义一个标题。</td>
+  </tr>
+<tr>
+<td><a href="obj-wrapper.html">wrapper</a></td>
+    <td>为一组 XSL-FO 对象规定 inherited[继承] 属性。</td>
+  </tr>
+</table>
+<br><br></div></section>
+<footer><p>离线版 · 内容抓取自 runoob.com，仅用于个人离线阅读；页面结构与广告已去除，原文版权归菜鸟教程及原作者。</p><p><a href="index.html">← 返回总索引</a></p></footer></body></html>

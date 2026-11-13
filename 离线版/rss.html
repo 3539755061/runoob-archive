@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RSS 教程 · 离线版</title>
+<link rel="stylesheet" href="css/offline.css">
+</head><body>
+<nav class="topbar"><a href="index.html">← 返回总索引</a><span>·</span><span>H 遗留与历史技术</span>
+<span>·</span><span>10 章</span></nav>
+<h1>RSS 教程</h1>
+<p class="docmeta">来源：<a class="ext" href="https://www.runoob.com/rss/rss-tutorial.html">https://www.runoob.com/rss/rss-tutorial.html</a><br>
+适用性：<b style="color:#b26a00">谨慎</b>
+｜ 时效：维护期 ｜ 抓取：2026-11-13 ｜ 本页为离线阅读版，章节按教程侧栏顺序合并，广告与评论已去除。</p>
+<details class="toc-ch"><summary>本篇目录（10 章，点击展开）</summary><ol>
+<li><a href="#c1">RSS 教程</a></li>
+<li><a href="#c2">RSS 简介</a></li>
+<li><a href="#c3">RSS 历史</a></li>
+<li><a href="#c4">RSS 语法</a></li>
+<li><a href="#c5">RSS channel 元素</a></li>
+<li><a href="#c6">RSS item 元素</a></li>
+<li><a href="#c7">RSS 发布您的 Feed</a></li>
+<li><a href="#c8">RSS 阅读器</a></li>
+<li><a href="#c9">RSS 实例</a></li>
+<li><a href="#c10">RSS 参考手册</a></li>
+</ol></details>
+<section class="ch" id="c1"><h2>1. RSS 教程<a class="chsrc" href="https://www.runoob.com/rss/rss-tutorial.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><br>
+<p>通过使用 RSS，您可以有选择地浏览您感兴趣的以及与您的工作相关的新闻。</p>
+<p>通过使用 RSS，您可以把需要的信息从不需要的信息（兜售信息，垃圾邮件等）中分离出来。</p>
+<p>通过使用 RSS，您可以创建自己的新闻频道，并将之发布到因特网。</p>
+<p><b>现在开始学习 RSS!</b></p>
+
+<h3>RSS 文档实例</h3>
+
+<span class="hl-brackets">&lt;?</span><span class="hl-reserved">xml</span><span class="hl-code"> </span><span class="hl-var">version</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">1.0</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-var">encoding</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">UTF-8</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-brackets">?&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">rss</span><span class="hl-code"> </span><span class="hl-var">version</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">2.0</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+ 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">channel</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+  </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">title</span><span class="hl-brackets">&gt;</span><span class="hl-code">菜鸟教程首页</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">title</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+  </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">link</span><span class="hl-brackets">&gt;</span><span class="hl-code">http://www.runoob.com</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">link</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+  </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">description</span><span class="hl-brackets">&gt;</span><span class="hl-code">免费编程教程</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">description</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+  </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">item</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">title</span><span class="hl-brackets">&gt;</span><span class="hl-code">RSS 教程</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">title</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">link</span><span class="hl-brackets">&gt;</span><span class="hl-code">http://www.runoob.com/rss</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">link</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">description</span><span class="hl-brackets">&gt;</span><span class="hl-code">菜鸟教程 Rss 教程</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">description</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+  </span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">item</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+  </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">item</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">title</span><span class="hl-brackets">&gt;</span><span class="hl-code">XML 教程</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">title</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">link</span><span class="hl-brackets">&gt;</span><span class="hl-code">http://www.runoob.com/xml</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">link</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">description</span><span class="hl-brackets">&gt;</span><span class="hl-code">菜鸟教程 XML 教程</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">description</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+  </span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">item</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">channel</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+ 
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">rss</span><span class="hl-brackets">&gt;</span>
+
+<br>
+<a href="https://www.runoob.com/try/tryrss.php?filename=rss_ex_title_link_description_item" class="ext">尝试一下 »</a></div></section>
+<section class="ch" id="c2"><h2>2. RSS 简介<a class="chsrc" href="https://www.runoob.com/rss/rss-intro.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>您应当具备的基础知识</h3>
+<p>在继续学习之前，您需要对下面的知识有基本的了解：</p>
+<ul>
+<li>HTML / XHTML</li>
+<li>XML / XML 命名空间</li>
+</ul>
+<p>如果您希望首先学习这些项目，请在我们的 <a href="https://www.runoob.com//www.runoob.com/" class="ext" title="W3School在线教程">首页</a> 访问这些教程。</p>
+
+<hr>
+<h3>什么是 RSS？</h3>
+<ul>
+<li>RSS 指 Really Simple Syndication（真正简易联合）</li>
+<li>RSS 使您有能力聚合（syndicate）网站的内容</li>
+<li>RSS 定义了非常简单的方法来共享和查看标题和内容</li>
+<li>RSS 文件可被自动更新</li>
+<li>RSS 允许为不同的网站进行视图的个性化</li>
+<li>RSS 使用 XML 编写</li>
+</ul>
+<hr>
+<h3>为什么使用 RSS？</h3>
+<p>RSS 被设计用来展示选定的数据。</p>
+<p>如果没有 RSS，用户就不得不每日都来您的网站检查新的内容。对许多用户来说这样太费时了。通过 RSS feed（RSS 通常被称为 News feed 或 RSS feed），用户们可以使用 RSS 聚合器来更快地检查您的网站更新（RSS 聚合器是用来聚集并分类 RSS feed 的网站或软件）。</p>
+<p>由于 RSS 数据很小巧并可快速加载，它可轻易地被类似移动电话或 PDA 的服务使用。</p>
+<p>拥有相似内容的网站环（Web-rings）可以轻易地在它们的网站共享内容，使这些网站更出色更有价值。</p>
+
+<hr>
+<h3>谁应当使用 RSS？</h3>
+<p>那些极少更新内容的网管们不需要 RSS！</p>
+<p>RSS 对那些频繁更新内容的网站是很有帮助的，比如：</p>
+
+<ul>
+<li>新闻站点 - 列出新闻的标题、日期以及描述</li>
+
+<li>企业 - 列出新闻和新产品</li>
+
+<li>日程表 - 列出即将来临的安排和重要日期</li>
+
+<li>站点更新 - 列出更新过的页面或新的页面</li>
+</ul>
+
+<hr>
+<h3>RSS 的未来</h3>
+<p>RSS 会无所不在！</p>
+<p>成千上万的网站在使用 RSS，每天都有越来越多的人们认识到它的用处。</p>
+<p>通过 RSS，因特网上的信息会更易查找，而网站开发者也可更容易地把他们的内容传播到特定的受众。</p>
+
+<hr>
+<h3>RSS的优势</h3>
+<table><tr>
+<td><img src="img/610c31d7e10c7117.gif" alt="Easy News" loading="lazy"></td>
+<td><p><b>选择您的新闻</b><br>
+ 通过RSS，你可以选择你想要查看新闻，感兴趣的新闻和与你的工作有关的信息。</p></td>
+</tr></table>
+<br><br><table><tr>
+<td><img src="img/9eee632f81d38562.gif" alt="Remove Spam" loading="lazy"></td>
+<td><p><b>删除不需要的信息</b><br>
+您可以用RSS（终于）单独从无用信息（垃圾邮件）获得想要的信息！</p></td>
+</tr></table>
+<br><br><table><tr>
+<td><img src="img/7059c0fce346a370.gif" alt="More Traffic" loading="lazy"></td>
+<td>
+<p><b>增加你的网站流量</b><br>
+通过RSS，你可以创建自己的新闻频道，并发布到互联网！</p>
+</td>
+</tr></table></div></section>
+<section class="ch" id="c3"><h2>3. RSS 历史<a class="chsrc" href="https://www.runoob.com/rss/rss-history.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>RSS 已发布了很多不同的版本。</p>
+<hr>
+<h3>RSS 的历史</h3>
+<h3>RSS 的历史</h3>
+<ul>
+<li><strong>1997 年</strong> - Dave Winer 开发出 scriptingNews。RSS 由此诞生。</li>
+  
+<li><strong>1999 年</strong> - Netscape 开发出 RSS 0.90 （由 scriptingNews 支持的）。这是带有一个 RDF header 的简单的 XML。</li>
+
+<li><strong>1999 年</strong>- Dave Winer 在 UserLand 公司开发出 scriptingNews 2.0b1 （包含了 Netscape 的 RSS 0.90 的特定）。</li>
+
+<li><strong>1999 年</strong> - Netscape 开发出 RSS 0.91。在此版本中，他们删除了那个 RDF header，但是包含了大多数来自 scriptingNews 2.0b1 的特性。</li>
+
+<li><strong>1999 年</strong> - UserLand 摆脱了 scriptingNews，而仅仅使用 RSS 0.91。</li>
+  
+<li>Netscape 停止了 RSS 的研发</li>
+  
+<li><strong>2000 年</strong> - UserLand 发布了正式的 0.91 规范</li>
+  
+<li><strong>2000 年</strong> - 一个由 Rael Dornfest 领导的团队在 O'Reilly 开发出 RSS 1.0。此格式使用了 RDF 和命名空间。此版本常被混淆为 0.91 的新版本，不过它是完全不依赖 RSS 0.91 的新格式。</li>
+
+<li><strong>2000 年</strong> - Dave Winer 在 UserLand 公司开发出 RSS 0.92。</li>
+  
+<li><strong>2002 年</strong> - Dave Winer 在离开 Userland 之后开发出 RSS 2.0。</li>
+  
+<li><strong>2003 年</strong> - 正式的 RSS 2.0 规范发布。</li>
+</ul>
+<hr>
+<h3>不同之处在哪里？</h3>
+<p>RSS 1.0 是唯一使用 W3C 的 RDF（资源描述框架） 标准进行开发的版本。</p>
+<p>RDF 所蕴含的理念是帮助建立一张语义网。<a href="https://www.runoob.com/w3c/" class="ext" title="W3C RDF 和 OWL 活动">在此阅读更多有关 RDF 和语义网的内容</a>。虽然这与普通用户的关系不大，但是通过使用 Web 标准，对于个人和应用程序来说数据交换会更加容易。</p>
+
+<hr>
+<h3>我应该使用哪个 RSS 版本？</h3>
+<p>RSS 0.91 和 RSS 2.0 较之 RSS 1.0 更容易理解。我们的教程基于 RSS 2.0。</p>
+
+<hr>
+<h3>存在 RSS 的 Web 标准吗？</h3>
+
+<p>没有正式的标准针对 RSS。</p>
+<ul>
+<li>所有 RSS feeds 中大约 50% 使用 RSS 0.91。</li>
+<li>大约 25% 使用 RSS 1.0。</li>
+<li>最后的 25% 使用 RSS 0.9x 版本或 RSS 2.0。</li>
+</ul></div></section>
+<section class="ch" id="c4"><h2>4. RSS 语法<a class="chsrc" href="https://www.runoob.com/rss/rss-syntax.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>RSS 2.0 的语法很简单，也很严格。</p>
+<hr>
+<h3>RSS 如何工作</h3>
+
+<p>RSS 用于在网站间分享信息。</p>
+
+<p>使用 RSS，您在名为聚合器的公司注册您的内容。</p>
+
+<p>步骤之一是，创建一个 RSS 文档，然后使用 .xml 后缀来保存它。然后把此文件上传到您的网站。接下来，通过一个 RSS 聚合器来注册。每天，聚合器都会到被注册的网站搜索 RSS 文档，校验其链接，并显示有关 feed 的信息，这样客户就能够链接到使他们产生兴趣的文档。</p>
+
+<p><span>提示：</span>请在 <a href="#c7" title="RSS 发布您的 feed">RSS 发布</a> 这一节浏览免费的 RSS 聚合器服务。</p>
+
+<hr>
+<h3>RSS 实例</h3>
+<p>RSS 文档使用一种简单的自我描述的语法。</p>
+<p>让我们看一个简单的 RSS 文档：</p>
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;rss version="2.0"&gt;
+
+&lt;channel&gt;
+  &lt;title&gt;菜鸟教程首页&lt;/title&gt;
+  &lt;link&gt;http://www.runoob.com&lt;/link&gt;
+  &lt;description&gt;免费编程教程&lt;/description&gt;
+  &lt;item&gt;
+    &lt;title&gt;RSS 教程&lt;/title&gt;
+    &lt;link&gt;http://www.runoob.com/rss&lt;/link&gt;
+    &lt;description&gt;菜鸟教程 Rss 教程&lt;/description&gt;
+  &lt;/item&gt;
+  &lt;item&gt;
+    &lt;title&gt;XML 教程&lt;/title&gt;
+    &lt;link&gt;http://www.runoob.com/xml&lt;/link&gt;
+    &lt;description&gt;菜鸟教程 XML 教程&lt;/description&gt;
+  &lt;/item&gt;
+&lt;/channel&gt;
+
+&lt;/rss&gt;
+</pre>
+
+<p>文档中的第一行：XML 声明 - 定义了文档中使用的 XML 版本和字符编码。此例子遵守 1.0 规范，并使用 UTF-8 字符集(可支持中文)。</p>
+<p>下一行是标识此文档是一个 RSS 文档的 RSS 声明（此例是 RSS version 2.0）。</p>
+<p>下一行含有 &lt;channel&gt; 元素。此元素用于描述 RSS feed。</p>
+<p>&lt;channel&gt; 元素有三个必需的子元素：</p>
+
+<ul>
+<li>&lt;title&gt; - 定义频道的标题。（比如 菜鸟教程首页）</li>
+<li>&lt;link&gt; - 定义到达频道的超链接。（比如 www.runoob.com）</li>
+<li>&lt;description&gt; - 描述此频道（比如 免费编程教程）</li>
+</ul>
+
+<p>每个 &lt;channel&gt; 元素可拥有一个或多个 &lt;item&gt; 元素。</p>
+<p>每个 &lt;item&gt; 元素可定义 RSS feed 中的一篇文章或 "story"。</p>
+<p>&lt;item&gt; 元素拥有三个必需的子元素：</p>
+
+<ul>
+<li>&lt;title&gt; - 定义项目的标题。（比如 RSS 教程）</li>
+<li>&lt;link&gt; - 定义到达项目的超链接。（比如 http://www.runoob.com/rss）</li>
+<li>&lt;description&gt; - 描述此项目（比如 菜鸟教程 Rss 教程）</li>
+</ul>
+
+<p>最后，后面的两行关闭 &lt;channel&gt; 和 &lt;rss&gt; 元素。</p>
+
+<hr>
+<h3>RSS 中的注释</h3>
+<p>在 RSS 中书写注释的语法与 HTML 的语法类似：</p>
+
+<pre>
+&lt;!-- 这是一个 RSS 注释 --&gt;
+</pre>
+<br><hr>
+<h3>RSS 使用 XML 来编写</h3>
+
+<p>因为 RSS 也是 XML，请记住：</p>
+
+<ul>
+<li>所有的元素必许拥有关闭标签</li>
+<li>元素对大小写敏感</li>
+<li>元素必需被正确地嵌套</li>
+<li>属性值必须带引号</li>
+</ul></div></section>
+<section class="ch" id="c5"><h2>5. RSS channel 元素<a class="chsrc" href="https://www.runoob.com/rss/rss-channel.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p><strong>RSS 的 &lt;channel&gt; 元素可描述 RSS feed。</strong></p>
+
+<hr>
+<h3>RSS &lt;channel&gt; 元素</h3>
+
+<p>请看下面这个 RSS 文档：</p>
+
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;rss version="2.0"&gt;
+ 
+&lt;channel&gt;
+  &lt;title&gt;菜鸟教程首页&lt;/title&gt;
+  &lt;link&gt;http://www.runoob.com&lt;/link&gt;
+  &lt;description&gt;免费编程教程&lt;/description&gt;
+  &lt;item&gt;
+    &lt;title&gt;RSS 教程&lt;/title&gt;
+    &lt;link&gt;http://www.runoob.com/rss&lt;/link&gt;
+    &lt;description&gt;菜鸟教程 Rss 教程&lt;/description&gt;
+  &lt;/item&gt;
+&lt;/channel&gt;
+ 
+&lt;/rss&gt;
+</pre>
+
+<p>正如前面提到的，&lt;channel&gt; 元素可描述 RSS feed，而拥有三个必需的子元素：</p>
+<ul>
+<li>&lt;title&gt; - 定义频道的标题。（比如 菜鸟教程首页）</li>
+<li>&lt;link&gt; - 定义到达频道的超链接。（比如 http://www.runoob.com）</li>
+<li>&lt;description&gt; - 描述此频道（比如 免费编程教程）</li>
+</ul>
+<p>&lt;channel&gt; 通常包含一个或多个 &lt;item&gt; 元素。每个 &lt;item&gt; 元素可定义 RSS feed 中的一篇文章或 "story"。</p>
+<p>此外，还存在若干个可选的 &lt;channel&gt; 的子元素。我们会在后面讲解最重要的几个。</p>
+
+<hr>
+<h3>&lt;category&gt; 元素</h3>
+<p>&lt;category&gt; 子元素用于为 feed 规定种类。</p>
+<p>&lt;category&gt; 子元素使 RSS 聚合器基于类别对网站进行分组成为可能。</p>
+<p>上面的 RSS 文档的类别可能会是：</p>
+
+<pre>
+&lt;category&gt;Web 开发&lt;/category&gt;
+</pre>
+<br><hr>
+<h3>&lt;copyright&gt; 元素</h3>
+
+<p>&lt;copyright&gt; 子元素会告知有关版本资料的信息。</p>
+
+<p>上面的 RSS 文档的版本可能会是</p>
+
+<pre>
+&lt;copyright&gt;2006 Refsnes Data as. All rights reserved.&lt;/copyright&gt;
+</pre>
+<br><hr>
+<h3>&lt;image&gt; 元素</h3>
+
+<p>&lt;image&gt; 子元素可在聚合器提供某个 feed 时显示一幅图像。</p>
+
+<p>&lt;image&gt; 有三个必需的子元素：</p>
+<ul>
+<li>&lt;url&gt; - 定义引用图像的 URL</li>
+<li>&lt;title&gt; - 定义图像无法被显示时显示的文本</li>
+<li>&lt;link&gt; - 定义到达提供此频道的网站的超链接</li>
+</ul>
+
+<p>上面的 RSS 文档的图像可能是这样的：</p>
+
+<pre>
+&lt;image&gt;
+  &lt;url&gt;http://www.runoob.com/images/logo.png&lt;/url&gt;
+  &lt;title&gt;菜鸟教程&lt;/title&gt;
+  &lt;link&gt;http://www.runoob.com&lt;/link&gt;
+&lt;/image&gt;
+
+</pre>
+<br><hr>
+<h3>&lt;language&gt; 元素</h3>
+<p>&lt;language&gt; 子元素用于规定用来编写文档的语言。</p>
+<p>&lt;language&gt; 元素使 RSS 聚合器基于语言来对网站进行分组成为可能。</p>
+<p>上面的 RSS 文档的语言可能是：</p>
+
+<pre>
+&lt;language&gt;zh-cn&lt;/language&gt;
+</pre>
+
+<h3>RSS &lt;channel&gt; 参考手册</h3>
+<table>
+<tbody><tr>
+<th>元素</th>
+<th>描述</th>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-category-channel.html" class="ext" title="RSS &lt;category&gt; 元素">&lt;category&gt;</a></td>
+<td>可选的。为 feed 定义所属的一个或多个种类。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-cloud.html" class="ext" title="RSS &lt;cloud&gt; 元素">&lt;cloud&gt;</a></td>
+<td>可选的。注册进程，以获得 feed 更新的立即通知。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-copyright.html" class="ext" title="RSS &lt;copyright&gt; 元素">&lt;copyright&gt;</a></td>
+<td>可选。告知版权资料。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-title-link-description-channel.html" class="ext" title="RSS &lt;title&gt;、&lt;link&gt; 以及 &lt;description&gt; 元素">&lt;description&gt;</a></td>
+<td>必需的。描述频道。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-docs.html" class="ext" title="RSS &lt;docs&gt; 元素">&lt;docs&gt;</a></td>
+<td>可选的。规定指向当前 RSS 文件所用格式说明的 URL。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-generator.html" class="ext" title="RSS &lt;generator&gt; 元素">&lt;generator&gt;</a></td>
+<td>可选的。规定用于生成 feed 的程序。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-image.html" class="ext" title="RSS &lt;image&gt; 元素">&lt;image&gt;</a></td>
+<td>可选的。在聚合器呈现某个 feed 时，显示一个图像。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-language.html" class="ext" title="RSS &lt;language&gt; 元素">&lt;language&gt;</a></td>
+<td>可选的。规定编写 feed 所用的语言。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-lastbuilddate.html" class="ext" title="RSS &lt;lastBuildDate&gt; 元素">&lt;lastBuildDate&gt;</a></td>
+<td>可选的。定义 feed 内容的最后修改日期。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-title-link-description-channel.html" class="ext" title="RSS &lt;title&gt;、&lt;link&gt; 以及 &lt;description&gt; 元素">&lt;link&gt;</a></td>
+<td>必需的。定义指向频道的超链接。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-managingeditor.html" class="ext" title="RSS &lt;managingEditor&gt; 元素">&lt;managingEditor&gt;</a></td>
+<td>可选的。定义 feed 内容编辑的电子邮件地址。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-pubdate.html" class="ext" title="RSS &lt;pubDate&gt; 元素">&lt;pubDate&gt;</a></td>
+<td>可选的。为 feed 的内容定义最后发布日期。</td>
+</tr>
+
+<tr>
+<td>&lt;rating&gt;</td>
+<td>可选的。feed 的 PICS 级别。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-skipDays.html" class="ext" title="RSS &lt;skipDays&gt; 元素">&lt;skipDays&gt;</a></td>
+<td>可选的。规定忽略 feed 更新的天。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-skipHours.html" class="ext" title="RSS &lt;skipHours&gt; 元素">&lt;skipHours&gt;</a></td>
+<td>可选的。规定忽略 feed 更新的小时。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-textinput.html" class="ext" title="RSS &lt;textInput&gt; 元素">&lt;textInput&gt;</a></td>
+<td>可选的。规定应当与 feed 一同显示的文本输入域。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-title-link-description-channel.html" class="ext" title="RSS &lt;title&gt;、&lt;link&gt; 以及 &lt;description&gt; 元素">&lt;title&gt;</a></td>
+<td>必需的。定义频道的标题。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-ttl.html" class="ext" title="RSS &lt;ttl&gt; 元素">&lt;ttl&gt;</a></td>
+<td>可选的。指定从 feed 源更新此 feed 之前，feed 可被缓存的分钟数。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-webmaster.html" class="ext" title="RSS &lt;webMaster&gt; 元素">&lt;webMaster&gt;</a></td>
+<td>可选的。定义此 feed 的 web 管理员的电子邮件地址。</td>
+</tr>
+</tbody></table></div></section>
+<section class="ch" id="c6"><h2>6. RSS item 元素<a class="chsrc" href="https://www.runoob.com/rss/rss-item.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p><strong>每个 &lt;item&gt; 元素可定义 RSS feed 中的一篇文章或 "story"。</strong></p>
+
+<hr>
+<h3>&lt;item&gt; 元素</h3>
+
+<p>请看下面的 RSS 文档：</p>
+
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;rss version="2.0"&gt;
+ 
+&lt;channel&gt;
+  &lt;title&gt;菜鸟教程首页&lt;/title&gt;
+  &lt;link&gt;http://www.runoob.com&lt;/link&gt;
+  &lt;description&gt;免费编程教程&lt;/description&gt;
+  &lt;item&gt;
+    &lt;title&gt;RSS 教程&lt;/title&gt;
+    &lt;link&gt;http://www.runoob.com/rss&lt;/link&gt;
+    &lt;description&gt;菜鸟教程 Rss 教程&lt;/description&gt;
+  &lt;/item&gt;
+&lt;/channel&gt;
+ 
+&lt;/rss&gt;
+</pre>
+
+<p>正如前面提到的，每个 &lt;item&gt; 元素可定义 RSS feed 中的一篇文章或 story"。</p>
+
+<p>&lt;item&gt; 元素拥有三个必需的子元素：</p>
+<ul>
+<li>&lt;title&gt; - 定义项目的标题。（比如 RSS 教程）</li>
+<li>&lt;link&gt; - 定义到达项目的超链接。（比如 http://www.runoob.com/rss）</li>
+<li>&lt;description&gt; - 描述此项目（比如 菜鸟教程 Rss 教程）</li>
+</ul>
+<p>此外，存在若干个 &lt;item&gt; 的可选的子元素，我们会在下面介绍最重要的几个。</p>
+
+<hr>
+<h3>&lt;author&gt; 元素</h3>
+
+<p>&lt;author&gt; 子元素用于规定一个项目的作者的电子邮件地址。</p>
+
+<p><span>注释：</span>为了防止垃圾邮件，一些开发者不会使用这个 &lt;author&gt; 元素。</p>
+
+<p>上面的 RSS 文档中项目的作者可能是：</p>
+
+<pre>
+&lt;author&gt;admin@runoob.com&lt;/author&gt;
+</pre>
+<br><hr>
+<h3>&lt;comments&gt; 元素</h3>
+
+<p>&lt;comments&gt; 子元素允许把一个项目连接到有关此项目的注释。</p>
+
+<p>上面的 RSS 文档中项目的注释可能这样的：</p>
+
+<pre>
+&lt;comments&gt;http://www.runoob.com/comments&lt;/comments&gt;</pre>
+<br><hr>
+<h3>&lt;enclosure&gt; 元素</h3>
+
+<p>&lt;enclosure&gt; 子元素允许将一个媒体文件导入一个项中。</p>
+
+<p>&lt;enclosure&gt; 元素有三个必需的属性：</p>
+<ul>
+<li>url - 定义指向此媒体文件的 URL</li>
+<li>length - 定义此媒体文件的长度（字节）</li>
+<li>type - 定义媒体文件的类型</li>
+</ul>
+<p>在上面的 RSS 文档中，被包含在项目中的媒体文件可能是这样的：</p>
+
+<pre>
+&lt;enclosure url="http://www.runoob.com/rss/rss.mp3"
+length="5000" type="audio/mpeg" /&gt;</pre>
+<br><hr>
+
+<h3>RSS &lt;item&gt; 参考手册</h3>
+<table>
+
+<tbody><tr>
+<th>元素</th>
+<th>描述</th>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-author.html" class="ext" title="RSS &lt;author&gt; 元素">&lt;author&gt;</a></td>
+<td>可选的。规定项目作者的电子邮件地址。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-category-item.html" class="ext" title="RSS &lt;category&gt; 元素">&lt;category&gt;</a></td>
+<td>可选的。定义项目所属的一个或多个类别。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-comments.html" class="ext" title="RSS &lt;comments&gt; 元素">&lt;comments&gt;</a></td>
+<td>可选的。允许项目连接到有关此项目的注释（文件）。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-title-link-description-item.html" class="ext" title="RSS &lt;title&gt;、&lt;link&gt; 以及 &lt;description&gt; 元素">&lt;description&gt;</a></td>
+<td>必需的。描述此项目。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-enclosure.html" class="ext" title="RSS &lt;enclosure&gt; 元素">&lt;enclosure&gt;</a></td>
+<td>可选的。允许将一个媒体文件导入一个项中。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-guid.html" class="ext" title="RSS &lt;guid&gt; 元素">&lt;guid&gt;</a></td>
+<td>可选的。为项目定义一个唯一的标识符。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-title-link-description-item.html" class="ext" title="RSS &lt;title&gt;、&lt;link&gt; 以及 &lt;description&gt; 元素">&lt;link&gt;</a></td>
+<td>必需的。定义指向此项目的超链接。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-pubdate-item.html" class="ext" title="RSS &lt;pubDate&gt; 元素">&lt;pubDate&gt;</a></td>
+<td>可选的。定义此项目的最后发布日期。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-source.html" class="ext" title="RSS &lt;source&gt; 元素">&lt;source&gt;</a></td>
+<td>可选的。为此项目指定一个第三方来源。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-title-link-description-item.html" class="ext" title="RSS &lt;title&gt;、&lt;link&gt; 以及 &lt;description&gt; 元素">&lt;title&gt;</a></td>
+<td>必需的。定义此项目的标题。</td>
+</tr>
+</tbody></table></div></section>
+<section class="ch" id="c7"><h2>7. RSS 发布您的 Feed<a class="chsrc" href="https://www.runoob.com/rss/rss-publishing.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>只能当其他人能够找到您的 RSS 文档时，它才是有用的。 </p>
+
+<hr>
+<h3>把您的 RSS 发布到 Web 上</h3>
+
+<p>现在是时候把您的 RSS 文件上传到网上了。下面是具体的步骤：</p>
+<p>1.为您的 RSS 命名。请注意文件必须有 .xml 的后缀。</p>
+
+<p>2. 验证您的 RSS 文件。（可以在 <a href="http://www.feedvalidator.org/" class="ext" title="Feed Validator for Atom and RSS">http://www.feedvalidator.org</a> 找到很好的验证器）。</p>
+<p>3. 把 RSS 文件上传到您的 web 服务器上的 web 目录。</p>
+<p>4.  把这个小的橙色按钮 <img src="img/d65763a3da83244d.gif" alt="RSS Logo" loading="lazy"> 或 
+<img src="img/2cd31b78208c77f0.gif" alt="XML Logo" loading="lazy"> 拷贝到您的 web 目录。</p>
+<p>5. 在你希望向外界提供 RSS 的页面上放置这个小按钮。然后向这个按钮添加一个指向 RSS 文件的链接。代码应该类似这样：<br>
+<pre>
+&lt;a href="http://www.runoob.com/feed"&gt;
+&lt;img src="http://www.runoob.com/images/rss.gif" width="36" height="14"&gt;
+&lt;/a&gt;
+</pre>
+<p>6.  把你的 RSS feed 提交到 RSS Feed 目录。要注意！feed 的 URL 不是你的页面，而是您的指向您的 feed 的 URL，比如 "http://www.runoob.com/feed"。
+此处提供一些免费的 RSS 聚合服务：</p>
+
+<ul>
+
+  <li>
+<a href="http://www.newsisfree.com/" class="ext">Newsisfree</a>: 
+	<a href="http://www.newsisfree.com/user/new/" class="ext">点我注册</a>
+</li>
+</ul>
+<p>7. 在重要的搜索引擎注册您的 feed ：</p>
+<ul>
+  <li><a href="http://wordpress.org/" class="ext">WordPress</a></li>
+  <li><a href="http://www.blogger.com/" class="ext">Blogger</a></li>
+  <li><a href="http://radio.userland.com/" class="ext">Radio</a></li>
+</ul>
+<p>8. 更新您的 feed - 现在您已获得了来自 Google、Yahoo、以及 MSN 的 RSS feed 按钮。请您务必经常更新您的内容，并保持 RSS feed 的长期可用。</p>
+
+<hr>
+<h3>我可以自己来维护 RSS feed 吗？</h3>
+<p>确保 RSS feed 按照您期望的方式工作的最好的办法，就是自己来维护它。</p>
+<p>不过，这么做很费时，特别是对于大量的更新工作来讲。</p>
+<p>替代方案是使用一个第三方的自动 RSS。</p>
+<hr>
+<h3>自动的 RSS</h3>
+
+<p>对于那些仅需要一个用于个人网站的 RSS feed 的用户来说，一些流行的 blog (Web Log) 管理器可提供内建的 RSS 服务：</p>
+<ul>
+<li><a href="http://wordpress.org/" class="ext">WordPress</a></li>
+	<li><a href="http://www.blogger.com/" class="ext">Blogger</a></li>
+	<li><a href="http://radio.userland.com/" class="ext">Radio</a></li>
+</ul>
+			
+						
+			
+			
+		
+
+		
+		
+
+		
+		
+		
+</p></div></section>
+<section class="ch" id="c8"><h2>8. RSS 阅读器<a class="chsrc" href="https://www.runoob.com/rss/rss-readers.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>RSS 阅读器用于读取 RSS feed！</p>
+<p>RSS 阅读器可供许多不同的设备和操作系统使用。</p>
+<hr>
+<h3>RSS 阅读器</h3>
+
+<p>有很多不同的 RSS 阅读器。某些以 web services 的形式来工作，而某些则运行于 windows （或 Mac、PDA 或 UNIX）。</p>
+
+<p>这是一些我尝试过并钟爱的阅读器：
+
+<p>这是一些我尝试过并钟爱的阅读器：</p>
+<h3>RSS 阅读器</h3>
+
+<p>有很多不同的 RSS 阅读器。某些以 web services 的形式来工作，而某些则运行于 windows （或 Mac、PDA 或 UNIX）。</p>
+
+<p>这是一些我尝试过并钟爱的阅读器：</p>
+<ul>
+<li><a href="http://www.newsgator.com/" class="ext">NewsGator Online</a><br>
+一个免费的在线 RSS 阅读器。包含 Outlook 同步，通过 Media Center Edition 查看电视内容，以及 blog 和标题的发布。</li>
+<li><a href="http://www.rssreader.com/" class="ext">RssReader</a><br>
+基于 Windows 的免费 RSS 阅读器。支持 RSS versions 0.9x、1.0 以及 2.0 和 Atom 0.1, 0.2 以及 0.3。</li>
+<li><a href="http://www.bradsoft.com/feeddemon/index.asp" class="ext">FeedDemon</a><br>
+基于 Windows 的 RSS 阅读器。使用很简便，界面很有条理。可以免费下载！</li>
+<li><a href="http://www.blogbot.com/" class="ext">blogbot</a><br>
+一个针对 Outlook 或 Internet Explorer 的 RSS 阅读器插件。针对 Internet Explorer 的简化版是免费的。</li>
+</ul>
+<p><strong>提示：</strong>Mozilla Firefox 浏览器拥有内建的 RSS 阅读器。在您访问提供 RSS feed 的网站时，会在地址栏看到 Firefox 的 RSS 图标。点击这个图标可查看一个不同 feed 的列表，在此可选择你需要阅读的 feed。</p>
+
+<hr>
+<h3>我已经有一个 RSS 阅读器了，接下来怎么做呢？</h3>
+<p>点击您希望阅读的 RSS feed 旁边的橙色小图标 <img src="img/d65763a3da83244d.gif" loading="lazy"> 或 <img src="img/2cd31b78208c77f0.gif" loading="lazy"> ，把浏览器窗口的 URL 拷贝粘贴到您的 RSS 阅读器即可。</p>			
+						
+			
+			
+		
+
+		
+		
+
+		
+		
+		
+</p></div></section>
+<section class="ch" id="c9"><h2>9. RSS 实例<a class="chsrc" href="https://www.runoob.com/rss/rss-examples.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>这些例子使用我们的RSS阅读器来演示RSS。</p>
+
+<h3>RSS &lt;channel&gt; 元素</h3>
+<p>
+<a href="https://www.runoob.com/try/tryrss.php?filename=rss_ex_title_link_description" class="ext">
+设置 channel 元素的必选项 (&lt;title&gt;, &lt;link&gt;, and &lt;description&gt;)</a><br>
+<a href="https://www.runoob.com/try/tryrss.php?filename=rss_ex_category" class="ext">为 RSS 指定 category </a><br>
+<a href="https://www.runoob.com/try/tryrss.php?filename=rss_ex_generator" class="ext">指定用于生成RSS的
+程序</a><br>
+<a href="https://www.runoob.com/try/tryrss.php?filename=rss_ex_image" class="ext">给RSS指定图像</a><br>
+<a href="https://www.runoob.com/try/tryrss.php?filename=rss_ex_language" class="ext">为 RSS 指定语言</a><br>
+<a href="https://www.runoob.com/try/tryrss.php?filename=rss_ex_textinput" class="ext">为 RSS 添加文本输入框</a><br>
+<a href="https://www.runoob.com/try/tryrss.php?filename=rss_ex_skipdays" class="ext">为 RSS 指定不需要更新的天</a></p>
+<p>
+<b><a href="rss-channel.html">实例解析</a></b></p>
+<h3>RSS &lt;item&gt; 元素</h3>
+<p>
+<a href="https://www.runoob.com/try/tryrss.php?filename=rss_ex_title_link_description_item" class="ext">
+设置必选项 (&lt;title&gt;, &lt;link&gt;, and &lt;description&gt;)</a><br>
+<a href="https://www.runoob.com/try/tryrss.php?filename=rss_ex_comments" class="ext">给 RSS 项目添加注释链接</a><br>
+<a href="https://www.runoob.com/try/tryrss.php?filename=rss_ex_enclosure" class="ext">给 RSS 项目添加媒体文件</a><br>
+<a href="https://www.runoob.com/try/tryrss.php?filename=rss_ex_guid" class="ext">给项目添加唯一标识符</a><br>
+<a href="https://www.runoob.com/try/tryrss.php?filename=rss_ex_pubdate_item" class="ext">给 RSS 项目添加发布资料</a><br>
+<a href="https://www.runoob.com/try/tryrss.php?filename=rss_ex_source" class="ext">给 RSS 项目添加第三方</a></p>
+<p>
+<b><a href="rss-item.html">实例解析</a></b></p></div></section>
+<section class="ch" id="c10"><h2>10. RSS 参考手册<a class="chsrc" href="https://www.runoob.com/rss/rss-reference.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+
+<h3>RSS &lt;channel&gt; 元素</h3>
+<p>请点击元素列中的具体元素，获得更详细的信息。</p>
+
+<table>
+<tbody><tr>
+<th>元素</th>
+<th>描述</th>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-category-channel.html" class="ext" title="RSS &lt;category&gt; 元素">&lt;category&gt;</a></td>
+<td>可选的。为 feed 定义所属的一个或多个种类。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-cloud.html" class="ext" title="RSS &lt;cloud&gt; 元素">&lt;cloud&gt;</a></td>
+<td>可选的。注册进程，以获得 feed 更新的立即通知。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-copyright.html" class="ext" title="RSS &lt;copyright&gt; 元素">&lt;copyright&gt;</a></td>
+<td>可选。告知版权资料。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-title-link-description-channel.html" class="ext" title="RSS &lt;title&gt;、&lt;link&gt; 以及 &lt;description&gt; 元素">&lt;description&gt;</a></td>
+<td>必需的。描述频道。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-docs.html" class="ext" title="RSS &lt;docs&gt; 元素">&lt;docs&gt;</a></td>
+<td>可选的。规定指向当前 RSS 文件所用格式说明的 URL。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-generator.html" class="ext" title="RSS &lt;generator&gt; 元素">&lt;generator&gt;</a></td>
+<td>可选的。规定用于生成 feed 的程序。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-image.html" class="ext" title="RSS &lt;image&gt; 元素">&lt;image&gt;</a></td>
+<td>可选的。在聚合器呈现某个 feed 时，显示一个图像。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-language.html" class="ext" title="RSS &lt;language&gt; 元素">&lt;language&gt;</a></td>
+<td>可选的。规定编写 feed 所用的语言。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-lastbuilddate.html" class="ext" title="RSS &lt;lastBuildDate&gt; 元素">&lt;lastBuildDate&gt;</a></td>
+<td>可选的。定义 feed 内容的最后修改日期。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-title-link-description-channel.html" class="ext" title="RSS &lt;title&gt;、&lt;link&gt; 以及 &lt;description&gt; 元素">&lt;link&gt;</a></td>
+<td>必需的。定义指向频道的超链接。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-managingeditor.html" class="ext" title="RSS &lt;managingEditor&gt; 元素">&lt;managingEditor&gt;</a></td>
+<td>可选的。定义 feed 内容编辑的电子邮件地址。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-pubdate.html" class="ext" title="RSS &lt;pubDate&gt; 元素">&lt;pubDate&gt;</a></td>
+<td>可选的。为 feed 的内容定义最后发布日期。</td>
+</tr>
+
+<tr>
+<td>&lt;rating&gt;</td>
+<td>可选的。feed 的 PICS 级别。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-skipDays.html" class="ext" title="RSS &lt;skipDays&gt; 元素">&lt;skipDays&gt;</a></td>
+<td>可选的。规定忽略 feed 更新的天。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-skipHours.html" class="ext" title="RSS &lt;skipHours&gt; 元素">&lt;skipHours&gt;</a></td>
+<td>可选的。规定忽略 feed 更新的小时。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-textinput.html" class="ext" title="RSS &lt;textInput&gt; 元素">&lt;textInput&gt;</a></td>
+<td>可选的。规定应当与 feed 一同显示的文本输入域。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-title-link-description-channel.html" class="ext" title="RSS &lt;title&gt;、&lt;link&gt; 以及 &lt;description&gt; 元素">&lt;title&gt;</a></td>
+<td>必需的。定义频道的标题。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-ttl.html" class="ext" title="RSS &lt;ttl&gt; 元素">&lt;ttl&gt;</a></td>
+<td>可选的。指定从 feed 源更新此 feed 之前，feed 可被缓存的分钟数。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-webmaster.html" class="ext" title="RSS &lt;webMaster&gt; 元素">&lt;webMaster&gt;</a></td>
+<td>可选的。定义此 feed 的 web 管理员的电子邮件地址。</td>
+</tr>
+</tbody></table>
+<h3>RSS &lt;item&gt; 元素</h3>
+
+<table>
+
+<tbody><tr>
+<th>元素</th>
+<th>描述</th>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-author.html" class="ext" title="RSS &lt;author&gt; 元素">&lt;author&gt;</a></td>
+<td>可选的。规定项目作者的电子邮件地址。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-category-item.html" class="ext" title="RSS &lt;category&gt; 元素">&lt;category&gt;</a></td>
+<td>可选的。定义项目所属的一个或多个类别。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-comments.html" class="ext" title="RSS &lt;comments&gt; 元素">&lt;comments&gt;</a></td>
+<td>可选的。允许项目连接到有关此项目的注释（文件）。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-title-link-description-item.html" class="ext" title="RSS &lt;title&gt;、&lt;link&gt; 以及 &lt;description&gt; 元素">&lt;description&gt;</a></td>
+<td>必需的。描述此项目。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-enclosure.html" class="ext" title="RSS &lt;enclosure&gt; 元素">&lt;enclosure&gt;</a></td>
+<td>可选的。允许将一个媒体文件导入一个项中。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-guid.html" class="ext" title="RSS &lt;guid&gt; 元素">&lt;guid&gt;</a></td>
+<td>可选的。为项目定义一个唯一的标识符。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-title-link-description-item.html" class="ext" title="RSS &lt;title&gt;、&lt;link&gt; 以及 &lt;description&gt; 元素">&lt;link&gt;</a></td>
+<td>必需的。定义指向此项目的超链接。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-pubdate-item.html" class="ext" title="RSS &lt;pubDate&gt; 元素">&lt;pubDate&gt;</a></td>
+<td>可选的。定义此项目的最后发布日期。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-source.html" class="ext" title="RSS &lt;source&gt; 元素">&lt;source&gt;</a></td>
+<td>可选的。为此项目指定一个第三方来源。</td>
+</tr>
+
+<tr>
+<td><a href="https://www.runoob.com/rss/rss-tag-title-link-description-item.html" class="ext" title="RSS &lt;title&gt;、&lt;link&gt; 以及 &lt;description&gt; 元素">&lt;title&gt;</a></td>
+<td>必需的。定义此项目的标题。</td>
+</tr>
+</tbody></table></div></section>
+<footer><p>离线版 · 内容抓取自 runoob.com，仅用于个人离线阅读；页面结构与广告已去除，原文版权归菜鸟教程及原作者。</p><p><a href="index.html">← 返回总索引</a></p></footer></body></html>

@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="600" viewBox="0 0 1600 600" role="img" aria-labelledby="ttl dsc">
+<title id="ttl">DeepSeek Harness 调用 Seedream 图片生成工作流</title>
+<desc id="dsc">用户需求、Harness 规划、Shell 或 API、Seedream 图片生成、本地保存，再返回 Harness 执行后续任务</desc>
+<defs>
+ <style>
+ .heading{font:700 28px 'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',sans-serif;fill:#243954}
+ .subtitle{font:500 18px 'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',sans-serif;fill:#6A7A90}
+ .label{font:700 24px 'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',sans-serif;fill:#203754}
+ .detail{font:500 17px 'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',sans-serif;fill:#63768D}
+ .code{font:600 17px 'SFMono-Regular',Consolas,monospace;fill:#345978}
+ .smallcode{font:600 16px 'SFMono-Regular',Consolas,monospace;fill:#345978}
+ .edge{fill:none;stroke:#9AAEC4;stroke-width:4;stroke-linejoin:round;stroke-linecap:round}
+ .symbol{fill:none;stroke:#28486D;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}
+ </style>
+ <marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto"><path d="M1 1L8 5L1 9" fill="none" stroke="#839AB5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+ <marker id="back" markerWidth="10" markerHeight="10" refX="7" refY="5" orient="auto"><path d="M1 1L8 5L1 9" fill="none" stroke="#4C9B90" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<rect width="1600" height="600" fill="#F8FAFD"/>
+<text x="800" y="65" text-anchor="middle" class="heading">AI 图片生成流程</text>
+<text x="800" y="98" text-anchor="middle" class="subtitle">DeepSeek Harness · Seedream · 本地文件</text>
+
+<!-- connectors behind cards -->
+<path d="M320 296H348" class="edge" marker-end="url(#arrow)"/>
+<path d="M620 296H648" class="edge" marker-end="url(#arrow)"/>
+<path d="M920 296H948" class="edge" marker-end="url(#arrow)"/>
+<path d="M1220 296H1248" class="edge" marker-end="url(#arrow)"/>
+
+<!-- cards -->
+<rect x="48" y="155" width="272" height="282" rx="24" fill="#FFFFFF" stroke="#DEE7F0" stroke-width="2"/>
+<rect x="348" y="155" width="272" height="282" rx="24" fill="#FFFFFF" stroke="#DEE7F0" stroke-width="2"/>
+<rect x="648" y="155" width="272" height="282" rx="24" fill="#FFFFFF" stroke="#DEE7F0" stroke-width="2"/>
+<rect x="948" y="155" width="272" height="282" rx="24" fill="#FFFFFF" stroke="#DEE7F0" stroke-width="2"/>
+<rect x="1248" y="155" width="304" height="282" rx="24" fill="#FFFFFF" stroke="#DEE7F0" stroke-width="2"/>
+<!-- icon disks -->
+<circle cx="184" cy="231" r="49" fill="#FFF1E6"/>
+<circle cx="484" cy="231" r="49" fill="#E9F0FF"/>
+<circle cx="784" cy="231" r="49" fill="#E7F4F8"/>
+<circle cx="1084" cy="231" r="49" fill="#F0EAFF"/>
+<circle cx="1400" cy="231" r="49" fill="#E7F5EE"/>
+<!-- user chat -->
+<path d="M160 212h48a12 12 0 0 1 12 12v20a12 12 0 0 1-12 12h-18l-17 13v-13h-13a12 12 0 0 1-12-12v-20a12 12 0 0 1 12-12Z" fill="#FFE0C3" stroke="#D77942" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="171" cy="234" r="3.5" fill="#D77942"/><circle cx="184" cy="234" r="3.5" fill="#D77942"/><circle cx="197" cy="234" r="3.5" fill="#D77942"/>
+<!-- harness laptop + checks -->
+<rect x="451" y="207" width="57" height="39" rx="5" class="symbol"/>
+<path d="M445 252h70l-8 8h-54z" fill="#ADC8F7" stroke="#28486D" stroke-width="4" stroke-linejoin="round"/>
+<path d="M468 226l7 7 14-15" stroke="#3979CE" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="502" y="223" width="25" height="33" rx="4" fill="#fff" stroke="#517DB7" stroke-width="3"/>
+<path d="M509 233h12m-12 8h12m-12 8h9" stroke="#517DB7" stroke-width="2.5" stroke-linecap="round"/>
+<!-- command terminal -->
+<rect x="750" y="208" width="68" height="50" rx="9" fill="#23476B"/>
+<path d="M763 223l11 10-11 10m18 1h16" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<!-- images -->
+<rect x="1061" y="211" width="60" height="48" rx="7" fill="#FFFFFF" stroke="#6756B2" stroke-width="4" transform="rotate(8 1091 235)"/>
+<rect x="1047" y="206" width="64" height="52" rx="8" fill="#EEEAFE" stroke="#6756B2" stroke-width="4"/>
+<circle cx="1092" cy="221" r="7" fill="#F6B65B"/>
+<path d="M1057 248l17-20 12 13 8-8 9 15z" fill="#8A77CD"/>
+<!-- disk -->
+<path d="M1371 214h58l15 18v30h-88v-35Z" fill="#D8F0E0" stroke="#36896B" stroke-width="4" stroke-linejoin="round"/>
+<path d="M1356 244h88" stroke="#36896B" stroke-width="4"/>
+<path d="M1400 205v31m-9-9 9 9 9-9" stroke="#36896B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<!-- titles -->
+<text x="184" y="324" class="label" text-anchor="middle">用户需求</text>
+<text x="484" y="324" class="label" text-anchor="middle">DeepSeek Harness</text>
+<text x="784" y="324" class="label" text-anchor="middle">调用接口</text>
+<text x="1084" y="324" class="label" text-anchor="middle">Seedream 生成</text>
+<text x="1400" y="324" class="label" text-anchor="middle">保存图片</text>
+<!-- compact card descriptions -->
+<text x="184" y="365" class="detail" text-anchor="middle">目标 · 风格 · 尺寸</text>
+<text x="484" y="365" class="detail" text-anchor="middle">规划任务、编写 Prompt</text>
+<text x="784" y="359" class="code" text-anchor="middle">arkcli +gen</text>
+<text x="784" y="386" class="detail" text-anchor="middle">或 自写脚本请求 API</text>
+<text x="1084" y="358" class="smallcode" text-anchor="middle">doubao-seedream-5.0-pro</text>
+<text x="1084" y="387" class="smallcode" text-anchor="middle">doubao-seedream-5.0-flash</text>
+<text x="1400" y="365" class="detail" text-anchor="middle">写入本地图片目录</text>
+<!-- loop back to harness -->
+<path d="M1400 438 V484 Q1400 507 1377 507 H509 Q484 507 484 481 V451" fill="none" stroke="#4C9B90" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#back)"/>
+<rect x="688" y="485" width="400" height="44" rx="22" fill="#E7F6F0" stroke="#D1EDE0"/>
+<text x="888" y="514" class="detail" text-anchor="middle" style="fill:#207A66;font-weight:700">Harness 读取结果并继续后续流程</text>
+<text x="800" y="571" text-anchor="middle" class="subtitle">API 路径：/api/plan/v3/images/generations</text>
+</svg>

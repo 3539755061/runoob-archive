@@ -1,0 +1,2193 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dash 教程 · 离线版</title>
+<link rel="stylesheet" href="css/offline.css">
+</head><body>
+<nav class="topbar"><a href="index.html">← 返回总索引</a><span>·</span><span>C 数据与 AI</span>
+<span>·</span><span>12 章</span></nav>
+<h1>Dash 教程</h1>
+<p class="docmeta">来源：<a class="ext" href="https://www.runoob.com/dash/dash-tutorial.html">https://www.runoob.com/dash/dash-tutorial.html</a><br>
+适用性：<b style="color:#0b6bcb">可用</b>
+｜ 时效：在役 ｜ 抓取：2026-11-13 ｜ 本页为离线阅读版，章节按教程侧栏顺序合并，广告与评论已去除。</p>
+<details class="toc-ch"><summary>本篇目录（12 章，点击展开）</summary><ol>
+<li><a href="#c1">Dash 教程</a></li>
+<li><a href="#c2">Dash 简介</a></li>
+<li><a href="#c3">Dash 安装</a></li>
+<li><a href="#c4">Dash 第一个应用</a></li>
+<li><a href="#c5">Dash 核心组件</a></li>
+<li><a href="#c6">Dash 常用 HTML 组件</a></li>
+<li><a href="#c7">Dash 常用交互组件</a></li>
+<li><a href="#c8">Dash 回调函数</a></li>
+<li><a href="#c9">Dash Plotly</a></li>
+<li><a href="#c10">Dash 动态更新图表</a></li>
+<li><a href="#c11">Dash 多页面布局</a></li>
+<li><a href="#c12">Dash 样式设计</a></li>
+</ol></details>
+<section class="ch" id="c1"><h2>1. Dash 教程<a class="chsrc" href="https://www.runoob.com/dash/dash-tutorial.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p><img src="img/02de1a6947017197.png" loading="lazy"></p>
+<p>
+Dash 是一个基于 Python 的开源框架，用于快速构建数据驱动的 Web 应用程序。</p>
+<p>Dash 的核心优势在于它的易用性和灵活性，使得即使是没有前端开发经验的开发人员也能轻松上手。</p><p>
+Dash 允许用户通过简单的 Python 代码创建交互式的数据可视化应用，而无需掌握复杂的前端技术（如 JavaScript、HTML、CSS）。</p>
+
+<hr>
+<h3>谁适合阅读本教程？</h3><p>Dash 是一个强大的工具，适合那些希望快速构建数据驱动型 Web 应用的开发者。</p>
+<p>Dash 特别适合数据科学家、分析师和工程师,可以用几行代码创建一个功能强大的 Web 应用，展示数据分析结果、机器学习模型预测或其他数据驱动的功能。</p>
+<p>Dash 的核心目标是让用户能够专注于数据和逻辑，而不是前端开发。</p><p>通过 Dash，你可以用几行代码创建一个功能强大的 Web 应用，展示数据分析结果、机器学习模型预测或其他数据驱动的功能。</p>
+<p> Dash 可以将复杂的数据分析和可视化任务转化为交互式的 Web 应用，从而更有效地展示和分享工作成果。</p>
+<hr>
+<h3>学习本教程前你需要了解</h3>
+<p>
+本教程适合有 Python 基础的开发者学习，如果不了解 Python 可以查阅 <a href="python3.html#c1">Python 3.x 基础教程</a>。</p>
+
+<hr>
+<h3>一个简单的 Dash 程序</h3>
+
+<p>以下是一个基本 Dash 示例：</p>
+
+<h3>实例</h3>
+
+<br>
+<span style="color:#a50"># 导入 Dash 相关库</span><br>
+<span style="color:Green">from</span> dash <span style="color:Green">import</span> Dash<span style="color:Gray">,</span> dcc<span style="color:Gray">,</span> html<span style="color:Gray">,</span> Input<span style="color:Gray">,</span> Output<br>
+<br>
+<span style="color:#a50"># 创建 Dash 应用实例</span><br>
+app <span style="color:Gray">=</span> Dash<span style="color:Olive">(</span>__name__<span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义应用的布局</span><br>
+app.<span style="color:#05a">layout</span> <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Olive">[</span><br>
+    <span style="color:#a50"># 创建一个文本输入框</span><br>
+    dcc.<span style="color:#05a">Input</span><span style="color:Olive">(</span><br>
+        <span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'input'</span><span style="color:Gray">,</span>        <span style="color:#a50"># 输入框的 ID，用于回调函数</span><br>
+        value<span style="color:Gray">=</span><span style="color:#a11">'初始值'</span><span style="color:Gray">,</span>    <span style="color:#a50"># 输入框的默认值</span><br>
+        <span style="color:Teal">type</span><span style="color:Gray">=</span><span style="color:#a11">'text'</span>        <span style="color:#a50"># 输入框类型为文本</span><br>
+    <span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+<br>
+    <span style="color:#a50"># 创建一个用于显示输出的 Div</span><br>
+    html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'output'</span><span style="color:Olive">)</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义回调函数</span><br>
+<span style="color:Gray">@</span>app.<span style="color:#05a">callback</span><span style="color:Olive">(</span><br>
+    Output<span style="color:Olive">(</span><span style="color:#a11">'output'</span><span style="color:Gray">,</span> <span style="color:#a11">'children'</span><span style="color:Olive">)</span><span style="color:Gray">,</span>  <span style="color:#a50"># 输出到 Div 的 children 属性</span><br>
+    Input<span style="color:Olive">(</span><span style="color:#a11">'input'</span><span style="color:Gray">,</span> <span style="color:#a11">'value'</span><span style="color:Olive">)</span>         <span style="color:#a50"># 监听输入框的 value 属性</span><br>
+<span style="color:Olive">)</span><br>
+<span style="color:Green">def</span> update_output_div<span style="color:Olive">(</span>input_value<span style="color:Olive">)</span>:<br>
+    <span style="color:#a50"># 返回格式化后的字符串</span><br>
+    <span style="color:Green">return</span> f<span style="color:#a11">'你输入了: {input_value}'</span><br>
+<br>
+<span style="color:#a50"># 运行应用</span><br>
+<span style="color:Green">if</span> __name__ <span style="color:Gray">==</span> <span style="color:#a11">'__main__'</span>:<br>
+    app.<span style="color:#05a">run</span><span style="color:Olive">(</span>debug<span style="color:Gray">=</span><span style="color:Teal">True</span><span style="color:Olive">)</span>  <span style="color:#a50"># Dash 3.x 使用 app.run()</span><br>
+
+<p>这个简单的应用包含一个输入框和一个显示区域。当用户在输入框中输入内容时，显示区域会实时更新显示用户输入的内容。</p>
+<p><img src="img/d5b1b521acfd0399.png" loading="lazy"></p>
+
+<hr>
+<h3>相关链接</h3><p>
+官方地址：<a href="https://plotly.com/dash/" class="ext">https://plotly.com/dash/</a></p><p>
+Github 开源地址：<a href="https://github.com/plotly/dash" class="ext">https://github.com/plotly/dash</a></p><p>
+Dash 官方文档：<a href="https://dash.plotly.com/" class="ext">https://dash.plotly.com/</a></p></div></section>
+<section class="ch" id="c2"><h2>2. Dash 简介<a class="chsrc" href="https://www.runoob.com/dash/dash-intro.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>Dash 是一个基于 Python 的开源框架，专门用于构建数据分析和数据可视化的 Web 应用程序。</p>
+<p>Dash 由 Plotly 团队开发，旨在帮助数据分析师、数据科学家和开发人员快速创建交互式的、基于数据的 Web 应用，而无需深入掌握前端技术（如 HTML、CSS 和 JavaScript）。</p>
+<p>Dash 的核心优势在于其简单易用性和强大的功能。通过 Dash，用户可以使用纯 Python 代码来构建复杂的 Web 应用，而无需编写繁琐的前端代码。Dash 应用通常由两个主要部分组成：<strong>布局</strong>和<strong>交互性</strong>。</p>
+<p>
+Dash 是它结合了 Flask 的后端能力、Plotly.js 的可视化能力以及 React.js 的交互能力，为用户提供了一个简单而强大的开发平台。</p>
+<p><img src="img/6b6f8a531eb09b2b.png" loading="lazy"></p>
+<hr>
+
+        <p><strong>简单易用</strong></p>
+        <ul>
+            <li>
+                <p>只需 Python 代码即可构建 Web 应用，无需前端开发经验。</p>
+            </li>
+            <li>
+                <p>语法直观，学习曲线平缓。</p>
+            </li>
+        </ul>
+   
+        <p><strong>高度可定制</strong></p>
+        <ul>
+            <li>
+                <p>支持自定义布局和样式。</p>
+            </li>
+            <li>
+                <p>可以通过 React.js 创建自定义组件。</p>
+            </li>
+        </ul>
+    
+        <p><strong>交互性强</strong></p>
+        <ul>
+            <li>
+                <p>内置回调机制，轻松实现用户交互。</p>
+            </li>
+            <li>
+                <p>支持动态更新数据和图表。</p>
+            </li>
+        </ul>
+    
+        <p><strong>与数据科学工具无缝集成</strong></p>
+        <ul>
+            <li>
+                <p>与 Pandas、NumPy、Scikit-learn 等数据科学库完美结合。</p>
+            </li>
+            <li>
+                <p>使用 Plotly 创建丰富的可视化图表。</p>
+            </li>
+        </ul>
+   
+        <p><strong>跨平台</strong></p>
+        <ul>
+            <li>
+                <p>可以在本地运行，也可以部署到服务器或云平台。</p>
+            </li>
+        </ul><hr>
+ <h3>Dash 技术栈 </h3>
+<p>Dash 并不是一个完全独立的框架，而是基于以下技术构建的：
+</p>
+
+        <p><strong>Flask</strong></p>
+        <ul>
+            <li>
+                <p>Dash 的后端基于 Flask，一个轻量级的 Python Web 框架。</p>
+            </li>
+            <li>
+                <p>Flask 负责处理 HTTP 请求和响应。</p>
+            </li>
+        </ul>
+  
+        <p><strong>Plotly.js</strong></p>
+        <ul>
+            <li>
+                <p>Dash 使用 Plotly.js 来渲染交互式图表。</p>
+            </li>
+            <li>
+                <p>Plotly.js 支持多种图表类型，如折线图、柱状图、散点图、热力图等。</p>
+            </li>
+        </ul>
+   
+        <p><strong>React.js</strong></p>
+        <ul>
+            <li>
+                <p>Dash 的前端组件基于 React.js，一个流行的 JavaScript 库。</p>
+            </li>
+            <li>
+                <p>React.js 使得 Dash 的组件可以动态更新，而无需刷新页面。</p>
+            </li>
+        </ul>
+   
+        <p><strong>其他依赖</strong></p>
+        <ul>
+            <li>
+                <p>Dash 还依赖于其他 Python 库，如 Pandas（数据处理）、NumPy（数值计算）等。</p>
+            </li>
+        </ul>
+    <hr>
+
+<h3>Dash 的核心组件</h3>
+<h4>1. 布局（Layout）</h4>
+
+1. 导入方式
+在最新版本的 Dash 中，推荐使用以下方式导入核心组件：
+
+python
+复制
+from dash import Dash, html, dcc
+
+<p>布局定义了应用程序的外观和结构。在 Dash 中，布局是通过 Python 代码来描述的，使用 <code>dash_html_components</code> 和 <code>dash_core_components</code> 这两个库来创建 HTML 元素和交互式组件。</p>
+<ul>
+<li><p><code>dash_html_components</code>：这个库提供了与 HTML 标签对应的 Python 类。例如，<code>html.Div</code> 对应 HTML 中的 <code>&lt;div&gt;</code> 标签，<code>html.H1</code> 对应 <code>&lt;h1&gt;</code> 标签等。通过这些组件，你可以轻松地构建页面的结构。</p>
+</li>
+<li><p><code>dash_core_components</code>：这个库提供了更高级的交互式组件，如滑块、下拉菜单、图形等。例如，<code>dcc.Graph</code> 用于显示 Plotly 图表，<code>dcc.Dropdown</code> 用于创建下拉菜单。</p>
+</li>
+</ul>
+
+<p>
+从 Dash 2.0 版本开始，dash_html_components 和 dash_core_components 已经被整合到 dash 主包中。</p><p>现在推荐直接从 dash 中导入 html 和 dcc，而不是使用旧的 dash_html_components 和 dash_core_components。</p>
+<p>
+以下是更新后的 Dash 核心组件导入方式和使用方法：</p>
+<pre>from dash import Dash, html, dcc</pre><ul><li><p><strong><code>html</code></strong>：替代原来的 <code>dash_html_components</code>，用于创建 HTML 元素。</p></li><li><p><strong><code>dcc</code></strong>：替代原来的 <code>dash_core_components</code>，用于创建交互式组件。</p></li></ul>
+<h4>2. 交互性（Interactivity）</h4>
+<p>Dash 的交互性是通过回调函数（Callback）来实现的。回调函数允许你在用户与应用程序交互时动态更新页面内容。例如，当用户选择一个下拉菜单选项时，图表可以自动更新以显示相应的数据。</p>
+<p>回调函数是 Dash 应用的核心机制之一。它通过 <code>@app.callback</code> 装饰器来定义，并指定输入（Input）和输出（Output）。输入通常是用户交互的组件（如滑块、下拉菜单等），而输出则是需要更新的组件（如图表、文本等）。</p>
+<hr>
+<h3> Dash 应用场景</h3>
+<ul>
+<li>数据可视化: 创建交互式图表和仪表盘，展示数据分析结果。</li><li>
+机器学习模型展示: 部署机器学习模型，并通过 Web 界面与用户交互。</li><li>
+
+实时数据监控: 监控实时数据流（如传感器数据、股票价格等）。</li><li>
+
+报告生成: 自动生成动态报告，支持用户交互和过滤。</li><li>
+
+内部工具开发: 为企业内部开发数据驱动的工具和应用。</li></ul>
+<hr><h3>Dash 的优势与局限性</h3>
+<h4>优势</h4>
+<ul><li><p><strong>快速开发</strong>：用 Python 代码即可构建 Web 应用，开发效率高。</p></li><li><p><strong>交互性强</strong>：支持动态更新和用户交互。</p></li><li><p><strong>社区支持</strong>：有活跃的社区和丰富的文档。</p></li><li><p><strong>可扩展性</strong>：支持自定义组件和高级功能。</p></li></ul>
+<h4>局限性</h4>
+<ul><li><p><strong>性能瓶颈</strong>：对于非常复杂的应用，可能会遇到性能问题。</p></li><li><p><strong>前端定制有限</strong>：虽然支持自定义组件，但复杂的前端逻辑仍需 JavaScript。</p></li><li><p><strong>学习曲线</strong>：虽然简单易用，但掌握高级功能仍需一定时间。</p></li></ul>
+<hr>
+ <h3>Dash 与其他工具的比较</h3>
+<table><thead><tr><th>工具</th><th>优点</th><th>缺点</th><th>适用场景</th></tr></thead><tbody><tr><td><strong>Dash</strong></td><td>简单易用，适合 Python 开发者</td><td>前端定制有限，性能可能受限</td><td>数据可视化、内部工具</td></tr><tr><td><strong>Streamlit</strong></td><td>极简 API，适合快速原型开发</td><td>功能相对简单，不适合复杂应用</td><td>快速原型、简单仪表盘</td></tr><tr><td><strong>Flask</strong></td><td>高度灵活，适合全栈开发</td><td>需要前端开发经验，开发效率较低</td><td>全栈 Web 应用</td></tr><tr><td><strong>Shiny (R)</strong></td><td>适合 R 语言开发者，交互性强</td><td>仅限于 R 语言，生态系统较小</td><td>R 语言用户的数据可视化</td></tr></tbody></table></div></section>
+<section class="ch" id="c3"><h2>3. Dash 安装<a class="chsrc" href="https://www.runoob.com/dash/dash-install.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>Dash 是一个基于 Python 的开源框架，用于构建交互式的 Web 应用程序，适合用于数据分析和可视化，因为它允许开发者通过简单的 Python 代码创建复杂的用户界面。</p><p>Dash 的核心组件包括 <code>dash</code>、<code>dash-core-components</code>、<code>dash-html-components</code> 和 <code>dash-bootstrap-components</code>，这些组件共同构成了一个强大的工具集，帮助开发者快速构建数据驱动的 Web 应用。</p>
+<p>Dash 是一个基于 Python 的框架，因此安装过程非常简单，主要通过 <span class="marked">pip</span> 完成。</p>
+
+<h4>安装 Dash 的前提条件</h4>
+<p>在安装 Dash 之前，你需要确保你的系统已经安装了 Python，Dash 支持 Python 3.6 及以上版本。如果你还没有安装 Python，可以从 <a href="https://www.python.org/downloads/" class="ext">Python 官方网站</a> 下载并安装适合你操作系统的版本。</p><p>
+页可以参阅我们的 <a href="python3.html#c1">Python 教程</a>。</p>
+<h3>安装 Dash</h3>
+<p>安装 Dash 非常简单，可以通过 Python 的包管理工具 <code>pip</code> 来完成。</p>
+<p>
+pip 是 Python 的包管理工具，用于安装 Dash 及其依赖库。</p><p>确保已安装 pip，可以通过以下命令检查：</p>
+<pre>
+pip --version</pre>
+<blockquote>
+<p>注意：Python 2.7.9 + 或 Python 3.4+ 以上版本都自带 pip 工具。</p>
+<p>如果没有安装可以参考：<a href="https://www.runoob.com/w3cnote/python-pip-install-usage.html" class="ext">Python pip 安装与使用。</a></p>
+</blockquote>
+<p>打开终端或命令行工具，运行以下命令：</p>
+<pre>
+pip install dash
+或
+pip3 install dash
+</pre><p>
+这条命令会安装 Dash 的核心库及其依赖项，包括：</p>
+<ul><li><p><code>dash</code>：Dash 的核心库。</p></li><li><p><code>dash-core-components</code>：Dash 的核心组件库（如输入框、下拉菜单、图表等）。</p></li><li><p><code>dash-html-components</code>：Dash 的 HTML 组件库（如 <code>div</code>、<code>h1</code>、<code>p</code> 等）。</p></li><li><p><code>dash-table</code>：用于显示和操作表格数据的组件。</p></li></ul>
+
+<p>
+除了核心库外，Dash 还支持一些可选依赖库，用于增强功能。</p><p>以下是常用的可选库及其安装方法：</p>
+<p>
+<strong>1、Plotly</strong></p><p>
+Plotly 是 Dash 默认的图表渲染库。如果你需要使用 Plotly 创建图表，可以单独安装：</p>
+<pre>
+pip install plotly</pre><p>
+<strong>2、Pandas</strong></p><p>
+Pandas 是一个强大的数据处理库，常用于与 Dash 结合使用。安装命令：</p>
+<pre>
+pip install pandas</pre><p>
+<strong>3、JupyterDash</strong></p><p>
+如果你希望在 Jupyter Notebook 中使用 Dash，可以安装 jupyter-dash：</p>
+<pre>
+pip install jupyter-dash</pre><p>
+<strong>4、Dash Bootstrap Components</strong></p><p>
+Dash Bootstrap Components 提供了 Bootstrap 风格的组件，用于快速构建美观的布局。安装命令：</p>
+<pre>
+pip install dash-bootstrap-components</pre>
+
+<h4>验证安装</h4>
+<p>安装完成后，你可以通过以下命令来验证 Dash 是否安装成功：</p>
+
+<h3>实例</h3>
+
+python <span style="color:#660033">-c</span> <span style="color:#a10">"import dash; print(dash.__version__)"</span><br>
+或<br>
+python3 <span style="color:#660033">-c</span> <span style="color:#a10">"import dash; print(dash.__version__)"</span><br>
+
+<p>如果安装成功，你将看到 Dash 的版本号输出，例如：</p>
+<pre>3.2.0</pre>
+<p>此外，还可以使用以下命令查看 Dash 的详细安装信息：</p>
+<pre>
+python -m pip show dash</pre>
+<p>
+该命令会显示 Dash 的版本号、安装位置及依赖信息。</p>
+
+<blockquote><p>
+<strong>注意：</strong> Dash 3.0 及以上版本已将 app.run_server() 替换为 app.run()，使用新版 Dash 时应采用新的启动方式。</p></blockquote></div></section>
+<section class="ch" id="c4"><h2>4. Dash 第一个应用<a class="chsrc" href="https://www.runoob.com/dash/dash-first-app.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><h3>创建一个简单的 Dash 应用</h3>
+<p>
+在上一章节我们已经介绍了如何安装 Dash，为了确保 Dash 安装正确，我们可以创建一个简单的 Dash 应用来测试。</p>
+<h4>1. 创建一个 Python 文件</h4>
+<p>在你的项目目录中创建一个新的 Python 文件，例如 <code>app.py</code>。</p>
+<h4>2. 编写代码</h4>
+<p>在 <code>app.py</code> 文件中，输入以下代码：</p>
+
+<h3>实例</h3>
+
+<span style="color:#a50"># 导入 Dash 相关库</span><br>
+<span style="color:Green">import</span> dash<br>
+<span style="color:Green">from</span> dash <span style="color:Green">import</span> dcc<span style="color:Gray">,</span> html  <span style="color:#a50"># dcc 是 Dash 核心组件库，html 是 HTML 组件库</span><br>
+<br>
+<span style="color:#a50"># 创建一个 Dash 应用实例</span><br>
+app <span style="color:Gray">=</span> dash.<span style="color:#05a">Dash</span><span style="color:Olive">(</span>__name__<span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义应用的布局</span><br>
+app.<span style="color:#05a">layout</span> <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span>children<span style="color:Gray">=</span><span style="color:Olive">[</span><br>
+    <span style="color:#a50"># 添加一个标题</span><br>
+    html.<span style="color:#05a">H1</span><span style="color:Olive">(</span>children<span style="color:Gray">=</span><span style="color:#a11">'你好，Dash！'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+<br>
+    <span style="color:#a50"># 添加一段描述文字</span><br>
+    html.<span style="color:#05a">Div</span><span style="color:Olive">(</span>children<span style="color:Gray">=</span><span style="color:#a11">'''<br>
+        Dash：一个用于 Python 的 Web 应用框架。<br>
+    '''</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+<br>
+    <span style="color:#a50"># 添加一个图表</span><br>
+    dcc.<span style="color:#05a">Graph</span><span style="color:Olive">(</span><br>
+        <span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'example-graph'</span><span style="color:Gray">,</span>  <span style="color:#a50"># 图表的 ID，用于回调函数</span><br>
+        figure<span style="color:Gray">=</span><span style="color:Olive">{</span><br>
+            <span style="color:#a11">'data'</span>: <span style="color:Olive">[</span>  <span style="color:#a50"># 图表的数据</span><br>
+                <span style="color:Olive">{</span><span style="color:#a11">'x'</span>: <span style="color:Olive">[</span><span style="color:Maroon">1</span><span style="color:Gray">,</span> <span style="color:Maroon">2</span><span style="color:Gray">,</span> <span style="color:Maroon">3</span><span style="color:Olive">]</span><span style="color:Gray">,</span> <span style="color:#a11">'y'</span>: <span style="color:Olive">[</span><span style="color:Maroon">4</span><span style="color:Gray">,</span> <span style="color:Maroon">1</span><span style="color:Gray">,</span> <span style="color:Maroon">2</span><span style="color:Olive">]</span><span style="color:Gray">,</span> <span style="color:#a11">'type'</span>: <span style="color:#a11">'bar'</span><span style="color:Gray">,</span> <span style="color:#a11">'name'</span>: <span style="color:#a11">'上海'</span><span style="color:Olive">}</span><span style="color:Gray">,</span><br>
+                <span style="color:Olive">{</span><span style="color:#a11">'x'</span>: <span style="color:Olive">[</span><span style="color:Maroon">1</span><span style="color:Gray">,</span> <span style="color:Maroon">2</span><span style="color:Gray">,</span> <span style="color:Maroon">3</span><span style="color:Olive">]</span><span style="color:Gray">,</span> <span style="color:#a11">'y'</span>: <span style="color:Olive">[</span><span style="color:Maroon">2</span><span style="color:Gray">,</span> <span style="color:Maroon">4</span><span style="color:Gray">,</span> <span style="color:Maroon">5</span><span style="color:Olive">]</span><span style="color:Gray">,</span> <span style="color:#a11">'type'</span>: <span style="color:#a11">'bar'</span><span style="color:Gray">,</span> <span style="color:#a11">'name'</span>: <span style="color:#a11">'北京'</span><span style="color:Olive">}</span><span style="color:Gray">,</span><br>
+            <span style="color:Olive">]</span><span style="color:Gray">,</span><br>
+            <span style="color:#a11">'layout'</span>: <span style="color:Olive">{</span>  <span style="color:#a50"># 图表的布局</span><br>
+                <span style="color:#a11">'title'</span>: <span style="color:#a11">'Dash 数据可视化示例'</span>  <span style="color:#a50"># 图表的标题</span><br>
+            <span style="color:Olive">}</span><br>
+        <span style="color:Olive">}</span><br>
+    <span style="color:Olive">)</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 运行应用</span><br>
+<span style="color:Green">if</span> __name__ <span style="color:Gray">==</span> <span style="color:#a11">'__main__'</span>:<br>
+    app.<span style="color:#05a">run</span><span style="color:Olive">(</span>debug<span style="color:Gray">=</span><span style="color:Teal">True</span><span style="color:Olive">)</span>  <span style="color:#a50"># 启动应用，debug=True 表示开启调试模式</span><br>
+
+<h4>3. 运行应用</h4>
+<p>在终端中运行以下命令来启动 Dash 应用：</p>
+<pre>
+python app.py</pre>
+
+<p>如果一切正常，你将看到类似以下的输出：</p>
+<pre>Dash is running on http://127.0.0.1:8050/
+
+ * Serving Flask app 'test'
+ * Debug mode: on
+</pre>
+<p>打开浏览器并访问 <code>http://127.0.0.1:8050/</code>，你将看到一个简单的 Dash 应用页面，显示标题、文本和一个柱状图，如下所示</p>
+<p><img src="img/b6475fc526bda671.png" loading="lazy"></p>
+<p>通过以上步骤，我们已经成功运行了一个简单的 Dash 应用。</p><p>Dash 是一个功能强大且易于使用的框架，特别适合用于数据可视化和交互式 Web 应用的开发。</p></div></section>
+<section class="ch" id="c5"><h2>5. Dash 核心组件<a class="chsrc" href="https://www.runoob.com/dash/dash-core-components.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>Dash 的核心组件是构建应用程序的基础，它们允许你创建用户界面并与数据进行交互。</p>
+<p>Dash 通过 <code>dash.html</code> 和 <code>dash.dcc</code> 模块，你可以轻松地创建用户界面并与数据进行交互。</p>
+
+<blockquote><p>从 Dash 2.0 版本开始，dash_html_components 和 dash_core_components 已经被整合到 dash 主包中。</p>
+<p>
+现在推荐直接从 dash 中导入 html 和 dcc，而不是使用旧的 dash_html_components 和 dash_core_components。</p></blockquote>
+
+<hr>
+<h3>Dash 核心组件概述</h3>
+<p>Dash 的核心组件可以分为两大类：<code>dash.html</code> 和 <code>dash.dcc</code>。<code>dash.html</code> 提供了 HTML 标签的 Python 封装，而 <code>dash.dcc</code> 则提供了更高级的交互式组件，如滑块、下拉菜单、图形等。</p>
+<h4>1. <code>dash.html</code> 组件</h4>
+<p><code>dash.html</code> 模块提供了与 HTML 标签对应的 Python 类。这些类允许你以 Python 的方式编写 HTML 代码。例如，<code>dash.html.Div</code> 对应 HTML 的 <code>&lt;div&gt;</code> 标签，<code>dash.html.H1</code> 对应 <code>&lt;h1&gt;</code> 标签。</p>
+
+<h3>实例</h3>
+
+<span style="color:Green">import</span> dash<br>
+<span style="color:Green">import</span> dash.<span style="color:#05a">html</span> <span style="color:Green">as</span> html<br>
+<br>
+app <span style="color:Gray">=</span> dash.<span style="color:#05a">Dash</span><span style="color:Olive">(</span>__name__<span style="color:Olive">)</span><br>
+<br>
+app.<span style="color:#05a">layout</span> <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Olive">[</span><br>
+    html.<span style="color:#05a">H1</span><span style="color:Olive">(</span><span style="color:#a11">'欢迎来到 Dash 世界'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    html.<span style="color:#05a">P</span><span style="color:Olive">(</span><span style="color:#a11">'这是一个简单的段落。'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Olive">[</span><br>
+        html.<span style="color:#05a">Span</span><span style="color:Olive">(</span><span style="color:#a11">'这是 Span 1'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+        html.<span style="color:#05a">Span</span><span style="color:Olive">(</span><span style="color:#a11">'这是 Span 2'</span><span style="color:Olive">)</span><br>
+    <span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:Green">if</span> __name__ <span style="color:Gray">==</span> <span style="color:#a11">'__main__'</span>:<br>
+    app.<span style="color:#05a">run</span><span style="color:Olive">(</span>debug<span style="color:Gray">=</span><span style="color:Teal">True</span><span style="color:Olive">)</span><br>
+
+<p><code>dash.html</code> 组件使得编写 HTML 结构变得非常简单和直观。</p>
+<p>以上代码中，我们创建了一个包含标题、段落和两个 <code>Span</code> 元素的 <code>Div</code> 容器。</p><p>
+<img src="img/5fde5da79a21999a.png" loading="lazy"></p>
+
+<h4>2. <code>dash.dcc</code> 组件</h4>
+<p><code>dash.dcc</code> 模块提供了更高级的交互式组件，这些组件通常用于数据可视化和用户输入。常见的 <code>dash.dcc</code> 组件包括 <code>Graph</code>、<code>Dropdown</code>、<code>Slider</code> 等。</p>
+<h5>示例代码</h5>
+
+<h3>实例</h3>
+
+<span style="color:Green">import</span> dash<br>
+<span style="color:Green">import</span> dash.<span style="color:#05a">html</span> <span style="color:Green">as</span> html<br>
+<span style="color:Green">import</span> dash.<span style="color:#05a">dcc</span> <span style="color:Green">as</span> dcc<br>
+<br>
+app <span style="color:Gray">=</span> dash.<span style="color:#05a">Dash</span><span style="color:Olive">(</span>__name__<span style="color:Olive">)</span><br>
+<br>
+app.<span style="color:#05a">layout</span> <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Olive">[</span><br>
+    dcc.<span style="color:#05a">Graph</span><span style="color:Olive">(</span><br>
+        <span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'example-graph'</span><span style="color:Gray">,</span><br>
+        figure<span style="color:Gray">=</span><span style="color:Olive">{</span><br>
+            <span style="color:#a11">'data'</span>: <span style="color:Olive">[</span><br>
+                <span style="color:Olive">{</span><span style="color:#a11">'x'</span>: <span style="color:Olive">[</span><span style="color:Maroon">1</span><span style="color:Gray">,</span> <span style="color:Maroon">2</span><span style="color:Gray">,</span> <span style="color:Maroon">3</span><span style="color:Olive">]</span><span style="color:Gray">,</span> <span style="color:#a11">'y'</span>: <span style="color:Olive">[</span><span style="color:Maroon">4</span><span style="color:Gray">,</span> <span style="color:Maroon">1</span><span style="color:Gray">,</span> <span style="color:Maroon">2</span><span style="color:Olive">]</span><span style="color:Gray">,</span> <span style="color:#a11">'type'</span>: <span style="color:#a11">'bar'</span><span style="color:Gray">,</span> <span style="color:#a11">'name'</span>: <span style="color:#a11">'RUNOOB'</span><span style="color:Olive">}</span><span style="color:Gray">,</span><br>
+                <span style="color:Olive">{</span><span style="color:#a11">'x'</span>: <span style="color:Olive">[</span><span style="color:Maroon">1</span><span style="color:Gray">,</span> <span style="color:Maroon">2</span><span style="color:Gray">,</span> <span style="color:Maroon">3</span><span style="color:Olive">]</span><span style="color:Gray">,</span> <span style="color:#a11">'y'</span>: <span style="color:Olive">[</span><span style="color:Maroon">2</span><span style="color:Gray">,</span> <span style="color:Maroon">4</span><span style="color:Gray">,</span> <span style="color:Maroon">5</span><span style="color:Olive">]</span><span style="color:Gray">,</span> <span style="color:#a11">'type'</span>: <span style="color:#a11">'bar'</span><span style="color:Gray">,</span> <span style="color:#a11">'name'</span>: <span style="color:#a11">'GOOGLE'</span><span style="color:Olive">}</span><span style="color:Gray">,</span><br>
+            <span style="color:Olive">]</span><span style="color:Gray">,</span><br>
+            <span style="color:#a11">'layout'</span>: <span style="color:Olive">{</span><br>
+                <span style="color:#a11">'title'</span>: <span style="color:#a11">'Dash 数据可视化'</span><br>
+            <span style="color:Olive">}</span><br>
+        <span style="color:Olive">}</span><br>
+    <span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    dcc.<span style="color:#05a">Dropdown</span><span style="color:Olive">(</span><br>
+        <span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'example-dropdown'</span><span style="color:Gray">,</span><br>
+        options<span style="color:Gray">=</span><span style="color:Olive">[</span><br>
+            <span style="color:Olive">{</span><span style="color:#a11">'label'</span>: <span style="color:#a11">'选项 1'</span><span style="color:Gray">,</span> <span style="color:#a11">'value'</span>: <span style="color:#a11">'1'</span><span style="color:Olive">}</span><span style="color:Gray">,</span><br>
+            <span style="color:Olive">{</span><span style="color:#a11">'label'</span>: <span style="color:#a11">'选项 2'</span><span style="color:Gray">,</span> <span style="color:#a11">'value'</span>: <span style="color:#a11">'2'</span><span style="color:Olive">}</span><span style="color:Gray">,</span><br>
+            <span style="color:Olive">{</span><span style="color:#a11">'label'</span>: <span style="color:#a11">'选项 3'</span><span style="color:Gray">,</span> <span style="color:#a11">'value'</span>: <span style="color:#a11">'3'</span><span style="color:Olive">}</span><br>
+        <span style="color:Olive">]</span><span style="color:Gray">,</span><br>
+        value<span style="color:Gray">=</span><span style="color:#a11">'1'</span><br>
+    <span style="color:Olive">)</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:Green">if</span> __name__ <span style="color:Gray">==</span> <span style="color:#a11">'__main__'</span>:<br>
+    app.<span style="color:#05a">run</span><span style="color:Olive">(</span>debug<span style="color:Gray">=</span><span style="color:Teal">True</span><span style="color:Olive">)</span><br>
+
+<p>在这个示例中，我们创建了一个包含柱状图和下拉菜单的布局。<code>dcc.Graph</code> 组件用于显示数据可视化图表，而 <code>dcc.Dropdown</code> 组件则允许用户从下拉菜单中选择选项。</p>
+<h3>核心组件的属性</h3>
+<p>每个 Dash 组件都有一些属性，这些属性用于控制组件的外观和行为。例如，<code>dash.html.Div</code> 的 <code>children</code> 属性用于指定其子元素，<code>dash.dcc.Graph</code> 的 <code>figure</code> 属性用于指定图表的数据和布局。</p>
+<h4>常用属性</h4>
+<ul>
+<li><strong>children</strong>: 用于指定组件的子元素。大多数组件都有这个属性。</li>
+<li><strong>id</strong>: 用于唯一标识组件，通常在回调函数中使用。</li>
+<li><strong>style</strong>: 用于设置组件的 CSS 样式。</li>
+<li><strong>className</strong>: 用于指定组件的 CSS 类名。</li>
+</ul>
+<h5>示例代码</h5>
+
+<h3>实例</h3>
+
+<span style="color:Green">import</span> dash<br>
+<span style="color:Green">import</span> dash.<span style="color:#05a">html</span> <span style="color:Green">as</span> html<br>
+<br>
+app <span style="color:Gray">=</span> dash.<span style="color:#05a">Dash</span><span style="color:Olive">(</span>__name__<span style="color:Olive">)</span><br>
+<br>
+app.<span style="color:#05a">layout</span> <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><br>
+    children<span style="color:Gray">=</span><span style="color:Olive">[</span><br>
+        html.<span style="color:#05a">H1</span><span style="color:Olive">(</span><span style="color:#a11">'这是一个标题'</span><span style="color:Gray">,</span> style<span style="color:Gray">=</span><span style="color:Olive">{</span><span style="color:#a11">'color'</span>: <span style="color:#a11">'blue'</span><span style="color:Gray">,</span> <span style="color:#a11">'fontSize'</span>: <span style="color:Maroon">40</span><span style="color:Olive">}</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+        html.<span style="color:#05a">P</span><span style="color:Olive">(</span><span style="color:#a11">'这是一个段落'</span><span style="color:Gray">,</span> className<span style="color:Gray">=</span><span style="color:#a11">'my-class'</span><span style="color:Olive">)</span><br>
+    <span style="color:Olive">]</span><span style="color:Gray">,</span><br>
+    style<span style="color:Gray">=</span><span style="color:Olive">{</span><span style="color:#a11">'backgroundColor'</span>: <span style="color:#a11">'#f0f0f0'</span><span style="color:Olive">}</span><br>
+<span style="color:Olive">)</span><br>
+<br>
+<span style="color:Green">if</span> __name__ <span style="color:Gray">==</span> <span style="color:#a11">'__main__'</span>:<br>
+    app.<span style="color:#05a">run</span><span style="color:Olive">(</span>debug<span style="color:Gray">=</span><span style="color:Teal">True</span><span style="color:Olive">)</span><br>
+
+<p>以上代码中，我们使用 <code>style</code> 属性来设置标题的颜色和字体大小，并使用 <code>className</code> 属性为段落指定了一个 CSS 类名。</p>
+
+<p><img src="img/eb54578163e7fb16.png" loading="lazy"></p></div></section>
+<section class="ch" id="c6"><h2>6. Dash 常用 HTML 组件<a class="chsrc" href="https://www.runoob.com/dash/dash-html-component.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>Dash 的核心组件之一是 HTML 组件，这些组件允许你在应用中嵌入标准的 HTML 元素。</p><p>本文将详细介绍 Dash 中常用的 HTML 组件。</p>
+<h3>1. 引入 HTML 组件</h3>
+<p>在 Dash 的最新版本中，HTML 组件的引入方式有所变化，我们可以直接从 <code>dash</code> 模块中导入 <code>html</code> 组件，而不需要像以前那样从 <code>dash_html_components</code> 中导入。</p>
+<pre>
+from dash import html</pre>
+<h4>
+常用 HTML 组件</h4>
+<table>
+  <thead>
+      <tr>
+          <th><strong>组件</strong></th>
+          <th><strong>说明</strong></th>
+          <th><strong>示例代码</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong><code>html.Div</code></strong></td>
+          <td>创建一个容器（<code>&lt;div&gt;</code>），用于包裹其他组件</td>
+          <td><code>html.Div(children=[html.H1("标题"), html.P("这是一个段落。")]) </code></td>
+      </tr>
+      <tr>
+          <td><strong><code>html.H1</code></strong></td>
+          <td>创建一级标题（<code>&lt;h1&gt;</code>）</td>
+          <td><code>html.H1("一级标题") </code></td>
+      </tr>
+      <tr>
+          <td><strong><code>html.H2</code></strong></td>
+          <td>创建二级标题（<code>&lt;h2&gt;</code>）</td>
+          <td><code>html.H2("二级标题") </code></td>
+      </tr>
+      <tr>
+          <td><strong><code>html.H3</code></strong></td>
+          <td>创建三级标题（<code>&lt;h3&gt;</code>）</td>
+          <td><code>html.H3("三级标题") </code></td>
+      </tr>
+      <tr>
+          <td><strong><code>html.P</code></strong></td>
+          <td>创建段落（<code>&lt;p&gt;</code>）</td>
+          <td><code>html.P("这是一个段落。") </code></td>
+      </tr>
+      <tr>
+          <td><strong><code>html.Span</code></strong></td>
+          <td>创建行内容器（<code>&lt;span&gt;</code>），用于包裹行内文本或元素</td>
+          <td><code>html.Span("这是一段行内文本。") </code></td>
+      </tr>
+      <tr>
+          <td><strong><code>html.Br</code></strong></td>
+          <td>创建换行（<code>&lt;br&gt;</code>）</td>
+          <td><code>html.Div(children=[html.P("第一行"), html.Br(), html.P("第二行")]) </code></td>
+      </tr>
+      <tr>
+          <td><strong><code>html.A</code></strong></td>
+          <td>创建超链接（<code>&lt;a&gt;</code>）</td>
+          <td><code>html.A("点击这里访问 Dash 官网", href="https://dash.plotly.com") </code></td>
+      </tr>
+      <tr>
+          <td><strong><code>html.Img</code></strong></td>
+          <td>插入图片（<code>&lt;img&gt;</code>）</td>
+          <td><code>html.Img(src="https://plotly.com/assets/images/logo.png", height="50px") </code></td>
+      </tr>
+      <tr>
+          <td><strong><code>html.Ul</code></strong></td>
+          <td>创建无序列表（<code>&lt;ul&gt;</code>）</td>
+          <td><code>html.Ul(children=[html.Li("列表项1"), html.Li("列表项2")]) </code></td>
+      </tr>
+      <tr>
+          <td><strong><code>html.Ol</code></strong></td>
+          <td>创建有序列表（<code>&lt;ol&gt;</code>）</td>
+          <td><code>html.Ol(children=[html.Li("第一项"), html.Li("第二项")]) </code></td>
+      </tr>
+      <tr>
+          <td><strong><code>html.Li</code></strong></td>
+          <td>创建列表项（<code>&lt;li&gt;</code>）</td>
+          <td><code>html.Li("列表项") </code></td>
+      </tr>
+      <tr>
+          <td><strong><code>html.Button</code></strong></td>
+          <td>创建按钮（<code>&lt;button&gt;</code>）</td>
+          <td><code>html.Button("点击我", id='my-button') </code></td>
+      </tr>
+      <tr>
+          <td><strong><code>html.Label</code></strong></td>
+          <td>创建标签（<code>&lt;label&gt;</code>），通常与输入组件一起使用</td>
+          <td><code>html.Label("用户名:"), dcc.Input(id='username', type='text') </code></td>
+      </tr>
+      <tr>
+          <td><strong><code>html.Table</code></strong></td>
+          <td>创建表格（<code>&lt;table&gt;</code>）</td>
+          <td><code>html.Table(children=[html.Tr(children=[html.Th("姓名"), html.Th("年龄")])]) </code></td>
+      </tr>
+      <tr>
+          <td><strong><code>html.Tr</code></strong></td>
+          <td>创建表格行（<code>&lt;tr&gt;</code>）</td>
+          <td><code>html.Tr(children=[html.Th("姓名"), html.Th("年龄")]) </code></td>
+      </tr>
+      <tr>
+          <td><strong><code>html.Th</code></strong></td>
+          <td>创建表头（<code>&lt;th&gt;</code>）</td>
+          <td><code>html.Th("姓名") </code></td>
+      </tr>
+      <tr>
+          <td><strong><code>html.Td</code></strong></td>
+          <td>创建表格单元格（<code>&lt;td&gt;</code>）</td>
+          <td><code>html.Td("张三") </code></td>
+      </tr>
+      <tr>
+          <td><strong><code>html.Header</code></strong></td>
+          <td>创建页眉（<code>&lt;header&gt;</code>）</td>
+          <td><code>html.Header(children=[html.H1("页眉标题")]) </code></td>
+      </tr>
+      <tr>
+          <td><strong><code>html.Footer</code></strong></td>
+          <td>创建页脚（<code>&lt;footer&gt;</code>）</td>
+          <td><code>html.Footer(children=[html.P("版权所有 © 2023")]) </code></td>
+      </tr>
+      <tr>
+          <td><strong><code>html.Section</code></strong></td>
+          <td>创建章节（<code>&lt;section&gt;</code>）</td>
+          <td><code>html.Section(children=[html.H2("章节标题"), html.P("章节内容")]) </code></td>
+      </tr>
+      <tr>
+          <td><strong><code>html.Nav</code></strong></td>
+          <td>创建导航栏（<code>&lt;nav&gt;</code>）</td>
+          <td><code>html.Nav(children=[html.A("首页", href="/"), html.A("关于", href="/about")]) </code></td>
+      </tr>
+      <tr>
+          <td><strong><code>html.Main</code></strong></td>
+          <td>创建主要内容区域（<code>&lt;main&gt;</code>）</td>
+          <td><code>html.Main(children=[html.H1("主要内容")]) </code></td>
+      </tr>
+      <tr>
+          <td><strong><code>html.Article</code></strong></td>
+          <td>创建文章区域（<code>&lt;article&gt;</code>）</td>
+          <td><code>html.Article(children=[html.H2("文章标题"), html.P("文章内容")]) </code></td>
+      </tr>
+      <tr>
+          <td><strong><code>html.Aside</code></strong></td>
+          <td>创建侧边栏（<code>&lt;aside&gt;</code>）</td>
+          <td><code>html.Aside(children=[html.H2("侧边栏"), html.P("侧边栏内容")]) </code></td>
+      </tr>
+      <tr>
+          <td><strong><code>html.Details</code></strong></td>
+          <td>创建可折叠内容（<code>&lt;details&gt;</code>）</td>
+          <td><code>html.Details(children=[html.Summary("点击展开"), html.P("隐藏内容")]) </code></td>
+      </tr>
+      <tr>
+          <td><strong><code>html.Summary</code></strong></td>
+          <td>创建可折叠内容的标题（<code>&lt;summary&gt;</code>）</td>
+          <td><code>html.Summary("点击展开") </code></td>
+      </tr>
+  </tbody>
+</table>
+<h3>2. 常用的 HTML 组件</h3>
+
+<h4>2.1 <code>html.Div</code></h4>
+<p><code>html.Div</code> 是 Dash 中最常用的 HTML 组件之一，它用于创建一个 <code>div</code> 元素。<code>div</code> 元素通常用于将内容分组，并且可以通过 CSS 进行样式设置。</p>
+
+<h3>实例</h3>
+
+html.<span style="color:#05a">Div</span><span style="color:Olive">(</span>children<span style="color:Gray">=</span><span style="color:Olive">[</span><br>
+    html.<span style="color:#05a">H1</span><span style="color:Olive">(</span><span style="color:#a11">'这是一个标题'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    html.<span style="color:#05a">P</span><span style="color:Olive">(</span><span style="color:#a11">'这是一个段落。'</span><span style="color:Olive">)</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+
+<p>在这个例子中，<code>html.Div</code> 包含了一个标题 (<code>html.H1</code>) 和一个段落 (<code>html.P</code>)。</p>
+<h4>2.2 <code>html.H1</code> 到 <code>html.H6</code></h4>
+<p><code>html.H1</code> 到 <code>html.H6</code> 用于创建不同级别的标题。<code>H1</code> 是最高级别的标题，<code>H6</code> 是最低级别的标题。</p>
+
+<h3>实例</h3>
+
+html.<span style="color:#05a">H1</span><span style="color:Olive">(</span><span style="color:#a11">'这是 H1 标题'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+html.<span style="color:#05a">H2</span><span style="color:Olive">(</span><span style="color:#a11">'这是 H2 标题'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+html.<span style="color:#05a">H3</span><span style="color:Olive">(</span><span style="color:#a11">'这是 H3 标题'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+html.<span style="color:#05a">H4</span><span style="color:Olive">(</span><span style="color:#a11">'这是 H4 标题'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+html.<span style="color:#05a">H5</span><span style="color:Olive">(</span><span style="color:#a11">'这是 H5 标题'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+html.<span style="color:#05a">H6</span><span style="color:Olive">(</span><span style="color:#a11">'这是 H6 标题'</span><span style="color:Olive">)</span><br>
+
+<h4>2.3 <code>html.P</code></h4>
+<p><code>html.P</code> 用于创建一个段落 (<code>&lt;p&gt;</code> 元素)。</p>
+
+<h3>实例</h3>
+
+html.<span style="color:#05a">P</span><span style="color:Olive">(</span><span style="color:#a11">'这是一个段落。'</span><span style="color:Olive">)</span><br>
+
+<h4>2.4 <code>html.A</code></h4>
+<p><code>html.A</code> 用于创建一个超链接 (<code>&lt;a&gt;</code> 元素)。你可以通过 <code>href</code> 属性指定链接的目标 URL。</p>
+
+<h3>实例</h3>
+
+html.<span style="color:#05a">A</span><span style="color:Olive">(</span><span style="color:#a11">'点击这里访问 Dash 官网'</span><span style="color:Gray">,</span> href<span style="color:Gray">=</span><span style="color:#a11">'https://dash.plotly.com/'</span><span style="color:Olive">)</span><br>
+
+<h4>2.5 <code>html.Img</code></h4>
+<p><code>html.Img</code> 用于在页面中插入图片 (<code>&lt;img&gt;</code> 元素)。你需要通过 <code>src</code> 属性指定图片的 URL。</p>
+
+<h3>实例</h3>
+
+html.<span style="color:#05a">Img</span><span style="color:Olive">(</span>src<span style="color:Gray">=</span><span style="color:#a11">'https://dash.plotly.com/assets/images/logo.png'</span><span style="color:Gray">,</span> alt<span style="color:Gray">=</span><span style="color:#a11">'Dash Logo'</span><span style="color:Olive">)</span><br>
+
+<h4>2.6 <code>html.Ul</code> 和 <code>html.Li</code></h4>
+<p><code>html.Ul</code> 用于创建一个无序列表 (<code>&lt;ul&gt;</code> 元素)，而 <code>html.Li</code> 用于创建列表项 (<code>&lt;li&gt;</code> 元素)。</p>
+
+<h3>实例</h3>
+
+html.<span style="color:#05a">Ul</span><span style="color:Olive">(</span>children<span style="color:Gray">=</span><span style="color:Olive">[</span><br>
+    html.<span style="color:#05a">Li</span><span style="color:Olive">(</span><span style="color:#a11">'列表项 1'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    html.<span style="color:#05a">Li</span><span style="color:Olive">(</span><span style="color:#a11">'列表项 2'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    html.<span style="color:#05a">Li</span><span style="color:Olive">(</span><span style="color:#a11">'列表项 3'</span><span style="color:Olive">)</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+
+<h4>2.7 <code>html.Ol</code></h4>
+<p><code>html.Ol</code> 用于创建一个有序列表 (<code>&lt;ol&gt;</code> 元素)。</p>
+
+<h3>实例</h3>
+
+html.<span style="color:#05a">Ol</span><span style="color:Olive">(</span>children<span style="color:Gray">=</span><span style="color:Olive">[</span><br>
+    html.<span style="color:#05a">Li</span><span style="color:Olive">(</span><span style="color:#a11">'第一项'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    html.<span style="color:#05a">Li</span><span style="color:Olive">(</span><span style="color:#a11">'第二项'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    html.<span style="color:#05a">Li</span><span style="color:Olive">(</span><span style="color:#a11">'第三项'</span><span style="color:Olive">)</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+
+<h4>2.8 <code>html.Br</code></h4>
+<p><code>html.Br</code> 用于在页面中插入一个换行符 (<code>&lt;br&gt;</code> 元素)。</p>
+
+<h3>实例</h3>
+
+html.<span style="color:#05a">P</span><span style="color:Olive">(</span><span style="color:#a11">'这是第一行。'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+html.<span style="color:#05a">Br</span><span style="color:Olive">(</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+html.<span style="color:#05a">P</span><span style="color:Olive">(</span><span style="color:#a11">'这是第二行。'</span><span style="color:Olive">)</span><br>
+
+<h4>2.9 <code>html.Hr</code></h4>
+<p><code>html.Hr</code> 用于在页面中插入一条水平线 (<code>&lt;hr&gt;</code> 元素)。</p>
+
+<h3>实例</h3>
+
+html.<span style="color:#05a">P</span><span style="color:Olive">(</span><span style="color:#a11">'这是上面的内容。'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+html.<span style="color:#05a">Hr</span><span style="color:Olive">(</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+html.<span style="color:#05a">P</span><span style="color:Olive">(</span><span style="color:#a11">'这是下面的内容。'</span><span style="color:Olive">)</span><br>
+
+<h4>2.10 <code>html.Span</code></h4>
+<p><code>html.Span</code> 用于创建一个内联容器 (<code>&lt;span&gt;</code> 元素)，通常用于对文本的一部分进行样式设置。</p>
+
+<h3>实例</h3>
+
+html.<span style="color:#05a">P</span><span style="color:Olive">(</span><span style="color:#a11">'这是一个包含 '</span><span style="color:Gray">,</span><br>
+       html.<span style="color:#05a">Span</span><span style="color:Olive">(</span><span style="color:#a11">'高亮'</span><span style="color:Gray">,</span> style<span style="color:Gray">=</span><span style="color:Olive">{</span><span style="color:#a11">'color'</span>: <span style="color:#a11">'red'</span><span style="color:Olive">}</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+       <span style="color:#a11">' 的段落。'</span><span style="color:Olive">)</span><br>
+
+<h3>3. 使用样式</h3>
+<p>Dash 的 HTML 组件支持通过 <code>style</code> 属性来设置 CSS 样式。<code>style</code> 属性接受一个字典，其中键是 CSS 属性，值是相应的 CSS 值。</p>
+
+<h3>实例</h3>
+
+html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><br>
+    children<span style="color:Gray">=</span><span style="color:#a11">"这是一个带样式的 Div"</span><span style="color:Gray">,</span><br>
+    style<span style="color:Gray">=</span><span style="color:Olive">{</span><br>
+        <span style="color:#a11">'color'</span>: <span style="color:#a11">'white'</span><span style="color:Gray">,</span><br>
+        <span style="color:#a11">'backgroundColor'</span>: <span style="color:#a11">'blue'</span><span style="color:Gray">,</span><br>
+        <span style="color:#a11">'padding'</span>: <span style="color:#a11">'10px'</span><span style="color:Gray">,</span><br>
+        <span style="color:#a11">'borderRadius'</span>: <span style="color:#a11">'5px'</span><br>
+    <span style="color:Olive">}</span><br>
+<span style="color:Olive">)</span><br>
+
+<p>
+这段代码使用 Dash 的 html.Div 组件创建了一个带有样式的 div 元素，效果是一个蓝色背景、白色文字、带圆角和内边距的 div。。</p>
+
+<ol><li><p><strong><code>html.Div</code></strong>：创建一个 <code>&lt;div&gt;</code> 容器。</p></li><li><p><strong><code>children</code></strong>：设置 <code>div</code> 的内容为 <code>"这是一个带样式的 Div"</code>。</p></li><li><p><strong><code>style</code></strong>：通过 CSS 样式设置 <code>div</code> 的外观：</p><ul><li><p><code>color: white</code>：文字颜色为白色。</p></li><li><p><code>backgroundColor: blue</code>：背景颜色为蓝色。</p></li><li><p><code>padding: 10px</code>：内边距为 10 像素。</p></li><li><p><code>borderRadius: 5px</code>：边框圆角为 5 像素。</p></li></ul></li></ol>
+
+<hr>
+<h3>实例</h3><p>以下是一个完整的 Dash 应用实例，展示了如何使用 html.Div 和其他 HTML 组件，并通过 style 属性设置样式。
+</p>
+<h3>实例</h3> 
+<span style="color:Green">from</span> dash <span style="color:Green">import</span> Dash<span style="color:Gray">,</span> html<br>
+<br>
+<span style="color:#a50"># 创建 Dash 应用</span><br>
+app <span style="color:Gray">=</span> Dash<span style="color:Olive">(</span>__name__<span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义应用的布局</span><br>
+app.<span style="color:#05a">layout</span> <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><br>
+    style<span style="color:Gray">=</span><span style="color:Olive">{</span><br>
+        <span style="color:#a11">'fontFamily'</span>: <span style="color:#a11">'Arial, sans-serif'</span><span style="color:Gray">,</span>  <span style="color:#a50"># 设置全局字体</span><br>
+        <span style="color:#a11">'padding'</span>: <span style="color:#a11">'20px'</span><span style="color:Gray">,</span>  <span style="color:#a50"># 设置全局内边距</span><br>
+        <span style="color:#a11">'maxWidth'</span>: <span style="color:#a11">'800px'</span><span style="color:Gray">,</span>  <span style="color:#a50"># 设置最大宽度</span><br>
+        <span style="color:#a11">'margin'</span>: <span style="color:#a11">'0 auto'</span>  <span style="color:#a50"># 居中显示</span><br>
+    <span style="color:Olive">}</span><span style="color:Gray">,</span><br>
+    children<span style="color:Gray">=</span><span style="color:Olive">[</span><br>
+        <span style="color:#a50"># 标题</span><br>
+        html.<span style="color:#05a">H1</span><span style="color:Olive">(</span><br>
+            <span style="color:#a11">"Dash 示例应用"</span><span style="color:Gray">,</span><br>
+            style<span style="color:Gray">=</span><span style="color:Olive">{</span><br>
+                <span style="color:#a11">'color'</span>: <span style="color:#a11">'white'</span><span style="color:Gray">,</span><br>
+                <span style="color:#a11">'backgroundColor'</span>: <span style="color:#a11">'darkblue'</span><span style="color:Gray">,</span><br>
+                <span style="color:#a11">'padding'</span>: <span style="color:#a11">'10px'</span><span style="color:Gray">,</span><br>
+                <span style="color:#a11">'borderRadius'</span>: <span style="color:#a11">'5px'</span><span style="color:Gray">,</span><br>
+                <span style="color:#a11">'textAlign'</span>: <span style="color:#a11">'center'</span>  <span style="color:#a50"># 文字居中</span><br>
+            <span style="color:Olive">}</span><br>
+        <span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+<br>
+        <span style="color:#a50"># 段落</span><br>
+        html.<span style="color:#05a">P</span><span style="color:Olive">(</span><br>
+            <span style="color:#a11">"这是一个简单的 Dash 应用示例，展示了如何使用 HTML 组件和样式。"</span><span style="color:Gray">,</span><br>
+            style<span style="color:Gray">=</span><span style="color:Olive">{</span><br>
+                <span style="color:#a11">'fontSize'</span>: <span style="color:#a11">'16px'</span><span style="color:Gray">,</span><br>
+                <span style="color:#a11">'color'</span>: <span style="color:#a11">'#333'</span><span style="color:Gray">,</span><br>
+                <span style="color:#a11">'marginTop'</span>: <span style="color:#a11">'20px'</span><br>
+            <span style="color:Olive">}</span><br>
+        <span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+<br>
+        <span style="color:#a50"># 带样式的 Div</span><br>
+        html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><br>
+            children<span style="color:Gray">=</span><span style="color:#a11">"这是一个带样式的 Div"</span><span style="color:Gray">,</span><br>
+            style<span style="color:Gray">=</span><span style="color:Olive">{</span><br>
+                <span style="color:#a11">'color'</span>: <span style="color:#a11">'white'</span><span style="color:Gray">,</span><br>
+                <span style="color:#a11">'backgroundColor'</span>: <span style="color:#a11">'blue'</span><span style="color:Gray">,</span><br>
+                <span style="color:#a11">'padding'</span>: <span style="color:#a11">'10px'</span><span style="color:Gray">,</span><br>
+                <span style="color:#a11">'borderRadius'</span>: <span style="color:#a11">'5px'</span><span style="color:Gray">,</span><br>
+                <span style="color:#a11">'marginTop'</span>: <span style="color:#a11">'20px'</span><span style="color:Gray">,</span><br>
+                <span style="color:#a11">'textAlign'</span>: <span style="color:#a11">'center'</span><br>
+            <span style="color:Olive">}</span><br>
+        <span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+<br>
+        <span style="color:#a50"># 按钮</span><br>
+        html.<span style="color:#05a">Button</span><span style="color:Olive">(</span><br>
+            <span style="color:#a11">"点击我"</span><span style="color:Gray">,</span><br>
+            style<span style="color:Gray">=</span><span style="color:Olive">{</span><br>
+                <span style="color:#a11">'backgroundColor'</span>: <span style="color:#a11">'green'</span><span style="color:Gray">,</span><br>
+                <span style="color:#a11">'color'</span>: <span style="color:#a11">'white'</span><span style="color:Gray">,</span><br>
+                <span style="color:#a11">'border'</span>: <span style="color:#a11">'none'</span><span style="color:Gray">,</span><br>
+                <span style="color:#a11">'padding'</span>: <span style="color:#a11">'10px 20px'</span><span style="color:Gray">,</span><br>
+                <span style="color:#a11">'borderRadius'</span>: <span style="color:#a11">'5px'</span><span style="color:Gray">,</span><br>
+                <span style="color:#a11">'cursor'</span>: <span style="color:#a11">'pointer'</span><span style="color:Gray">,</span><br>
+                <span style="color:#a11">'marginTop'</span>: <span style="color:#a11">'20px'</span><br>
+            <span style="color:Olive">}</span><br>
+        <span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+<br>
+        <span style="color:#a50"># 图片</span><br>
+        html.<span style="color:#05a">Img</span><span style="color:Olive">(</span><br>
+            src<span style="color:Gray">=</span><span style="color:#a11">"https://dash.plotly.com/assets/images/language_icons/python_50px.svg"</span><span style="color:Gray">,</span><br>
+            style<span style="color:Gray">=</span><span style="color:Olive">{</span><br>
+                <span style="color:#a11">'height'</span>: <span style="color:#a11">'50px'</span><span style="color:Gray">,</span><br>
+                <span style="color:#a11">'marginTop'</span>: <span style="color:#a11">'20px'</span><span style="color:Gray">,</span><br>
+                <span style="color:#a11">'display'</span>: <span style="color:#a11">'block'</span><span style="color:Gray">,</span>  <span style="color:#a50"># 图片居中</span><br>
+                <span style="color:#a11">'marginLeft'</span>: <span style="color:#a11">'auto'</span><span style="color:Gray">,</span><br>
+                <span style="color:#a11">'marginRight'</span>: <span style="color:#a11">'auto'</span><br>
+            <span style="color:Olive">}</span><br>
+        <span style="color:Olive">)</span><br>
+    <span style="color:Olive">]</span><br>
+<span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 运行应用</span><br>
+<span style="color:Green">if</span> __name__ <span style="color:Gray">==</span> <span style="color:#a11">'__main__'</span>:<br>
+    app.<span style="color:#05a">run</span><span style="color:Olive">(</span>debug<span style="color:Gray">=</span><span style="color:Teal">True</span><span style="color:Olive">)</span><br>
+<p>
+效果如下：</p>
+
+<p><img src="img/9f9d54f583631f20.png" loading="lazy"></p></div></section>
+<section class="ch" id="c7"><h2>7. Dash 常用交互组件<a class="chsrc" href="https://www.runoob.com/dash/dash-dcc-component.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>Dash 基于 Python，允许开发者使用纯 Python 代码构建交互式的 Web 应用。</p><p>Dash 的核心组件之一是 <code>dash.dcc</code>（Dash Core Components），它提供了丰富的 UI 组件，如滑块、下拉菜单、图形等，这些组件可以帮助开发者快速构建功能强大的 Web 应用。</p>
+<p><code>dash.dcc</code> 组件包括但不限于：</p>
+<ul>
+<li><strong>Graph</strong>：用于绘制各种图表，如折线图、柱状图、散点图等。</li>
+<li><strong>Dropdown</strong>：下拉菜单，允许用户从多个选项中选择一个。</li>
+<li><strong>Slider</strong>：滑块，允许用户通过拖动滑块选择一个数值范围。</li>
+<li><strong>Input</strong>：输入框，允许用户输入文本或数字。</li>
+<li><strong>Textarea</strong>：多行文本输入框，适用于输入较长的文本内容。</li>
+<li><strong>Checklist</strong>：复选框列表，允许用户选择多个选项。</li>
+<li><strong>RadioItems</strong>：单选按钮列表，允许用户从多个选项中选择一个。</li>
+<li><strong>DatePickerSingle</strong> 和 <strong>DatePickerRange</strong>：日期选择器，允许用户选择单个日期或日期范围。</li>
+<li><strong>Upload</strong>：文件上传组件，允许用户上传文件。</li>
+</ul>
+<p>这些组件是构建交互式 Web 应用的基础，开发者可以通过组合这些组件来创建复杂的用户界面。</p>
+<p>
+在最新版本的 Dash 中，推荐使用以下方式导入 dcc：</p>
+<pre>
+from dash import dcc</pre>
+<h4>
+常用交互组件</h4>
+<table>
+    <thead>
+        <tr>
+            <th><strong>组件</strong></th>
+            <th><strong>说明</strong></th>
+            <th><strong>示例代码</strong></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong><code>dcc.Input</code></strong></td>
+            <td>创建一个文本输入框。</td>
+            <td><code>dcc.Input(id='input', type='text', placeholder='请输入内容...') </code></td>
+        </tr>
+        <tr>
+            <td><strong><code>dcc.Dropdown</code></strong></td>
+            <td>创建一个下拉菜单。</td>
+            <td><code>dcc.Dropdown(id='dropdown', options=[{'label': '选项1', 'value': '1'}], value='1') </code></td>
+        </tr>
+        <tr>
+            <td><strong><code>dcc.Slider</code></strong></td>
+            <td>创建一个滑块。</td>
+            <td><code>dcc.Slider(id='slider', min=0, max=10, step=1, value=5) </code></td>
+        </tr>
+        <tr>
+            <td><strong><code>dcc.Graph</code></strong></td>
+            <td>创建一个交互式图表（基于 Plotly.js）。</td>
+            <td><code>dcc.Graph(id='graph', figure={'data': [{'x': [1, 2, 3], 'y': [4, 1, 2], 'type': 'bar'}]}) </code></td>
+        </tr>
+        <tr>
+            <td><strong><code>dcc.Textarea</code></strong></td>
+            <td>创建一个多行文本输入框。</td>
+            <td><code>dcc.Textarea(id='textarea', value='请输入多行文本...') </code></td>
+        </tr>
+        <tr>
+            <td><strong><code>dcc.Checklist</code></strong></td>
+            <td>创建一个复选框列表。</td>
+            <td><code>dcc.Checklist(id='checklist', options=[{'label': '选项1', 'value': '1'}], value=['1']) </code></td>
+        </tr>
+        <tr>
+            <td><strong><code>dcc.RadioItems</code></strong></td>
+            <td>创建一个单选按钮组。</td>
+            <td><code>dcc.RadioItems(id='radio', options=[{'label': '选项1', 'value': '1'}], value='1') </code></td>
+        </tr>
+        <tr>
+            <td><strong><code>dcc.DatePickerSingle</code></strong></td>
+            <td>创建一个日期选择器（单选）。</td>
+            <td><code>dcc.DatePickerSingle(id='date-picker', date='2023-10-01') </code></td>
+        </tr>
+        <tr>
+            <td><strong><code>dcc.DatePickerRange</code></strong></td>
+            <td>创建一个日期范围选择器。</td>
+            <td><code>dcc.DatePickerRange(id='date-range', start_date='2023-10-01', end_date='2023-10-07') </code></td>
+        </tr>
+        <tr>
+            <td><strong><code>dcc.Markdown</code></strong></td>
+            <td>渲染 Markdown 文本。</td>
+            <td><code>dcc.Markdown('''# 标题\n- 列表项1''') </code></td>
+        </tr>
+        <tr>
+            <td><strong><code>dcc.Store</code></strong></td>
+            <td>在客户端存储数据，用于跨回调共享数据。</td>
+            <td><code>dcc.Store(id='store', data={'key': 'value'}) </code></td>
+        </tr>
+        <tr>
+            <td><strong><code>dcc.Upload</code></strong></td>
+            <td>创建一个文件上传组件。</td>
+            <td><code>dcc.Upload(id='upload', children=html.Div('拖放或点击上传文件')) </code></td>
+        </tr>
+        <tr>
+            <td><strong><code>dcc.Tabs</code></strong></td>
+            <td>创建选项卡组件。</td>
+            <td><code>dcc.Tabs(id='tabs', children=[dcc.Tab(label='标签1', value='1')]) </code></td>
+        </tr>
+        <tr>
+            <td><strong><code>dcc.Tab</code></strong></td>
+            <td>创建单个选项卡（需与 <code>dcc.Tabs</code> 配合使用）。</td>
+            <td><code>dcc.Tab(label='标签1', value='1') </code></td>
+        </tr>
+        <tr>
+            <td><strong><code>dcc.Interval</code></strong></td>
+            <td>定时触发回调的组件。</td>
+            <td><code>dcc.Interval(id='interval', interval=1000) </code></td>
+        </tr>
+        <tr>
+            <td><strong><code>dcc.Location</code></strong></td>
+            <td>用于管理 URL 的组件。</td>
+            <td><code>dcc.Location(id='url', pathname='/') </code></td>
+        </tr>
+        <tr>
+            <td><strong><code>dcc.Link</code></strong></td>
+            <td>创建一个超链接，用于页面导航（需与 <code>dcc.Location</code> 配合使用）。</td>
+            <td><code>dcc.Link('跳转到首页', href='/') </code></td>
+        </tr>
+        <tr>
+            <td><strong><code>dcc.ConfirmDialog</code></strong></td>
+            <td>创建一个确认对话框。</td>
+            <td><code>dcc.ConfirmDialog(id='confirm', message='确定要执行此操作吗？') </code></td>
+        </tr>
+        <tr>
+            <td><strong><code>dcc.ConfirmDialogProvider</code></strong></td>
+            <td>提供一个确认对话框（需与按钮等组件配合使用）。</td>
+            <td><code>dcc.ConfirmDialogProvider(html.Button('删除'), id='confirm-provider') </code></td>
+        </tr>
+        <tr>
+            <td><strong><code>dcc.Loading</code></strong></td>
+            <td>创建一个加载动画组件。</td>
+            <td><code>dcc.Loading(id='loading', children=[html.Div('加载中...')]) </code></td>
+        </tr>
+        <tr>
+            <td><strong><code>dcc.Download</code></strong></td>
+            <td>用于触发文件下载的组件。</td>
+            <td><code>dcc.Download(id='download') </code></td>
+        </tr>
+    </tbody>
+</table><hr>
+<h3>应用实例</h3>
+<h4>创建一个简单的 Dash 应用</h4>
+<p>以下是一个简单的 Dash 应用示例，展示了如何使用 <code>dash.dcc</code> 组件：</p>
+
+<h3>实例</h3>
+
+<span style="color:Green">import</span> dash<br>
+<span style="color:Green">from</span> dash <span style="color:Green">import</span> dcc<span style="color:Gray">,</span> html<br>
+<span style="color:Green">from</span> dash.<span style="color:#05a">dependencies</span> <span style="color:Green">import</span> Input<span style="color:Gray">,</span> Output<br>
+<br>
+<span style="color:#a50"># 创建一个 Dash 应用</span><br>
+app <span style="color:Gray">=</span> dash.<span style="color:#05a">Dash</span><span style="color:Olive">(</span>__name__<span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义应用的布局</span><br>
+app.<span style="color:#05a">layout</span> <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Olive">[</span><br>
+    dcc.<span style="color:#05a">Input</span><span style="color:Olive">(</span><span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'input-text'</span><span style="color:Gray">,</span> <span style="color:Teal">type</span><span style="color:Gray">=</span><span style="color:#a11">'text'</span><span style="color:Gray">,</span> value<span style="color:Gray">=</span><span style="color:#a11">''</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'output-text'</span><span style="color:Olive">)</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义回调函数</span><br>
+<span style="color:Gray">@</span>app.<span style="color:#05a">callback</span><span style="color:Olive">(</span><br>
+    Output<span style="color:Olive">(</span><span style="color:#a11">'output-text'</span><span style="color:Gray">,</span> <span style="color:#a11">'children'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    <span style="color:Olive">[</span>Input<span style="color:Olive">(</span><span style="color:#a11">'input-text'</span><span style="color:Gray">,</span> <span style="color:#a11">'value'</span><span style="color:Olive">)</span><span style="color:Olive">]</span><br>
+<span style="color:Olive">)</span><br>
+<span style="color:Green">def</span> update_output<span style="color:Olive">(</span>value<span style="color:Olive">)</span>:<br>
+    <span style="color:Green">return</span> f<span style="color:#a11">'你输入的内容是: {value}'</span><br>
+<br>
+<span style="color:#a50"># 运行应用</span><br>
+<span style="color:Green">if</span> __name__ <span style="color:Gray">==</span> <span style="color:#a11">'__main__'</span>:<br>
+    app.<span style="color:#05a">run</span><span style="color:Olive">(</span>debug<span style="color:Gray">=</span><span style="color:Teal">True</span><span style="color:Olive">)</span><br>
+
+<p>以上实例中，我们创建了一个简单的 Dash 应用，包含一个输入框和一个显示输入内容的区域。</p><p>当用户在输入框中输入内容时，应用会实时更新显示区域的内容。</p><p><img src="img/d5b1b521acfd0399.png" loading="lazy"></p>
+<h4>使用 <code>dcc.Graph</code> 绘制图表</h4>
+<p><code>dcc.Graph</code> 是 <code>dash.dcc</code> 中最常用的组件之一，用于绘制各种图表。</p><p>以下是一个使用 <code>dcc.Graph</code> 绘制折线图的示例：</p>
+
+<h3>实例</h3>
+
+<span style="color:Green">import</span> dash<br>
+<span style="color:Green">from</span> dash <span style="color:Green">import</span> dcc<span style="color:Gray">,</span> html<br>
+<span style="color:Green">import</span> plotly.<span style="color:#05a">express</span> <span style="color:Green">as</span> px<br>
+<span style="color:Green">import</span> pandas <span style="color:Green">as</span> pd<br>
+<br>
+<span style="color:#a50"># 创建一个 Dash 应用</span><br>
+app <span style="color:Gray">=</span> dash.<span style="color:#05a">Dash</span><span style="color:Olive">(</span>__name__<span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 创建示例数据</span><br>
+df <span style="color:Gray">=</span> pd.<span style="color:#05a">DataFrame</span><span style="color:Olive">(</span><span style="color:Olive">{</span><br>
+    <span style="color:#a11">'x'</span>: <span style="color:Olive">[</span><span style="color:Maroon">1</span><span style="color:Gray">,</span> <span style="color:Maroon">2</span><span style="color:Gray">,</span> <span style="color:Maroon">3</span><span style="color:Gray">,</span> <span style="color:Maroon">4</span><span style="color:Gray">,</span> <span style="color:Maroon">5</span><span style="color:Olive">]</span><span style="color:Gray">,</span><br>
+    <span style="color:#a11">'y'</span>: <span style="color:Olive">[</span><span style="color:Maroon">10</span><span style="color:Gray">,</span> <span style="color:Maroon">11</span><span style="color:Gray">,</span> <span style="color:Maroon">12</span><span style="color:Gray">,</span> <span style="color:Maroon">13</span><span style="color:Gray">,</span> <span style="color:Maroon">14</span><span style="color:Olive">]</span><br>
+<span style="color:Olive">}</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 使用 Plotly Express 创建折线图</span><br>
+fig <span style="color:Gray">=</span> px.<span style="color:#05a">line</span><span style="color:Olive">(</span>df<span style="color:Gray">,</span> x<span style="color:Gray">=</span><span style="color:#a11">'x'</span><span style="color:Gray">,</span> y<span style="color:Gray">=</span><span style="color:#a11">'y'</span><span style="color:Gray">,</span> title<span style="color:Gray">=</span><span style="color:#a11">'示例折线图'</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义应用的布局</span><br>
+app.<span style="color:#05a">layout</span> <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Olive">[</span><br>
+    dcc.<span style="color:#05a">Graph</span><span style="color:Olive">(</span>figure<span style="color:Gray">=</span>fig<span style="color:Olive">)</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 运行应用</span><br>
+<span style="color:Green">if</span> __name__ <span style="color:Gray">==</span> <span style="color:#a11">'__main__'</span>:<br>
+    app.<span style="color:#05a">run</span><span style="color:Olive">(</span>debug<span style="color:Gray">=</span><span style="color:Teal">True</span><span style="color:Olive">)</span><br>
+
+<p>以上实例中，我们使用 <code>plotly.express</code> 创建了一个简单的折线图，并通过 <code>dcc.Graph</code> 组件将其显示在应用中。</p>
+
+<p><img src="img/a55c321194799fe6.png" loading="lazy"></p>
+
+<h4>使用 <code>dcc.Dropdown</code> 创建下拉菜单</h4>
+<p><code>dcc.Dropdown</code> 组件允许用户从多个选项中选择一个。</p><p>以下是一个使用 <code>dcc.Dropdown</code> 的示例：</p>
+
+<h3>实例</h3>
+
+<span style="color:Green">import</span> dash<br>
+<span style="color:Green">from</span> dash <span style="color:Green">import</span> dcc<span style="color:Gray">,</span> html<br>
+<span style="color:Green">from</span> dash.<span style="color:#05a">dependencies</span> <span style="color:Green">import</span> Input<span style="color:Gray">,</span> Output<br>
+<br>
+<span style="color:#a50"># 创建一个 Dash 应用</span><br>
+app <span style="color:Gray">=</span> dash.<span style="color:#05a">Dash</span><span style="color:Olive">(</span>__name__<span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义应用的布局</span><br>
+app.<span style="color:#05a">layout</span> <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Olive">[</span><br>
+    dcc.<span style="color:#05a">Dropdown</span><span style="color:Olive">(</span><br>
+        <span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'dropdown'</span><span style="color:Gray">,</span><br>
+        options<span style="color:Gray">=</span><span style="color:Olive">[</span><br>
+            <span style="color:Olive">{</span><span style="color:#a11">'label'</span>: <span style="color:#a11">'选项1'</span><span style="color:Gray">,</span> <span style="color:#a11">'value'</span>: <span style="color:#a11">'1'</span><span style="color:Olive">}</span><span style="color:Gray">,</span><br>
+            <span style="color:Olive">{</span><span style="color:#a11">'label'</span>: <span style="color:#a11">'选项2'</span><span style="color:Gray">,</span> <span style="color:#a11">'value'</span>: <span style="color:#a11">'2'</span><span style="color:Olive">}</span><span style="color:Gray">,</span><br>
+            <span style="color:Olive">{</span><span style="color:#a11">'label'</span>: <span style="color:#a11">'选项3'</span><span style="color:Gray">,</span> <span style="color:#a11">'value'</span>: <span style="color:#a11">'3'</span><span style="color:Olive">}</span><br>
+        <span style="color:Olive">]</span><span style="color:Gray">,</span><br>
+        value<span style="color:Gray">=</span><span style="color:#a11">'1'</span>  <span style="color:#a50"># 默认选中的值</span><br>
+    <span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'dropdown-output'</span><span style="color:Olive">)</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义回调函数</span><br>
+<span style="color:Gray">@</span>app.<span style="color:#05a">callback</span><span style="color:Olive">(</span><br>
+    Output<span style="color:Olive">(</span><span style="color:#a11">'dropdown-output'</span><span style="color:Gray">,</span> <span style="color:#a11">'children'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    <span style="color:Olive">[</span>Input<span style="color:Olive">(</span><span style="color:#a11">'dropdown'</span><span style="color:Gray">,</span> <span style="color:#a11">'value'</span><span style="color:Olive">)</span><span style="color:Olive">]</span><br>
+<span style="color:Olive">)</span><br>
+<span style="color:Green">def</span> update_output<span style="color:Olive">(</span>value<span style="color:Olive">)</span>:<br>
+    <span style="color:Green">return</span> f<span style="color:#a11">'你选择的是: {value}'</span><br>
+<br>
+<span style="color:#a50"># 运行应用</span><br>
+<span style="color:Green">if</span> __name__ <span style="color:Gray">==</span> <span style="color:#a11">'__main__'</span>:<br>
+    app.<span style="color:#05a">run</span><span style="color:Olive">(</span>debug<span style="color:Gray">=</span><span style="color:Teal">True</span><span style="color:Olive">)</span><br>
+
+<p>以上实例中，我们创建了一个下拉菜单，当用户选择一个选项时，应用会显示用户选择的内容。</p>
+<p><img src="img/ad856c096ec3e72b.png" loading="lazy"></p>
+<hr>
+
+<h3><code>dash.dcc</code> 组件的常见属性和回调</h3>
+<p><code>dash.dcc</code> 组件的属性非常丰富，每个组件都有其特定的属性。</p><p>以下是一些常见组件的属性：</p>
+<ul>
+<li><p><code>dcc.Input</code>：</p>
+<ul>
+<li><code>id</code>：组件的唯一标识符。</li>
+<li><code>type</code>：输入类型，如 <code>text</code>、<code>number</code> 等。</li>
+<li><code>value</code>：输入框的当前值。</li>
+</ul>
+</li>
+<li><p><code>dcc.Dropdown</code>：</p>
+<ul>
+<li><code>id</code>：组件的唯一标识符。</li>
+<li><code>options</code>：下拉菜单的选项列表，每个选项是一个字典，包含 <code>label</code> 和 <code>value</code>。</li>
+<li><code>value</code>：当前选中的值。</li>
+</ul>
+</li>
+<li><p><code>dcc.Graph</code>：</p>
+<ul>
+<li><code>id</code>：组件的唯一标识符。</li>
+<li><code>figure</code>：要显示的图表对象，通常由 <code>plotly.express</code> 或 <code>plotly.graph_objects</code> 创建。</li>
+</ul>
+</li>
+<li><p><code>dcc.Slider</code>：</p>
+<ul>
+<li><code>id</code>：组件的唯一标识符。</li>
+<li><code>min</code>：滑块的最小值。</li>
+<li><code>max</code>：滑块的最大值。</li>
+<li><code>value</code>：滑块的当前值。</li>
+</ul>
+</li>
+</ul>
+<h4>回调函数</h4>
+<p>在 Dash 中，回调函数用于处理用户交互。回调函数通过 <code>@app.callback</code> 装饰器定义，并指定输入和输出组件。</p><p>以下是一个简单的回调函数示例：</p>
+
+<h3>实例</h3>
+
+<span style="color:Gray">@</span>app.<span style="color:#05a">callback</span><span style="color:Olive">(</span><br>
+    Output<span style="color:Olive">(</span><span style="color:#a11">'output-component'</span><span style="color:Gray">,</span> <span style="color:#a11">'children'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    <span style="color:Olive">[</span>Input<span style="color:Olive">(</span><span style="color:#a11">'input-component'</span><span style="color:Gray">,</span> <span style="color:#a11">'value'</span><span style="color:Olive">)</span><span style="color:Olive">]</span><br>
+<span style="color:Olive">)</span><br>
+<span style="color:Green">def</span> update_output<span style="color:Olive">(</span>value<span style="color:Olive">)</span>:<br>
+    <span style="color:Green">return</span> f<span style="color:#a11">'你输入的内容是: {value}'</span><br>
+
+<p>以上实例中，回调函数 <code>update_output</code> 会在 <code>input-component</code> 的值发生变化时被调用，并将新的值传递给 <code>output-component</code>。</p>
+<hr><h3>实际应用案例</h3>
+<p><code>dash.dcc</code> 组件在实际项目中有广泛的应用。以下是一个实际应用案例，展示了如何使用 <code>dash.dcc</code> 组件构建一个交互式数据可视化应用。</p>
+<h4>交互式数据可视化应用</h4>
+<p>假设我们有一个数据集，包含不同城市的温度和湿度数据。我们可以使用 <code>dash.dcc</code> 组件构建一个交互式应用，允许用户选择城市并查看相应的温度和湿度图表。</p>
+
+<h3>实例</h3>
+
+<span style="color:Green">import</span> dash<br>
+<span style="color:Green">from</span> dash <span style="color:Green">import</span> dcc<span style="color:Gray">,</span> html<br>
+<span style="color:Green">from</span> dash.<span style="color:#05a">dependencies</span> <span style="color:Green">import</span> Input<span style="color:Gray">,</span> Output<br>
+<span style="color:Green">import</span> plotly.<span style="color:#05a">express</span> <span style="color:Green">as</span> px<br>
+<span style="color:Green">import</span> pandas <span style="color:Green">as</span> pd<br>
+<br>
+<span style="color:#a50"># 创建一个 Dash 应用</span><br>
+app <span style="color:Gray">=</span> dash.<span style="color:#05a">Dash</span><span style="color:Olive">(</span>__name__<span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 创建示例数据</span><br>
+df <span style="color:Gray">=</span> pd.<span style="color:#05a">DataFrame</span><span style="color:Olive">(</span><span style="color:Olive">{</span><br>
+    <span style="color:#a11">'城市'</span>: <span style="color:Olive">[</span><span style="color:#a11">'北京'</span><span style="color:Gray">,</span> <span style="color:#a11">'上海'</span><span style="color:Gray">,</span> <span style="color:#a11">'广州'</span><span style="color:Gray">,</span> <span style="color:#a11">'深圳'</span><span style="color:Olive">]</span><span style="color:Gray">,</span><br>
+    <span style="color:#a11">'温度'</span>: <span style="color:Olive">[</span><span style="color:Maroon">20</span><span style="color:Gray">,</span> <span style="color:Maroon">25</span><span style="color:Gray">,</span> <span style="color:Maroon">30</span><span style="color:Gray">,</span> <span style="color:Maroon">28</span><span style="color:Olive">]</span><span style="color:Gray">,</span><br>
+    <span style="color:#a11">'湿度'</span>: <span style="color:Olive">[</span><span style="color:Maroon">50</span><span style="color:Gray">,</span> <span style="color:Maroon">60</span><span style="color:Gray">,</span> <span style="color:Maroon">70</span><span style="color:Gray">,</span> <span style="color:Maroon">65</span><span style="color:Olive">]</span><br>
+<span style="color:Olive">}</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义应用的布局</span><br>
+app.<span style="color:#05a">layout</span> <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Olive">[</span><br>
+    dcc.<span style="color:#05a">Dropdown</span><span style="color:Olive">(</span><br>
+        <span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'city-dropdown'</span><span style="color:Gray">,</span><br>
+        options<span style="color:Gray">=</span><span style="color:Olive">[</span><span style="color:Olive">{</span><span style="color:#a11">'label'</span>: city<span style="color:Gray">,</span> <span style="color:#a11">'value'</span>: city<span style="color:Olive">}</span> <span style="color:Green">for</span> city <span style="color:Green">in</span> df<span style="color:Olive">[</span><span style="color:#a11">'城市'</span><span style="color:Olive">]</span><span style="color:Olive">]</span><span style="color:Gray">,</span><br>
+        value<span style="color:Gray">=</span><span style="color:#a11">'北京'</span>  <span style="color:#a50"># 默认选中的城市</span><br>
+    <span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    dcc.<span style="color:#05a">Graph</span><span style="color:Olive">(</span><span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'temperature-graph'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    dcc.<span style="color:#05a">Graph</span><span style="color:Olive">(</span><span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'humidity-graph'</span><span style="color:Olive">)</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义回调函数</span><br>
+<span style="color:Gray">@</span>app.<span style="color:#05a">callback</span><span style="color:Olive">(</span><br>
+    <span style="color:Olive">[</span>Output<span style="color:Olive">(</span><span style="color:#a11">'temperature-graph'</span><span style="color:Gray">,</span> <span style="color:#a11">'figure'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+     Output<span style="color:Olive">(</span><span style="color:#a11">'humidity-graph'</span><span style="color:Gray">,</span> <span style="color:#a11">'figure'</span><span style="color:Olive">)</span><span style="color:Olive">]</span><span style="color:Gray">,</span><br>
+    <span style="color:Olive">[</span>Input<span style="color:Olive">(</span><span style="color:#a11">'city-dropdown'</span><span style="color:Gray">,</span> <span style="color:#a11">'value'</span><span style="color:Olive">)</span><span style="color:Olive">]</span><br>
+<span style="color:Olive">)</span><br>
+<span style="color:Green">def</span> update_graphs<span style="color:Olive">(</span>selected_city<span style="color:Olive">)</span>:<br>
+    filtered_df <span style="color:Gray">=</span> df<span style="color:Olive">[</span>df<span style="color:Olive">[</span><span style="color:#a11">'城市'</span><span style="color:Olive">]</span> <span style="color:Gray">==</span> selected_city<span style="color:Olive">]</span><br>
+    temperature_fig <span style="color:Gray">=</span> px.<span style="color:#05a">bar</span><span style="color:Olive">(</span>filtered_df<span style="color:Gray">,</span> x<span style="color:Gray">=</span><span style="color:#a11">'城市'</span><span style="color:Gray">,</span> y<span style="color:Gray">=</span><span style="color:#a11">'温度'</span><span style="color:Gray">,</span> title<span style="color:Gray">=</span><span style="color:#a11">'温度'</span><span style="color:Olive">)</span><br>
+    humidity_fig <span style="color:Gray">=</span> px.<span style="color:#05a">bar</span><span style="color:Olive">(</span>filtered_df<span style="color:Gray">,</span> x<span style="color:Gray">=</span><span style="color:#a11">'城市'</span><span style="color:Gray">,</span> y<span style="color:Gray">=</span><span style="color:#a11">'湿度'</span><span style="color:Gray">,</span> title<span style="color:Gray">=</span><span style="color:#a11">'湿度'</span><span style="color:Olive">)</span><br>
+    <span style="color:Green">return</span> temperature_fig<span style="color:Gray">,</span> humidity_fig<br>
+<br>
+<span style="color:#a50"># 运行应用</span><br>
+<span style="color:Green">if</span> __name__ <span style="color:Gray">==</span> <span style="color:#a11">'__main__'</span>:<br>
+    app.<span style="color:#05a">run</span><span style="color:Olive">(</span>debug<span style="color:Gray">=</span><span style="color:Teal">True</span><span style="color:Olive">)</span><br>
+
+<p>以上实例中，用户可以通过下拉菜单选择城市，应用会根据用户的选择更新温度和湿度的柱状图。</p>
+
+<p><img src="img/48513623a253dd40.png" loading="lazy"></p></div></section>
+<section class="ch" id="c8"><h2>8. Dash 回调函数<a class="chsrc" href="https://www.runoob.com/dash/dash-callback.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>Dash 允许开发者使用Python来创建动态的、响应式的用户界面。</p><p>Dash 的核心功能之一就是回调函数（Callback），它使得用户界面能够根据用户的输入或操作实时更新。</p>
+
+<p>回调函数是 Dash 中用于处理用户交互的核心机制，它允许你在用户与应用程序交互时，动态地更新应用程序的布局或数据。简单来说，回调函数是一个Python函数，它会在特定的输入发生变化时被触发，并根据这些输入的变化来更新输出。</p>
+<p>一个典型的 Dash 回调函数包含以下几个部分：</p>
+<ol>
+<li><strong>输入（Input）</strong>：指定哪些组件的属性变化会触发回调函数。</li>
+<li><strong>输出（Output）</strong>：指定回调函数执行后，哪些组件的属性会被更新。</li>
+<li><strong>状态（State）</strong>：可选参数，用于传递一些不会触发回调但需要在回调中使用的数据。</li>
+<li><strong>回调函数体</strong>：包含实际的逻辑代码，用于处理输入并生成输出。</li>
+</ol>
+
+<h4>回调函数的基本结构</h4>
+
+<pre>@app.callback(
+    Output(component_id='output-component', component_property='output-property'),
+    Input(component_id='input-component', component_property='input-property')
+)
+def update_output(input_value):
+    # 根据输入值计算输出值
+    return output_value</pre>
+<ol><li><p><strong><code>Output</code></strong>：</p><ul><li><p>指定回调函数的输出目标。</p></li><li><p><code>component_id</code>：目标组件的 ID。</p></li><li><p><code>component_property</code>：目标组件的属性（如 <code>children</code>、<code>value</code> 等）。</p></li></ul></li><li><p><strong><code>Input</code></strong>：</p><ul><li><p>指定回调函数的输入来源。</p></li><li><p><code>component_id</code>：输入组件的 ID。</p></li><li><p><code>component_property</code>：输入组件的属性（如 <code>value</code>、<code>n_clicks</code> 等）。</p></li></ul></li><li><p><strong>回调函数</strong>：</p><ul><li><p>接收输入值，计算并返回输出值。</p></li><li><p>函数名可以自定义（如 <code>update_output</code>）。</p></li></ul></li></ol>
+<h4>实例</h4>
+<p>以下示例展示了如何根据输入框的值动态更新文本内容：</p>
+
+<h3>实例</h3>
+
+<span style="color:Green">from</span> dash <span style="color:Green">import</span> Dash<span style="color:Gray">,</span> html<span style="color:Gray">,</span> dcc<span style="color:Gray">,</span> Input<span style="color:Gray">,</span> Output<br>
+<br>
+<span style="color:#a50"># 创建 Dash 应用</span><br>
+app <span style="color:Gray">=</span> Dash<span style="color:Olive">(</span>__name__<span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义布局</span><br>
+app.<span style="color:#05a">layout</span> <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Olive">[</span><br>
+    dcc.<span style="color:#05a">Input</span><span style="color:Olive">(</span><span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'input'</span><span style="color:Gray">,</span> <span style="color:Teal">type</span><span style="color:Gray">=</span><span style="color:#a11">'text'</span><span style="color:Gray">,</span> placeholder<span style="color:Gray">=</span><span style="color:#a11">'请输入内容...'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'output'</span><span style="color:Olive">)</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义回调函数</span><br>
+<span style="color:Gray">@</span>app.<span style="color:#05a">callback</span><span style="color:Olive">(</span><br>
+    Output<span style="color:Olive">(</span><span style="color:#a11">'output'</span><span style="color:Gray">,</span> <span style="color:#a11">'children'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    Input<span style="color:Olive">(</span><span style="color:#a11">'input'</span><span style="color:Gray">,</span> <span style="color:#a11">'value'</span><span style="color:Olive">)</span><br>
+<span style="color:Olive">)</span><br>
+<span style="color:Green">def</span> update_output<span style="color:Olive">(</span>input_value<span style="color:Olive">)</span>:<br>
+    <span style="color:Green">return</span> f<span style="color:#a11">'你输入了: {input_value}'</span><br>
+<br>
+<span style="color:#a50"># 运行应用</span><br>
+<span style="color:Green">if</span> __name__ <span style="color:Gray">==</span> <span style="color:#a11">'__main__'</span>:<br>
+    app.<span style="color:#05a">run</span><span style="color:Olive">(</span>debug<span style="color:Gray">=</span><span style="color:Teal">True</span><span style="color:Olive">)</span><br>
+
+<p>以下示例展示了如何根据下拉菜单的选择动态更新图表：</p>
+
+<h3>实例</h3> 
+<span style="color:Green">from</span> dash <span style="color:Green">import</span> Dash<span style="color:Gray">,</span> html<span style="color:Gray">,</span> dcc<span style="color:Gray">,</span> Input<span style="color:Gray">,</span> Output<br>
+<span style="color:Green">import</span> plotly.<span style="color:#05a">express</span> <span style="color:Green">as</span> px<br>
+<span style="color:Green">import</span> pandas <span style="color:Green">as</span> pd<br>
+<br>
+<span style="color:#a50"># 创建 Dash 应用</span><br>
+app <span style="color:Gray">=</span> Dash<span style="color:Olive">(</span>__name__<span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 示例数据</span><br>
+df <span style="color:Gray">=</span> pd.<span style="color:#05a">DataFrame</span><span style="color:Olive">(</span><span style="color:Olive">{</span><br>
+    <span style="color:#a11">'城市'</span>: <span style="color:Olive">[</span><span style="color:#a11">'北京'</span><span style="color:Gray">,</span> <span style="color:#a11">'上海'</span><span style="color:Gray">,</span> <span style="color:#a11">'广州'</span><span style="color:Gray">,</span> <span style="color:#a11">'深圳'</span><span style="color:Olive">]</span><span style="color:Gray">,</span><br>
+    <span style="color:#a11">'人口'</span>: <span style="color:Olive">[</span><span style="color:Maroon">2171</span><span style="color:Gray">,</span> <span style="color:Maroon">2424</span><span style="color:Gray">,</span> <span style="color:Maroon">1490</span><span style="color:Gray">,</span> <span style="color:Maroon">1303</span><span style="color:Olive">]</span><br>
+<span style="color:Olive">}</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义布局</span><br>
+app.<span style="color:#05a">layout</span> <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Olive">[</span><br>
+    dcc.<span style="color:#05a">Dropdown</span><span style="color:Olive">(</span><br>
+        <span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'dropdown'</span><span style="color:Gray">,</span><br>
+        options<span style="color:Gray">=</span><span style="color:Olive">[</span><span style="color:Olive">{</span><span style="color:#a11">'label'</span>: city<span style="color:Gray">,</span> <span style="color:#a11">'value'</span>: city<span style="color:Olive">}</span> <span style="color:Green">for</span> city <span style="color:Green">in</span> df<span style="color:Olive">[</span><span style="color:#a11">'城市'</span><span style="color:Olive">]</span><span style="color:Olive">]</span><span style="color:Gray">,</span><br>
+        value<span style="color:Gray">=</span><span style="color:#a11">'北京'</span>  <span style="color:#a50"># 默认值</span><br>
+    <span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    dcc.<span style="color:#05a">Graph</span><span style="color:Olive">(</span><span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'graph'</span><span style="color:Olive">)</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义回调函数</span><br>
+<span style="color:Gray">@</span>app.<span style="color:#05a">callback</span><span style="color:Olive">(</span><br>
+    Output<span style="color:Olive">(</span><span style="color:#a11">'graph'</span><span style="color:Gray">,</span> <span style="color:#a11">'figure'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    Input<span style="color:Olive">(</span><span style="color:#a11">'dropdown'</span><span style="color:Gray">,</span> <span style="color:#a11">'value'</span><span style="color:Olive">)</span><br>
+<span style="color:Olive">)</span><br>
+<span style="color:Green">def</span> update_graph<span style="color:Olive">(</span>selected_city<span style="color:Olive">)</span>:<br>
+    filtered_df <span style="color:Gray">=</span> df<span style="color:Olive">[</span>df<span style="color:Olive">[</span><span style="color:#a11">'城市'</span><span style="color:Olive">]</span> <span style="color:Gray">==</span> selected_city<span style="color:Olive">]</span><br>
+    fig <span style="color:Gray">=</span> px.<span style="color:#05a">bar</span><span style="color:Olive">(</span>filtered_df<span style="color:Gray">,</span> x<span style="color:Gray">=</span><span style="color:#a11">'城市'</span><span style="color:Gray">,</span> y<span style="color:Gray">=</span><span style="color:#a11">'人口'</span><span style="color:Gray">,</span> title<span style="color:Gray">=</span>f<span style="color:#a11">'{selected_city} 人口数据'</span><span style="color:Olive">)</span><br>
+    <span style="color:Green">return</span> fig<br>
+<br>
+<span style="color:#a50"># 运行应用</span><br>
+<span style="color:Green">if</span> __name__ <span style="color:Gray">==</span> <span style="color:#a11">'__main__'</span>:<br>
+    app.<span style="color:#05a">run</span><span style="color:Olive">(</span>debug<span style="color:Gray">=</span><span style="color:Teal">True</span><span style="color:Olive">)</span><br>
+
+<p>
+以上代码执行后，在下拉菜单中选择城市，图表会动态更新显示该城市的人口数据。</p>
+<p><img src="img/3cce38759c32bac1.png" loading="lazy"></p>
+<p>以下实例，用户输入数字后，显示该数字的平方：</p>
+<h3>实例</h3> 
+<span style="color:Green">from</span> dash <span style="color:Green">import</span> Dash<span style="color:Gray">,</span> html<span style="color:Gray">,</span> dcc<span style="color:Gray">,</span> Input<span style="color:Gray">,</span> Output<br>
+<br>
+<span style="color:#a50"># 创建 Dash 应用</span><br>
+app <span style="color:Gray">=</span> Dash<span style="color:Olive">(</span>__name__<span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义布局</span><br>
+app.<span style="color:#05a">layout</span> <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Olive">[</span><br>
+    html.<span style="color:#05a">H1</span><span style="color:Olive">(</span><span style="color:#a11">"计算平方"</span><span style="color:Olive">)</span><span style="color:Gray">,</span>  <span style="color:#a50"># 标题</span><br>
+    dcc.<span style="color:#05a">Input</span><span style="color:Olive">(</span><br>
+        <span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'number-input'</span><span style="color:Gray">,</span>  <span style="color:#a50"># 输入框的 ID</span><br>
+        <span style="color:Teal">type</span><span style="color:Gray">=</span><span style="color:#a11">'number'</span><span style="color:Gray">,</span>  <span style="color:#a50"># 输入框类型为数字</span><br>
+        placeholder<span style="color:Gray">=</span><span style="color:#a11">'请输入一个数字...'</span><span style="color:Gray">,</span>  <span style="color:#a50"># 输入框的提示文字</span><br>
+        value<span style="color:Gray">=</span><span style="color:#a11">''</span>  <span style="color:#a50"># 初始值为空</span><br>
+    <span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'output'</span><span style="color:Olive">)</span>  <span style="color:#a50"># 用于显示结果的 Div</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义回调函数</span><br>
+<span style="color:Gray">@</span>app.<span style="color:#05a">callback</span><span style="color:Olive">(</span><br>
+    Output<span style="color:Olive">(</span><span style="color:#a11">'output'</span><span style="color:Gray">,</span> <span style="color:#a11">'children'</span><span style="color:Olive">)</span><span style="color:Gray">,</span>  <span style="color:#a50"># 输出到 id 为 'output' 的 Div 的 children 属性</span><br>
+    Input<span style="color:Olive">(</span><span style="color:#a11">'number-input'</span><span style="color:Gray">,</span> <span style="color:#a11">'value'</span><span style="color:Olive">)</span>  <span style="color:#a50"># 输入来自 id 为 'number-input' 的输入框的 value 属性</span><br>
+<span style="color:Olive">)</span><br>
+<span style="color:Green">def</span> calculate_square<span style="color:Olive">(</span>number<span style="color:Olive">)</span>:<br>
+    <span style="color:Green">if</span> number <span style="color:Green">is</span> <span style="color:Teal">None</span> <span style="color:Green">or</span> number <span style="color:Gray">==</span> <span style="color:#a11">''</span>:  <span style="color:#a50"># 如果输入为空</span><br>
+        <span style="color:Green">return</span> <span style="color:#a11">'请输入一个数字。'</span><br>
+    <span style="color:Green">try</span>:<br>
+        number <span style="color:Gray">=</span> <span style="color:Teal">float</span><span style="color:Olive">(</span>number<span style="color:Olive">)</span>  <span style="color:#a50"># 将输入转换为浮点数</span><br>
+        square <span style="color:Gray">=</span> number ** <span style="color:Maroon">2</span>  <span style="color:#a50"># 计算平方</span><br>
+        <span style="color:Green">return</span> f<span style="color:#a11">'{number} 的平方是: {square}'</span>  <span style="color:#a50"># 返回结果</span><br>
+    <span style="color:Green">except</span> <span style="color:Teal">ValueError</span>:  <span style="color:#a50"># 如果输入不是数字</span><br>
+        <span style="color:Green">return</span> <span style="color:#a11">'请输入有效的数字。'</span><br>
+<br>
+<span style="color:#a50"># 运行应用</span><br>
+<span style="color:Green">if</span> __name__ <span style="color:Gray">==</span> <span style="color:#a11">'__main__'</span>:<br>
+    app.<span style="color:#05a">run</span><span style="color:Olive">(</span>debug<span style="color:Gray">=</span><span style="color:Teal">True</span><span style="color:Olive">)</span>  <span style="color:#a50"># 启动应用，debug=True 表示开启调试模式</span><br>
+
+<p><strong>代码说明：</strong></p>
+
+        <p><strong>1、布局部分</strong>：</p>
+        <ul>
+            <li>
+                <p>使用 <code>html.H1</code> 创建一个标题"计算平方"。</p>
+            </li>
+            <li>
+                <p>使用 <code>dcc.Input</code> 创建一个数字输入框，<code>id</code> 为 <code>number-input</code>，类型为 <code>number</code>。</p>
+            </li>
+            <li>
+                <p>使用 <code>html.Div</code> 创建一个用于显示结果的区域，<code>id</code> 为 <code>output</code>。</p>
+            </li>
+        </ul>
+   
+        <p><strong>2、回调函数</strong>：</p>
+        <ul>
+            <li>
+                <p>使用 <code>@app.callback</code> 装饰器定义回调函数。</p>
+            </li>
+            <li>
+                <p>输入是 <code>number-input</code> 输入框的 <code>value</code> 属性。</p>
+            </li>
+            <li>
+                <p>输出是 <code>output</code> Div 的 <code>children</code> 属性。</p>
+            </li>
+            <li>
+                <p>在回调函数中：</p>
+                <ul>
+                    <li>
+                        <p>检查输入是否为空。</p>
+                    </li>
+                    <li>
+                        <p>将输入转换为浮点数并计算平方。</p>
+                    </li>
+                    <li>
+                        <p>返回格式化后的结果。</p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+  
+        <p><strong>3、运行应用</strong>：使用 <code>app.run(debug=True)</code> 启动应用，<code>debug=True</code> 表示开启调试模式，运行效果显示如下：</p>
+        
+  <p><img src="img/ffa01d23b8a81c0f.png" loading="lazy"></p>
+
+<hr>
+<h3>回调函数的工作原理</h3>
+<h4>1. 输入与输出的绑定</h4>
+<p>在 Dash 中，回调函数的输入和输出是通过 <code>Input</code> 和 <code>Output</code> 对象来指定的。<code>Input</code> 对象指定了哪些组件的哪些属性变化会触发回调函数，而 <code>Output</code> 对象指定了回调函数执行后，哪些组件的哪些属性会被更新。</p>
+<h4>2. 回调函数的触发</h4>
+<p>当用户在界面上进行操作（例如输入文本、点击按钮等）时，相关的组件属性会发生变化。Dash 会检测到这些变化，并自动调用与之绑定的回调函数。</p>
+<h4>3. 回调函数的执行</h4>
+<p>回调函数执行时，Dash会将输入属性的当前值作为参数传递给回调函数。回调函数根据这些输入值进行计算或处理，并返回输出属性的新值。Dash会自动将返回的值更新到指定的组件属性中。</p><hr>
+<h3>回调函数的高级用法</h3>
+<h4>1. 多个输入与输出</h4>
+<p>一个回调函数可以有多个输入和输出。例如：</p>
+
+<h3>实例</h3>
+
+<span style="color:Gray">@</span>app.<span style="color:#05a">callback</span><span style="color:Olive">(</span><br>
+    <span style="color:Olive">[</span>Output<span style="color:Olive">(</span><span style="color:#a11">'output-div-1'</span><span style="color:Gray">,</span> <span style="color:#a11">'children'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+     Output<span style="color:Olive">(</span><span style="color:#a11">'output-div-2'</span><span style="color:Gray">,</span> <span style="color:#a11">'children'</span><span style="color:Olive">)</span><span style="color:Olive">]</span><span style="color:Gray">,</span><br>
+    <span style="color:Olive">[</span>Input<span style="color:Olive">(</span><span style="color:#a11">'input-1'</span><span style="color:Gray">,</span> <span style="color:#a11">'value'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+     Input<span style="color:Olive">(</span><span style="color:#a11">'input-2'</span><span style="color:Gray">,</span> <span style="color:#a11">'value'</span><span style="color:Olive">)</span><span style="color:Olive">]</span><br>
+<span style="color:Olive">)</span><br>
+<span style="color:Green">def</span> update_outputs<span style="color:Olive">(</span>input1<span style="color:Gray">,</span> input2<span style="color:Olive">)</span>:<br>
+    <span style="color:Green">return</span> f<span style="color:#a11">'Input 1: {input1}'</span><span style="color:Gray">,</span> f<span style="color:#a11">'Input 2: {input2}'</span><br>
+
+<p>在这个例子中，回调函数<code>update_outputs</code>有两个输入和两个输出。当<code>input-1</code>或<code>input-2</code>的值发生变化时，回调函数会被触发，并更新两个输出组件的<code>children</code>属性。</p>
+<h4>2. 使用状态（State）</h4>
+<p>有时候，你可能需要在回调函数中使用一些不会触发回调的数据。这时可以使用<code>State</code>对象。<code>State</code>对象与<code>Input</code>对象类似，但它不会触发回调函数。</p>
+
+<h3>实例</h3>
+
+<span style="color:Gray">@</span>app.<span style="color:#05a">callback</span><span style="color:Olive">(</span><br>
+    Output<span style="color:Olive">(</span><span style="color:#a11">'output-div'</span><span style="color:Gray">,</span> <span style="color:#a11">'children'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    <span style="color:Olive">[</span>Input<span style="color:Olive">(</span><span style="color:#a11">'submit-button'</span><span style="color:Gray">,</span> <span style="color:#a11">'n_clicks'</span><span style="color:Olive">)</span><span style="color:Olive">]</span><span style="color:Gray">,</span><br>
+    <span style="color:Olive">[</span>State<span style="color:Olive">(</span><span style="color:#a11">'input-text'</span><span style="color:Gray">,</span> <span style="color:#a11">'value'</span><span style="color:Olive">)</span><span style="color:Olive">]</span><br>
+<span style="color:Olive">)</span><br>
+<span style="color:Green">def</span> update_output<span style="color:Olive">(</span>n_clicks<span style="color:Gray">,</span> input_value<span style="color:Olive">)</span>:<br>
+    <span style="color:Green">if</span> n_clicks <span style="color:Green">is</span> <span style="color:Teal">None</span>:<br>
+        <span style="color:Green">return</span> <span style="color:#a11">'No clicks yet'</span><br>
+    <span style="color:Green">return</span> f<span style="color:#a11">'Button clicked {n_clicks} times. Input: {input_value}'</span><br>
+
+<p>在这个例子中，<code>n_clicks</code>是触发回调的输入，而<code>input_value</code>是回调函数中使用的状态。只有当按钮被点击时，回调函数才会被触发，但回调函数中可以使用输入框的当前值。</p>
+<h4>3. 防止回调函数重复执行</h4>
+<p>在某些情况下，回调函数可能会被频繁触发，导致性能问题。为了避免这种情况，可以使用<code>dash.no_update</code>来防止不必要的更新。</p>
+
+<h3>实例</h3>
+
+<span style="color:Gray">@</span>app.<span style="color:#05a">callback</span><span style="color:Olive">(</span><br>
+    Output<span style="color:Olive">(</span><span style="color:#a11">'output-div'</span><span style="color:Gray">,</span> <span style="color:#a11">'children'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    <span style="color:Olive">[</span>Input<span style="color:Olive">(</span><span style="color:#a11">'input-text'</span><span style="color:Gray">,</span> <span style="color:#a11">'value'</span><span style="color:Olive">)</span><span style="color:Olive">]</span><br>
+<span style="color:Olive">)</span><br>
+<span style="color:Green">def</span> update_output<span style="color:Olive">(</span>input_value<span style="color:Olive">)</span>:<br>
+    <span style="color:Green">if</span> <span style="color:Green">not</span> input_value:<br>
+        <span style="color:Green">return</span> dash.<span style="color:#05a">no_update</span><br>
+    <span style="color:Green">return</span> f<span style="color:#a11">'You have entered: {input_value}'</span><br>
+
+<p>在这个例子中，如果输入框的值为空，回调函数将不会更新输出组件。</p><hr>
+<h3>常见问题与解决方案</h3>
+<h4>1. 回调函数未触发</h4>
+<p>如果回调函数没有按预期触发，可能是以下原因之一：</p>
+<ul>
+<li><strong>输入或输出ID不匹配</strong>：确保<code>Input</code>和<code>Output</code>中的组件ID与布局中的ID一致。</li>
+<li><strong>属性名称错误</strong>：确保<code>Input</code>和<code>Output</code>中的属性名称正确。</li>
+<li><strong>回调函数未注册</strong>：确保回调函数被正确注册到应用程序中。</li>
+</ul>
+<h4>2. 回调函数执行缓慢</h4>
+<p>如果回调函数执行缓慢，可以考虑以下优化方法：</p>
+<ul>
+<li><strong>减少回调函数的计算量</strong>：尽量避免在回调函数中进行复杂的计算。</li>
+<li><strong>使用缓存</strong>：对于重复的计算结果，可以使用缓存来减少计算时间。</li>
+<li><strong>异步回调</strong>：对于长时间运行的任务，可以使用异步回调来避免阻塞主线程。</li>
+</ul></div></section>
+<section class="ch" id="c9"><h2>9. Dash Plotly<a class="chsrc" href="https://www.runoob.com/dash/dash-dataviews-plotly.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>在数据科学和分析领域，数据可视化是一个至关重要的环节，通过可视化，我们可以更直观地理解数据，发现其中的模式和趋势。</p>
+<p>Dash 的核心可视化功能依赖于 Plotly，这是一个强大的开源数据可视化库，Plotly 提供了丰富的图表类型和高度可定制的选项，能够轻松创建交互式图表。</p><p>Dash 通过 dcc.Graph 组件与 Plotly 无缝集成，用户可以直接在 Dash 应用中嵌入 Plotly 图表。</p>
+
+<h4>什么是 Plotly？</h4>
+<p>Plotly 是一个基于 JavaScript 的开源数据可视化库，支持多种编程语言，包括 Python、R、Julia 等。</p><p>Plotly 提供了丰富的图表类型，如折线图、柱状图、散点图、热力图等，并且支持交互功能，如缩放、平移、悬停提示等。</p>
+<p><strong>Plotly 特点：</strong></p>
+<ul><li><p><strong>丰富的图表类型</strong>：折线图、柱状图、散点图、饼图、热力图、3D 图等。</p></li><li><p><strong>交互性</strong>：支持缩放、平移、悬停提示等交互功能。</p></li><li><p><strong>高度可定制</strong>：可以自定义图表的颜色、布局、注释等。</p></li><li><p><strong>与 Dash 无缝集成</strong>：通过 <code>dcc.Graph</code> 组件直接在 Dash 应用中嵌入 Plotly 图表。</p></li></ul>
+<h4>Plotly 的核心优势</h4>
+<ul>
+<li><strong>交互性</strong>: Plotly 图表支持丰富的交互功能，用户可以通过鼠标操作与图表进行互动。</li>
+<li><strong>多样性</strong>: Plotly 提供了多种图表类型，适用于不同的数据可视化需求。</li>
+<li><strong>易用性</strong>: Plotly 的 API 设计简洁，易于上手，同时支持高级定制。</li>
+</ul><hr>
+<h3>Dash 与 Plotly 集成</h3>
+<h4>1、安装 Dash 和 Plotly</h4>
+<p>在开始之前，我们需要安装 Dash 和 Plotly。可以通过以下命令进行安装：</p>
+<pre>
+pip install dash plotly
+或
+pip3 install dash plotly
+</pre>
+<p><span class="marked">dcc.Graph</span> 是 Dash 中用于显示 Plotly 图表的组件。它的核心参数是 figure，用于指定图表的数据和布局。</p>
+<p><strong>figure 参数：</strong></p><ul><li><p><code>data</code>：图表的数据部分，是一个字典列表，每个字典表示一个数据系列。</p></li><li><p><code>layout</code>：图表的布局部分，用于设置标题、坐标轴、图例等。</p></li></ul>
+<h3>实例</h3> 
+<span style="color:Green">import</span> dash<br>
+<span style="color:Green">from</span> dash <span style="color:Green">import</span> dcc<span style="color:Gray">,</span> html<br>
+<span style="color:Green">import</span> plotly.<span style="color:#05a">express</span> <span style="color:Green">as</span> px<br>
+<br>
+<span style="color:#a50"># 创建 Dash 应用</span><br>
+app <span style="color:Gray">=</span> dash.<span style="color:#05a">Dash</span><span style="color:Olive">(</span>__name__<span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义布局</span><br>
+app.<span style="color:#05a">layout</span> <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Olive">[</span><br>
+    dcc.<span style="color:#05a">Graph</span><span style="color:Olive">(</span><br>
+        <span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'example-graph'</span><span style="color:Gray">,</span><br>
+        figure<span style="color:Gray">=</span><span style="color:Olive">{</span><br>
+            <span style="color:#a11">'data'</span>: <span style="color:Olive">[</span><span style="color:Olive">{</span><span style="color:#a11">'x'</span>: <span style="color:Olive">[</span><span style="color:Maroon">1</span><span style="color:Gray">,</span> <span style="color:Maroon">2</span><span style="color:Gray">,</span> <span style="color:Maroon">3</span><span style="color:Olive">]</span><span style="color:Gray">,</span> <span style="color:#a11">'y'</span>: <span style="color:Olive">[</span><span style="color:Maroon">4</span><span style="color:Gray">,</span> <span style="color:Maroon">1</span><span style="color:Gray">,</span> <span style="color:Maroon">2</span><span style="color:Olive">]</span><span style="color:Gray">,</span> <span style="color:#a11">'type'</span>: <span style="color:#a11">'bar'</span><span style="color:Gray">,</span> <span style="color:#a11">'name'</span>: <span style="color:#a11">'数据1'</span><span style="color:Olive">}</span><span style="color:Olive">]</span><span style="color:Gray">,</span><br>
+            <span style="color:#a11">'layout'</span>: <span style="color:Olive">{</span><span style="color:#a11">'title'</span>: <span style="color:#a11">'示例图表'</span><span style="color:Olive">}</span><br>
+        <span style="color:Olive">}</span><br>
+    <span style="color:Olive">)</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 运行应用</span><br>
+<span style="color:Green">if</span> __name__ <span style="color:Gray">==</span> <span style="color:#a11">'__main__'</span>:<br>
+    app.<span style="color:#05a">run</span><span style="color:Olive">(</span>debug<span style="color:Gray">=</span><span style="color:Teal">True</span><span style="color:Olive">)</span><br>
+
+<p>显示效果如下：</p>
+<p><img src="img/3ec5bb644b7aa18c.png" loading="lazy"></p>
+<h4>2、创建一个简单的 Dash 应用</h4>
+<p>首先，我们创建一个简单的 Dash 应用，展示一个基本的 Plotly 图表。</p>
+
+<h3>实例</h3>
+
+<span style="color:Green">import</span> dash<br>
+<span style="color:Green">from</span> dash <span style="color:Green">import</span> dcc<span style="color:Gray">,</span> html<br>
+<span style="color:Green">import</span> plotly.<span style="color:#05a">express</span> <span style="color:Green">as</span> px<br>
+<span style="color:Green">import</span> pandas <span style="color:Green">as</span> pd<br>
+<br>
+<span style="color:#a50"># 创建一个示例数据集</span><br>
+df <span style="color:Gray">=</span> pd.<span style="color:#05a">DataFrame</span><span style="color:Olive">(</span><span style="color:Olive">{</span><br>
+    <span style="color:#a11">"Fruit"</span>: <span style="color:Olive">[</span><span style="color:#a11">"Apples"</span><span style="color:Gray">,</span> <span style="color:#a11">"Oranges"</span><span style="color:Gray">,</span> <span style="color:#a11">"Bananas"</span><span style="color:Gray">,</span> <span style="color:#a11">"Apples"</span><span style="color:Gray">,</span> <span style="color:#a11">"Oranges"</span><span style="color:Gray">,</span> <span style="color:#a11">"Bananas"</span><span style="color:Olive">]</span><span style="color:Gray">,</span><br>
+    <span style="color:#a11">"Amount"</span>: <span style="color:Olive">[</span><span style="color:Maroon">4</span><span style="color:Gray">,</span> <span style="color:Maroon">1</span><span style="color:Gray">,</span> <span style="color:Maroon">2</span><span style="color:Gray">,</span> <span style="color:Maroon">2</span><span style="color:Gray">,</span> <span style="color:Maroon">4</span><span style="color:Gray">,</span> <span style="color:Maroon">5</span><span style="color:Olive">]</span><span style="color:Gray">,</span><br>
+    <span style="color:#a11">"City"</span>: <span style="color:Olive">[</span><span style="color:#a11">"SF"</span><span style="color:Gray">,</span> <span style="color:#a11">"SF"</span><span style="color:Gray">,</span> <span style="color:#a11">"SF"</span><span style="color:Gray">,</span> <span style="color:#a11">"NYC"</span><span style="color:Gray">,</span> <span style="color:#a11">"NYC"</span><span style="color:Gray">,</span> <span style="color:#a11">"NYC"</span><span style="color:Olive">]</span><br>
+<span style="color:Olive">}</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 创建一个 Plotly 图表</span><br>
+fig <span style="color:Gray">=</span> px.<span style="color:#05a">bar</span><span style="color:Olive">(</span>df<span style="color:Gray">,</span> x<span style="color:Gray">=</span><span style="color:#a11">"Fruit"</span><span style="color:Gray">,</span> y<span style="color:Gray">=</span><span style="color:#a11">"Amount"</span><span style="color:Gray">,</span> color<span style="color:Gray">=</span><span style="color:#a11">"City"</span><span style="color:Gray">,</span> barmode<span style="color:Gray">=</span><span style="color:#a11">"group"</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 初始化 Dash 应用</span><br>
+app <span style="color:Gray">=</span> dash.<span style="color:#05a">Dash</span><span style="color:Olive">(</span>__name__<span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义应用的布局</span><br>
+app.<span style="color:#05a">layout</span> <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span>children<span style="color:Gray">=</span><span style="color:Olive">[</span><br>
+    html.<span style="color:#05a">H1</span><span style="color:Olive">(</span>children<span style="color:Gray">=</span><span style="color:#a11">'Hello Dash'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+<br>
+    html.<span style="color:#05a">Div</span><span style="color:Olive">(</span>children<span style="color:Gray">=</span><span style="color:#a11">'''<br>
+        Dash: A web application framework for Python.<br>
+    '''</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+<br>
+    dcc.<span style="color:#05a">Graph</span><span style="color:Olive">(</span><br>
+        <span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'example-graph'</span><span style="color:Gray">,</span><br>
+        figure<span style="color:Gray">=</span>fig<br>
+    <span style="color:Olive">)</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 运行应用</span><br>
+<span style="color:Green">if</span> __name__ <span style="color:Gray">==</span> <span style="color:#a11">'__main__'</span>:<br>
+    app.<span style="color:#05a">run</span><span style="color:Olive">(</span>debug<span style="color:Gray">=</span><span style="color:Teal">True</span><span style="color:Olive">)</span><br>
+
+<p><strong>代码解析:</strong></p>
+<ul>
+<li><strong>数据集创建</strong>: 我们使用 <code>pandas</code> 创建了一个简单的数据集 <code>df</code>，包含水果、数量和城市信息。</li>
+<li><strong>图表创建</strong>: 使用 <code>plotly.express</code> 的 <code>px.bar</code> 函数创建了一个柱状图，展示了不同城市中各种水果的数量。</li>
+<li><strong>Dash 应用布局</strong>: 使用 <code>html.Div</code> 和 <code>dcc.Graph</code> 定义了应用的布局，其中 <code>dcc.Graph</code> 用于嵌入 Plotly 图表。</li>
+<li><strong>运行应用</strong>: 通过 <code>app.run(debug=True)</code> 启动应用，并开启调试模式。</li>
+</ul><p>
+显示效果如下：
+</p>
+<p><img src="img/6b11038cb7850fe0.png" loading="lazy"></p>
+<h4>3、添加交互功能</h4>
+<p>Dash 的强大之处在于其交互功能，我们可以通过 Dash 的回调机制，动态更新图表内容。</p>
+
+<h3>实例</h3>
+
+<span style="color:Green">from</span> dash.<span style="color:#05a">dependencies</span> <span style="color:Green">import</span> Input<span style="color:Gray">,</span> Output<br>
+<br>
+<span style="color:#a50"># 更新应用的布局，添加一个下拉菜单</span><br>
+app.<span style="color:#05a">layout</span> <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span>children<span style="color:Gray">=</span><span style="color:Olive">[</span><br>
+    html.<span style="color:#05a">H1</span><span style="color:Olive">(</span>children<span style="color:Gray">=</span><span style="color:#a11">'Hello Dash'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+<br>
+    html.<span style="color:#05a">Div</span><span style="color:Olive">(</span>children<span style="color:Gray">=</span><span style="color:#a11">'''<br>
+        Dash: A web application framework for Python.<br>
+    '''</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+<br>
+    dcc.<span style="color:#05a">Dropdown</span><span style="color:Olive">(</span><br>
+        <span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'city-dropdown'</span><span style="color:Gray">,</span><br>
+        options<span style="color:Gray">=</span><span style="color:Olive">[</span><br>
+            <span style="color:Olive">{</span><span style="color:#a11">'label'</span>: <span style="color:#a11">'San Francisco'</span><span style="color:Gray">,</span> <span style="color:#a11">'value'</span>: <span style="color:#a11">'SF'</span><span style="color:Olive">}</span><span style="color:Gray">,</span><br>
+            <span style="color:Olive">{</span><span style="color:#a11">'label'</span>: <span style="color:#a11">'New York City'</span><span style="color:Gray">,</span> <span style="color:#a11">'value'</span>: <span style="color:#a11">'NYC'</span><span style="color:Olive">}</span><br>
+        <span style="color:Olive">]</span><span style="color:Gray">,</span><br>
+        value<span style="color:Gray">=</span><span style="color:#a11">'SF'</span><br>
+    <span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+<br>
+    dcc.<span style="color:#05a">Graph</span><span style="color:Olive">(</span><br>
+        <span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'example-graph'</span><span style="color:Gray">,</span><br>
+    <span style="color:Olive">)</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义回调函数</span><br>
+<span style="color:Gray">@</span>app.<span style="color:#05a">callback</span><span style="color:Olive">(</span><br>
+    Output<span style="color:Olive">(</span><span style="color:#a11">'example-graph'</span><span style="color:Gray">,</span> <span style="color:#a11">'figure'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    <span style="color:Olive">[</span>Input<span style="color:Olive">(</span><span style="color:#a11">'city-dropdown'</span><span style="color:Gray">,</span> <span style="color:#a11">'value'</span><span style="color:Olive">)</span><span style="color:Olive">]</span><br>
+<span style="color:Olive">)</span><br>
+<span style="color:Green">def</span> update_graph<span style="color:Olive">(</span>selected_city<span style="color:Olive">)</span>:<br>
+    filtered_df <span style="color:Gray">=</span> df<span style="color:Olive">[</span>df<span style="color:Olive">[</span><span style="color:#a11">'City'</span><span style="color:Olive">]</span> <span style="color:Gray">==</span> selected_city<span style="color:Olive">]</span><br>
+    fig <span style="color:Gray">=</span> px.<span style="color:#05a">bar</span><span style="color:Olive">(</span>filtered_df<span style="color:Gray">,</span> x<span style="color:Gray">=</span><span style="color:#a11">"Fruit"</span><span style="color:Gray">,</span> y<span style="color:Gray">=</span><span style="color:#a11">"Amount"</span><span style="color:Gray">,</span> color<span style="color:Gray">=</span><span style="color:#a11">"City"</span><span style="color:Gray">,</span> barmode<span style="color:Gray">=</span><span style="color:#a11">"group"</span><span style="color:Olive">)</span><br>
+    <span style="color:Green">return</span> fig<br>
+<br>
+<span style="color:#a50"># 运行应用</span><br>
+<span style="color:Green">if</span> __name__ <span style="color:Gray">==</span> <span style="color:#a11">'__main__'</span>:<br>
+    app.<span style="color:#05a">run</span><span style="color:Olive">(</span>debug<span style="color:Gray">=</span><span style="color:Teal">True</span><span style="color:Olive">)</span><br>
+
+<p><strong>代码解析：</strong></p>
+<ul>
+<li><strong>下拉菜单</strong>: 添加了一个 <code>dcc.Dropdown</code> 组件，用户可以选择不同的城市。</li>
+<li><strong>回调函数</strong>: 使用 <code>@app.callback</code> 装饰器定义了一个回调函数 <code>update_graph</code>，当用户选择不同的城市时，图表会动态更新。</li>
+<li><strong>图表更新</strong>: 回调函数根据用户选择的城市过滤数据集，并更新图表。</li>
+</ul><p>
+显示效果如下：</p>
+<p><img src="img/a7bfb6ecd4dc0548.png" loading="lazy"></p>
+<hr><h3>
+Plotly Express</h3><p>
+Plotly Express 是 Plotly 的高级接口，能够用极简的代码创建复杂的图表。它非常适合快速原型开发。</p>
+
+<h4>常用图表类型</h4>
+<p><strong>1、折线图 (px.line)：</strong></p>
+
+<pre>import plotly.express as px
+df = px.data.iris()
+fig = px.line(df, x='sepal_width', y='sepal_length', title='折线图示例')</pre>
+<p><strong>2、柱状图 (px.bar)：</strong></p>
+
+<pre>
+fig = px.bar(df, x='species', y='sepal_length', title='柱状图示例')</pre>
+<p><strong>3、散点图 (px.scatter)：</strong></p>
+<pre>
+fig = px.scatter(df, x='sepal_width', y='sepal_length', color='species', title='散点图示例')</pre>
+<p><strong>4、饼图 (px.pie)：</strong></p>
+<pre>
+fig = px.pie(df, names='species', values='sepal_length', title='饼图示例')</pre>
+<p><strong>5、热力图 (px.imshow)：</strong></p>
+<pre>
+import numpy as np
+data = np.random.rand(10, 10)
+fig = px.imshow(data, title='热力图示例')</pre>
+<p>以下是一个完整的 Dash 应用示例，使用 Plotly Express 创建图表：</p>
+
+<h3>实例</h3> 
+<span style="color:Green">from</span> dash <span style="color:Green">import</span> Dash<span style="color:Gray">,</span> dcc<span style="color:Gray">,</span> html<br>
+<span style="color:Green">import</span> plotly.<span style="color:#05a">express</span> <span style="color:Green">as</span> px<br>
+<span style="color:Green">import</span> pandas <span style="color:Green">as</span> pd<br>
+<br>
+<span style="color:#a50"># 创建示例数据</span><br>
+df <span style="color:Gray">=</span> pd.<span style="color:#05a">DataFrame</span><span style="color:Olive">(</span><span style="color:Olive">{</span><br>
+    <span style="color:#a11">'城市'</span>: <span style="color:Olive">[</span><span style="color:#a11">'北京'</span><span style="color:Gray">,</span> <span style="color:#a11">'上海'</span><span style="color:Gray">,</span> <span style="color:#a11">'广州'</span><span style="color:Gray">,</span> <span style="color:#a11">'深圳'</span><span style="color:Olive">]</span><span style="color:Gray">,</span><br>
+    <span style="color:#a11">'人口'</span>: <span style="color:Olive">[</span><span style="color:Maroon">2171</span><span style="color:Gray">,</span> <span style="color:Maroon">2424</span><span style="color:Gray">,</span> <span style="color:Maroon">1490</span><span style="color:Gray">,</span> <span style="color:Maroon">1303</span><span style="color:Olive">]</span><br>
+<span style="color:Olive">}</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 创建 Dash 应用</span><br>
+app <span style="color:Gray">=</span> Dash<span style="color:Olive">(</span>__name__<span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 使用 Plotly Express 创建柱状图</span><br>
+fig <span style="color:Gray">=</span> px.<span style="color:#05a">bar</span><span style="color:Olive">(</span>df<span style="color:Gray">,</span> x<span style="color:Gray">=</span><span style="color:#a11">'城市'</span><span style="color:Gray">,</span> y<span style="color:Gray">=</span><span style="color:#a11">'人口'</span><span style="color:Gray">,</span> title<span style="color:Gray">=</span><span style="color:#a11">'城市人口数据'</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义布局</span><br>
+app.<span style="color:#05a">layout</span> <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Olive">[</span><br>
+    dcc.<span style="color:#05a">Graph</span><span style="color:Olive">(</span><span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'example-graph'</span><span style="color:Gray">,</span> figure<span style="color:Gray">=</span>fig<span style="color:Olive">)</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 运行应用</span><br>
+<span style="color:Green">if</span> __name__ <span style="color:Gray">==</span> <span style="color:#a11">'__main__'</span>:<br>
+    app.<span style="color:#05a">run</span><span style="color:Olive">(</span>debug<span style="color:Gray">=</span><span style="color:Teal">True</span><span style="color:Olive">)</span><br>
+
+<p>显示如下：</p>
+
+<p><img src="img/e7042c03db36d2cf.png" loading="lazy"></p>
+<hr>
+<h3>使用 Plotly Graph Objects</h3><p>
+Plotly Graph Objects 是 Plotly 的低级接口，提供了更细粒度的控制，适合需要高度定制的场景。</p>
+
+<h4>常用图表类型</h4><p>
+<strong>1、折线图 (go.Scatter)：</strong></p>
+<pre>
+import plotly.graph_objects as go
+fig = go.Figure(data=go.Scatter(x=[1, 2, 3], y=[4, 1, 2], mode='lines'))</pre>
+<p><strong>2、柱状图 (go.Bar)：</strong></p>
+<pre>
+fig = go.Figure(data=go.Bar(x=['A', 'B', 'C'], y=[10, 20, 30]))</pre>
+<p><strong>3、散点图 (go.Scatter)：</strong></p>
+<pre>
+fig = go.Figure(data=go.Scatter(x=[1, 2, 3], y=[4, 1, 2], mode='markers'))</pre>
+<p><strong>4、饼图 (go.Pie)：</strong></p>
+<pre>
+fig = go.Figure(data=go.Pie(labels=['A', 'B', 'C'], values=[10, 20, 30]))</pre>
+<p>
+以下是一个完整的 Dash 应用示例，使用 Plotly Graph Objects 创建图表：</p>
+<h3>实例</h3> 
+<span style="color:Green">from</span> dash <span style="color:Green">import</span> Dash<span style="color:Gray">,</span> dcc<span style="color:Gray">,</span> html<br>
+<span style="color:Green">import</span> plotly.<span style="color:#05a">graph_objects</span> <span style="color:Green">as</span> go<br>
+<br>
+<span style="color:#a50"># 创建 Dash 应用</span><br>
+app <span style="color:Gray">=</span> Dash<span style="color:Olive">(</span>__name__<span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 使用 Plotly Graph Objects 创建柱状图</span><br>
+fig <span style="color:Gray">=</span> go.<span style="color:#05a">Figure</span><span style="color:Olive">(</span>data<span style="color:Gray">=</span>go.<span style="color:#05a">Bar</span><span style="color:Olive">(</span>x<span style="color:Gray">=</span><span style="color:Olive">[</span><span style="color:#a11">'北京'</span><span style="color:Gray">,</span> <span style="color:#a11">'上海'</span><span style="color:Gray">,</span> <span style="color:#a11">'广州'</span><span style="color:Gray">,</span> <span style="color:#a11">'深圳'</span><span style="color:Olive">]</span><span style="color:Gray">,</span> y<span style="color:Gray">=</span><span style="color:Olive">[</span><span style="color:Maroon">2171</span><span style="color:Gray">,</span> <span style="color:Maroon">2424</span><span style="color:Gray">,</span> <span style="color:Maroon">1490</span><span style="color:Gray">,</span> <span style="color:Maroon">1303</span><span style="color:Olive">]</span><span style="color:Olive">)</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 设置图表布局</span><br>
+fig.<span style="color:#05a">update_layout</span><span style="color:Olive">(</span>title<span style="color:Gray">=</span><span style="color:#a11">'城市人口数据'</span><span style="color:Gray">,</span> xaxis_title<span style="color:Gray">=</span><span style="color:#a11">'城市'</span><span style="color:Gray">,</span> yaxis_title<span style="color:Gray">=</span><span style="color:#a11">'人口'</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义布局</span><br>
+app.<span style="color:#05a">layout</span> <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Olive">[</span><br>
+    dcc.<span style="color:#05a">Graph</span><span style="color:Olive">(</span><span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'example-graph'</span><span style="color:Gray">,</span> figure<span style="color:Gray">=</span>fig<span style="color:Olive">)</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 运行应用</span><br>
+<span style="color:Green">if</span> __name__ <span style="color:Gray">==</span> <span style="color:#a11">'__main__'</span>:<br>
+    app.<span style="color:#05a">run</span><span style="color:Olive">(</span>debug<span style="color:Gray">=</span><span style="color:Teal">True</span><span style="color:Olive">)</span><br>
+<p>显示如下：</p>
+
+<p><img src="img/cf5893fba5f4cf2d.png" loading="lazy"></p></div></section>
+<section class="ch" id="c10"><h2>10. Dash 动态更新图表<a class="chsrc" href="https://www.runoob.com/dash/dash-dynamically-update-charts.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>在现代数据可视化应用中，动态更新图表是一个非常重要的功能，它允许用户在不刷新整个页面的情况下，实时查看数据的变化。</p>
+
+<p>在 Dash 中，动态更新图表的核心机制是 <strong>回调函数（Callback）</strong>，回调函数允许你在用户与页面交互时（如点击按钮、选择下拉菜单等），动态地更新图表的内容。</p>
+<h4>回调函数的基本结构</h4>
+<p>一个典型的回调函数包含以下几个部分：</p>
+<ol>
+<li><strong>输入（Input）</strong>: 定义触发回调的组件及其属性。</li>
+<li><strong>输出（Output）</strong>: 定义需要更新的组件及其属性。</li>
+<li><strong>回调函数体</strong>: 根据输入值计算并返回输出值。</li>
+</ol><p>
+Dash 回调函数详解参见：<a href="#c8">https://www.runoob.com/dash/dash-callback.html</a>。</p>
+
+<h4>简单的动态更新图表</h4>
+<p>通过回调函数，可以动态更新图表的数据和布局。</p>
+<p>
+以下是一个完整的 Dash 应用示例，用户可以通过下拉菜单选择数据集，动态显示对应的折线图：</p>
+
+<h3>实例</h3>
+
+<span style="color:Green">from</span> dash <span style="color:Green">import</span> Dash<span style="color:Gray">,</span> html<span style="color:Gray">,</span> dcc<span style="color:Gray">,</span> Input<span style="color:Gray">,</span> Output<br>
+<span style="color:Green">import</span> plotly.<span style="color:#05a">express</span> <span style="color:Green">as</span> px<br>
+<span style="color:Green">import</span> pandas <span style="color:Green">as</span> pd<br>
+<br>
+<span style="color:#a50"># 创建 Dash 应用</span><br>
+app <span style="color:Gray">=</span> Dash<span style="color:Olive">(</span>__name__<span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义示例数据集</span><br>
+datasets <span style="color:Gray">=</span> <span style="color:Olive">{</span><br>
+    <span style="color:#a11">'数据集1'</span>: pd.<span style="color:#05a">DataFrame</span><span style="color:Olive">(</span><span style="color:Olive">{</span><br>
+        <span style="color:#a11">'x'</span>: <span style="color:Olive">[</span><span style="color:Maroon">1</span><span style="color:Gray">,</span> <span style="color:Maroon">2</span><span style="color:Gray">,</span> <span style="color:Maroon">3</span><span style="color:Gray">,</span> <span style="color:Maroon">4</span><span style="color:Gray">,</span> <span style="color:Maroon">5</span><span style="color:Olive">]</span><span style="color:Gray">,</span><br>
+        <span style="color:#a11">'y'</span>: <span style="color:Olive">[</span><span style="color:Maroon">10</span><span style="color:Gray">,</span> <span style="color:Maroon">15</span><span style="color:Gray">,</span> <span style="color:Maroon">13</span><span style="color:Gray">,</span> <span style="color:Maroon">17</span><span style="color:Gray">,</span> <span style="color:Maroon">21</span><span style="color:Olive">]</span><br>
+    <span style="color:Olive">}</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    <span style="color:#a11">'数据集2'</span>: pd.<span style="color:#05a">DataFrame</span><span style="color:Olive">(</span><span style="color:Olive">{</span><br>
+        <span style="color:#a11">'x'</span>: <span style="color:Olive">[</span><span style="color:Maroon">1</span><span style="color:Gray">,</span> <span style="color:Maroon">2</span><span style="color:Gray">,</span> <span style="color:Maroon">3</span><span style="color:Gray">,</span> <span style="color:Maroon">4</span><span style="color:Gray">,</span> <span style="color:Maroon">5</span><span style="color:Olive">]</span><span style="color:Gray">,</span><br>
+        <span style="color:#a11">'y'</span>: <span style="color:Olive">[</span><span style="color:Maroon">5</span><span style="color:Gray">,</span> <span style="color:Maroon">10</span><span style="color:Gray">,</span> <span style="color:Maroon">8</span><span style="color:Gray">,</span> <span style="color:Maroon">12</span><span style="color:Gray">,</span> <span style="color:Maroon">15</span><span style="color:Olive">]</span><br>
+    <span style="color:Olive">}</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    <span style="color:#a11">'数据集3'</span>: pd.<span style="color:#05a">DataFrame</span><span style="color:Olive">(</span><span style="color:Olive">{</span><br>
+        <span style="color:#a11">'x'</span>: <span style="color:Olive">[</span><span style="color:Maroon">1</span><span style="color:Gray">,</span> <span style="color:Maroon">2</span><span style="color:Gray">,</span> <span style="color:Maroon">3</span><span style="color:Gray">,</span> <span style="color:Maroon">4</span><span style="color:Gray">,</span> <span style="color:Maroon">5</span><span style="color:Olive">]</span><span style="color:Gray">,</span><br>
+        <span style="color:#a11">'y'</span>: <span style="color:Olive">[</span><span style="color:Maroon">20</span><span style="color:Gray">,</span> <span style="color:Maroon">18</span><span style="color:Gray">,</span> <span style="color:Maroon">22</span><span style="color:Gray">,</span> <span style="color:Maroon">19</span><span style="color:Gray">,</span> <span style="color:Maroon">25</span><span style="color:Olive">]</span><br>
+    <span style="color:Olive">}</span><span style="color:Olive">)</span><br>
+<span style="color:Olive">}</span><br>
+<br>
+<span style="color:#a50"># 定义布局</span><br>
+app.<span style="color:#05a">layout</span> <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Olive">[</span><br>
+    html.<span style="color:#05a">H1</span><span style="color:Olive">(</span><span style="color:#a11">"动态折线图示例"</span><span style="color:Olive">)</span><span style="color:Gray">,</span>  <span style="color:#a50"># 标题</span><br>
+    dcc.<span style="color:#05a">Dropdown</span><span style="color:Olive">(</span><br>
+        <span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'dataset-dropdown'</span><span style="color:Gray">,</span>  <span style="color:#a50"># 下拉菜单的 ID</span><br>
+        options<span style="color:Gray">=</span><span style="color:Olive">[</span><span style="color:Olive">{</span><span style="color:#a11">'label'</span>: name<span style="color:Gray">,</span> <span style="color:#a11">'value'</span>: name<span style="color:Olive">}</span> <span style="color:Green">for</span> name <span style="color:Green">in</span> datasets.<span style="color:#05a">keys</span><span style="color:Olive">(</span><span style="color:Olive">)</span><span style="color:Olive">]</span><span style="color:Gray">,</span>  <span style="color:#a50"># 下拉菜单选项</span><br>
+        value<span style="color:Gray">=</span><span style="color:#a11">'数据集1'</span>  <span style="color:#a50"># 默认选中的数据集</span><br>
+    <span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    dcc.<span style="color:#05a">Graph</span><span style="color:Olive">(</span><span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'line-chart'</span><span style="color:Olive">)</span>  <span style="color:#a50"># 用于显示折线图的 Graph 组件</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义回调函数</span><br>
+<span style="color:Gray">@</span>app.<span style="color:#05a">callback</span><span style="color:Olive">(</span><br>
+    Output<span style="color:Olive">(</span><span style="color:#a11">'line-chart'</span><span style="color:Gray">,</span> <span style="color:#a11">'figure'</span><span style="color:Olive">)</span><span style="color:Gray">,</span>  <span style="color:#a50"># 输出到 id 为 'line-chart' 的 Graph 组件的 figure 属性</span><br>
+    Input<span style="color:Olive">(</span><span style="color:#a11">'dataset-dropdown'</span><span style="color:Gray">,</span> <span style="color:#a11">'value'</span><span style="color:Olive">)</span>  <span style="color:#a50"># 输入来自 id 为 'dataset-dropdown' 的下拉菜单的 value 属性</span><br>
+<span style="color:Olive">)</span><br>
+<span style="color:Green">def</span> update_line_chart<span style="color:Olive">(</span>selected_dataset<span style="color:Olive">)</span>:<br>
+    <span style="color:#a50"># 获取选中的数据集</span><br>
+    df <span style="color:Gray">=</span> datasets<span style="color:Olive">[</span>selected_dataset<span style="color:Olive">]</span><br>
+    <span style="color:#a50"># 使用 Plotly Express 创建折线图</span><br>
+    fig <span style="color:Gray">=</span> px.<span style="color:#05a">line</span><span style="color:Olive">(</span>df<span style="color:Gray">,</span> x<span style="color:Gray">=</span><span style="color:#a11">'x'</span><span style="color:Gray">,</span> y<span style="color:Gray">=</span><span style="color:#a11">'y'</span><span style="color:Gray">,</span> title<span style="color:Gray">=</span>f<span style="color:#a11">'{selected_dataset} 折线图'</span><span style="color:Olive">)</span><br>
+    <span style="color:Green">return</span> fig<br>
+<br>
+<span style="color:#a50"># 运行应用</span><br>
+<span style="color:Green">if</span> __name__ <span style="color:Gray">==</span> <span style="color:#a11">'__main__'</span>:<br>
+    app.<span style="color:#05a">run</span><span style="color:Olive">(</span>debug<span style="color:Gray">=</span><span style="color:Teal">True</span><span style="color:Olive">)</span>  <span style="color:#a50"># 启动应用，debug=True 表示开启调试模式</span><br>
+
+<p>显示如下所示：</p>
+<p><img src="img/c6f48a499f0e1edd.png" loading="lazy"></p>
+
+<h4>代码解析</h4>
+
+        <p><strong>1、布局部分</strong>：</p>
+        <ul>
+            <li>
+                <p>使用 <code>html.H1</code> 创建一个标题"计算平方"。</p>
+            </li>
+            <li>
+                <p>使用 <code>dcc.Input</code> 创建一个数字输入框，<code>id</code> 为 <code>number-input</code>，类型为 <code>number</code>。</p>
+            </li>
+            <li>
+                <p>使用 <code>html.Div</code> 创建一个用于显示结果的区域，<code>id</code> 为 <code>output</code>。</p>
+            </li>
+        </ul>
+    
+        <p><strong>2、回调函数</strong>：</p>
+        <ul>
+            <li>
+                <p>使用 <code>@app.callback</code> 装饰器定义回调函数。</p>
+            </li>
+            <li>
+                <p>输入是 <code>number-input</code> 输入框的 <code>value</code> 属性。</p>
+            </li>
+            <li>
+                <p>输出是 <code>output</code> Div 的 <code>children</code> 属性。</p>
+              </li>
+            <li>
+                <p>在回调函数中：</p>
+                <ul>
+                    <li>
+                        <p>检查输入是否为空。</p>
+                    </li>
+                    <li>
+                        <p>将输入转换为浮点数并计算平方。</p>
+                    </li>
+                    <li>
+                        <p>返回格式化后的结果。</p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+   
+        <p><strong>4、运行应用</strong>：</p>
+        <ul>
+            <li>
+                <p>使用 <code>app.run(debug=True)</code> 启动应用，<code>debug=True</code> 表示开启调试模式。</p>
+            </li>
+        </ul></div></section>
+<section class="ch" id="c11"><h2>11. Dash 多页面布局<a class="chsrc" href="https://www.runoob.com/dash/dash-tabs.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>在现代 Web 应用开发中，单页面应用（SPA）和多页面应用（MPA）是两种常见的架构模式。</p><p>单页面应用通常通过动态加载内容来提供流畅的用户体验，而多页面应用则通过多个独立的页面来组织内容。</p>
+
+<h4>单页面应用 vs 多页面应用</h4>
+<p>在单页面应用中，所有的内容都在一个页面中动态加载和更新，用户通过点击链接或按钮来切换不同的视图。这种架构的优点是用户体验流畅，页面加载速度快，但缺点是随着应用规模的增大，代码结构可能会变得复杂。</p>
+<p>多页面应用则通过多个独立的页面来组织内容，每个页面都有自己的 URL 和布局。这种架构的优点是代码结构清晰，易于维护，但缺点是页面切换时会有一定的加载延迟。</p><hr>
+<h3>Dash 多页面布局的实现</h3><p>
+在 Dash 中实现多页面布局可以通过 dcc.Location 和 dcc.Link 组件来实现。</p><p>dcc.Location 用于跟踪当前页面的 URL，而 dcc.Link 用于在页面之间导航。通过结合回调函数，可以根据 URL 动态加载不同的页面内容。</p>
+<ul><li><p>使用 <code>dcc.Location</code> 和 <code>dcc.Link</code> 可以实现多页面布局。</p></li><li><p>通过回调函数根据 <code>pathname</code> 动态加载页面内容。</p></li><li><p>结合模块化布局和 URL 参数，可以构建更复杂的多页面应用。</p></li></ul>
+ <h4>多页面布局的基本结构</h4><p>
+多页面布局的核心思想是根据 URL 的路径（pathname）动态加载不同的页面内容。</p><p>以下是实现多页面布局的基本步骤：</p>
+
+        <p><strong>定义页面布局</strong>：</p>
+        <ul>
+            <li>
+                <p>每个页面的布局可以定义为一个函数或变量。</p>
+            </li>
+            <li>
+                <p>例如，<code>home_layout</code> 表示主页，<code>about_layout</code> 表示关于页面。</p>
+            </li>
+        </ul>
+   
+        <p><strong>使用 <code>dcc.Location</code></strong>：</p>
+        <ul>
+            <li>
+                <p><code>dcc.Location</code> 组件用于跟踪当前页面的 URL。</p>
+            </li>
+            <li>
+                <p>通过 <code>pathname</code> 属性获取当前页面的路径。</p>
+            </li>
+        </ul>
+   
+        <p><strong>使用 <code>dcc.Link</code></strong>：</p>
+        <ul>
+            <li>
+                <p><code>dcc.Link</code> 组件用于创建页面导航链接。</p>
+            </li>
+            <li>
+                <p>通过 <code>href</code> 属性指定目标页面的路径。</p>
+            </li>
+        </ul>
+  
+        <p><strong>动态加载页面内容</strong>：</p>
+        <ul>
+            <li>
+                <p>使用回调函数根据 <code>pathname</code> 动态返回对应的页面布局。</p>
+            </li>
+        </ul>
+  
+
+<h3>实例</h3>
+
+<span style="color:Green">from</span> dash <span style="color:Green">import</span> Dash<span style="color:Gray">,</span> html<span style="color:Gray">,</span> dcc<span style="color:Gray">,</span> Input<span style="color:Gray">,</span> Output<br>
+<br>
+<span style="color:#a50"># 创建 Dash 应用</span><br>
+app <span style="color:Gray">=</span> Dash<span style="color:Olive">(</span>__name__<span style="color:Olive">)</span><br>
+<br>
+app.<span style="color:#05a">layout</span> <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Olive">[</span><br>
+    dcc.<span style="color:#05a">Location</span><span style="color:Olive">(</span><span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'url'</span><span style="color:Gray">,</span> refresh<span style="color:Gray">=</span><span style="color:Teal">False</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'page-content'</span><span style="color:Olive">)</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+
+<p>在上面的代码中，<code>dcc.Location</code> 组件的 <code>id</code> 设置为 <code>url</code>，<code>refresh</code> 参数设置为 <code>False</code>，表示在 URL 变化时不刷新页面。<code>html.Div(id='page-content')</code> 是一个占位符，用于显示不同页面的内容。</p>
+<h4>定义页面布局</h4>
+<p>接下来，我们需要定义不同页面的布局。每个页面的布局可以是一个独立的函数或变量。例如，我们可以定义两个页面的布局：<code>index_page</code> 和 <code>page1</code>。</p>
+
+<h3>实例</h3>
+
+index_page <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Olive">[</span><br>
+    html.<span style="color:#05a">H1</span><span style="color:Olive">(</span><span style="color:#a11">"首页"</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    dcc.<span style="color:#05a">Link</span><span style="color:Olive">(</span><span style="color:#a11">'前往页面1'</span><span style="color:Gray">,</span> href<span style="color:Gray">=</span><span style="color:#a11">'/page1'</span><span style="color:Olive">)</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+<br>
+page1 <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Olive">[</span><br>
+    html.<span style="color:#05a">H1</span><span style="color:Olive">(</span><span style="color:#a11">"页面1"</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    dcc.<span style="color:#05a">Link</span><span style="color:Olive">(</span><span style="color:#a11">'返回首页'</span><span style="color:Gray">,</span> href<span style="color:Gray">=</span><span style="color:#a11">'/'</span><span style="color:Olive">)</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+
+<p>在上面的代码中，<code>index_page</code> 是首页的布局，包含一个标题和一个链接，点击链接可以跳转到 <code>page1</code>。<code>page1</code> 是页面1的布局，同样包含一个标题和一个返回首页的链接。</p>
+<h4>动态加载页面布局</h4>
+<p>最后，我们需要通过回调函数根据 URL 的变化动态加载不同的页面布局。回调函数的作用是根据 <code>dcc.Location</code> 组件的 <code>pathname</code> 属性来决定显示哪个页面的布局。</p>
+
+<h3>实例</h3>
+
+<span style="color:Gray">@</span>app.<span style="color:#05a">callback</span><span style="color:Olive">(</span>Output<span style="color:Olive">(</span><span style="color:#a11">'page-content'</span><span style="color:Gray">,</span> <span style="color:#a11">'children'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+              <span style="color:Olive">[</span>Input<span style="color:Olive">(</span><span style="color:#a11">'url'</span><span style="color:Gray">,</span> <span style="color:#a11">'pathname'</span><span style="color:Olive">)</span><span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+<span style="color:Green">def</span> display_page<span style="color:Olive">(</span>pathname<span style="color:Olive">)</span>:<br>
+    <span style="color:Green">if</span> pathname <span style="color:Gray">==</span> <span style="color:#a11">'/page1'</span>:<br>
+        <span style="color:Green">return</span> page1<br>
+    <span style="color:Green">else</span>:<br>
+        <span style="color:Green">return</span> index_page<br>
+
+<p>在上面的代码中，<code>display_page</code> 函数接收 <code>pathname</code> 作为输入，并根据 <code>pathname</code> 的值返回相应的页面布局。如果 <code>pathname</code> 是 <code>/page1</code>，则返回 <code>page1</code> 的布局；否则返回 <code>index_page</code> 的布局。</p>
+<h4>完整实例</h4>
+<p> 以下是一个完整的 Dash 多页面布局示例，包含主页、关于页面和 404 页面。</p>
+
+<h3>实例</h3>
+
+<span style="color:Green">from</span> dash <span style="color:Green">import</span> Dash<span style="color:Gray">,</span> html<span style="color:Gray">,</span> dcc<span style="color:Gray">,</span> Input<span style="color:Gray">,</span> Output<br>
+<br>
+<span style="color:#a50"># 创建 Dash 应用</span><br>
+app <span style="color:Gray">=</span> Dash<span style="color:Olive">(</span>__name__<span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义主页布局</span><br>
+home_layout <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Olive">[</span><br>
+    html.<span style="color:#05a">H1</span><span style="color:Olive">(</span><span style="color:#a11">"主页"</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    html.<span style="color:#05a">P</span><span style="color:Olive">(</span><span style="color:#a11">"欢迎访问主页！"</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    dcc.<span style="color:#05a">Link</span><span style="color:Olive">(</span><span style="color:#a11">'前往关于页面'</span><span style="color:Gray">,</span> href<span style="color:Gray">=</span><span style="color:#a11">'/about'</span><span style="color:Olive">)</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义关于页面布局</span><br>
+about_layout <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Olive">[</span><br>
+    html.<span style="color:#05a">H1</span><span style="color:Olive">(</span><span style="color:#a11">"关于页面"</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    html.<span style="color:#05a">P</span><span style="color:Olive">(</span><span style="color:#a11">"这是关于页面的内容。"</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    dcc.<span style="color:#05a">Link</span><span style="color:Olive">(</span><span style="color:#a11">'返回主页'</span><span style="color:Gray">,</span> href<span style="color:Gray">=</span><span style="color:#a11">'/'</span><span style="color:Olive">)</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义 404 页面布局</span><br>
+not_found_layout <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Olive">[</span><br>
+    html.<span style="color:#05a">H1</span><span style="color:Olive">(</span><span style="color:#a11">"404 - 页面未找到"</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    html.<span style="color:#05a">P</span><span style="color:Olive">(</span><span style="color:#a11">"您访问的页面不存在。"</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    dcc.<span style="color:#05a">Link</span><span style="color:Olive">(</span><span style="color:#a11">'返回主页'</span><span style="color:Gray">,</span> href<span style="color:Gray">=</span><span style="color:#a11">'/'</span><span style="color:Olive">)</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义应用的布局</span><br>
+app.<span style="color:#05a">layout</span> <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Olive">[</span><br>
+    dcc.<span style="color:#05a">Location</span><span style="color:Olive">(</span><span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'url'</span><span style="color:Gray">,</span> refresh<span style="color:Gray">=</span><span style="color:Teal">False</span><span style="color:Olive">)</span><span style="color:Gray">,</span>  <span style="color:#a50"># 用于跟踪 URL</span><br>
+    html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'page-content'</span><span style="color:Olive">)</span>  <span style="color:#a50"># 用于动态加载页面内容</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义回调函数</span><br>
+<span style="color:Gray">@</span>app.<span style="color:#05a">callback</span><span style="color:Olive">(</span><br>
+    Output<span style="color:Olive">(</span><span style="color:#a11">'page-content'</span><span style="color:Gray">,</span> <span style="color:#a11">'children'</span><span style="color:Olive">)</span><span style="color:Gray">,</span>  <span style="color:#a50"># 输出到 id 为 'page-content' 的 Div 的 children 属性</span><br>
+    Input<span style="color:Olive">(</span><span style="color:#a11">'url'</span><span style="color:Gray">,</span> <span style="color:#a11">'pathname'</span><span style="color:Olive">)</span>  <span style="color:#a50"># 输入来自 id 为 'url' 的 Location 组件的 pathname 属性</span><br>
+<span style="color:Olive">)</span><br>
+<span style="color:Green">def</span> display_page<span style="color:Olive">(</span>pathname<span style="color:Olive">)</span>:<br>
+    <span style="color:Green">if</span> pathname <span style="color:Gray">==</span> <span style="color:#a11">'/'</span>:<br>
+        <span style="color:Green">return</span> home_layout  <span style="color:#a50"># 显示主页</span><br>
+    <span style="color:Green">elif</span> pathname <span style="color:Gray">==</span> <span style="color:#a11">'/about'</span>:<br>
+        <span style="color:Green">return</span> about_layout  <span style="color:#a50"># 显示关于页面</span><br>
+    <span style="color:Green">else</span>:<br>
+        <span style="color:Green">return</span> not_found_layout  <span style="color:#a50"># 显示 404 页面</span><br>
+<br>
+<span style="color:#a50"># 运行应用</span><br>
+<span style="color:Green">if</span> __name__ <span style="color:Gray">==</span> <span style="color:#a11">'__main__'</span>:<br>
+    app.<span style="color:#05a">run</span><span style="color:Olive">(</span>debug<span style="color:Gray">=</span><span style="color:Teal">True</span><span style="color:Olive">)</span><br>
+
+<p>运行应用后，访问 <code>http://127.0.0.1:8050/</code> 可以看到首页内容，点击 <strong>"前往关于页面"</strong> 链接可以跳转到关于页面，点击 <strong>"返回主页"</strong> 链接可以回到首页。</p>
+<p><img src="img/f1f791a9080196eb.png" loading="lazy"></p>
+<h4>代码说明</h4>
+        <p><strong>页面布局</strong>：</p>
+        <ul>
+            <li>
+                <p><code>home_layout</code>：主页的布局，包含标题、描述和一个指向关于页面的链接。</p>
+            </li>
+            <li>
+                <p><code>about_layout</code>：关于页面的布局，包含标题、描述和一个指向主页的链接。</p>
+            </li>
+            <li>
+                <p><code>not_found_layout</code>：404 页面的布局，用于处理不存在的路径。</p>
+            </li>
+        </ul>
+  
+        <p><strong><code>dcc.Location</code></strong>：</p>
+        <ul>
+            <li>
+                <p><code>id='url'</code>：用于跟踪当前页面的 URL。</p>
+            </li>
+            <li>
+                <p><code>refresh=False</code>：禁用页面刷新，实现单页面应用（SPA）的效果。</p>
+            </li>
+        </ul>
+  
+        <p><strong><code>dcc.Link</code></strong>：</p>
+        <ul>
+            <li>
+                <p>用于创建页面导航链接，<code>href</code> 属性指定目标页面的路径。</p>
+            </li>
+        </ul>
+   
+        <p><strong>回调函数</strong>：</p>
+        <ul>
+            <li>
+                <p>根据 <code>pathname</code> 的值动态返回对应的页面布局。</p>
+            </li>
+            <li>
+                <p>如果路径是 <code>/</code>，返回 <code>home_layout</code>。</p>
+            </li>
+            <li>
+                <p>如果路径是 <code>/about</code>，返回 <code>about_layout</code>。</p>
+            </li>
+            <li>
+                <p>如果路径不匹配，返回 <code>not_found_layout</code>。</p>
+            </li>
+        </ul>
+   
+<hr>
+<h3> 扩展</h3>
+<p>
+对于更复杂的多页面应用，可以结合以下方法优化代码结构：</p>
+<h4>
+1、使用模块化布局</h4><p>
+将每个页面的布局定义在单独的模块中，便于维护和扩展。</p>
+<p>
+创建 pages/home.py：</p>
+
+<h3>实例</h3> 
+<span style="color:Green">from</span> dash <span style="color:Green">import</span> html<span style="color:Gray">,</span> dcc<br>
+<br>
+layout <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Olive">[</span><br>
+    html.<span style="color:#05a">H1</span><span style="color:Olive">(</span><span style="color:#a11">"主页"</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    html.<span style="color:#05a">P</span><span style="color:Olive">(</span><span style="color:#a11">"欢迎访问主页！"</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    dcc.<span style="color:#05a">Link</span><span style="color:Olive">(</span><span style="color:#a11">'前往关于页面'</span><span style="color:Gray">,</span> href<span style="color:Gray">=</span><span style="color:#a11">'/about'</span><span style="color:Olive">)</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+
+<p>创建 pages/about.py：</p>
+
+<h3>实例</h3> 
+<span style="color:Green">from</span> dash <span style="color:Green">import</span> html<span style="color:Gray">,</span> dcc<br>
+<br>
+layout <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><span style="color:Olive">[</span><br>
+    html.<span style="color:#05a">H1</span><span style="color:Olive">(</span><span style="color:#a11">"关于页面"</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    html.<span style="color:#05a">P</span><span style="color:Olive">(</span><span style="color:#a11">"这是关于页面的内容。"</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    dcc.<span style="color:#05a">Link</span><span style="color:Olive">(</span><span style="color:#a11">'返回主页'</span><span style="color:Gray">,</span> href<span style="color:Gray">=</span><span style="color:#a11">'/'</span><span style="color:Olive">)</span><br>
+<span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+
+<p>在主应用中导入布局：</p>
+
+<pre>
+from pages.home import layout as home_layout
+from pages.about import layout as about_layout</pre><hr>
+<h3>2、使用 URL 参数</h3><p>
+通过 dcc.Location 的 search 或 pathname 属性传递 URL 参数，实现更灵活的页面逻辑。</p>
+
+<h3>实例</h3> 
+<span style="color:Gray">@</span>app.<span style="color:#05a">callback</span><span style="color:Olive">(</span><br>
+    Output<span style="color:Olive">(</span><span style="color:#a11">'page-content'</span><span style="color:Gray">,</span> <span style="color:#a11">'children'</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+    Input<span style="color:Olive">(</span><span style="color:#a11">'url'</span><span style="color:Gray">,</span> <span style="color:#a11">'pathname'</span><span style="color:Olive">)</span><br>
+<span style="color:Olive">)</span><br>
+<span style="color:Green">def</span> display_page<span style="color:Olive">(</span>pathname<span style="color:Olive">)</span>:<br>
+    <span style="color:Green">if</span> pathname <span style="color:Gray">==</span> <span style="color:#a11">'/'</span>:<br>
+        <span style="color:Green">return</span> home_layout<br>
+    <span style="color:Green">elif</span> pathname.<span style="color:#05a">startswith</span><span style="color:Olive">(</span><span style="color:#a11">'/about'</span><span style="color:Olive">)</span>:<br>
+        <span style="color:#a50"># 解析 URL 参数</span><br>
+        <span style="color:Green">return</span> about_layout<br>
+    <span style="color:Green">else</span>:<br>
+        <span style="color:Green">return</span> not_found_layout<br></div></section>
+<section class="ch" id="c12"><h2>12. Dash 样式设计<a class="chsrc" href="https://www.runoob.com/dash/dash-css.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>在开发交互式 Web 应用程序时，Dash 不仅允许你使用 Python 来构建复杂的应用程序，还提供了丰富的样式设计选项，使你的应用程序看起来更加专业和美观。</p>
+<p>在 Dash 中，样式设计是通过 CSS 实现的。Dash 提供了多种方式来设置组件的样式，包括：</p>
+
+<ul><li><p><strong>内联样式</strong>：通过 <code>style</code> 属性直接设置组件的样式。</p></li><li><p><strong>外部 CSS 文件</strong>：通过加载外部 CSS 文件设置全局样式。</p></li><li><p><strong>Dash Bootstrap Components</strong>：使用 Bootstrap 风格的组件和样式。</p></li><li><p><strong>Dash DAQ</strong>：用于创建数据采集和控制应用的样式组件。</p></li></ul><hr>
+<h3>1. 内联样式</h3><p>
+通过 style 属性可以直接为组件设置 CSS 样式。style 是一个字典，键是 CSS 属性，值是 CSS 值。</p>
+
+<h3>实例</h3> 
+<span style="color:Green">from</span> dash <span style="color:Green">import</span> Dash<span style="color:Gray">,</span> html<br>
+<br>
+<span style="color:#a50"># 创建 Dash 应用</span><br>
+app <span style="color:Gray">=</span> Dash<span style="color:Olive">(</span>__name__<span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义布局</span><br>
+app.<span style="color:#05a">layout</span> <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><br>
+    style<span style="color:Gray">=</span><span style="color:Olive">{</span><br>
+        <span style="color:#a11">'backgroundColor'</span>: <span style="color:#a11">'lightblue'</span><span style="color:Gray">,</span>  <span style="color:#a50"># 背景颜色</span><br>
+        <span style="color:#a11">'padding'</span>: <span style="color:#a11">'20px'</span><span style="color:Gray">,</span>  <span style="color:#a50"># 内边距</span><br>
+        <span style="color:#a11">'borderRadius'</span>: <span style="color:#a11">'10px'</span><span style="color:Gray">,</span>  <span style="color:#a50"># 圆角</span><br>
+        <span style="color:#a11">'textAlign'</span>: <span style="color:#a11">'center'</span>  <span style="color:#a50"># 文字居中</span><br>
+    <span style="color:Olive">}</span><span style="color:Gray">,</span><br>
+    children<span style="color:Gray">=</span><span style="color:Olive">[</span><br>
+        html.<span style="color:#05a">H1</span><span style="color:Olive">(</span><span style="color:#a11">"欢迎使用 Dash"</span><span style="color:Gray">,</span> style<span style="color:Gray">=</span><span style="color:Olive">{</span><span style="color:#a11">'color'</span>: <span style="color:#a11">'darkblue'</span><span style="color:Olive">}</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+        html.<span style="color:#05a">P</span><span style="color:Olive">(</span><span style="color:#a11">"这是一个带样式的 Div。"</span><span style="color:Olive">)</span><br>
+    <span style="color:Olive">]</span><br>
+<span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 运行应用</span><br>
+<span style="color:Green">if</span> __name__ <span style="color:Gray">==</span> <span style="color:#a11">'__main__'</span>:<br>
+    app.<span style="color:#05a">run</span><span style="color:Olive">(</span>debug<span style="color:Gray">=</span><span style="color:Teal">True</span><span style="color:Olive">)</span><br>
+<p>
+<strong>运行效果：</strong></p>
+<ul><li><p>背景颜色为浅蓝色，内边距为 20px，圆角为 10px，文字居中。</p></li><li><p>标题文字颜色为深蓝色。</p></li></ul>
+<hr><h3>
+2. 外部 CSS 文件</h3>
+<p>通过加载外部 CSS 文件，可以为整个应用设置全局样式。</p>
+
+<ol><li><p>创建一个 CSS 文件（如 <code>assets/styles.css</code>）。</p></li><li><p>在 Dash 应用中加载 CSS 文件。</p></li></ol>
+<p>CSS 文件示例 (assets/styles.css)：</p>
+<h3>实例：assets/styles.css 文件</h3> 
+<span style="color:#808080">/* 设置全局字体 */</span><br>
+body <span style="color:#00AA00">{</span><br>
+    <span style="color:#000000">font-family</span><span style="color:#00AA00">:</span> Arial<span style="color:#00AA00">,</span> <span style="color:#993333">sans-serif</span><span style="color:#00AA00">;</span><br>
+<span style="color:#00AA00">}</span><br>
+<br>
+<span style="color:#808080">/* 设置标题样式 */</span><br>
+h1 <span style="color:#00AA00">{</span><br>
+    <span style="color:#000000">color</span><span style="color:#00AA00">:</span> darkblue<span style="color:#00AA00">;</span><br>
+    <span style="color:#000000">text-align</span><span style="color:#00AA00">:</span> <span style="color:#993333">center</span><span style="color:#00AA00">;</span><br>
+<span style="color:#00AA00">}</span><br>
+<br>
+<span style="color:#808080">/* 设置 Div 样式 */</span><br>
+<span style="color:#6666ff">.custom-div</span> <span style="color:#00AA00">{</span><br>
+    <span style="color:#000000">background-color</span><span style="color:#00AA00">:</span> lightblue<span style="color:#00AA00">;</span><br>
+    <span style="color:#000000">padding</span><span style="color:#00AA00">:</span> <span style="color:#933">20px</span><span style="color:#00AA00">;</span><br>
+    <span style="color:#000000">border-radius</span><span style="color:#00AA00">:</span> <span style="color:#933">10px</span><span style="color:#00AA00">;</span><br>
+    <span style="color:#000000">text-align</span><span style="color:#00AA00">:</span> <span style="color:#993333">center</span><span style="color:#00AA00">;</span><br>
+<span style="color:#00AA00">}</span><br>
+<p>
+Dash 使用 css 文件：</p>
+<h3>实例</h3> 
+<span style="color:Green">from</span> dash <span style="color:Green">import</span> Dash<span style="color:Gray">,</span> html<br>
+<br>
+<span style="color:#a50"># 创建 Dash 应用</span><br>
+app <span style="color:Gray">=</span> Dash<span style="color:Olive">(</span>__name__<span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义布局</span><br>
+app.<span style="color:#05a">layout</span> <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><br>
+    className<span style="color:Gray">=</span><span style="color:#a11">'custom-div'</span><span style="color:Gray">,</span>  <span style="color:#a50"># 使用 CSS 类名</span><br>
+    children<span style="color:Gray">=</span><span style="color:Olive">[</span><br>
+        html.<span style="color:#05a">H1</span><span style="color:Olive">(</span><span style="color:#a11">"欢迎使用 Dash"</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+        html.<span style="color:#05a">P</span><span style="color:Olive">(</span><span style="color:#a11">"这是一个带样式的 Div。"</span><span style="color:Olive">)</span><br>
+    <span style="color:Olive">]</span><br>
+<span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 运行应用</span><br>
+<span style="color:Green">if</span> __name__ <span style="color:Gray">==</span> <span style="color:#a11">'__main__'</span>:<br>
+    app.<span style="color:#05a">run</span><span style="color:Olive">(</span>debug<span style="color:Gray">=</span><span style="color:Teal">True</span><span style="color:Olive">)</span><br>
+
+<p><strong>运行效果：</strong></p>
+
+<ul><li><p>应用加载 <code>assets/styles.css</code> 文件中的样式。</p></li><li><p><code>h1</code> 标题颜色为深蓝色，居中显示。</p></li><li><p><code>Div</code> 背景颜色为浅蓝色，带内边距和圆角。</p></li></ul>
+<hr><h3>
+3. Dash Bootstrap Components</h3>
+<p>Dash Bootstrap Components（dash-bootstrap-components）是一个第三方库，提供了 Bootstrap 风格的组件和样式。它可以帮助快速构建美观的 Dash 应用。</p>
+<pre>
+pip install dash-bootstrap-components</pre>
+
+<h3>实例</h3> 
+<span style="color:Green">from</span> dash <span style="color:Green">import</span> Dash<span style="color:Gray">,</span> html<br>
+<span style="color:Green">import</span> dash_bootstrap_components <span style="color:Green">as</span> dbc<br>
+<br>
+<span style="color:#a50"># 创建 Dash 应用</span><br>
+app <span style="color:Gray">=</span> Dash<span style="color:Olive">(</span>__name__<span style="color:Gray">,</span> external_stylesheets<span style="color:Gray">=</span><span style="color:Olive">[</span>dbc.<span style="color:#05a">themes</span>.<span style="color:#05a">BOOTSTRAP</span><span style="color:Olive">]</span><span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义布局</span><br>
+app.<span style="color:#05a">layout</span> <span style="color:Gray">=</span> dbc.<span style="color:#05a">Container</span><span style="color:Olive">(</span><br>
+    children<span style="color:Gray">=</span><span style="color:Olive">[</span><br>
+        dbc.<span style="color:#05a">Row</span><span style="color:Olive">(</span><br>
+            dbc.<span style="color:#05a">Col</span><span style="color:Olive">(</span><br>
+                html.<span style="color:#05a">H1</span><span style="color:Olive">(</span><span style="color:#a11">"欢迎使用 Dash Bootstrap"</span><span style="color:Gray">,</span> className<span style="color:Gray">=</span><span style="color:#a11">"text-center text-primary"</span><span style="color:Olive">)</span><br>
+            <span style="color:Olive">)</span><br>
+        <span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+        dbc.<span style="color:#05a">Row</span><span style="color:Olive">(</span><br>
+            dbc.<span style="color:#05a">Col</span><span style="color:Olive">(</span><br>
+                dbc.<span style="color:#05a">Card</span><span style="color:Olive">(</span><br>
+                    children<span style="color:Gray">=</span><span style="color:Olive">[</span><br>
+                        dbc.<span style="color:#05a">CardHeader</span><span style="color:Olive">(</span><span style="color:#a11">"卡片标题"</span><span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+                        dbc.<span style="color:#05a">CardBody</span><span style="color:Olive">(</span><br>
+                            children<span style="color:Gray">=</span><span style="color:Olive">[</span><br>
+                                html.<span style="color:#05a">P</span><span style="color:Olive">(</span><span style="color:#a11">"这是一个 Bootstrap 风格的卡片。"</span><span style="color:Gray">,</span> className<span style="color:Gray">=</span><span style="color:#a11">"card-text"</span><span style="color:Olive">)</span><br>
+                            <span style="color:Olive">]</span><br>
+                        <span style="color:Olive">)</span><br>
+                    <span style="color:Olive">]</span><span style="color:Gray">,</span><br>
+                    className<span style="color:Gray">=</span><span style="color:#a11">"mt-4"</span>  <span style="color:#a50"># 设置外边距</span><br>
+                <span style="color:Olive">)</span><br>
+            <span style="color:Olive">)</span><br>
+        <span style="color:Olive">)</span><br>
+    <span style="color:Olive">]</span><br>
+<span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 运行应用</span><br>
+<span style="color:Green">if</span> __name__ <span style="color:Gray">==</span> <span style="color:#a11">'__main__'</span>:<br>
+    app.<span style="color:#05a">run</span><span style="color:Olive">(</span>debug<span style="color:Gray">=</span><span style="color:Teal">True</span><span style="color:Olive">)</span><br>
+<p><strong>运行效果：</strong></p>
+<ul><li><p>使用 Bootstrap 主题样式。</p></li><li><p>标题居中显示，颜色为主题蓝色。</p></li><li><p>卡片组件带有标题和内容，样式美观。</p></li></ul>
+
+<hr>
+<h3>4. Dash DAQ</h3><p>
+Dash DAQ 是一个用于创建数据采集和控制应用的组件库，提供了丰富的样式组件。</p>
+<pre>
+pip install dash-daq</pre>
+
+<h3>实例</h3> 
+<span style="color:Green">from</span> dash <span style="color:Green">import</span> Dash<span style="color:Gray">,</span> html<br>
+<span style="color:Green">import</span> dash_daq <span style="color:Green">as</span> daq<br>
+<br>
+<span style="color:#a50"># 创建 Dash 应用</span><br>
+app <span style="color:Gray">=</span> Dash<span style="color:Olive">(</span>__name__<span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 定义布局</span><br>
+app.<span style="color:#05a">layout</span> <span style="color:Gray">=</span> html.<span style="color:#05a">Div</span><span style="color:Olive">(</span><br>
+    style<span style="color:Gray">=</span><span style="color:Olive">{</span><span style="color:#a11">'textAlign'</span>: <span style="color:#a11">'center'</span><span style="color:Olive">}</span><span style="color:Gray">,</span><br>
+    children<span style="color:Gray">=</span><span style="color:Olive">[</span><br>
+        daq.<span style="color:#05a">Thermometer</span><span style="color:Olive">(</span><br>
+            <span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'thermometer'</span><span style="color:Gray">,</span><br>
+            value<span style="color:Gray">=</span><span style="color:Maroon">25</span><span style="color:Gray">,</span><br>
+            <span style="color:Teal">min</span><span style="color:Gray">=</span><span style="color:Maroon">0</span><span style="color:Gray">,</span><br>
+            <span style="color:Teal">max</span><span style="color:Gray">=</span><span style="color:Maroon">100</span><span style="color:Gray">,</span><br>
+            label<span style="color:Gray">=</span><span style="color:#a11">"温度计"</span><span style="color:Gray">,</span><br>
+            style<span style="color:Gray">=</span><span style="color:Olive">{</span><span style="color:#a11">'margin'</span>: <span style="color:#a11">'20px'</span><span style="color:Olive">}</span><br>
+        <span style="color:Olive">)</span><span style="color:Gray">,</span><br>
+        daq.<span style="color:#05a">Gauge</span><span style="color:Olive">(</span><br>
+            <span style="color:Teal">id</span><span style="color:Gray">=</span><span style="color:#a11">'gauge'</span><span style="color:Gray">,</span><br>
+            value<span style="color:Gray">=</span><span style="color:Maroon">50</span><span style="color:Gray">,</span><br>
+            <span style="color:Teal">min</span><span style="color:Gray">=</span><span style="color:Maroon">0</span><span style="color:Gray">,</span><br>
+            <span style="color:Teal">max</span><span style="color:Gray">=</span><span style="color:Maroon">100</span><span style="color:Gray">,</span><br>
+            label<span style="color:Gray">=</span><span style="color:#a11">"压力表"</span><span style="color:Gray">,</span><br>
+            style<span style="color:Gray">=</span><span style="color:Olive">{</span><span style="color:#a11">'margin'</span>: <span style="color:#a11">'20px'</span><span style="color:Olive">}</span><br>
+        <span style="color:Olive">)</span><br>
+    <span style="color:Olive">]</span><br>
+<span style="color:Olive">)</span><br>
+<br>
+<span style="color:#a50"># 运行应用</span><br>
+<span style="color:Green">if</span> __name__ <span style="color:Gray">==</span> <span style="color:#a11">'__main__'</span>:<br>
+    app.<span style="color:#05a">run</span><span style="color:Olive">(</span>debug<span style="color:Gray">=</span><span style="color:Teal">True</span><span style="color:Olive">)</span><br>
+<p><strong>运行效果：</strong></p>
+<ul><li><p>显示一个温度计和一个压力表，样式美观。</p></li><li><p>组件居中显示，带外边距。</p></li></ul></div></section>
+<footer><p>离线版 · 内容抓取自 runoob.com，仅用于个人离线阅读；页面结构与广告已去除，原文版权归菜鸟教程及原作者。</p><p><a href="index.html">← 返回总索引</a></p></footer></body></html>

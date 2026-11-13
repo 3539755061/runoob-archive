@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>XLink 和 XPointer 教程 · 离线版</title>
+<link rel="stylesheet" href="css/offline.css">
+</head><body>
+<nav class="topbar"><a href="index.html">← 返回总索引</a><span>·</span><span>H 遗留与历史技术</span>
+<span>·</span><span>7 章</span></nav>
+<h1>XLink 和 XPointer 教程</h1>
+<p class="docmeta">来源：<a class="ext" href="https://www.runoob.com/xlink/xlink-tutorial.html">https://www.runoob.com/xlink/xlink-tutorial.html</a><br>
+适用性：<b style="color:#c62828">弃用</b>
+｜ 时效：历史 ｜ 抓取：2026-11-13 ｜ 本页为离线阅读版，章节按教程侧栏顺序合并，广告与评论已去除。</p>
+<details class="toc-ch"><summary>本篇目录（7 章，点击展开）</summary><ol>
+<li><a href="#c1">XLink 和 XPointer 教程</a></li>
+<li><a href="#c2">XLink 和 XPointer 简介</a></li>
+<li><a href="#c3">XLink 和 XPointer 语法</a></li>
+<li><a href="#c4">XLink 实例</a></li>
+<li><a href="#c5">XPointer 实例</a></li>
+<li><a href="#c6">XLink 总结</a></li>
+<li><a href="#c7">XLink 参考手册</a></li>
+</ol></details>
+<section class="ch" id="c1"><h2>1. XLink 和 XPointer 教程<a class="chsrc" href="https://www.runoob.com/xlink/xlink-tutorial.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><br>
+<p>XLink 定义在 XML 文档中创建超级链接的标准方法。</p>
+<p>XPointer 允许这些超级链接指向 XML 文档中的更多具体部分（片断）。</p>
+<p><b><a href="xlink.html#c2">现在开始学习 XLink 和 XPointer!</a></b></p>
+
+<h3>内容列表</h3><p>
+<a href="xlink.html#c2">
+	XLink 和 XPointer 简介	</a><br>
+本章阐述 XLink 和 XPointer 的概念。</p>
+
+<p><a href="xlink.html#c3">
+	XLink 和 XPointer 语法	</a><br>
+XLink 和 XPointer 的语法。</p>
+
+<p><a href="xlink.html#c4">
+	XLink 实例	</a><br>
+一个在 XML 文档中使用 XLink 的实例。</p>
+
+<p><a href="xlink.html#c5">
+	XPointer 实例	</a><br>
+一个在 XML 文档中使用 XLink 和 XPointer 的实例。</p>
+
+<p><a href="xlink.html#c6">
+	XLink 总结	</a><br>
+本文包括在本教程所学内容的一个总结，以及我们向你推荐的下一步应该学习的内容。</p>
+<p><a href="xlink.html#c7">
+	XLink 参考手册	</a><br>
+XLink 属性参考手册.</p></div></section>
+<section class="ch" id="c2"><h2>2. XLink 和 XPointer 简介<a class="chsrc" href="https://www.runoob.com/xlink/xlink-intro.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>XLink 定义了一套标准的在 XML 文档中创建超级链接的方法。
+</p>
+<p>XPointer 使超级链接可以指向 XML 文档中更多具体的部分（片断）。</p>
+<hr>
+<h3>您应当具备的基础知识</h3>
+<p>学习本教程前您应当具备的基础知识:</p>
+<ul>
+<li>HTML / XHTML</li>
+  <li>XML / XML 命名空间</li>
+  <li>XPath</li>
+</ul>
+<p>如果您希望首先学习这些项目，请在我们对 首页 访问这些教程。<a href="https://www.runoob.com//www.runoob.com/" class="ext">首页</a>.</p>
+<hr>
+<h3>什么是 XLink？</h3>
+<table><tr>
+<td><img src="img/af4fbc94e14b5bd0.gif" alt="XQuery" loading="lazy"></td>
+<td>
+
+<ul>
+<li>XLink 是 XML 链接语言（XML Linking Language）的缩写</li>
+<li>XLink 是用于在 XML 文档中创建超级链接的语言</li>
+<li>XLink 类似于 HTML 链接 - 但是更为强大</li>
+<li>XML 文档中的任何元素均可成为 XLink</li>
+<li>XLink 支持简易链接，也支持可将多重资源链接在一起的扩展链接</li>
+<li>通过 XLink，链接可在被链接文件外进行定义</li>
+<li>XLink 是 W3C 推荐标准</li>
+</ul>
+
+</td>
+</tr></table>
+<br><hr>
+<h3>什么是 XPointer？</h3>
+
+<table><tr>
+<td><img src="img/af4fbc94e14b5bd0.gif" alt="XQuery" loading="lazy"></td>
+<td>
+<ul>
+<li>XPointer 是 XML 指针文件（XML Pointer Language）的缩写</li>
+<li>XPointer 使超级链接可以指向 XML 文档中更多具体的部分（片断）</li>
+<li>XPointer 使用 XPath 表达式在 XML 文档中进行定位</li>
+<li>XPointer 是 W3C 推荐标准</li>
+
+</ul>
+</td>
+</tr></table>
+<br><hr>
+<h3>XLink 和 XPointer 是 W3C 标准</h3>
+<p>在2001年6月27日，XLink 被确立为 W3C 推荐标准。</p>
+<p>XPointer 于2003年3月25日成为 W3C 推荐标准。</p>
+<p>您可以在我们的《<a href="w3c.html#c1" title="W3C 教程">W3C 教程</a>》中阅读更多有关 XML 标准的内容。</p>
+
+<hr>
+<h3>XLink 和 XPointer 的浏览器支持</h3>
+<p>浏览器只在最小限度内支持 XLink 和 XPointer。</p>
+<p>在 Mozilla 0.98+、Netscape 6.02+ 以及 Internet Explorer 6.0 中，均具有对 XLink 某种程度的支持。更早版本的浏览器根本不支持 XLink。</p></div></section>
+<section class="ch" id="c3"><h2>3. XLink 和 XPointer 语法<a class="chsrc" href="https://www.runoob.com/xlink/xlink-syntax.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>XLink 语法</h3>
+<p>在 HTML 中，我们知道 &lt;a&gt; 元素可定义超级链接。不过 XML 不是这样工作的。在 XML 文档中，您可以使用任何你需要的名称 - 因此对于浏览器来说是无法预知在 XML 文档中可调用何种超级链接元素。</p>
+<p>在 XML 文档中定义超级链接的方法是在元素上放置可用作超级链接的标记。</p>
+<p>下面是在 XML 文档中使用 XLink 来创建链接的简单实例：</p>
+
+&lt;?xml version="1.0"?&gt;<br><br>
+&lt;homepages xmlns:xlink="http://www.w3.org/1999/xlink"&gt;<br><br>
+  &lt;homepage xlink:type="simple"<br>
+  xlink:href="http://www.runoob.com"&gt;Visit Runoob&lt;/homepage&gt;<br><br>
+  &lt;homepage xlink:type="simple"<br>
+  xlink:href="http://www.w3.org"&gt;Visit W3C&lt;/homepage&gt;<br><br>
+&lt;/homepages&gt;
+
+<p>为了访问 XLink 的属性和特性，我们必须在文档的顶端声明 XLink 命名空间。</p>
+<p>XLink 的命名空间是："http://www.w3.org/1999/xlink"。</p>
+<p>&lt;homepage&gt; 元素中的 xlink:type 和 xlink:href 属性定义了来自 XLink 命名空间的 type 和 href 属性。</p>
+<p>xlink:type="simple" 可创建一个简单的两端链接（意思是"从这里到哪里"）。稍后我们会研究多端链接（多方向）。</p>
+
+<hr>
+<h3>XPointer 语法</h3>
+<p>在 HTML 中，我们可创建一个既指向某个 HTML 页面又指向 HTML 页面内某个书签的超级链接（使用#）。</p>
+<p>有时，可指向更多具体的内容会更有好处。举例，我们需要指向某个特定的列表的第三个项目，或者指向第五段的第二行。通过 XPointer 是很容易做到的。</p>
+<p>假如超级链接指向某个 XML 文档，我们可以在 xlink:href 属性中把 XPointer 部分添加到 URL 后面，这样就可以导航（通过 XPath 表达式）到文档中某个具体的位置了。</p>
+<p>举例，在下面的例子中，我们通过唯一的 id "rock" 使用 XPointer 指向某个列表中的第五个项目。</p>
+
+href="http://www.example.com/cdlist.xml#id('rock').child(5,item)"</div></section>
+<section class="ch" id="c4"><h2>4. XLink 实例<a class="chsrc" href="https://www.runoob.com/xlink/xlink-example.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>让我们通过研究一个实例来学习一些基础的 XLink 语法。</p>
+<hr>
+<h3>XML 实例文档</h3>
+<p>请看下面的 XML 文档，"bookstore.xml"，它用来呈现书籍：</p>
+
+&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;<br><br>
+&lt;bookstore xmlns:xlink="http://www.w3.org/1999/xlink"&gt;<br><br>
+&lt;book title="Harry Potter"&gt;<br>
+   
+  &lt;description<br>
+   
+  xlink:type="simple"<br>
+   
+  xlink:href="http://book.com/images/HPotter.gif"<br>
+   
+  xlink:show="new"&gt;<br>
+   
+  As his fifth year at Hogwarts School of Witchcraft and<br>
+   
+  Wizardry approaches, 15-year-old Harry Potter is.......<br>
+   
+  &lt;/description&gt;<br>
+&lt;/book&gt;<br><br>
+&lt;book title="XQuery Kick Start"&gt;<br>
+   
+  &lt;description<br>
+   
+  xlink:type="simple"<br>
+   
+  xlink:href="http://book.com/images/XQuery.gif"<br>
+   
+  xlink:show="new"&gt;<br>
+   
+  XQuery Kick Start delivers a concise introduction<br>
+   
+  to the XQuery standard.......<br>
+   
+  &lt;/description&gt;<br>
+&lt;/book&gt;<br><br>
+&lt;/bookstore&gt;
+
+<p>在您的浏览器查看 "bookstore.xml" <a href="https://www.runoob.com/try/xml/bookstore.xml" class="ext">bookstore.xml</a>文件。</p>
+<p>在上面的例子中，XLink 文档命名空间(xmlns:xlink="http://www.w3.org/1999/xlink")被声明于文档的顶部。 这意味着文档可访问 XLink 的属性和特性。</p>
+<p>xlink:type="simple" 可创建简单的类似 HTML 的链接。您也可以规定更多的复杂的链接（多方向链接），但是目前，我们仅使用简易链接。</p>
+<p>xlink:href 属性规定了要链接的 URL，而 xlink:show 属性规定了在何处打开链接。xlink:show="new" 意味着链接（在此例中，是一幅图像）会在新窗口打开。</p>
+<hr>
+<h3>XLink - 深入学习</h3>
+<p>在上面的例子中，我们只展示了简单的链接。当我们要访问远程位置的资源，而不是独立的页面时，XLink是变得更有趣。在上面的例子&lt;description&gt;元素集的XLINK属性显示的值为："new"。这意味着，应该在新窗口打开链接。我们可以设置XLINK中的值：显示属性"embed"。这意味着资源应嵌入到页面处理。你认为这可能是另一个XML文档，而不是只是一个图像，你可以建立一个XML文档中层次结构的例子。</p>
+<p>使用XLink，你还可以指定资源时才显示。这是由XLink的actuate属性处理。XLINK：actuate"="onLoad"指定的资源文件应加载和显示。XLINK：actuate="onRequest"意味着链接被点击之前无法读取或显示资源。这对低带宽设置非常方便。</p></div></section>
+<section class="ch" id="c5"><h2>5. XPointer 实例<a class="chsrc" href="https://www.runoob.com/xlink/xpointer-example.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>让我们通过研究一个实例来学习一些基础的 XPointer 语法。</p>
+<hr>
+<h3>XPointer 实例</h3>
+<p>在本例中，我们会为您展示如何使用 XPointer 并结合 XLink 来指向另外一个文档的某个具体的部分。
+</p>
+<p>我们将通过研究目标 XML 文档开始（即我们要链接的那个文档）。</p>
+<hr>
+<h3>目标XML文档</h3>
+<p>目标XML文档名为 "dogbreeds.xml"，它列出了一些不同的狗种类：</p>
+
+&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;<br><br>
+&lt;dogbreeds&gt;<br><br>
+&lt;dog breed="Rottweiler" id="Rottweiler"&gt;<br>
+   
+  &lt;picture url="http://dog.com/rottweiler.gif" /&gt;<br>
+   
+  &lt;history&gt;The Rottweiler's ancestors were probably Roman<br>
+   
+  drover dogs.....&lt;/history&gt;<br>
+   
+  &lt;temperament&gt;Confident, bold, alert and imposing, the Rottweiler<br>
+   
+  is a popular choice for its ability to protect....&lt;/temperament&gt;<br>
+&lt;/dog&gt;<br><br>
+&lt;dog breed="FCRetriever" id="FCRetriever"&gt;<br>
+   
+  &lt;picture url="http://dog.com/fcretriever.gif" /&gt;<br>
+   
+  &lt;history&gt;One of the earliest uses of retrieving dogs was to<br>
+   
+  help fishermen retrieve fish from the water....&lt;/history&gt;<br>
+   
+  &lt;temperament&gt;The flat-coated retriever is a sweet, exuberant,<br>
+   
+  lively dog that loves to play and retrieve....&lt;/temperament&gt;<br>
+&lt;/dog&gt;<br><br>
+&lt;/dogbreeds&gt;
+
+<p>在您的浏览器查看 <a href="https://www.runoob.com/try/xml/dogbreeds.xml" class="ext">"dogbreeds.xml" 文件</a>。</p>
+<p><b>注意上面的 XML 文档在每个我们需要链接的元素上使用了 id 属性！</b></p>
+<hr>
+<h3>XML 链接文档</h3>
+<p>不止能够链接到整个文档（当使用 XLink 时），XPointer 允许您链接到文档的特定部分。如需链接到页面的某个具体的部分，请在 xlink:href 属性中的 URL 后添加一个井号 (#) 以及一个 XPointer 表达式。</p>
+<p>表达式：<em>#xpointer(id("Rottweiler"))</em> 可引用目标文档中 id 值为 "Rottweiler" 的元素。</p>
+<p>因此，xlink:href 属性会类似这样：<em>xlink:href="http://dog.com/dogbreeds.xml#xpointer(id('Rottweiler'))"</em></p>
+<p>不过，当使用 id 链接到某个元素时，XPointer 允许简写形式。您可以直接使用 id 的值，就像这样：<em>xlink:href="http://dog.com/dogbreeds.xml#Rottweiler"</em>。</p>
+<p>下面的 XML 文档可引用每条狗的品种信息，均通过 XLink 和 XPointer 来引用：</p>
+
+&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;<br><br>
+&lt;mydogs xmlns:xlink="http://www.w3.org/1999/xlink"&gt;<br><br>
+&lt;mydog xlink:type="simple"<br>
+   
+  xlink:href="http://dog.com/dogbreeds.xml#Rottweiler"&gt;<br>
+   
+  &lt;description xlink:type="simple"<br>
+   
+  xlink:href="http://myweb.com/mydogs/anton.gif"&gt;<br>
+   
+  Anton is my favorite dog. He has won a lot of.....<br>
+   
+  &lt;/description&gt;<br>
+&lt;/mydog&gt;<br><br>
+&lt;mydog xlink:type="simple"<br>
+   
+  xlink:href="http://dog.com/dogbreeds.xml#FCRetriever"&gt;<br>
+   
+  &lt;description xlink:type="simple"<br>
+   
+  xlink:href="http://myweb.com/mydogs/pluto.gif"&gt;<br>
+   
+  Pluto is the sweetest dog on earth......<br>
+   
+  &lt;/description&gt;<br>
+&lt;/mydog&gt;<br><br>
+&lt;/mydogs&gt;</div></section>
+<section class="ch" id="c6"><h2>6. XLink 总结<a class="chsrc" href="https://www.runoob.com/xlink/xlink-summary.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h4>XLink 概要</h4>
+<p>本教程已经向您讲解了在 XML 文档中创建超级链接的一种标准方法。</p>
+<p>您已经明白了 XML 中的链接被分为两个部分：XLink 和 XPointer。</p>
+<p>XLink 定义了一套在 XML 文档中创建超级链接的标准方法。XPointer 使超级链接有能力指向 XML 文档中更多具体的部分（片断）。</p>
+<p>如需更多有关 XLink 的知识，请浏览我们的《<a href="xlink.html#c1" title="XLink 参考手册">XLink 参考手册</a>》。</p>
+
+<hr>
+<h3>您已经学习了 XLink，下一步呢？</h3>
+<p>下一步应当学习 XQuery。</p>
+<p><b>XQuery</b></p>
+<p>XQuery 和 XML 查询有关。
+</p>
+<p>XQuery 被设计用来查询任何可以 XML 形态呈现的数据，包括数据库。
+</p>
+<p>如果您希望学习更多有关 XQuery 的知识，请访问我们的<a href="xquery.html#c1">《XQuery 教程》</a>。 </p></div></section>
+<section class="ch" id="c7"><h2>7. XLink 参考手册<a class="chsrc" href="https://www.runoob.com/xlink/xlink-reference.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>
+XLink，即 XML 链接语言，是一种通过 W3C 推荐标准认证的 XML 标记语言，提供一些方法，用于在 XML 文件上创建内部和外部链接，以及与这些链接相关联的元数据。<br>
+XLink 提供两种可在 XML 文档中使用的超链接，简单链接和扩展链接。简单链接，只连接两种资源，类似于 HTML 链接和 IMG 链接。 扩展链接，可连接任意数量的资源。
+</p>
+<h3>XLink 属性参考手册</h3>
+
+<table>
+
+  <tbody><tr>
+    <th>属性</th>
+    <th>值</th>
+    <th>描述</th>
+  </tr>
+  <tr>
+    <td>xlink:actuate</td>
+    <td>
+	<ul>
+	<li>onLoad</li>
+	<li>onRequest</li>
+	<li>other</li>
+	<li>none</li>
+	</ul>
+	</td>
+    <td>定义何时读取和显示被链接的资源。</td>
+  </tr>
+  <tr>
+    <td>xlink:href</td>
+    <td><i>URL</i></td>
+    <td>要链接的 URL。</td>
+  </tr>
+  <tr>
+    <td>xlink:show</td>
+    <td>
+	<ul>
+	<li>embed</li>
+	<li>new</li>
+	<li>replace</li>
+	<li>other</li>
+	<li>none</li>
+	</ul>
+	</td>
+    <td>在何处打开链接。Replace 是默认值。</td>
+  </tr>
+  <tr>
+    <td>xlink:type</td>
+    <td>
+	<ul>
+	<li>simple</li>
+	<li>extended</li>
+	<li>locator</li>
+	<li>arc</li>
+	<li>resource</li>
+	<li>title</li>
+	<li>none</li>
+	</ul>
+	</td>
+    <td>链接的类型。</td>
+  </tr>
+</tbody></table></div></section>
+<footer><p>离线版 · 内容抓取自 runoob.com，仅用于个人离线阅读；页面结构与广告已去除，原文版权归菜鸟教程及原作者。</p><p><a href="index.html">← 返回总索引</a></p></footer></body></html>

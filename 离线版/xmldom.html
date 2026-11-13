@@ -1,0 +1,3707 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>XML DOM 教程 · 离线版</title>
+<link rel="stylesheet" href="css/offline.css">
+</head><body>
+<nav class="topbar"><a href="index.html">← 返回总索引</a><span>·</span><span>H 遗留与历史技术</span>
+<span>·</span><span>40 章</span></nav>
+<h1>XML DOM 教程</h1>
+<p class="docmeta">来源：<a class="ext" href="https://www.runoob.com/dom/dom-tutorial.html">https://www.runoob.com/dom/dom-tutorial.html</a><br>
+适用性：<b style="color:#b26a00">谨慎</b>
+｜ 时效：历史 ｜ 抓取：2026-11-13 ｜ 本页为离线阅读版，章节按教程侧栏顺序合并，广告与评论已去除。</p>
+<details class="toc-ch"><summary>本篇目录（40 章，点击展开）</summary><ol>
+<li><a href="#c1">XML DOM 教程</a></li>
+<li><a href="#c2">DOM 简介</a></li>
+<li><a href="#c3">DOM 节点</a></li>
+<li><a href="#c4">DOM 节点树</a></li>
+<li><a href="#c5">DOM 解析</a></li>
+<li><a href="#c6">DOM 加载函数</a></li>
+<li><a href="#c7">DOM 方法</a></li>
+<li><a href="#c8">DOM 访问</a></li>
+<li><a href="#c9">DOM 节点信息</a></li>
+<li><a href="#c10">DOM 节点列表</a></li>
+<li><a href="#c11">DOM 遍历</a></li>
+<li><a href="#c12">DOM 浏览器</a></li>
+<li><a href="#c13">DOM 导航</a></li>
+<li><a href="#c14">DOM 获取节点</a></li>
+<li><a href="#c15">DOM 改变节点</a></li>
+<li><a href="#c16">DOM 删除节点</a></li>
+<li><a href="#c17">DOM 替换节点</a></li>
+<li><a href="#c18">DOM 创建节点</a></li>
+<li><a href="#c19">DOM 添加节点</a></li>
+<li><a href="#c20">DOM 克隆节点</a></li>
+<li><a href="#c21">DOM XMLHttpRequest</a></li>
+<li><a href="#c22">DOM 节点类型</a></li>
+<li><a href="#c23">DOM Node</a></li>
+<li><a href="#c24">DOM NodeList</a></li>
+<li><a href="#c25">DOM NamedNodeMap</a></li>
+<li><a href="#c26">DOM Document</a></li>
+<li><a href="#c27">DOM DocumentImpl</a></li>
+<li><a href="#c28">DOM DocumentType</a></li>
+<li><a href="#c29">DOM ProcessingInst</a></li>
+<li><a href="#c30">DOM Element</a></li>
+<li><a href="#c31">DOM Attribute</a></li>
+<li><a href="#c32">DOM Text</a></li>
+<li><a href="#c33">DOM CDATA</a></li>
+<li><a href="#c34">DOM Comment</a></li>
+<li><a href="#c35">DOM XMLHttpRequest</a></li>
+<li><a href="#c36">DOM ParseError Obj</a></li>
+<li><a href="#c37">DOM 解析器错误</a></li>
+<li><a href="#c38">DOM 总结</a></li>
+<li><a href="#c39">DOM 实例</a></li>
+<li><a href="#c40">DOM 验证</a></li>
+</ol></details>
+<section class="ch" id="c1"><h2>1. XML DOM 教程<a class="chsrc" href="https://www.runoob.com/dom/dom-tutorial.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><br>
+<p>XML DOM 定义访问和操作XML文档的标准方法。</p>
+<p>DOM 将 XML 文档作为一个树形结构，而树叶被定义为节点。</p>
+<p>如果你想使用XML，你就需要了解XML DOM。</p>
+<p><b>现在开始学习XML DOM !</b></p>
+
+<h3>XML DOM 树形实例</h3>
+
+<img src="img/903f25d959d30101.gif" alt="DOM node tree" loading="lazy">
+
+<br>
+
+<br><h3>XML DOM 对象参考手册</h3>
+<p>在菜鸟教程中，我们提供完整的 DOM 参考手册，其中包括所有的对象以及它们的属性和方法。</p>
+<p><a href="#c23">XML DOM 参考手册</a></p>
+
+<h3>XML DOM 实例</h3>
+<p>学习 50 个实例！使用我们的编辑器，你可以编辑源代码，然后单击测试按钮来查看结果。</p>
+<p><a href="#c39">在线实例！</a></p></div></section>
+<section class="ch" id="c2"><h2>2. DOM 简介<a class="chsrc" href="https://www.runoob.com/dom/dom-intro.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>XML DOM 定义了访问和处理 XML 文档的标准。</p>
+<hr>
+<h3>您应当具备的基础知识</h3>
+<p>在继续学习之前，您应当对下列知识有基本的了解：</p>
+<ul>
+<li>HTML</li>
+ <li>XML</li>
+ <li>JavaScript</li>
+</ul>
+<p>如果您想要首先学习这些项目，请在我们的<a href="zookeeper.html#c38">首页</a>访问这些教程。</p>
+<hr>
+<h3>什么是 DOM？</h3>
+<p>DOM 是 W3C（World Wide Web Consortium）标准。</p>
+<p>DOM 定义了访问诸如 XML 和 HTML 文档的标准：</p>
+<p><i>"W3C 文档对象模型（DOM，全称 Document Object Model）是一个使程序和脚本有能力动态地访问和更新文档的内容、结构以及样式的平台和语言中立的接口。"</i></p>
+<p>DOM 被分为 3 个不同的部分/级别：</p>
+<ul>
+<li>核心 DOM - 用于任何结构化文档的标准模型</li>
+	<li>XML DOM - 用于 XML 文档的标准模型</li>
+	<li>HTML DOM - 用于 HTML 文档的标准模型</li>
+</ul>
+<p>DOM 定义了所有文档元素的<b>对象和属性</b>，以及访问它们的<b>方法</b>（接口）。</p>
+<hr>
+<h3>什么是 HTML DOM？</h3>
+<p>HTML DOM 定义了所有 HTML 元素的<b>对象和属性</b>，以及访问它们的<b>方法</b>（接口）。</p>
+<p>如果您想要学习 HTML DOM，请在我们的<a href="zookeeper.html#c38">首页</a>访问 HTML DOM 教程。</p>
+<hr>
+<h3>什么是 XML DOM？</h3>
+<p>XML DOM 是：</p>
+<ul>
+<li>用于 XML 的标准对象模型</li>
+	<li>用于 XML 的标准编程接口</li>
+	<li>中立于平台和语言</li>
+	<li>W3C 标准</li>
+</ul>
+<p>XML DOM 定义了所有 XML 元素的<b>对象和属性</b>，以及访问它们的<b>方法</b>（接口）。</p>
+<p>换句话说：<b>XML DOM 是用于获取、更改、添加或删除 XML 元素的标准。</b></p>
+<br></div></section>
+<section class="ch" id="c3"><h2>3. DOM 节点<a class="chsrc" href="https://www.runoob.com/dom/dom-nodes.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>在 DOM 中，XML 文档中的每个成分都是一个节点。</p>
+<hr>
+<h3>DOM 节点</h3>
+<p>根据 DOM，XML 文档中的每个成分都是一个<b>节点</b>。</p>
+<p>DOM 是这样规定的：</p>
+<ul>
+<li>整个文档是一个文档节点</li>
+	<li>每个 XML 元素是一个元素节点</li>
+	<li>包含在 XML 元素中的文本是文本节点</li>
+	<li>每一个 XML 属性是一个属性节点</li>
+	<li>注释是注释节点</li>
+</ul>
+<hr>
+<h3>DOM 实例</h3>
+<p>请看下面的 XML 文件（<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>）：</p>
+
+<h3>books.xml 文件代码：</h3>
+
+<span class="hl-brackets">&lt;?</span><span class="hl-reserved">xml</span><span class="hl-code"> </span><span class="hl-var">version</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">1.0</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-var">encoding</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">UTF-8</span><span class="hl-quotes">"</span><span class="hl-brackets">?&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">bookstore</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">book</span><span class="hl-code"> </span><span class="hl-var">category</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">cooking</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">title</span><span class="hl-code"> </span><span class="hl-var">lang</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">en</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">Everyday Italian</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">title</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">author</span><span class="hl-brackets">&gt;</span><span class="hl-code">Giada De Laurentiis</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">author</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">year</span><span class="hl-brackets">&gt;</span><span class="hl-code">2005</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">year</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">price</span><span class="hl-brackets">&gt;</span><span class="hl-code">30.00</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">price</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">book</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">book</span><span class="hl-code"> </span><span class="hl-var">category</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">children</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">title</span><span class="hl-code"> </span><span class="hl-var">lang</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">en</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">Harry Potter</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">title</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">author</span><span class="hl-brackets">&gt;</span><span class="hl-code">J K. Rowling</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">author</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">year</span><span class="hl-brackets">&gt;</span><span class="hl-code">2005</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">year</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">price</span><span class="hl-brackets">&gt;</span><span class="hl-code">29.99</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">price</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">book</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">book</span><span class="hl-code"> </span><span class="hl-var">category</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">web</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">title</span><span class="hl-code"> </span><span class="hl-var">lang</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">en</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">XQuery Kick Start</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">title</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">author</span><span class="hl-brackets">&gt;</span><span class="hl-code">James McGovern</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">author</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">author</span><span class="hl-brackets">&gt;</span><span class="hl-code">Per Bothner</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">author</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">author</span><span class="hl-brackets">&gt;</span><span class="hl-code">Kurt Cagle</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">author</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">author</span><span class="hl-brackets">&gt;</span><span class="hl-code">James Linn</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">author</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">author</span><span class="hl-brackets">&gt;</span><span class="hl-code">Vaidyanathan Nagarajan</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">author</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">year</span><span class="hl-brackets">&gt;</span><span class="hl-code">2003</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">year</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">price</span><span class="hl-brackets">&gt;</span><span class="hl-code">49.99</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">price</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">book</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">book</span><span class="hl-code"> </span><span class="hl-var">category</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">web</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-var">cover</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">paperback</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">title</span><span class="hl-code"> </span><span class="hl-var">lang</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">en</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">Learning XML</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">title</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">author</span><span class="hl-brackets">&gt;</span><span class="hl-code">Erik T. Ray</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">author</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">year</span><span class="hl-brackets">&gt;</span><span class="hl-code">2003</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">year</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">price</span><span class="hl-brackets">&gt;</span><span class="hl-code">39.95</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">price</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">book</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">bookstore</span><span class="hl-brackets">&gt;</span>
+
+<p>在上面的 XML 中，根节点是 &lt;bookstore&gt;。文档中的所有其他节点都被包含在 &lt;bookstore&gt; 中。</p>
+<p>根节点 &lt;bookstore&gt; 有四个 &lt;book&gt; 节点。</p>
+<p>第一个 &lt;book&gt; 节点有四个节点：&lt;title&gt;、&lt;author&gt;、&lt;year&gt; 和 &lt;price&gt;，其中每个节点都包含一个文本节点，"Everyday Italian"、"Giada 
+De Laurentiis"、"2005" 和 "30.00"。</p>
+<hr>
+<h3>文本总是存储在文本节点中</h3>
+<p>在 DOM 处理中一个普遍的错误是，认为元素节点包含文本。</p>
+<p>不过，元素节点的文本是存储在文本节点中的。</p>
+<p>在这个实例中：<b>&lt;year&gt;2005&lt;/year&gt;</b>，元素节点 &lt;year&gt;，拥有一个值为 "2005" 的文本节点。</p>
+<p>"2005" <b>不是</b> &lt;year&gt; 元素的值！</p>
+<br></div></section>
+<section class="ch" id="c4"><h2>4. DOM 节点树<a class="chsrc" href="https://www.runoob.com/dom/dom-nodetree.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>XML DOM 把 XML 文档视为一棵节点树。</p>
+
+<p>树中的所有节点彼此之间都有关系。</p>
+
+<hr>
+<h3>XML DOM 节点树</h3>
+<p>XML DOM 把 XML 文档视为一种树结构。这种树结构被称为<b>节点树</b>。</p>
+
+<p>可通过这棵树访问所有节点。可以修改或删除它们的内容，也可以创建新的元素。</p>
+
+<p>这颗节点树展示了节点的集合，以及它们之间的联系。这棵树从根节点开始，然后在树的最低层级向文本节点长出枝条：</p>
+<p>
+<img src="img/461ad87b2d46b2c4.gif" alt="DOM node tree" loading="lazy"></p>
+<p>上面的图片表示 XML 文件 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>。</p>
+<hr>
+<h3>父节点、子节点和同级节点</h3>
+<p>节点树中的节点彼此之间都有层级关系。</p>
+
+<p>父节点、子节点和同级节点用于描述这种关系。父节点拥有子节点，位于相同层级上的子节点称为同级节点（兄弟或姐妹）。
+</p>
+<ul>
+<li>在节点树中，顶端的节点称为根节点</li>
+	<li>根节点之外的每个节点都有一个父节点</li>
+	<li>节点可以有任何数量的子节点</li>
+	<li>叶子是没有子节点的节点</li>
+	<li>同级节点是拥有相同父节点的节点</li>
+</ul>
+<p>下面的图片展示出节点树的一个部分，以及节点间的关系：</p>
+<p><img src="img/9c6b08c78eb3f895.gif" alt="Node tree" loading="lazy"></p>
+<p>因为 XML 数据是按照树的形式进行构造的，所以可以在不了解树的确切结构且不了解其中包含的数据类型的情况下，对其进行遍历。</p>
+<p>您将在本教程稍后的章节学习更多有关遍历节点树的知识。</p>
+
+<hr>
+<h3>第一个子节点 - 最后一个子节点</h3>
+<p>请看下面的 XML 片段：</p>
+
+<span class="hl-brackets">&lt;</span><span class="hl-reserved">bookstore</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">book</span><span class="hl-code"> </span><span class="hl-var">category</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">cooking</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">title</span><span class="hl-code"> </span><span class="hl-var">lang</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">en</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">Everyday Italian</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">title</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">author</span><span class="hl-brackets">&gt;</span><span class="hl-code">Giada De Laurentiis</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">author</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">year</span><span class="hl-brackets">&gt;</span><span class="hl-code">2005</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">year</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">price</span><span class="hl-brackets">&gt;</span><span class="hl-code">30.00</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">price</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">book</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">bookstore</span><span class="hl-brackets">&gt;</span>
+
+<p>在上面的 XML 中，&lt;title&gt; 元素是 &lt;book&gt; 元素的第一个子节点，而 &lt;price&gt; 元素是 &lt;book&gt; 元素的最后一个子节点。</p>
+<p>此外，&lt;book&gt; 元素是 &lt;title&gt;、&lt;author&gt;、&lt;year&gt; 和 &lt;price&gt; 元素的父节点。</p>
+<br></div></section>
+<section class="ch" id="c5"><h2>5. DOM 解析<a class="chsrc" href="https://www.runoob.com/dom/dom-parser.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>大多数浏览器都内建了供读取和操作 XML 的 XML 解析器。</p>
+<p>解析器把 XML 转换为 JavaScript 可存取的对象（XML DOM）。</p>
+<hr>
+<h3>XML 解析器</h3>
+<p>XML DOM 包含了遍历 XML 树，访问、插入及删除节点的方法（函数）。</p>
+<p>然而，在访问和操作 XML 文档之前，它必须加载到 XML DOM 对象。</p>
+<p>XML 解析器读取 XML，并把它转换为 XML DOM 对象，这样才可以使用 JavaScript 访问它。</p>
+<p>大多数浏览器有一个内建的 XML 解析器。</p>
+<hr>
+<h3>加载 XML 文档</h3>
+<p>下面的 JavaScript 片段加载一个 XML 文档（"<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>"）：</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-builtin">window</span><span class="hl-code">.</span><span class="hl-identifier">XMLHttpRequest</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-comment">//</span><span class="hl-comment"> IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码</span><span class="hl-comment"></span><span class="hl-code">
+  </span><span class="hl-identifier">xhttp</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">XMLHttpRequest</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-reserved">else</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-comment">//</span><span class="hl-comment"> IE6, IE5 浏览器执行代码</span><span class="hl-comment"></span><span class="hl-code">
+  </span><span class="hl-identifier">xhttp</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">ActiveXObject</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Microsoft.XMLHTTP</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-identifier">xhttp</span><span class="hl-code">.</span><span class="hl-identifier">open</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">GET</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">books.xml</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-reserved">false</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">xhttp</span><span class="hl-code">.</span><span class="hl-identifier">send</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">xmlDoc</span><span class="hl-code">=</span><span class="hl-identifier">xhttp</span><span class="hl-code">.</span><span class="hl-identifier">responseXML</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_loadxml" class="ext">尝试一下 »</a>
+
+<p><b>代码解释：</b></p>
+<ul>
+<li>创建一个 XMLHTTP 对象</li>
+	<li>打开 XMLHTTP 对象</li>
+	<li>发送一个 XML HTTP 请求到服务器</li>
+	<li>设置响应为 XML DOM 对象</li>
+</ul>
+<hr>
+<h3>加载 XML 字符串</h3>
+<p>下面的代码加载并解析一个 XML 字符串：</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-builtin">window</span><span class="hl-code">.</span><span class="hl-identifier">DOMParser</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-identifier">parser</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">DOMParser</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+  </span><span class="hl-identifier">xmlDoc</span><span class="hl-code">=</span><span class="hl-identifier">parser</span><span class="hl-code">.</span><span class="hl-identifier">parseFromString</span><span class="hl-brackets">(</span><span class="hl-identifier">text</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">text/xml</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-reserved">else</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+   </span><span class="hl-comment">//</span><span class="hl-comment"> Internet Explorer</span><span class="hl-comment"></span><span class="hl-code">
+  </span><span class="hl-identifier">xmlDoc</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">ActiveXObject</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Microsoft.XMLDOM</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+  </span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">async</span><span class="hl-code">=</span><span class="hl-reserved">false</span><span class="hl-code">;
+  </span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">loadXML</span><span class="hl-brackets">(</span><span class="hl-identifier">text</span><span class="hl-brackets">)</span><span class="hl-code">; 
+</span><span class="hl-brackets">}</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_loadxmltext" class="ext">尝试一下 »</a>
+
+<p><b>注意：</b>Internet Explorer 使用 loadXML() 方法来解析 XML 字符串，而其他浏览器使用 DOMParser 对象。</p>
+<hr>
+<h3>跨域访问</h3>
+<p>出于安全原因，现代的浏览器不允许跨域访问。</p>
+<p>这意味着，网页以及 XML 文件，它必须位于同一台服务器上尝试加载。</p>
+<p>菜鸟教程上的实例中所有打开的 XML 文件都是位于菜鸟教程域上的。</p>
+<p>如果您想要在您的网页上使用上面的实例，您加载的 XML 文件必须位于您自己的服务器上。</p>
+<br></div></section>
+<section class="ch" id="c6"><h2>6. DOM 加载函数<a class="chsrc" href="https://www.runoob.com/dom/dom-loadxmldoc.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>
+加载 XML 文档中的代码可以存储在一个函数中。</p>
+
+<hr>
+<h3>loadXMLDoc() 函数</h3>
+<p>为了使前一页中的代码易于维护（检查旧的浏览器），它应该写成一个函数：</p>
+
+<h3>loadxmldoc.js 文件代码：</h3>
+
+<span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">loadXMLDoc</span><span class="hl-brackets">(</span><span class="hl-identifier">dname</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-builtin">window</span><span class="hl-code">.</span><span class="hl-identifier">XMLHttpRequest</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-identifier">xhttp</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">XMLHttpRequest</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+    </span><span class="hl-reserved">else</span><span class="hl-code">
+    </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-identifier">xhttp</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">ActiveXObject</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Microsoft.XMLHTTP</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+    </span><span class="hl-identifier">xhttp</span><span class="hl-code">.</span><span class="hl-identifier">open</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">GET</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-identifier">dname</span><span class="hl-code">,</span><span class="hl-reserved">false</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">xhttp</span><span class="hl-code">.</span><span class="hl-identifier">send</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">xhttp</span><span class="hl-code">.</span><span class="hl-identifier">responseXML</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span>
+
+<p>上面的函数可以存储在 HTML 页面的 &lt;head&gt; 部分，并从页面中的脚本调用。</p>
+<p><img src="img/4b10aab21427d9a3.gif" alt="lamp" loading="lazy"><b>上面描述的函数，用于本教程中所有 XML 文档实例！</b></p>
+<hr>
+<h3>loadXMLDoc() 的外部 JavaScript</h3>
+<p>为了使上述代码更容易维护，以确保在所有页面中使用相同的代码，我们把函数存储在一个外部文件中。</p>
+<p>文件名为 "loadxmldoc.js"，且在 HTML 页面中的 head 部分被加载。然后，页面中的脚本调用 loadXMLDoc() 函数。</p>
+
+<p>下面的实例使用 loadXMLDoc() 函数加载 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>：</p>
+
+<h3>实例</h3>
+
+<span class="hl-brackets">&lt;</span><span class="hl-reserved">html</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">head</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-code"> </span><span class="hl-var">src</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">loadxmldoc.js</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">head</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">body</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+ 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+xmlDoc=loadXMLDoc("books.xml");
+ 
+code goes here.....
+ 
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+ 
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">body</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">html</span><span class="hl-brackets">&gt;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_parsertest" class="ext">尝试一下 »</a>
+
+<p>如何从 XML 文件中获得数据，将在下一章中讲解。</p>
+<hr>
+<h3>loadXMLString() 函数</h3>
+<p>为了使前一页中的代码易于维护（检查旧的浏览器），它应该写成一个函数：</p>
+
+<h3>loadxmlstring.js 文件代码：</h3>
+
+<span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">loadXMLString</span><span class="hl-brackets">(</span><span class="hl-identifier">txt</span><span class="hl-brackets">)</span><span class="hl-code"> 
+</span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-builtin">window</span><span class="hl-code">.</span><span class="hl-identifier">DOMParser</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-identifier">parser</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">DOMParser</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-identifier">xmlDoc</span><span class="hl-code">=</span><span class="hl-identifier">parser</span><span class="hl-code">.</span><span class="hl-identifier">parseFromString</span><span class="hl-brackets">(</span><span class="hl-identifier">txt</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">text/xml</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+    </span><span class="hl-reserved">else</span><span class="hl-code"> 
+    </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-comment">//</span><span class="hl-comment"> Internet Explorer</span><span class="hl-comment"></span><span class="hl-code">
+        </span><span class="hl-identifier">xmlDoc</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">ActiveXObject</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Microsoft.XMLDOM</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">async</span><span class="hl-code">=</span><span class="hl-reserved">false</span><span class="hl-code">;
+        </span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">loadXML</span><span class="hl-brackets">(</span><span class="hl-identifier">txt</span><span class="hl-brackets">)</span><span class="hl-code">; 
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+    </span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">xmlDoc</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span>
+
+<p>上面的函数可以存储在 HTML 页面的 &lt;head&gt; 部分，并从页面中的脚本调用。</p>
+<p><img src="img/4b10aab21427d9a3.gif" alt="lamp" loading="lazy"><b>上面描述的函数，用于本教程中所有 XML 字符串实例！</b></p>
+<hr>
+<h3>loadXMLString() 的外部 JavaScript</h3>
+<p>我们已经把 loadXMLString() 函数存储在名为 "loadxmlstring.js" 文件中。</p>
+
+<h3>实例</h3>
+
+<span class="hl-brackets">&lt;</span><span class="hl-reserved">html</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">head</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-code"> </span><span class="hl-var">src</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">loadxmlstring.js</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">head</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">body</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-identifier">text</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">&lt;bookstore&gt;</span><span class="hl-quotes">"</span><span class="hl-code">
+</span><span class="hl-identifier">text</span><span class="hl-code">=</span><span class="hl-identifier">text</span><span class="hl-code">+</span><span class="hl-quotes">"</span><span class="hl-string">&lt;book&gt;</span><span class="hl-quotes">"</span><span class="hl-code">;
+</span><span class="hl-identifier">text</span><span class="hl-code">=</span><span class="hl-identifier">text</span><span class="hl-code">+</span><span class="hl-quotes">"</span><span class="hl-string">&lt;title&gt;Everyday Italian&lt;/title&gt;</span><span class="hl-quotes">"</span><span class="hl-code">;
+</span><span class="hl-identifier">text</span><span class="hl-code">=</span><span class="hl-identifier">text</span><span class="hl-code">+</span><span class="hl-quotes">"</span><span class="hl-string">&lt;author&gt;Giada De Laurentiis&lt;/author&gt;</span><span class="hl-quotes">"</span><span class="hl-code">;
+</span><span class="hl-identifier">text</span><span class="hl-code">=</span><span class="hl-identifier">text</span><span class="hl-code">+</span><span class="hl-quotes">"</span><span class="hl-string">&lt;year&gt;2005&lt;/year&gt;</span><span class="hl-quotes">"</span><span class="hl-code">;
+</span><span class="hl-identifier">text</span><span class="hl-code">=</span><span class="hl-identifier">text</span><span class="hl-code">+</span><span class="hl-quotes">"</span><span class="hl-string">&lt;/book&gt;</span><span class="hl-quotes">"</span><span class="hl-code">;
+</span><span class="hl-identifier">text</span><span class="hl-code">=</span><span class="hl-identifier">text</span><span class="hl-code">+</span><span class="hl-quotes">"</span><span class="hl-string">&lt;/bookstore&gt;</span><span class="hl-quotes">"</span><span class="hl-code">;
+ 
+</span><span class="hl-identifier">xmlDoc</span><span class="hl-code">=</span><span class="hl-identifier">loadXMLString</span><span class="hl-brackets">(</span><span class="hl-identifier">text</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-identifier">code</span><span class="hl-code"> </span><span class="hl-identifier">goes</span><span class="hl-code"> </span><span class="hl-identifier">here</span><span class="hl-code">.....</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">body</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">html</span><span class="hl-brackets">&gt;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_parsertest2" class="ext">尝试一下 »</a>
+
+<br></div></section>
+<section class="ch" id="c7"><h2>7. DOM 方法<a class="chsrc" href="https://www.runoob.com/dom/dom-methods.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>属性和方法向 XML DOM 定义了编程接口。</p>
+
+<hr>
+<h3>编程接口</h3>
+<p>DOM 把 XML 模拟为一系列节点对象。可通过 JavaScript 或其他编程语言来访问节点。在本教程中，我们使用 JavaScript。</p>
+<p>对 DOM 的编程接口是通过一套标准的属性和方法来定义的。</p>
+<p><b>属性</b>经常按照"某事物是什么"的方式来使用（例如节点名是 "book"）。</p>
+<p><b>方法</b>经常按照"对某事物做什么"的方式来使用（例如删除 "book" 节点）。</p>
+
+<hr>
+<h3>XML DOM 属性</h3>
+<p>一些典型的 DOM 属性： </p>
+<ul>
+<li>x.nodeName - x 的名称</li>
+	<li>x.nodeValue - x 的值</li>
+	<li>x.parentNode - x 的父节点</li>
+	<li>x.childNodes - x 的子节点</li>
+	<li>x.attributes - x 的属性节点</li>
+</ul>
+<p>注释：在上面的列表中，x 是一个节点对象。</p>
+
+<hr>
+<h3>XML DOM 方法</h3>
+<ul>
+<li>x.getElementsByTagName(<i>name</i>) - 获取带有指定标签名称的所有元素</li>
+	<li>x.appendChild(<i>node</i>) - 向 x 插入子节点</li>
+	<li>x.removeChild(<i>node</i>) - 从 x 删除子节点</li>
+</ul>
+<p>注释：在上面的列表中，x 是一个节点对象。</p>
+
+<hr>
+<h3>
+实例</h3>
+<p>
+从 books.xml 中的 &lt;title&gt; 元素获取文本的 JavaScript 代码：</p>
+<p>
+txt=xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue</p>
+<p>在该语句执行后，txt 保存的值是 "Everyday Italian"。</p>
+<p>
+解释：</p>
+<ul>
+<li>
+<b>xmlDoc</b> - 由解析器创建的 XML DOM 对象</li>
+	<li>
+<b>getElementsByTagName("title")[0]</b> - 第一个 &lt;title&gt; 元素</li>
+	<li>
+<b>childNodes[0]</b> - &lt;title&gt; 元素的第一个子节点（文本节点）</li>
+	<li>
+<b>nodeValue</b> - 节点的值（文本本身）</li>
+</ul>
+<br></div></section>
+<section class="ch" id="c8"><h2>8. DOM 访问<a class="chsrc" href="https://www.runoob.com/dom/dom-nodes-access.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>通过 DOM，您能够访问 XML 文档中的每个节点。</p>
+<hr>
+
+<img src="img/22fab39e8e98ea93.gif" alt="实例" loading="lazy"><h3>尝试一下 - 实例</h3>
+
+<p>下面的实例使用 XML 文件 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>。<br>
+函数 <a href="dom-loadxmldoc.html">loadXMLDoc()</a>，位于外部 JavaScript 中，用于加载 XML 文件。</p>
+
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_index" class="ext">使用节点列表中的索引号来访问节点</a><br>
+本例使用 getElementsByTagname() 方法来获取 "books.xml" 中的第三个 &lt;title&gt; 元素。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_list_loop" class="ext">使用 length 属性来遍历节点</a><br>
+本例使用 length 属性来遍历 "books.xml" 中的所有 &lt;title&gt; 元素。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_root" class="ext">查看元素的节点类型</a><br>
+本例使用 nodeType 属性来获取 "books.xml" 中根元素的节点类型。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_loop" class="ext">遍历元素节点</a><br>
+本例使用 nodeType 属性来处理 "books.xml" 中的元素节点。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_navigate" class="ext">使用节点的关系来遍历元素节点</a><br>
+本例使用 nodeType 属性和 nextSibling 属性来处理 "books.xml" 中的元素节点。</p>
+<hr>
+<h3>访问节点</h3>
+<p>您可以通过三种方式来访问节点：</p>
+<p>1. 通过使用 getElementsByTagName() 方法。</p>
+<p>2. 通过循环（遍历）节点树。</p>
+<p>3. 通过利用节点的关系在节点树中导航。</p>
+<hr>
+<h3>getElementsByTagName() 方法</h3>
+<p>getElementsByTagName() 返回拥有指定标签名的所有元素。</p>
+
+<h4>语法</h4>
+
+<i>node</i>.getElementsByTagName(<i>"tagname"</i>);
+
+<h4>实例</h4>
+<p>下面的实例返回 x 元素下的所有 &lt;title&gt; 元素：</p>
+
+x.getElementsByTagName("title");
+
+<p>请注意，上面的实例仅返回 x 节点下的 &lt;title&gt; 元素。如需返回 XML 文档中的所有 &lt;title&gt; 元素，请使用：</p>
+
+xmlDoc.getElementsByTagName("title");
+
+<p>在这里，xmlDoc 就是文档本身（文档节点）。</p>
+<hr>
+<h3>DOM 节点列表（Node List）</h3>
+<p>getElementsByTagName() 方法返回节点列表。节点列表是节点的数组。</p>
+<p>下面的代码使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中，然后在变量 x 中存储 &lt;title&gt; 节点的一个列表：</p>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+x=xmlDoc.getElementsByTagName("title");
+
+<p>可通过索引号访问 x 中的 &lt;title&gt; 元素。如需访问第三个 &lt;title&gt;，您可以编写：</p>
+
+y=x[2];
+
+<p><b>注意：</b>该索引从 0 开始。</p>
+<p>在本教程后面的章节中，您将学习更多有关节点列表（Node List）的知识。</p>
+<hr>
+<h3>DOM 节点列表长度（Node List Length）</h3>
+<p>length 属性定义节点列表的长度（即节点的数量）。</p>
+<p>您可以通过使用 length 属性来遍历节点列表：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">xmlDoc</span><span class="hl-code">=</span><span class="hl-identifier">loadXMLDoc</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">books.xml</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-identifier">x</span><span class="hl-code">=</span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">getElementsByTagName</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">title</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-reserved">for</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">i</span><span class="hl-code">=</span><span class="hl-number">0</span><span class="hl-code">;</span><span class="hl-identifier">i</span><span class="hl-code">&lt;</span><span class="hl-identifier">x</span><span class="hl-code">.</span><span class="hl-identifier">length</span><span class="hl-code">;</span><span class="hl-identifier">i</span><span class="hl-code">++</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">write</span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">childNodes</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">nodeValue</span><span class="hl-brackets">)</span><span class="hl-code">;
+  </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">write</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_list_loop" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>获取所有 &lt;title&gt; 元素节点</li>
+	<li>输出每个 &lt;title&gt; 元素的文本节点的值</li>
+</ol>
+<hr>
+<h3>节点类型（Node Types）</h3>
+<p>XML 文档的 <b>documentElement</b> 属性是根节点。</p>
+<p>节点的 <b>nodeName</b> 属性是节点的名称。</p>
+<p>节点的 <b>nodeType</b> 属性是节点的类型。</p>
+<p>您将在本教程的下一章中学习更多有关节点属性的知识。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_root" class="ext">尝试一下</a></p>
+
+<hr>
+<h3>遍历节点</h3>
+<p>下面的代码遍历根节点的子节点，同时也是元素节点：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">xmlDoc</span><span class="hl-code">=</span><span class="hl-identifier">loadXMLDoc</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">books.xml</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-identifier">x</span><span class="hl-code">=</span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">documentElement</span><span class="hl-code">.</span><span class="hl-identifier">childNodes</span><span class="hl-code">;
+ 
+</span><span class="hl-reserved">for</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">i</span><span class="hl-code">=</span><span class="hl-number">0</span><span class="hl-code">;</span><span class="hl-identifier">i</span><span class="hl-code">&lt;</span><span class="hl-identifier">x</span><span class="hl-code">.</span><span class="hl-identifier">length</span><span class="hl-code">;</span><span class="hl-identifier">i</span><span class="hl-code">++</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">nodeType</span><span class="hl-code">==</span><span class="hl-number">1</span><span class="hl-brackets">)</span><span class="hl-code">
+  </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-comment">//</span><span class="hl-comment"> 执行一次</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">write</span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">nodeName</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">write</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+  </span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-brackets">}</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_loop" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>获取根元素的子节点</li>
+	<li>检查每个子节点的节点类型。如果节点类型是 "1"，则是元素节点</li>
+	<li>如果是元素节点，则输出节点的名称</li>
+</ol>
+<hr>
+<h3>导航节点的关系</h3>
+<p>下面的代码使用节点关系导航节点树：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">xmlDoc</span><span class="hl-code">=</span><span class="hl-identifier">loadXMLDoc</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">books.xml</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-identifier">x</span><span class="hl-code">=</span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">getElementsByTagName</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">book</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">childNodes</span><span class="hl-code">;
+</span><span class="hl-identifier">y</span><span class="hl-code">=</span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">getElementsByTagName</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">book</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">firstChild</span><span class="hl-code">;
+ 
+</span><span class="hl-reserved">for</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">i</span><span class="hl-code">=</span><span class="hl-number">0</span><span class="hl-code">;</span><span class="hl-identifier">i</span><span class="hl-code">&lt;</span><span class="hl-identifier">x</span><span class="hl-code">.</span><span class="hl-identifier">length</span><span class="hl-code">;</span><span class="hl-identifier">i</span><span class="hl-code">++</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">y</span><span class="hl-code">.</span><span class="hl-identifier">nodeType</span><span class="hl-code">==</span><span class="hl-number">1</span><span class="hl-brackets">)</span><span class="hl-code">
+  </span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-comment">//</span><span class="hl-comment"> 输出节点名</span><span class="hl-comment"></span><span class="hl-code">
+  </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">write</span><span class="hl-brackets">(</span><span class="hl-identifier">y</span><span class="hl-code">.</span><span class="hl-identifier">nodeName</span><span class="hl-code"> + </span><span class="hl-quotes">"</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+  </span><span class="hl-brackets">}</span><span class="hl-code">
+  </span><span class="hl-identifier">y</span><span class="hl-code">=</span><span class="hl-identifier">y</span><span class="hl-code">.</span><span class="hl-identifier">nextSibling</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_navigate" class="ext">尝试一下 »</a>
+
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中 </li>
+	<li>获取第一个 book 元素的子节点</li>
+	<li>把 "y" 变量设置为第一个 book 元素的第一个子节点</li>
+	<li>对于每个子节点（第一个子节点从 "y" 开始），检查节点类型，如果节点类型为 "1"，则是元素节点</li>
+	<li>如果是元素节点，则输出该节点的名称</li>
+	<li>把 "y" 变量设置为下一个同级节点，并再次运行循环</li>
+</ol>
+<br></div></section>
+<section class="ch" id="c9"><h2>9. DOM 节点信息<a class="chsrc" href="https://www.runoob.com/dom/dom-nodes-info.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>nodeName、nodeValue 和 nodeType 属性包含有关节点的信息。</p>
+<hr>
+
+<img src="img/22fab39e8e98ea93.gif" alt="实例" loading="lazy"><h3>尝试一下 - 实例</h3>
+
+<p>下面的实例使用 XML 文件
+<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>。<br>
+函数 <a href="dom-loadxmldoc.html">loadXMLDoc()</a>，位于外部 JavaScript 中，用于加载 XML 文件。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_nodename3" class="ext">获取元素节点的节点名称</a><br>
+本例使用 nodeName 属性来获取 "books.xml" 中根元素的节点名称。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_getelement" class="ext">从文本节点获取文本</a><br>
+本例使用 nodeValue 属性来获取 "books.xml" 中第一个 &lt;title&gt; 元素的文本。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_changeelement" class="ext">更改文本节点中的文本</a><br>
+本例使用 nodeValue 属性来更改 "books.xml" 中第一个 &lt;title&gt; 元素的文本。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_root" class="ext">获取元素节点的节点名称和类型</a><br>
+本例使用 nodeName 和 nodeType 属性来获取 "books.xml" 中根元素的节点名称和类型。</p>
+
+<hr>
+<h3>节点的属性</h3>
+<p>在 XML DOM 中，每个节点都是一个<b>对象</b>。</p>
+<p>对象拥有方法和属性，并可通过 JavaScript 进行访问和操作。</p>
+<p>三个重要的节点属性是：</p>
+<ul>
+<li>nodeName</li>
+	<li>nodeValue</li>
+	<li>nodeType</li>
+</ul>
+<hr>
+<h3>nodeName 属性</h3>
+<p>nodeName 属性规定节点的名称。</p>
+<ul>
+<li>nodeName 是只读的</li>
+	<li>元素节点的 nodeName 与标签名相同</li>
+	<li>属性节点的 nodeName 是属性的名称</li>
+	<li>文本节点的 nodeName 永远是 #text</li>
+	<li>文档节点的 nodeName 永远是 #document</li>
+</ul>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_nodename3" class="ext">尝试一下.</a></p>
+
+<hr>
+<h3>nodeValue 属性</h3>
+<p>nodeValue 属性规定节点的值。</p>
+<ul>
+<li>元素节点的 nodeValue 是 undefined</li>
+	<li>文本节点的 nodeValue 是文本本身</li>
+	<li>属性节点的 nodeValue 是属性的值</li>
+</ul>
+<hr>
+<h3>获取元素的值</h3>
+<p>
+下面的代码检索第一个 &lt;title&gt; 元素的文本节点的值：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">xmlDoc</span><span class="hl-code">=</span><span class="hl-identifier">loadXMLDoc</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">books.xml</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-identifier">x</span><span class="hl-code">=</span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">getElementsByTagName</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">title</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">childNodes</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">;
+</span><span class="hl-identifier">txt</span><span class="hl-code">=</span><span class="hl-identifier">x</span><span class="hl-code">.</span><span class="hl-identifier">nodeValue</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_getelement" class="ext">尝试一下 »</a>
+
+<p>结果：txt = "Everyday Italian"</p>
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>获取第一个 &lt;title&gt; 元素节点的文本节点</li>
+	<li>把 txt 变量设置为文本节点的值</li>
+</ol>
+<hr>
+<h3>更改元素的值</h3>
+<p>
+下面的代码更改第一个 &lt;title&gt; 元素的文本节点的值：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">xmlDoc</span><span class="hl-code">=</span><span class="hl-identifier">loadXMLDoc</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">books.xml</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-identifier">x</span><span class="hl-code">=</span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">getElementsByTagName</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">title</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">childNodes</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">;
+</span><span class="hl-identifier">x</span><span class="hl-code">.</span><span class="hl-identifier">nodeValue</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">Easy Cooking</span><span class="hl-quotes">"</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_changeelement" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>获取第一个 &lt;title&gt; 元素节点的文本节点</li>
+	<li>更改文本节点的值为 "Easy Cooking"</li>
+</ol>
+<hr>
+<h3>nodeType 属性</h3>
+<p>nodeType 属性规定节点的类型。</p>
+<p>nodeType 是只读的。</p>
+<p>最重要的节点类型是：</p>
+
+<table>
+<tr>
+<th>节点类型</th>
+<th>NodeType</th>
+</tr>
+<tr>
+<td>元素</td>
+	<td>1</td>
+</tr>
+<tr>
+<td>属性</td>
+	<td>2</td>
+</tr>
+<tr>
+<td>文本</td>
+	<td>3</td>
+</tr>
+<tr>
+<td>注释</td>
+	<td>8</td>
+</tr>
+<tr>
+<td>文档</td>
+	<td>9</td>
+</tr>
+</table>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_root" class="ext">尝试一下。</a></p>
+<br></div></section>
+<section class="ch" id="c10"><h2>10. DOM 节点列表<a class="chsrc" href="https://www.runoob.com/dom/dom-nodes-nodelist.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>节点列表由 getElementsByTagName() 方法和 childNodes 属性返回。</p>
+<hr>
+
+<img src="img/22fab39e8e98ea93.gif" alt="实例" loading="lazy"><h3>尝试一下 - 实例</h3>
+
+<p>下面的实例使用 XML 文件
+<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>。<br>
+函数 <a href="dom-loadxmldoc.html">loadXMLDoc()</a>，位于外部 JavaScript 中，用于加载 XML 文件。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_nodelist" class="ext">从第一个 &lt;title&gt; 元素获取文本</a><br>
+本例使用 getElementsByTagName() 方法从 "books.xml" 中的第一个 &lt;title&gt; 元素获取文本。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_nodelist_length" class="ext">使用 length 属性遍历节点</a><br>
+本例使用节点列表和 length 属性来遍历 "books.xml" 中所有的 &lt;title&gt; 元素。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_attributes" class="ext">获取元素的属性</a><br>
+本例使用属性列表从 "books.xml" 中的第一个 &lt;book&gt; 元素获取属性。</p>
+<hr>
+<h3>DOM 节点列表（Node List）</h3>
+<p>当使用诸如 childNodes 或 getElementsByTagName() 的属性或方法时，会返回节点列表对象。</p>
+<p>节点列表对象表示节点的列表，与 XML 中的顺序相同。</p>
+<p>节点列表中的节点使用从 0 开始的索引号进行访问。</p>
+
+<p>下面的图像表示 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 中 &lt;title&gt; 元素的节点列表：</p>
+<p><img src="img/fc6591c322c26ac5.png" alt="DOM node list" loading="lazy"></p><p>下面的代码片段通过使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中，并返回 "books.xml" 中 title 元素的节点列表：</p>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+x=xmlDoc.getElementsByTagName("title");
+
+<p>在上面的语句执行之后，x 是节点列表对象。</p>
+<p>下面的代码片段从节点列表（x）中的第一个 &lt;title&gt; 元素返回文本：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">txt</span><span class="hl-code">=</span><span class="hl-identifier">x</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">childNodes</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">nodeValue</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_nodelist" class="ext">尝试一下 »</a>
+
+<p>在上面的语句执行之后，txt = "Everyday Italian"。</p>
+<hr>
+<h3>节点列表长度（Node List Length）</h3>
+<p>节点列表对象会保持自身的更新。如果删除或添加了元素，列表会自动更新。</p>
+<p>节点列表的 length 属性是列表中节点的数量。</p>
+<p>下面的代码片段通过使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中，并返回 "books.xml" 中 &lt;title&gt; 元素的数量：</p>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+x=xmlDoc.getElementsByTagName('title').length;
+
+<p>在上面的语句执行之后，x = 4。</p>
+<p>节点列表的长度可用于遍历列表中所有的元素。</p>
+<p>下面的代码片段使用 length 属性来遍历 &lt;title&gt; 元素的列表：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">xmlDoc</span><span class="hl-code">=</span><span class="hl-identifier">loadXMLDoc</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">books.xml</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-comment">//</span><span class="hl-comment"> x 变量获取指定节点列表</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-identifier">x</span><span class="hl-code">=</span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">getElementsByTagName</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">title</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-reserved">for</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">i</span><span class="hl-code">=</span><span class="hl-number">0</span><span class="hl-code">;</span><span class="hl-identifier">i</span><span class="hl-code">&lt;</span><span class="hl-identifier">x</span><span class="hl-code">.</span><span class="hl-identifier">length</span><span class="hl-code">;</span><span class="hl-identifier">i</span><span class="hl-code">++</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">write</span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">childNodes</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">nodeValue</span><span class="hl-brackets">)</span><span class="hl-code">;
+  </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">write</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span>
+
+<p>输出：</p>
+
+Everyday Italian<br>
+Harry Potter<br>
+XQuery Kick Start<br>
+Learning XML
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_nodelist_length" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>设置 x 变量来保存所有 title 元素的节点列表</li>
+	<li>从所有 &lt;title&gt; 元素的文本节点输出值</li>
+</ol>
+<hr>
+<h3>DOM 属性列表（命名节点图 Named Node Map）</h3>
+<p>元素节点的 attributes 属性返回属性节点的列表。</p>
+<p>这被称为命名节点图（Named Node Map），除了方法和属性上的一些差别以外，它与节点列表相似。</p>
+<p>属性列表会保持自身的更新。如果删除或添加属性，这个列表会自动更新。</p>
+
+<p>下面的代码片段通过使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中，并返回 "books.xml" 中第一个 &lt;book&gt; 元素的属性节点列表：</p>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+x=xmlDoc.getElementsByTagName('book')[0].attributes;
+
+<p>在上面的代码执行之后，x.length 等于属性的数量，可使用 x.getNamedItem() 返回属性节点。</p>
+<p>下面的代码片段显示一个 book 的 "category" 属性的值，以及其属性的数量：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">xmlDoc</span><span class="hl-code">=</span><span class="hl-identifier">loadXMLDoc</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">books.xml</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-identifier">x</span><span class="hl-code">=</span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">getElementsByTagName</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">book</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">attributes</span><span class="hl-code">;
+ 
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">write</span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-code">.</span><span class="hl-identifier">getNamedItem</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">category</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">nodeValue</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">write</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-quotes">"</span><span class="hl-code"> + </span><span class="hl-identifier">x</span><span class="hl-code">.</span><span class="hl-identifier">length</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+
+<p>输出：</p>
+
+cooking<br>
+1
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_attributes" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中 </li>
+	<li>设置 x 变量来保存第一个 &lt;book&gt; 元素的所有属性的一个列表</li>
+	<li>从 "category" 属性输出值</li>
+	<li>输出属性列表的长度</li>
+</ol></div></section>
+<section class="ch" id="c11"><h2>11. DOM 遍历<a class="chsrc" href="https://www.runoob.com/dom/dom-nodes-traverse.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>遍历（Traverse）意味着在节点树中进行循环或移动。</p>
+<hr>
+<h3>遍历节点树</h3>
+<p>通常您想要循环 XML 文档，比如：当您需要提取每个元素的值时。</p>
+<p>这叫做"遍历节点树"。</p>
+<p>下面的实例遍历 &lt;book&gt; 的所有子节点，并显示他们的名称和值：</p>
+
+<h3>实例</h3>
+
+<span class="hl-brackets">&lt;</span><span class="hl-code">!</span><span class="hl-var">DOCTYPE</span><span class="hl-code"> </span><span class="hl-var">html</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">html</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">body</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+ 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">p</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">demo</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">p</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+ 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">x</span><span class="hl-code">, </span><span class="hl-identifier">i</span><span class="hl-code"> ,</span><span class="hl-identifier">xmlDoc</span><span class="hl-code">;
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">txt</span><span class="hl-code"> = </span><span class="hl-quotes">"</span><span class="hl-quotes">"</span><span class="hl-code">;
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">text</span><span class="hl-code"> = </span><span class="hl-quotes">"</span><span class="hl-string">&lt;book&gt;</span><span class="hl-quotes">"</span><span class="hl-code"> + 
+</span><span class="hl-quotes">"</span><span class="hl-string">&lt;title&gt;Everyday Italian&lt;/title&gt;</span><span class="hl-quotes">"</span><span class="hl-code"> +
+</span><span class="hl-quotes">"</span><span class="hl-string">&lt;author&gt;Giada De Laurentiis&lt;/author&gt;</span><span class="hl-quotes">"</span><span class="hl-code"> +
+</span><span class="hl-quotes">"</span><span class="hl-string">&lt;year&gt;2005&lt;/year&gt;</span><span class="hl-quotes">"</span><span class="hl-code"> +
+</span><span class="hl-quotes">"</span><span class="hl-string">&lt;/book&gt;</span><span class="hl-quotes">"</span><span class="hl-code">;
+ 
+</span><span class="hl-identifier">parser</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">DOMParser</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">xmlDoc</span><span class="hl-code"> = </span><span class="hl-identifier">parser</span><span class="hl-code">.</span><span class="hl-identifier">parseFromString</span><span class="hl-brackets">(</span><span class="hl-identifier">text</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">text/xml</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-comment">//</span><span class="hl-comment"> documentElement 表示根节点</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-identifier">x</span><span class="hl-code"> = </span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">documentElement</span><span class="hl-code">.</span><span class="hl-identifier">childNodes</span><span class="hl-code">;
+</span><span class="hl-reserved">for</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">i</span><span class="hl-code"> = </span><span class="hl-number">0</span><span class="hl-code">; </span><span class="hl-identifier">i</span><span class="hl-code"> &lt; </span><span class="hl-identifier">x</span><span class="hl-code">.</span><span class="hl-identifier">length</span><span class="hl-code"> ;</span><span class="hl-identifier">i</span><span class="hl-code">++</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">txt</span><span class="hl-code"> += </span><span class="hl-identifier">x</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">nodeName</span><span class="hl-code"> + </span><span class="hl-quotes">"</span><span class="hl-string">: </span><span class="hl-quotes">"</span><span class="hl-code"> + </span><span class="hl-identifier">x</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">childNodes</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">nodeValue</span><span class="hl-code"> + </span><span class="hl-quotes">"</span><span class="hl-string">&lt;br&gt;</span><span class="hl-quotes">"</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">demo</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> = </span><span class="hl-identifier">txt</span><span class="hl-code">;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+ 
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">body</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">html</span><span class="hl-brackets">&gt;</span>
+
+<p>输出：</p>
+
+title: Everyday Italian<br>
+author: Giada De Laurentiis<br>
+year: 2005
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_parsertest3" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>
+将 XML 字符串载入 xmlDoc 中</li>
+	<li>获取根元素的子节点</li>
+	<li>输出每个子节点的节点名称以及文本节点的节点值</li>
+</ol>
+<br></div></section>
+<section class="ch" id="c12"><h2>12. DOM 浏览器<a class="chsrc" href="https://www.runoob.com/dom/dom-mozilla-vs-ie.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>DOM 解析中的浏览器差异</h3>
+<p>所有现代的浏览器都支持 W3C DOM 规范。</p>
+<p>然而，浏览器之间是有差异的。一个重要的差异是：</p>
+<ul>
+<li>处理空白和换行的方式</li>
+</ul>
+<hr>
+<h3>DOM - 空白和换行</h3>
+<p>XML 经常在节点之间包含换行或空白字符。这是在使用简单的编辑器（比如记事本）编辑文档时经常出现的情况。</p>
+<p>下面的例子（由记事本编辑）在每行之间包含 CR/LF（换行），在每个子节点之前包含两个空格：</p>
+
+&lt;book&gt;<br>
+   
+  &lt;title&gt;Everyday Italian&lt;/title&gt;<br>
+   
+  &lt;author&gt;Giada De Laurentiis&lt;/author&gt;<br>
+   
+  &lt;year&gt;2005&lt;/year&gt;<br>
+   
+  &lt;price&gt;30.00&lt;/price&gt;<br>
+&lt;/book&gt;
+
+<p>Internet Explorer 将不会把空的空白或换行作为文本节点，而其他浏览器会。</p>
+<p>下面的代码片段显示（books.xml 的）根元素拥有多少个子节点：</p>
+
+<h3>实例</h3>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+x=xmlDoc.documentElement.childNodes;<br>
+document.write("Number of child nodes: " + x.length);
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_nodetype_ievsmozilla" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>获取根元素的子节点</li>
+	<li>输出子节点的数量。结果取决于您所使用的浏览器。IE 浏览器会输出 4（提醒 4 个子节点），而其他浏览器会输出 9（提醒 9 个子节点）。</li>
+</ol>
+<br></div></section>
+<section class="ch" id="c13"><h2>13. DOM 导航<a class="chsrc" href="https://www.runoob.com/dom/dom-nodes-navigate.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>可通过使用节点间的关系对节点进行导航。</p>
+<hr>
+<h3>导航 DOM 节点</h3>
+<p>通过节点间的关系访问节点树中的节点，通常称为导航节点（"navigating nodes"）。</p>
+<p>在 XML DOM 中，节点的关系被定义为节点的属性：</p>
+<ul>
+<li>parentNode</li>
+	<li>childNodes</li>
+	<li>firstChild</li>
+	<li>lastChild</li>
+	<li>nextSibling</li>
+	<li>previousSibling</li>
+</ul>
+<p>下面的图像展示了 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a> 中节点树的一个部分，并说明了节点之间的关系：</p>
+<p><img src="img/9c6b08c78eb3f895.gif" alt="Node tree" loading="lazy"></p>
+<hr>
+<h3>DOM - 父节点</h3>
+<p>所有的节点都仅有一个父节点。下面的代码导航到 &lt;book&gt; 的父节点：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">xmlDoc</span><span class="hl-code">=</span><span class="hl-identifier">loadXMLDoc</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">books.xml</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-identifier">x</span><span class="hl-code">=</span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">getElementsByTagName</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">book</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">;
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">write</span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-code">.</span><span class="hl-identifier">parentNode</span><span class="hl-code">.</span><span class="hl-identifier">nodeName</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_nav_parentnode" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>获取第一个 &lt;book&gt; 元素</li>
+	<li>输出 "x" 的父节点的节点名称</li>
+</ol>
+<hr>
+<h3>避免空的文本节点</h3>
+<p>Firefox 以及其他一些浏览器，把空的空白或换行当作文本节点，而 Internet Explorer 不会这么做。</p>
+<p>这会在使用以下属性：firstChild、lastChild、nextSibling、previousSibling 时产生一个问题。</p>
+<p>为了避免导航到空的文本节点（元素节点之间的空格和换行符），我们使用一个函数来检查节点类型：</p>
+
+<pre>
+function get_nextSibling(n)
+{
+  y=n.nextSibling;
+  while (y.nodeType!=1)
+  {
+    y=y.nextSibling;
+  }
+  return y;
+}
+</pre>
+<p>上面的函数允许您使用 get_nextSibling（<i>node</i>）来代替 <i>node</i>.nextSibling 属性。</p>
+<p>代码解释：</p>
+<p>元素节点的类型是 1。如果同级节点不是元素节点，就移动到下一个节点，直到找到元素节点为止。通过这个办法，在 Internet Explorer 和 Firefox 中，都可以得到相同的结果。</p>
+<hr>
+<h3>获取第一个子元素</h3>
+<p>下面的代码显示第一个 &lt;book&gt; 的第一个元素：</p>
+
+<h3>实例</h3>
+
+<span class="hl-brackets">&lt;</span><span class="hl-reserved">html</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">head</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-code"> </span><span class="hl-var">src</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">loadxmldoc.js</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-comment">//</span><span class="hl-comment"> 检测第一个节点是否为元素节点</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">get_firstChild</span><span class="hl-brackets">(</span><span class="hl-identifier">n</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-identifier">y</span><span class="hl-code">=</span><span class="hl-identifier">n</span><span class="hl-code">.</span><span class="hl-identifier">firstChild</span><span class="hl-code">;
+  </span><span class="hl-reserved">while</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">y</span><span class="hl-code">.</span><span class="hl-identifier">nodeType</span><span class="hl-code">!=</span><span class="hl-number">1</span><span class="hl-brackets">)</span><span class="hl-code">
+  </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">y</span><span class="hl-code">=</span><span class="hl-identifier">y</span><span class="hl-code">.</span><span class="hl-identifier">nextSibling</span><span class="hl-code">;
+  </span><span class="hl-brackets">}</span><span class="hl-code">
+  </span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">y</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-code">
+&lt;/</span><span class="hl-identifier">script</span><span class="hl-code">&gt;
+&lt;/</span><span class="hl-identifier">head</span><span class="hl-code">&gt;
+ 
+&lt;</span><span class="hl-identifier">body</span><span class="hl-code">&gt;
+&lt;</span><span class="hl-identifier">script</span><span class="hl-code">&gt;
+</span><span class="hl-identifier">xmlDoc</span><span class="hl-code">=</span><span class="hl-identifier">loadXMLDoc</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">books.xml</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-identifier">x</span><span class="hl-code">=</span><span class="hl-identifier">get_firstChild</span><span class="hl-brackets">(</span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">getElementsByTagName</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">book</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">write</span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-code">.</span><span class="hl-identifier">nodeName</span><span class="hl-brackets">)</span><span class="hl-code">;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">body</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">html</span><span class="hl-brackets">&gt;</span>
+
+<p>输出：</p>
+
+title
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_nav_firstchild" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>在第一个 &lt;book&gt; 元素上使用 get_firstChild 函数，来获取第一个子节点（属于元素节点）</li>
+	<li>输出第一个子节点（属于元素节点）的节点名称</li>
+</ol>
+<hr>
+
+<img src="img/22fab39e8e98ea93.gif" alt="实例s" loading="lazy"><h3>更多实例</h3>
+
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_nav_lastchild" class="ext">lastChild()</a><br>
+本例使用 lastChild() 方法和一个自定义函数来获取节点的最后一个子节点</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_nav_nextsibling" class="ext">nextSibling()</a><br>
+本例使用 nextSibling() 方法和一个自定义函数来获取节点的下一个同级节点</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_nav_prevsibling" class="ext">previousSibling()</a><br>
+本例使用 previousSibling() 方法和一个自定义函数来获取节点的上一个同级节点</p>
+<br></div></section>
+<section class="ch" id="c14"><h2>14. DOM 获取节点<a class="chsrc" href="https://www.runoob.com/dom/dom-nodes-get.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>nodeValue 属性用于获取节点的文本值。</p>
+<p>getAttribute() 方法返回属性的值。</p>
+<hr>
+<h3>获取元素的值</h3>
+<p>在 DOM 中，每种成分都是节点。元素节点没有文本值。</p>
+<p>元素节点的文本存储在子节点中。该节点称为文本节点。</p>
+<p>获取元素文本的方法，就是获取这个子节点（文本节点）的值。</p>
+<hr>
+<h3>获取元素值</h3>
+<p>getElementsByTagName() 方法返回包含拥有指定标签名的所有元素的节点列表，其中的元素的顺序是它们在源文档中出现的顺序。</p>
+<p>下面的代码通过使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a> 载入 xmlDoc 中并检索第一个 &lt;title&gt; 元素：</p>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+x=xmlDoc.getElementsByTagName("title")[0];
+
+<p>childNodes 属性返回子节点的列表。&lt;title&gt; 元素只有一个子节点。它是一个文本节点。</p>
+<p>下面的代码检索 &lt;title&gt; 元素的文本节点：</p>
+
+x=xmlDoc.getElementsByTagName("title")[0];<br>
+y=x.childNodes[0];
+
+<p>nodeValue 属性返回文本节点的文本值：</p>
+
+<h3>实例</h3>
+
+x=xmlDoc.getElementsByTagName("title")[0];<br>
+y=x.childNodes[0];<br>
+txt=y.nodeValue;
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_getelementsbytagname" class="ext">尝试一下 »</a>
+
+<p>结果：txt = "Everyday Italian"</p>
+<p>遍历所有 &lt;title&gt; 元素：
+<a href="https://www.runoob.com/try/try.php?filename=try_dom_getelementsbytagname1" class="ext">尝试一下</a></p>
+<hr>
+<h3>获取属性的值</h3>
+<p>在 DOM 中，属性也是节点。与元素节点不同，属性节点拥有文本值。</p>
+<p>获取属性的值的方法，就是获取它的文本值。</p>
+<p>可以通过使用 getAttribute() 方法或属性节点的 nodeValue 属性来完成这个任务。</p>
+<hr>
+<h3>获取属性值 - getAttribute()</h3>
+<p>getAttribute() 方法返回属性<b>值</b>。</p>
+<p>
+下面的代码检索第一个 &lt;title&gt; 元素的 "lang" 属性的文本值：</p>
+
+<h3>实例</h3>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+txt=xmlDoc.getElementsByTagName("title")[0].getAttribute("lang");
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_getattribute" class="ext">尝试一下 »</a>
+
+<p>结果：txt = "en"</p>
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>把 txt 变量设置为第一个 title 元素节点的 "lang" 属性的值</li>
+</ol>
+<p>遍历所有的 &lt;book&gt; 元素，并获取它们的 "category" 属性：
+<a href="https://www.runoob.com/try/try.php?filename=try_dom_getattribute1" class="ext">尝试一下</a><br></p>
+<hr>
+<h3>获取属性值 - getAttributeNode()</h3>
+<p>getAttributeNode() 方法返回属性<b>节点</b>。</p>
+<p>
+下面代码检索第一个 &lt;title&gt; 元素的 "lang" 属性的文本值：</p>
+
+<h3>实例</h3>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+x=xmlDoc.getElementsByTagName("title")[0].getAttributeNode("lang");<br>
+txt=x.nodeValue;
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_getattributenode" class="ext">尝试一下 »</a>
+
+<p>结果：Result:  txt = "en"</p>
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>获取第一个 &lt;title&gt; 元素节点的 "lang" 属性节点</li>
+	<li>把 txt 变量设置为属性的值</li>
+</ol>
+<p>遍历所有的 &lt;book&gt; 元素并获取它们的 "category" 属性：
+<a href="https://www.runoob.com/try/try.php?filename=try_dom_getattributenode2" class="ext">尝试一下</a></p>
+<br></div></section>
+<section class="ch" id="c15"><h2>15. DOM 改变节点<a class="chsrc" href="https://www.runoob.com/dom/dom-nodes-set.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>nodeValue 属性用于改变节点值。</p>
+<p>setAttribute() 方法用于改变属性值。</p>
+<hr>
+
+<img src="img/22fab39e8e98ea93.gif" alt="实例" loading="lazy"><h3>尝试一下 - 实例</h3>
+
+<p>下面的实例使用 XML 文件 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>。<br>
+函数 <a href="dom-loadxmldoc.html">loadXMLDoc()</a>，位于外部 JavaScript 中，用于加载 XML 文件。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_change_nodevalue" class="ext">改变元素的文本节点</a><br>
+本例使用 nodeValue 属性来改变 "books.xml" 中第一个 &lt;title&gt; 元素的文本节点。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_setattribute1" class="ext">通过使用 setAttribute 来改变属性值</a><br>
+本例使用 setAttribute() 方法来改变第一个 &lt;book&gt; 的 "category" 属性的值。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_att_nodevalue" class="ext">通过使用 nodeValue 来改变属性值</a><br>
+本例使用 nodeValue 属性来改变第一个 &lt;book&gt; 的 "category" 属性的值。</p>
+<hr>
+<h3>改变元素的值</h3>
+<p>在 DOM 中，每种成分都是节点。元素节点没有文本值。</p>
+<p>元素节点的文本存储在子节点中。该节点称为文本节点。</p>
+<p>改变元素文本的方法，就是改变这个子节点（文本节点）的值。</p>
+<hr>
+<h3>改变文本节点的值</h3>
+<p>nodeValue 属性可用于改变文本节点的值。</p>
+<p>下面的代码片段改变了第一个 &lt;title&gt; 元素的文本节点值：</p>
+
+<h3>实例</h3>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+x=xmlDoc.getElementsByTagName("title")[0].childNodes[0];<br>
+x.nodeValue="Easy Cooking";
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_change_nodevalue" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>获取第一个 &lt;title&gt; 元素的文本节点</li>
+	<li>把该文本节点的节点值更改为 "Easy Cooking"</li>
+</ol>
+<p>遍历并更改所有 &lt;title&gt; 元素的文本节点：
+<a href="https://www.runoob.com/try/try.php?filename=try_dom_change_nodevalue2" class="ext">尝试一下</a><br></p>
+<hr>
+<h3>改变属性的值</h3>
+<p>在 DOM 中，属性也是节点。与元素节点不同，属性节点拥有文本值。I</p>
+<p>改变属性的值的方法，就是改变它的文本值。</p>
+<p>可以通过使用 setAttribute() 方法或属性节点的 nodeValue 属性来完成这个任务。</p>
+<hr>
+<h3>通过使用 setAttribute() 改变属性</h3>
+<p>setAttribute() 方法改变已有属性的值，或创建新属性。</p>
+<p>下面的代码改变 &lt;book&gt; 元素的 category 属性：</p>
+
+<h3>实例</h3>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+x=xmlDoc.getElementsByTagName('book');<br>
+x[0].setAttribute("category","food");
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_setattribute1" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>获取第一个 &lt;book&gt; 元素</li>
+	<li>把 "category" 属性的值更改为 "food"</li>
+</ol>
+<p>遍历所有的 &lt;title&gt; 元素并添加一个新属性：
+<a href="https://www.runoob.com/try/try.php?filename=try_dom_setattribute2" class="ext">尝试一下</a></p>
+<p><b>注意：</b>如果属性不存在，则创建一个新属性（拥有指定的名称和值）。<br></p>
+<hr>
+<h3>通过使用 nodeValue 改变属性</h3>
+<p>nodeValue 属性可用于更改属性节点的值：</p>
+
+<h3>实例</h3>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+x=xmlDoc.getElementsByTagName("book")[0]<br>
+y=x.getAttributeNode("category");<br>
+y.nodeValue="food";
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_att_nodevalue" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>获取第一个 &lt;book&gt; 元素的 "category" 属性</li>
+	<li>把该属性节点的值更改为 "food"</li>
+</ol>
+<br></div></section>
+<section class="ch" id="c16"><h2>16. DOM 删除节点<a class="chsrc" href="https://www.runoob.com/dom/dom-nodes-remove.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>removeChild() 方法删除指定节点。</p>
+<p>removeAttribute() 方法删除指定属性。</p>
+<hr>
+
+<img src="img/22fab39e8e98ea93.gif" alt="实例" loading="lazy"><h3>尝试一下 - 实例</h3>
+
+<p>下面的实例使用 XML 文件 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>。<br>
+函数 <a href="dom-loadxmldoc.html">loadXMLDoc()</a>，位于外部 JavaScript 中，用于加载 XML 文件。</p>
+
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_removechild" class="ext">删除元素节点</a><br>
+本例使用 removeChild() 来删除第一个 &lt;book&gt; 元素。</p>
+
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_removecurrent" class="ext">删除当前元素节点</a><br>
+本例使用 parentNode 和 removeChild() 来删除当前的 &lt;book&gt; 元素。</p>
+
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_removetextnode" class="ext">删除文本节点</a><br>
+本例使用 removeChild() 来删除第一个 &lt;title&gt; 元素的文本节点。</p>
+
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_remove_nodevalue" class="ext">清空文本节点的文本</a><br>
+本例使用 nodeValue() 属性来清空第一个 &lt;title&gt; 元素的文本节点。</p>
+
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_removeattribute" class="ext">根据名称删除属性</a><br>
+本例使用 removeAttribute() 从第一个 &lt;book&gt; 元素中删除 "category" 属性。</p>
+
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_removeattributenode" class="ext">根据对象删除属性</a><br>
+本例使用 removeAttributeNode() 从所有 &lt;book&gt; 元素中删除所有属性。</p>
+<hr>
+<h3>删除元素节点</h3>
+<p>removeChild() 方法删除指定的节点。</p>
+<p>当一个节点被删除时，其所有子节点也会被删除。</p>
+<p>下面的代码片段将从载入的 xml 中删除第一个 &lt;book&gt; 元素：</p>
+
+<h3>实例</h3>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+y=xmlDoc.getElementsByTagName("book")[0];<br><br>
+xmlDoc.documentElement.removeChild(y);
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_removechild" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>把变量 y 设置为要删除的元素节点</li>
+	<li>通过使用 removeChild() 方法从父节点删除元素节点</li>
+</ol>
+<hr>
+<h3>删除自身 - 删除当前的节点</h3>
+<p>removeChild() 方法是唯一可以删除指定节点的方法。</p>
+<p>当您已导航到需要删除的节点时，就可以通过使用 parentNode 属性和 removeChild() 方法来删除此节点：</p>
+
+<h3>实例</h3>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+x=xmlDoc.getElementsByTagName("book")[0];<br><br>
+x.parentNode.removeChild(x);
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_removecurrent" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>把变量 y 设置为要删除的元素节点</li>
+	<li>通过使用 parentNode 属性和 removeChild() 方法来删除此元素节点</li>
+</ol>
+<hr>
+<h3>删除文本节点</h3>
+<p>removeChild() 方法可用于删除文本节点：</p>
+
+<h3>实例</h3>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+x=xmlDoc.getElementsByTagName("title")[0];<br><br>
+y=x.childNodes[0];<br>
+x.removeChild(y);
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_removetextnode" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>把变量 x 设置为第一个 title 元素节点</li>
+	<li>把变量 y 设置为要删除的文本节点</li>
+	<li>通过使用 removeChild() 方法从父节点删除元素节点</li>
+</ol>
+<p>不太常用 removeChild() 从节点删除文本。可以使用 nodeValue 属性代替它。请看下一段。</p>
+<hr>
+<h3>清空文本节点</h3>
+<p>nodeValue 属性可用于改变或清空文本节点的值：</p>
+
+<h3>实例</h3>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+x=xmlDoc.getElementsByTagName("title")[0].childNodes[0];<br>
+x.nodeValue="";
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_remove_nodevalue" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>把变量 x 设置为第一个 title 元素的文本节点</li>
+	<li>使用 nodeValue 属性来清空文本节点的文本</li>
+</ol>
+<p>遍历并更改所有 &lt;title&gt; 元素的文本节点：
+<a href="https://www.runoob.com/try/try.php?filename=try_dom_remove_nodevalue2" class="ext">尝试一下</a><br></p>
+<hr>
+<h3>根据名称删除属性节点</h3>
+<p>removeAttribute(<i>name</i>) 方法用于根据名称删除属性节点。</p>
+<p>实例：removeAttribute('category')</p>
+<p>下面的代码片段删除第一个 &lt;book&gt; 元素中的 "category" 属性：</p>
+
+<h3>实例</h3>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+x=xmlDoc.getElementsByTagName("book");<br>
+x[0].removeAttribute("category");
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_removeattribute" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>使用 getElementsByTagName() 来获取 book 节点</li>
+	<li>从第一个 book 元素节点中删除 "category" 属性</li>
+</ol>
+<p>遍历并删除所有 &lt;book&gt; 元素的 "category" 属性：
+<a href="https://www.runoob.com/try/try.php?filename=try_dom_removeattribute2" class="ext">尝试一下</a></p>
+<hr>
+<h3>根据对象删除属性节点</h3>
+<p>removeAttributeNode(<i>node</i>) 方法通过使用 node 对象作为参数，来删除属性节点。</p>
+<p>实例: removeAttributeNode(x)</p>
+<p>下面的代码片段删除所有 &lt;book&gt; 元素的所有属性：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">xmlDoc</span><span class="hl-code">=</span><span class="hl-identifier">loadXMLDoc</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">books.xml</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-identifier">x</span><span class="hl-code">=</span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">getElementsByTagName</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">book</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-reserved">for</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">i</span><span class="hl-code">=</span><span class="hl-number">0</span><span class="hl-code">;</span><span class="hl-identifier">i</span><span class="hl-code">&lt;</span><span class="hl-identifier">x</span><span class="hl-code">.</span><span class="hl-identifier">length</span><span class="hl-code">;</span><span class="hl-identifier">i</span><span class="hl-code">++</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-reserved">while</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">attributes</span><span class="hl-code">.</span><span class="hl-identifier">length</span><span class="hl-code">&gt;</span><span class="hl-number">0</span><span class="hl-brackets">)</span><span class="hl-code">
+  </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">attnode</span><span class="hl-code">=</span><span class="hl-identifier">x</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">attributes</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">;
+    </span><span class="hl-identifier">old_att</span><span class="hl-code">=</span><span class="hl-identifier">x</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">removeAttributeNode</span><span class="hl-brackets">(</span><span class="hl-identifier">attnode</span><span class="hl-brackets">)</span><span class="hl-code">;
+  </span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-brackets">}</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_removeattributenode" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>使用 getElementsByTagName() 来获取所有 book 节点</li>
+	<li>检查每个 book 元素是否拥有属性</li>
+	<li>如果在某个 book 元素中存在属性，则删除该属性</li>
+</ol>
+<br></div></section>
+<section class="ch" id="c17"><h2>17. DOM 替换节点<a class="chsrc" href="https://www.runoob.com/dom/dom-nodes-replace.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>replaceChild() 方法替换指定节点。</p>
+<p>nodeValue 属性替换文本节点中的文本。</p>
+<hr>
+
+<img src="img/22fab39e8e98ea93.gif" alt="实例" loading="lazy"><h3>尝试一下 - 实例</h3>
+
+<p>下面的实例使用 XML 文件 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>。<br>
+函数 <a href="dom-loadxmldoc.html">loadXMLDoc()</a>，位于外部 JavaScript 中，用于加载 XML 文件。</p>
+
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_replacechild" class="ext">替换元素节点</a><br>
+本例使用 replaceChild() 来替换第一个 &lt;book&gt; 节点。</p>
+
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_replacedata2" class="ext">替换文本节点中的数据</a><br>
+本例使用 nodeValue 属性来替换文本节点中的数据。</p>
+<hr>
+<h3>替换元素节点</h3>
+
+<p>replaceChild() 方法用于替换节点。</p>
+<p>下面的代码片段替换第一个 &lt;book&gt; 元素：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">xmlDoc</span><span class="hl-code">=</span><span class="hl-identifier">loadXMLDoc</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">books.xml</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-identifier">x</span><span class="hl-code">=</span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">documentElement</span><span class="hl-code">;
+ 
+</span><span class="hl-comment">//</span><span class="hl-comment"> 创建新的 book 元素, title 元素及 node 节点</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-identifier">newNode</span><span class="hl-code">=</span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">createElement</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">book</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">newTitle</span><span class="hl-code">=</span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">createElement</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">title</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">newText</span><span class="hl-code">=</span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">createTextNode</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">A Notebook</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-comment">//</span><span class="hl-comment"> 将 text 节点添加到 title 节点中</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-identifier">newTitle</span><span class="hl-code">.</span><span class="hl-identifier">appendChild</span><span class="hl-brackets">(</span><span class="hl-identifier">newText</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-comment">//</span><span class="hl-comment"> 将 title 节点添加到  book 节点中</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-identifier">newNode</span><span class="hl-code">.</span><span class="hl-identifier">appendChild</span><span class="hl-brackets">(</span><span class="hl-identifier">newTitle</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-identifier">y</span><span class="hl-code">=</span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">getElementsByTagName</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">book</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">
+</span><span class="hl-comment">//</span><span class="hl-comment"> 使用新节点替换第一个 book 节点</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-identifier">x</span><span class="hl-code">.</span><span class="hl-identifier">replaceChild</span><span class="hl-brackets">(</span><span class="hl-identifier">newNode</span><span class="hl-code">,</span><span class="hl-identifier">y</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_replacechild" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>创建一个新的元素节点 &lt;book&gt;</li>
+	<li>创建一个新的元素节点 &lt;title&gt;</li>
+	<li>创建一个新的文本节点，带有文本 "A Notebook"</li>
+	<li>向新元素节点 &lt;title&gt; 追加这个新文本节点</li>
+	<li>向新元素节点 &lt;book&gt; 追加这个新元素节点 &lt;title&gt;</li>
+	<li>把第一个 &lt;book&gt; 元素节点替换为新的 &lt;book&gt; 元素节点</li>
+</ol>
+<hr>
+<h3>替换文本节点中的数据</h3>
+<p>replaceData() 方法用于替换文本节点中的数据。</p>
+<p>replaceData() 方法有三个参数：</p>
+<ul>
+<li>offset - 在何处开始替换字符。offset 值以 0 开始。</li>
+	<li>length - 要替换多少字符</li>
+	<li>string - 要插入的字符串</li>
+</ul>
+
+<h3>实例</h3>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+x=xmlDoc.getElementsByTagName("title")[0].childNodes[0];<br><br>
+x.replaceData(0,8,"Easy");
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_replacedata" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>获取第一个 &lt;title&gt; 元素节点的文本节点</li>
+<li>使用 replaceData 方法把文本节点的前 8 个字符替换为 "Easy"</li>
+</ol>
+<hr>
+<h3>使用 nodeValue 属性代替</h3>
+<p>用 nodeValue 属性来替换文本节点中数据会更加容易。</p>
+<p>下面的代码片段将用 "Easy Italian" 替换第一个 &lt;title&gt; 元素中的文本节点值：</p>
+
+<h3>实例</h3>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+x=xmlDoc.getElementsByTagName("title")[0].childNodes[0];<br><br>
+x.nodeValue="Easy Italian";
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_replacedata2" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中
+</li>
+	<li>获取第一个 &lt;title&gt; 元素节点的文本节点</li>
+<li>使用 nodeValue 属性来更改这个文本节点的文本</li>
+</ol>
+<p>您可以在<a href="dom-nodes-set.html">改变节点</a>这一章中阅读更多有关更改节点值的内容。</p>
+<br></div></section>
+<section class="ch" id="c18"><h2>18. DOM 创建节点<a class="chsrc" href="https://www.runoob.com/dom/dom-nodes-create.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+
+<img src="img/22fab39e8e98ea93.gif" alt="实例" loading="lazy"><h3>尝试一下 - 实例</h3>
+
+<p>下面的实例使用 XML 文件 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>。<br>
+函数 <a href="dom-loadxmldoc.html">loadXMLDoc()</a>，位于外部 JavaScript 中，用于加载 XML 文件。</p>
+
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_createelement1" class="ext">创建元素节点</a><br>
+本例使用 createElement() 来创建一个新的元素节点，并使用 appendChild() 把它添加到一个节点中。</p>
+
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_createattribute" class="ext">使用 createAttribute 创建属性节点</a><br>
+本例使用 createAttribute() 来创建一个新的属性节点，并使用 setAttributeNode() 把它插入一个元素中。</p>
+
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_createattribute3" class="ext">使用 setAttribute 创建属性节点</a><br>
+本例使用 setAttribute() 为一个元素创建一个新的属性。</p>
+
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_createelement1" class="ext">创建文本节点</a><br>
+本例使用 createTextNode() 来创建一个新的文本节点，并使用 appendChild() 把它添加到一个元素中。</p>
+
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_createcdatasection1" class="ext">创建 CDATA section 节点</a><br>
+本例使用 createCDATAsection() 来创建一个 CDATA section 节点，并使用 appendChild() 把它添加到一个元素中。</p>
+
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_createcomment1" class="ext">创建注释节点</a><br>
+本例使用 createComment() 来创建一个注释节点，并使用 appendChild() 把它添加到一个元素中。</p>
+<hr>
+<h3>创建新的元素节点</h3>
+<p>createElement() 方法创建一个新的元素节点：</p>
+
+<h3>实例</h3>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+newel=xmlDoc.createElement("edition");<br><br>
+x=xmlDoc.getElementsByTagName("book")[0];<br>
+x.appendChild(newel);
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_createelement2" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>创建一个新的元素节点 &lt;edition&gt;</li>
+	<li>向第一个 &lt;book&gt; 元素追加这个元素节点</li>
+</ol>
+<p>遍历并向所有 &lt;book&gt; 元素添加一个元素：
+<a href="https://www.runoob.com/try/try.php?filename=try_dom_createelement" class="ext">尝试一下</a><br></p>
+<hr>
+<h3>创建新的属性节点</h3>
+<p>createAttribute() 用于创建一个新的属性节点：</p>
+
+<h3>实例</h3>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+newatt=xmlDoc.createAttribute("edition");<br>
+newatt.nodeValue="first";<br><br>
+x=xmlDoc.getElementsByTagName("title");<br>
+x[0].setAttributeNode(newatt);
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_createattribute" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>创建一个新的属性节点 "edition"</li>
+	<li>设置属性节点的值为 "first"</li>
+	<li>向第一个 &lt;title&gt; 元素添加这个新的属性节点</li>
+</ol>
+<p>遍历所有的 &lt;title&gt; 元素，并添加一个新的属性节点：
+<a href="https://www.runoob.com/try/try.php?filename=try_dom_createattribute2" class="ext">尝试一下</a></p>
+<p><b>注意：</b>如果该属性已存在，则被新属性替代。</p>
+<hr>
+<h3>使用 setAttribute() 创建属性</h3>
+<p>由于 setAttribute() 方法可以在属性不存在的情况下创建新的属性，我们可以使用这个方法来创建一个新的属性。</p>
+
+<h3>实例</h3>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+x=xmlDoc.getElementsByTagName('book');<br>
+x[0].setAttribute("edition","first");
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_createattribute3" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>为第一个 &lt;book&gt; 元素设置（创建）值为 "first" 的 "edition" 属性</li>
+</ol>
+<p>遍历所有的 &lt;title&gt; 元素并添加一个新属性：
+<a href="https://www.runoob.com/try/try.php?filename=try_dom_createattribute4" class="ext">尝试一下</a></p>
+<hr>
+<h3>创建文本节点</h3>
+<p>createTextNode() 方法创建一个新的文本节点：</p>
+
+<h3>实例</h3>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+newel=xmlDoc.createElement("edition");<br>
+newtext=xmlDoc.createTextNode("first");<br>
+newel.appendChild(newtext);<br><br>
+x=xmlDoc.getElementsByTagName("book")[0];<br>
+x.appendChild(newel);
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_createelement1" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>创建一个新元素节点 &lt;edition&gt;</li>
+	<li>创建一个新的文本节点，其文本是 "first"</li>
+	<li>向这个元素节点追加新的文本节点</li>
+	<li>向第一个 &lt;book&gt; 元素追加新的元素节点</li>
+</ol>
+<p>向所有的 &lt;book&gt; 元素添加一个带有文本节点的元素节点：
+<a href="https://www.runoob.com/try/try.php?filename=try_dom_createelement" class="ext">尝试一下</a></p>
+<hr>
+<h3>创建 CDATA Section 节点</h3>
+<p>createCDATASection() 方法创建一个新的 CDATA section 节点。</p>
+
+<h3>实例</h3>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+newCDATA=xmlDoc.createCDATASection("Special Offer &amp; Book Sale");<br><br>
+x=xmlDoc.getElementsByTagName("book")[0];<br>
+x.appendChild(newCDATA);
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_createcdatasection1" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>创建一个新的 CDATA section 节点</li>
+	<li>向第一个 &lt;book&gt; 元素追加这个新的 CDATA section 节点</li>
+</ol>
+<p>遍历并向所有 &lt;book&gt; 元素添加一个 CDATA section：
+<a href="https://www.runoob.com/try/try.php?filename=try_dom_createcdatasection" class="ext">尝试一下</a><br></p>
+<hr>
+<h3>创建注释节点</h3>
+<p>createComment() 方法创建一个新的注释节点。</p>
+
+<h3>实例</h3>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+newComment=xmlDoc.createComment("Revised March 2008");<br><br>
+x=xmlDoc.getElementsByTagName("book")[0];<br>
+x.appendChild(newComment);
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_createcomment1" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>创建一个新的注释节点</li>
+	<li>把这个新的注释节点追加到第一个 &lt;book&gt; 元素</li>
+</ol>
+<p>循环并向所有 &lt;book&gt; 元素添加一个注释节点：
+<a href="https://www.runoob.com/try/try.php?filename=try_dom_createcomment" class="ext">尝试一下</a><br></p>
+<br></div></section>
+<section class="ch" id="c19"><h2>19. DOM 添加节点<a class="chsrc" href="https://www.runoob.com/dom/dom-nodes-add.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+
+<img src="img/22fab39e8e98ea93.gif" alt="实例" loading="lazy"><h3>尝试一下 - 实例</h3>
+
+<p>下面的实例使用 XML 文件 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>。<br>
+函数 <a href="dom-loadxmldoc.html">loadXMLDoc()</a>，位于外部 JavaScript 中，用于加载 XML 文件。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_createelement2" class="ext">在最后一个子节点之后添加一个节点</a><br>
+本例使用 appendChild() 方法向一个已有的节点添加一个子节点。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_insertbefore" class="ext">在指定的子节点之前添加一个节点</a><br>
+本例使用 insertBefore() 方法在一个指定的子节点之前插入一个节点。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_createattribute3" class="ext">添加一个新属性</a><br>
+本例使用 setAttribute() 方法添加一个新的属性。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_insertdata" class="ext">向文本节点添加数据</a><br>
+本例使用 insertData() 把数据插入一个已有的文本节点中。</p>
+<hr>
+<h3>添加节点 - appendChild()</h3>
+<p>appendChild() 方法向一个已有的节点添加一个子节点。</p>
+<p>新节点会添加（追加）到任何已有的子节点之后。</p>
+<p><b>注意：</b>如果节点的位置很重要，请使用 insertBefore() 方法。</p>
+<p>下面的代码片段创建一个元素（&lt;edition&gt;），并把它添加到第一个 &lt;book&gt; 元素的最后一个子节点后面：</p>
+
+<h3>实例</h3>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+newel=xmlDoc.createElement("edition");<br><br>
+x=xmlDoc.getElementsByTagName("book")[0];<br>
+x.appendChild(newel);
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_createelement2" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>创建一个新节点 &lt;edition&gt;</li>
+	<li>把这个节点追加到第一个 &lt;book&gt; 元素</li>
+</ol>
+<p>遍历并向所有 &lt;book&gt; 元素追加一个元素：<a href="https://www.runoob.com/try/try.php?filename=try_dom_createelement" class="ext">尝试一下</a>
+</p>
+<hr>
+<h3>插入节点 - insertBefore()</h3>
+<p>insertBefore()方法用于在指定的子节点之前插入节点。</p>
+<p>在被添加的节点的位置很重要时，此方法很有用：</p>
+
+<h3>实例</h3>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+newNode=xmlDoc.createElement("book");<br><br>
+x=xmlDoc.documentElement;<br>
+y=xmlDoc.getElementsByTagName("book")[3];<br><br>
+x.insertBefore(newNode,y);
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_insertbefore" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>创建一个新的元素节点 &lt;book&gt;</li>
+	<li>把这个新节点插到最后一个 &lt;book&gt; 元素节点之前</li>
+</ol>
+<p>如果 insertBefore() 的第二个参数是 null，新节点将被添加到最后一个已有的子节点之后。</p>
+<p><b>x.insertBefore(newNode,null)</b> 和 <b>x.appendChild(newNode)</b> 都可以向 x 追加一个新的子节点。</p>
+<hr>
+<h3>添加新属性</h3>
+<p>addAtribute() 这个方法是不存在的。</p>
+<p>如果属性不存在，则 setAttribute() 可创建一个新的属性：</p>
+
+<h3>实例</h3>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+x=xmlDoc.getElementsByTagName('book');<br>
+x[0].setAttribute("edition","first");
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_createattribute3" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>把第一个 &lt;book&gt; 元素的 "edition" 属性的值设置（创建）为 "first"</li>
+</ol>
+<p><b>注意：</b>如果属性已存在，setAttribute() 方法将覆盖已有的值。</p>
+<hr>
+<h3>向文本节点添加文本 - insertData()</h3>
+<p>insertData() 方法将数据插入已有的文本节点中。</p>
+<p>insertData() 方法有两个参数：</p>
+<ul>
+<li>offset - 在何处开始插入字符（以 0 开始）</li>
+	<li>string - 要插入的字符串</li>
+</ul>
+<p>下面的代码片段将把 "Easy" 添加到已加载的 XML 的第一个 &lt;title&gt; 元素的文本节点：</p>
+
+<h3>实例</h3>
+
+xmlDoc=loadXMLDoc("books.xml");<br><br>
+x=xmlDoc.getElementsByTagName("title")[0].childNodes[0];<br><br>
+x.insertData(0,"Easy ");
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_insertdata" class="ext">尝试一下 »</a>
+
+<br></div></section>
+<section class="ch" id="c20"><h2>20. DOM 克隆节点<a class="chsrc" href="https://www.runoob.com/dom/dom-nodes-clone.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+
+<img src="img/22fab39e8e98ea93.gif" alt="实例" loading="lazy"><h3>尝试一下 - 实例</h3>
+
+<p>下面的实例使用 XML 文件 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>。<br>
+函数 <a href="dom-loadxmldoc.html">loadXMLDoc()</a>，位于外部 JavaScript 中，用于加载 XML 文件。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_clonenode" class="ext">复制一个节点，并把它追加到已有的节点</a><br>
+本例使用 cloneNode() 来复制一个节点，并把它追加到 XML 文档的根节点。</p>
+<hr>
+<h3>复制节点</h3>
+<p>cloneNode() 方法创建指定节点的副本。</p>
+<p>cloneNode() 方法有一个参数（true 或 false）。该参数指示被克隆的节点是否包括原节点的所有属性和子节点。</p>
+<p>下面的代码片段复制第一个 &lt;book&gt; 节点，并把它追加到文档的根节点：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">xmlDoc</span><span class="hl-code">=</span><span class="hl-identifier">loadXMLDoc</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">books.xml</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">x</span><span class="hl-code">=</span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">getElementsByTagName</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">book</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">;
+</span><span class="hl-identifier">cloneNode</span><span class="hl-code">=</span><span class="hl-identifier">x</span><span class="hl-code">.</span><span class="hl-identifier">cloneNode</span><span class="hl-brackets">(</span><span class="hl-reserved">true</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">documentElement</span><span class="hl-code">.</span><span class="hl-identifier">appendChild</span><span class="hl-brackets">(</span><span class="hl-identifier">cloneNode</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-comment">//</span><span class="hl-comment"> 输出所有 title 节点文本值</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-identifier">y</span><span class="hl-code">=</span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">getElementsByTagName</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">title</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-reserved">for</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">i</span><span class="hl-code">=</span><span class="hl-number">0</span><span class="hl-code">;</span><span class="hl-identifier">i</span><span class="hl-code">&lt;</span><span class="hl-identifier">y</span><span class="hl-code">.</span><span class="hl-identifier">length</span><span class="hl-code">;</span><span class="hl-identifier">i</span><span class="hl-code">++</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">write</span><span class="hl-brackets">(</span><span class="hl-identifier">y</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">childNodes</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">nodeValue</span><span class="hl-brackets">)</span><span class="hl-code">;
+  </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">write</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">&lt;br&gt;</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span>
+
+<p>输出：</p>
+
+Everyday Italian<br>
+Harry Potter<br>
+XQuery Kick Start<br>
+Learning XML<br>
+Everyday Italian
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_clonenode" class="ext">尝试一下 »</a>
+
+<p>实例解释：</p>
+<ol>
+<li>使用 <a href="dom-loadxmldoc.html">loadXMLDoc()</a> 把 "<a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>" 载入 xmlDoc 中</li>
+	<li>获取要复制的节点</li>
+	<li>使用 cloneNode 方法把节点复制到 "newNode" 中</li>
+	<li>向 XML 文档的根节点追加新的节点</li>
+	<li>输出文档中所有 book 的所有 title</li>
+</ol>
+<br></div></section>
+<section class="ch" id="c21"><h2>21. DOM XMLHttpRequest<a class="chsrc" href="https://www.runoob.com/dom/dom-httprequest.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>通过 XMLHttpRequest 对象，您可以在不重新加载整个页面的情况下更新网页中的某个部分。</p>
+<hr>
+<h3>XMLHttpRequest 对象</h3>
+<p>XMLHttpRequest 对象用于幕后与服务器交换数据。</p>
+<p>XMLHttpRequest 对象是<b>开发者的梦想</b>，因为您可以：</p>
+<ul>
+<li>在不重新加载页面的情况下更新网页</li>
+	<li>在页面已加载后从服务器请求数据</li>
+	<li>在页面已加载后从服务器接收数据</li>
+	<li>在后台向服务器发送数据</li>
+</ul>
+<hr>
+<h3>创建 XMLHttpRequest 对象</h3>
+<p>所有现代的浏览器（IE7+、Firefox、Chrome、Safari 和 Opera）都有一个内建的 XMLHttpRequest 对象。</p>
+<p>创建 XMLHttpRequest 对象的语法</p>
+
+xmlhttp=new XMLHttpRequest();
+<p>旧版本的 Internet Explorer（IE5 和 IE6）使用 ActiveX 对象：</p>
+
+xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+<p>为了处理所有现代的浏览器，包括 IE5 和 IE6，请检查浏览器是否支持 XMLHttpRequest 对象。如果支持，则创建一个 XMLHttpRequest 对象，如果不支持，则创建一个 ActiveX 对象：</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-builtin">window</span><span class="hl-code">.</span><span class="hl-identifier">XMLHttpRequest</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-comment">//</span><span class="hl-comment"> IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码</span><span class="hl-comment"></span><span class="hl-code">
+  </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">XMLHttpRequest</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-reserved">else</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-comment">//</span><span class="hl-comment"> IE6, IE5 浏览器执行代码</span><span class="hl-comment"></span><span class="hl-code">
+  </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">ActiveXObject</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">Microsoft.XMLHTTP</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_xmlhttprequest_first" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>发送一个请求到服务器</h3>
+<p>为了发送一个请求到服务器，我们使用 XMLHttpRequest 对象的 open() 和 send() 方法：</p>
+
+xmlhttp.open("GET","xmlhttp_info.txt",true);<br>
+xmlhttp.send();
+<br><table>
+<tr>
+<th>方法</th>
+    <th>描述</th>
+  </tr>
+<tr>
+<td>open(<i>method,url,async</i>)</td>
+    <td>规定请求的类型，URL，请求是否应该进行异步处理。<br><br><i>method</i>：请求的类型：GET 或 POST<br><i>url</i>：文件在服务器上的位置<br><i>async</i>：true（异步）或 false（同步）</td>
+  </tr>
+<tr>
+<td>send(<i>string</i>)</td>
+    <td>发送请求到服务器。<br><br><i>string</i>：仅用于 POST 请求</td>
+  </tr>
+</table>
+<br><hr>
+<h3>GET 或 POST？</h3>
+<p>GET 比 POST 简单并且快速，可用于大多数情况下。</p>
+<p>然而，下面的情况下请始终使用 POST 请求：</p>
+<ul>
+<li>缓存的文件不是一个选项（更新服务器上的文件或数据库）</li>
+	<li>发送到服务器的数据量较大（POST 没有大小的限制）</li>
+	<li>发送用户输入（可以包含未知字符），POST 比 GET 更强大更安全</li>
+</ul>
+<hr>
+<h3>URL - 服务器上的文件</h3>
+<p>open() 方法的 url 参数，是一个在服务器上的文件的地址：</p>
+
+xmlhttp.open("GET","xmlhttp_info.txt",true);
+<p>该文件可以是任何类型的文件（如 .txt 和 .xml），或服务器脚本文件（如.html 和 .php，可在发送回响应之前在服务器上执行动作）。</p>
+<hr>
+<h3>异步 - True 或 False?</h3>
+<p>如需异步发送请求，open() 方法的 async 参数必需设置为 true：</p>
+
+xmlhttp.open("GET","xmlhttp_info.txt",true);
+
+<p>发送异步请求对于 Web 开发人员是一个巨大的进步。在服务器上执行的许多任务非常费时。</p>
+<p>通过异步发送，JavaScript 不需要等待服务器的响应，但可以替换为：</p>
+<ul>
+<li>等待服务器的响应时，执行其他脚本</li>
+	<li>响应准备时处理响应</li>
+</ul>
+<hr>
+<h3>Async=true</h3>
+
+<p>当使用 async=true 时，在 onreadystatechange 事件中响应准备时规定一个要执行的函数：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">onreadystatechange</span><span class="hl-code">=</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">readyState</span><span class="hl-code">==</span><span class="hl-number">4</span><span class="hl-code"> &amp;&amp; </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">status</span><span class="hl-code">==</span><span class="hl-number">200</span><span class="hl-brackets">)</span><span class="hl-code">
+  </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">myDiv</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code">=</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">responseText</span><span class="hl-code">;
+  </span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">open</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">GET</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">xmlhttp_info.txt</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-reserved">true</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">send</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_xmlhttprequest_first" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>Async=false</h3>
+<p>如需使用 async=false，请更改 open() 方法的第三个参数为 false：</p>
+
+xmlhttp.open("GET","xmlhttp_info.txt",false);
+
+<p>不推荐使用 async=false，但如果处理几个小的请求还是可以的。</p>
+<p>请记住，JavaScript 在服务器响应准备之前不会继续执行。如果服务器正忙或缓慢，应用程序将挂起或停止。</p>
+<p><b>注意：</b>当您使用 async=false 时，不要编写 onreadystatechange 
+函数 - 只需要把代码放置在 send() 语句之后即可：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">open</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">GET</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-quotes">"</span><span class="hl-string">xmlhttp_info.txt</span><span class="hl-quotes">"</span><span class="hl-code">,</span><span class="hl-reserved">false</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">send</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">myDiv</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code">=</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">responseText</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_xmlhttprequest_asyncfalse" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>服务器响应</h3>
+<p>如需从服务器获取响应，请使用 XMLHttpRequest 对象的 responseText 或 responseXML 属性。</p>
+<table>
+<tr>
+<th>属性</th>
+    <th>描述</th>
+  </tr>
+<tr>
+<td>responseText</td>
+    <td>获取响应数据作为字符串</td>
+  </tr>
+<tr>
+<td>responseXML</td>
+    <td>ResponseXML 属性返回 XML 文档对象，可使用 DOM 节点树的方法和属性来检查和解析该对象。</td>
+  </tr>
+</table>
+<br><hr>
+<h3>responseText 属性</h3>
+<p>如果来自服务器的响应不是 XML，请使用 responseText 属性。</p>
+<p>responseText 属性以字符串形式返回响应，您可以相应地使用它：</p>
+
+<h3>实例</h3>
+
+<span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">myDiv</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code">=</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">responseText</span><span class="hl-code">;</span>
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_xmlhttprequest_first" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>responseXML 属性</h3>
+<p>如果来自服务器的响应是 XML，且您想要把它解析为 XML 对象，请使用 responseXML 属性：</p>
+
+<h3>实例</h3>
+<p>请求文件 <a href="https://www.runoob.com/try/demo_source/cd_catalog.xml" class="ext">cd_catalog.xml</a> 并解析响应：</p>
+
+<span class="hl-identifier">xmlDoc</span><span class="hl-code">=</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">responseXML</span><span class="hl-code">;
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">txt</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-quotes">"</span><span class="hl-code">;
+</span><span class="hl-identifier">x</span><span class="hl-code">=</span><span class="hl-identifier">xmlDoc</span><span class="hl-code">.</span><span class="hl-identifier">getElementsByTagName</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">ARTIST</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-reserved">for</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">i</span><span class="hl-code">=</span><span class="hl-number">0</span><span class="hl-code">;</span><span class="hl-identifier">i</span><span class="hl-code">&lt;</span><span class="hl-identifier">x</span><span class="hl-code">.</span><span class="hl-identifier">length</span><span class="hl-code">;</span><span class="hl-identifier">i</span><span class="hl-code">++</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-identifier">txt</span><span class="hl-code">=</span><span class="hl-identifier">txt</span><span class="hl-code"> + </span><span class="hl-identifier">x</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">childNodes</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">nodeValue</span><span class="hl-code"> + </span><span class="hl-quotes">"</span><span class="hl-quotes">"</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">myDiv</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code">=</span><span class="hl-identifier">txt</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_xmlhttprequest_responsexml" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>onreadystatechange 事件</h3>
+<p>当请求被发送到服务器，我们要根据响应执行某些动作。</p>
+<p>onreadystatechange 事件在每次 readyState 变化时被触发。</p>
+<p>readyState 属性持有 XMLHttpRequest 的状态。</p>
+<p>XMLHttpRequest 对象的三个重要的属性：</p>
+<table>
+<tr>
+<th>属性</th>
+    <th>描述</th>
+  </tr>
+<tr>
+<td>onreadystatechange</td>
+    <td>存储函数（或函数的名称）在每次 readyState 属性变化时被自动调用</td>
+  </tr>
+<tr>
+<td>readyState</td>
+    <td>存放了 XMLHttpRequest 的状态。从 0 到 4 变化：<br>
+	0：请求未初始化<br>
+	1：服务器建立连接<br>
+	2：收到的请求<br>
+	3：处理请求<br>
+	4：请求完成和响应准备就绪</td>
+  </tr>
+<tr>
+<td>status</td>
+    <td>200："OK"<br>
+	404：找不到页面</td>
+  </tr>
+</table>
+<p>在 onreadystatechange 事件中，我们规定当服务器的响应准备处理时会发生什么。</p>
+<p>当 readyState 是 4 或状态是 200 时，响应准备：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">onreadystatechange</span><span class="hl-code">=</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">readyState</span><span class="hl-code">==</span><span class="hl-number">4</span><span class="hl-code"> &amp;&amp; </span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">status</span><span class="hl-code">==</span><span class="hl-number">200</span><span class="hl-brackets">)</span><span class="hl-code">
+  </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">myDiv</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code">=</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">responseText</span><span class="hl-code">;
+  </span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-brackets">}</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=try_dom_xmlhttprequest_first" class="ext">尝试一下 »</a>
+
+<p><b>注意：</b>onreadystatechange 事件在每次 readyState 发生变化时被触发，总共触发了四次。</p>
+<hr>
+
+<img src="img/22fab39e8e98ea93.gif" alt="实例s" loading="lazy"><h3>更多实例</h3>
+
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=try_dom_xmlhttprequest_header" class="ext">
+通过 getAllResponseHeaders() 检索头信息</a><br>
+检索资源（文件）的头信息。
+</p>
+
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=try_dom_xmlhttprequest_lastmodified" class="ext">
+通过 getResponseHeader() 检索指定头信息</a><br>
+检索资源（文件）的指定头信息。
+</p>
+
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=try_dom_xmlhttprequest_suggest" class="ext">检索 ASP 文件的内容</a><br>
+当用户在输入字段键入字符时，网页如何与 Web 服务器进行通信。
+</p>
+
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=try_dom_xmlhttprequest_database" class="ext">从数据库中检索内容</a><br>
+网页如何通过 XMLHttpRequest 对象从数据库中提取信息。
+</p>
+
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=try_dom_xmlhttprequest_xml" class="ext">检索 XML 文件的内容</a><br>
+创建一个 XMLHttpRequest 从 XML 文件中检索数据并把数据显示在一个 HTML 表格中。
+</p>
+
+<br></div></section>
+<section class="ch" id="c22"><h2>22. DOM 节点类型<a class="chsrc" href="https://www.runoob.com/dom/dom-nodetype.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>DOM 是一个代表节点对象层次的文档。</p>
+<hr>
+
+<img src="img/22fab39e8e98ea93.gif" alt="实例" loading="lazy"><h3>尝试一下 - 实例</h3>
+
+<p>下面的实例使用 XML 文件 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>。<br>
+函数 <a href="dom-loadxmldoc.html">loadXMLDoc()</a>，位于外部 JavaScript 中，用于加载 XML 文件。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_nodetype" class="ext">显示所有元素的 nodeName 和 nodeType</a></p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_nodevalue" class="ext">显示所有元素的 nodeName 和 nodeValue</a></p>
+<hr>
+<h3>节点类型</h3>
+<p>下面的表格列举了不同的 W3C 节点类型，每个节点类型中可能会包含子类：</p>
+<table>
+<tr>
+<th>节点类型</th>
+<th>描述</th>
+<th>子类</th>
+</tr>
+<tr>
+<td>Document</td>
+	<td>代表整个文档（DOM 树的根节点）</td>
+	<td>Element (max. one), ProcessingInstruction, Comment, DocumentType</td>
+</tr>
+<tr>
+<td>DocumentFragment</td>
+	<td>代表"轻量级"的 Document 对象，它可以保留文档中的一部分</td>
+	<td>Element, ProcessingInstruction, Comment, Text, CDATASection, 
+	Entity参考手册</td>
+</tr>
+<tr>
+<td>DocumentType</td>
+	<td>为文档中定义的实体提供了一个接口</td>
+	<td>None</td>
+</tr>
+<tr>
+<td>ProcessingInstruction</td>
+	<td>代表一个处理指令</td>
+	<td>None</td>
+</tr>
+<tr>
+<td>EntityReference</td>
+	<td>代表一个实体引用</td>
+	<td>Element, ProcessingInstruction, Comment, Text, CDATASection, 
+	EntityReference</td>
+</tr>
+<tr>
+<td>Element</td>
+	<td>表示一个元素</td>
+	<td>Element, Text, Comment, ProcessingInstruction, CDATASection, 
+	EntityReference</td>
+</tr>
+<tr>
+<td>Attr</td>
+	<td>代表一个属性</td>
+	<td>Text, EntityReference</td>
+</tr>
+<tr>
+<td>Text</td>
+	<td>代表元素或属性的文本内容</td>
+	<td>None</td>
+</tr>
+<tr>
+<td>CDATASection</td>
+	<td>代表文档中的 CDATA 区段（文本不会被解析器解析）</td>
+	<td>None</td>
+</tr>
+<tr>
+<td>Comment</td>
+	<td>代表一个注释</td>
+	<td>None</td>
+</tr>
+<tr>
+<td>Entity</td>
+	<td>代表一个实体</td>
+	<td>Element, ProcessingInstruction, Comment, Text, CDATASection, 
+	EntityReference</td>
+</tr>
+<tr>
+<td>Notation</td>
+	<td>定义一个在 DTD 中声明的符号</td>
+	<td>None</td>
+</tr>
+</table>
+<h3>节点类型 - 返回值</h3>
+<p>下面的表格列举了每个节点类型（nodetype）所返回的节点名称（nodeName）和节点值（nodeValue）：</p>
+<table>
+<tr>
+<th>节点类型</th>
+<th>返回的节点名称</th>
+<th>返回的节点值</th>
+</tr>
+<tr>
+<td>Document</td>
+	<td>#document</td>
+	<td>null</td>
+</tr>
+<tr>
+<td>DocumentFragment</td>
+	<td>#document fragment</td>
+	<td>null</td>
+</tr>
+<tr>
+<td>DocumentType</td>
+	<td>文档类型名称</td>
+	<td>null</td>
+</tr>
+<tr>
+<td>Entity参考手册</td>
+	<td>实体引用名称</td>
+	<td>null</td>
+</tr>
+<tr>
+<td>Element</td>
+	<td>元素名称</td>
+	<td>null</td>
+</tr>
+<tr>
+<td>Attr</td>
+	<td>属性名称</td>
+	<td>属性值</td>
+</tr>
+<tr>
+<td>ProcessingInstruction</td>
+	<td>目标</td>
+	<td>节点的内容</td>
+</tr>
+<tr>
+<td>Comment</td>
+	<td>#comment</td>
+	<td>注释文本</td>
+</tr>
+<tr>
+<td>Text</td>
+	<td>#text</td>
+	<td>节点的内容</td>
+</tr>
+<tr>
+<td>CDATASection</td>
+	<td>#cdata-section</td>
+	<td>节点的内容</td>
+</tr>
+<tr>
+<td>Entity</td>
+	<td>实体名称</td>
+	<td>null</td>
+</tr>
+<tr>
+<td>Notation</td>
+	<td>符号名称</td>
+	<td>null</td>
+</tr>
+</table>
+<h3>节点类型 - 命名常量</h3>
+<table>
+<tr>
+<th>节点类型</th>
+<th>命名常量</th>
+</tr>
+<tr>
+<td>1</td>
+	<td>ELEMENT_NODE</td>
+</tr>
+<tr>
+<td>2</td>
+	<td>ATTRIBUTE_NODE</td>
+</tr>
+<tr>
+<td>3</td>
+	<td>TEXT_NODE</td>
+</tr>
+<tr>
+<td>4</td>
+	<td>CDATA_SECTION_NODE</td>
+</tr>
+<tr>
+<td>5</td>
+	<td>ENTITY_REFERENCE_NODE</td>
+</tr>
+<tr>
+<td>6</td>
+	<td>ENTITY_NODE</td>
+</tr>
+<tr>
+<td>7</td>
+	<td>PROCESSING_INSTRUCTION_NODE</td>
+</tr>
+<tr>
+<td>8</td>
+	<td>COMMENT_NODE</td>
+</tr>
+<tr>
+<td>9</td>
+	<td>DOCUMENT_NODE</td>
+</tr>
+<tr>
+<td>10</td>
+	<td>DOCUMENT_TYPE_NODE</td>
+</tr>
+<tr>
+<td>11</td>
+	<td>DOCUMENT_FRAGMENT_NODE</td>
+</tr>
+<tr>
+<td>12</td>
+	<td>NOTATION_NODE</td>
+</tr>
+</table>
+<br></div></section>
+<section class="ch" id="c23"><h2>23. DOM Node<a class="chsrc" href="https://www.runoob.com/dom/dom-node.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>Node 对象</h3>
+<p>Node 对象代表文档树中的一个单独的节点。</p>
+<p>这里的节点可以是：元素节点、属性节点、文本节点以及所有在 <a href="dom-nodetype.html">节点类型</a>这章中所提到的所有其他的节点类型。</p>
+<p>请注意，尽管所有的对象都继承了用以处理父节点和子节点的 Node 属性 / 方法，但是并不是所有的对象都可以包含父节点或子节点。举个例子来说，Text 节点中可能不包含子节点，所以把子节点添加到文本节点中可能会导致一个 DOM 错误。</p>
+
+<h3>Node 对象属性</h3>
+
+<table>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+<tr>
+<td><a href="prop-node-baseuri.html">baseURI</a></td>
+	<td>返回节点的绝对基准 URI。</td>
+</tr>
+<tr>
+<td><a href="dom-prop-node-childnodes.html">childNodes</a></td>
+	<td>返回节点的子节点的节点列表。</td>
+</tr>
+<tr>
+<td><a href="dom-prop-node-firstchild.html">firstChild</a></td>
+	<td>返回节点的第一个子节点。</td>
+</tr>
+<tr>
+<td><a href="dom-prop-node-lastchild.html">lastChild</a></td>
+	<td>返回节点的最后一个子节点。</td>
+</tr>
+<tr>
+<td><a href="prop-node-localname.html">localName</a></td>
+	<td>返回节点名称的本地部分。</td>
+</tr>
+<tr>
+<td><a href="dom-prop-node-namespaceuri.html">namespaceURI</a></td>
+	<td>返回节点的命名空间 URI。</td>
+</tr>
+<tr>
+<td><a href="dom-prop-node-nextsibling.html">nextSibling</a></td>
+	<td>返回元素之后紧接的节点。</td>
+</tr>
+<tr>
+<td><a href="dom-prop-node-nodename.html">nodeName</a></td>
+	<td>返回节点的名称，根据其类型。</td>
+</tr>
+<tr>
+<td><a href="dom-prop-node-nodetype.html">nodeType</a></td>
+	<td>返回节点的类型。</td>
+</tr>
+<tr>
+<td><a href="dom-prop-node-nodevalue.html">nodeValue</a></td>
+	<td>设置或返回节点的值，根据其类型。</td>
+</tr>
+<tr>
+<td><a href="dom-prop-node-ownerdocument.html">ownerDocument</a></td>
+	<td>返回节点的根元素（document 对象）。</td>
+</tr>
+<tr>
+<td><a href="dom-prop-node-parentnode.html">parentNode</a></td>
+	<td>返回节点的父节点。</td>
+</tr>
+<tr>
+<td><a href="prop-node-prefix.html">prefix</a></td>
+	<td>设置或返回节点的命名空间前缀。</td>
+</tr>
+<tr>
+<td><a href="dom-prop-node-previoussibling.html">previousSibling</a></td>
+	<td>返回元素之前紧接的节点。</td>
+</tr>
+<tr>
+<td><a href="dom-prop-node-textcontent.html">textContent</a></td>
+	<td>设置或返回节点及其后代的文本内容。</td>
+</tr>
+</table>
+<h3>Node 对象方法</h3>
+<table>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+<tr>
+<td><a href="dom-met-node-appendchild.html">appendChild()</a></td>
+	<td>把新的子节点添加到节点的子节点列表末尾。</td>
+</tr>
+<tr>
+<td><a href="dom-met-node-clonenode.html">cloneNode()</a></td>
+	<td>克隆节点。</td>
+</tr>
+<tr>
+<td><a href="dom-met-node-comparedocumentposition.html">compareDocumentPosition()</a></td>
+	<td>比较两个节点的文档位置。</td>
+</tr>
+<tr>
+<td>getFeature(feature,version)</td>
+	<td>返回 DOM 对象，此对象可执行带有指定特性和版本的专门的 API。</td>
+</tr>
+<tr>
+<td>getUserData(key)</td>
+	<td>返回与节点上键关联的对象。此对象必须首先通过使用相同的键调用 setUserData 来设置到此节点。</td>
+</tr>
+<tr>
+<td><a href="dom-met-node-hasattributes.html">hasAttributes()</a></td>
+	<td>如果节点拥有属性，则返回 ture，否则返回 false。</td>
+</tr>
+<tr>
+<td><a href="dom-met-node-haschildnodes.html">hasChildNodes()</a></td>
+	<td>如果节点拥有子节点，则返回 true，否则返回 false。</td>
+</tr>
+<tr>
+<td><a href="dom-met-node-insertbefore.html">insertBefore()</a></td>
+	<td>在已有的子节点之前插入一个新的子节点。</td>
+</tr>
+<tr>
+<td>isDefaultNamespace(URI)</td>
+	<td>返回指定的 namespaceURI 是否默认。</td>
+</tr>
+<tr>
+<td><a href="dom-met-node-isequalnode.html">isEqualNode()</a></td>
+	<td>检查两个节点是否相等。</td>
+</tr>
+<tr>
+<td><a href="dom-met-node-issamenode.html">isSameNode()</a></td>
+	<td>检查两个节点是否为同一节点。</td>
+</tr>
+<tr>
+<td>isSupported(feature,version)</td>
+	<td>返回指定的特性是否在此节点上得到支持。</td>
+</tr>
+<tr>
+<td><a href="met-node-lookupnamespaceuri.html">lookupNamespaceURI()</a></td>
+	<td>返回匹配指定前缀的命名空间 URI。</td>
+</tr>
+<tr>
+<td><a href="met-node-lookupprefix.html">lookupPrefix()</a></td>
+	<td>返回匹配指定命名空间 URI 的前缀。</td>
+</tr>
+<tr>
+<td>normalize()</td>
+	<td>把节点（包括属性）下的所有文本节点放置到一个"标准"的格式中，其中只有结构（比如元素、注释、处理指令、CDATA 区段以及实体引用）来分隔 Text 节点，例如，既没有相邻的 Text 节点，也没有空的 Text 节点。</td>
+</tr>
+<tr>
+<td><a href="dom-met-node-removechild.html">removeChild()</a></td>
+	<td>删除子节点。</td>
+</tr>
+<tr>
+<td><a href="dom-met-node-replacechild.html">replaceChild()</a></td>
+	<td>替换子节点。</td>
+</tr>
+<tr>
+<td>setUserData(key,data,handler)</td>
+	<td>把对象关联到节点上的键。</td>
+</tr>
+</table>
+<br></div></section>
+<section class="ch" id="c24"><h2>24. DOM NodeList<a class="chsrc" href="https://www.runoob.com/dom/dom-nodelist.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>NodeList 对象代表一个有序的节点列表。</p>
+<hr>
+<h3>NodeList 对象</h3>
+<p>节点列表中的节点可以通过其对应的索引数字（从 0 开始计数）进行访问。</p>
+<p>节点列表可保持其自身的更新。如果节点列表或 XML 文档中的某个元素被删除或添加，列表也会被自动更新。</p>
+<p><b>注意：</b>在一个节点列表中，节点被返回的顺序与它们在 XML 文档中被规定的顺序相同。</p>
+
+<h3>NodeList 对象属性</h3>
+<table>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+<tr>
+<td><a href="dom-prop-nodelist-length.html">length</a></td>
+	<td>返回节点列表中的节点数量。</td>
+</tr>
+</table>
+<h3>NodeList 对象方法</h3>
+<table>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+<tr>
+<td><a href="dom-met-nodelist-item.html">item()</a></td>
+	<td>返回节点列表中指定索引号的节点。</td>
+</tr>
+</table>
+<br></div></section>
+<section class="ch" id="c25"><h2>25. DOM NamedNodeMap<a class="chsrc" href="https://www.runoob.com/dom/dom-namednodemap.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>NamedNodeMap 对象代表一个节点的无序列表。</p>
+<hr>
+<h3>NamedNodeMap 对象</h3>
+<p>NamedNodeMap 中的节点可以通过它们的名称进行访问。</p>
+<p>NamedNodeMap 将会自我更新。如果在节点列表或 XML 文档中删除或添加一个元素，那么该列表将会自动更新。</p>
+<p><b>注意：</b>在命名节点图中，节点不会以任何特定的顺序返回。</p>
+
+<h3>NamedNodeMap 对象属性</h3>
+<table>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+<tr>
+<td><a href="prop-nodemap-length.html">length</a></td>
+	<td>返回列表中节点的数量。</td>
+</tr>
+</table>
+<h3>NamedNodeMap 对象方法</h3>
+<table>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+<tr>
+<td><a href="met-nodemap-getnameditem.html">getNamedItem()</a></td>
+	<td>返回指定的节点（通过名称）。</td>
+</tr>
+<tr>
+<td>getNamedItemNS()</td>
+	<td>返回指定的节点（通过名称和命名空间）。</td>
+</tr>
+<tr>
+<td><a href="met-nodemap-item.html">item()</a></td>
+	<td>返回指定索引号的节点。</td>
+</tr>
+<tr>
+<td><a href="met-nodemap-removenameditem.html">removeNamedItem()</a></td>
+	<td>删除指定的节点（通过名称）。</td>
+</tr>
+<tr>
+<td>removeNamedItemNS()</td>
+	<td>删除指定的节点（通过名称和命名空间）。</td>
+</tr>
+<tr>
+<td>setNamedItem()</td>
+	<td>设置指定的节点（通过名称）。</td>
+</tr>
+<tr>
+<td>setNamedItemNS()</td>
+	<td>设置指定的节点（通过名称和命名空间）。</td>
+</tr>
+</table>
+<br></div></section>
+<section class="ch" id="c26"><h2>26. DOM Document<a class="chsrc" href="https://www.runoob.com/dom/dom-document.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>Document 对象代表整个 XML 文档。</p>
+<hr>
+<h3>Document 对象</h3>
+<p>Document 对象是文档树的根，并为我们提供对文档数据的最初（或最顶层）的访问入口。</p>
+<p>由于元素节点、文本节点、注释、处理指令等均无法存在于文档之外，Document 对象也提供了创建这些对象的方法。Node 对象提供了一个 ownerDocument 属性，此属性可把它们与在其中创建它们的 Document 关联起来。</p>
+
+<h3>Document 对象属性</h3>
+<table>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+<tr>
+<td><a href="prop-document-async.html">async</a></td>
+	<td>规定 XML 文件的下载是否应当被异步处理。</td>
+</tr>
+<tr>
+<td><a href="prop-document-childnodes.html">childNodes</a></td>
+	<td>返回文档的子节点的节点列表。</td>
+</tr>
+<tr>
+<td><a href="dom-prop-document-doctype.html">doctype</a></td>
+	<td>返回与文档相关的文档类型声明（DTD，全称 Document Type Declaration）。</td>
+</tr>
+<tr>
+<td><a href="dom-prop-document-documentelement.html">documentElement</a></td>
+	<td>返回文档的根节点。</td>
+</tr>
+<tr>
+<td><a href="dom-prop-document-documenturi.html">documentURI</a></td>
+	<td>设置或返回文档的位置。</td>
+</tr>
+<tr>
+<td>domConfig</td>
+	<td>返回 normalizeDocument() 被调用时所使用的配置。</td>
+</tr>
+<tr>
+<td><a href="prop-document-firstchild.html">firstChild</a></td>
+	<td>返回文档的第一个子节点。</td>
+</tr>
+<tr>
+<td><a href="dom-prop-document-implementation.html">implementation</a></td>
+	<td>返回处理该文档的 DOMImplementation 对象。</td>
+</tr>
+<tr>
+<td><a href="dom-prop-document-inputencoding.html">inputEncoding</a></td>
+	<td>返回用于文档的编码方式（在解析时）。</td>
+</tr>
+<tr>
+<td><a href="prop-document-lastchild.html">lastChild</a></td>
+	<td>返回文档的最后一个子节点。</td>
+</tr>
+<tr>
+<td><a href="prop-document-nodename.html">nodeName</a></td>
+	<td>返回节点的名称（根据节点的类型）。</td>
+</tr>
+<tr>
+<td><a href="prop-document-nodetype.html">nodeType</a></td>
+	<td>返回节点的节点类型。</td>
+</tr>
+<tr>
+<td><a href="prop-document-nodevalue.html">nodeValue</a></td>
+	<td>设置或返回节点的值（根据节点的类型）。</td>
+</tr>
+<tr>
+<td><a href="dom-prop-document-stricterrorchecking.html">strictErrorChecking</a></td>
+	<td>设置或返回是否强制进行错误检查。</td>
+</tr>
+<tr>
+<td><a href="prop-document-xmlencoding.html">xmlEncoding</a></td>
+	<td>返回文档的 XML 编码。</td>
+</tr>
+<tr>
+<td><a href="prop-document-xmlstandalone.html">xmlStandalone</a></td>
+	<td>设置或返回文档是否为 standalone。</td>
+</tr>
+<tr>
+<td><a href="prop-document-xmlversion.html">xmlVersion</a></td>
+	<td>设置或返回文档的 XML 版本。</td>
+</tr>
+</table>
+<h3>Document 对象方法</h3>
+<table>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>adoptNode(sourcenode)</td>
+	<td>从另一个文档向本文档选定一个节点，然后返回被选节点。</td>
+</tr>
+<tr>
+<td>createAttribute(name)</td>
+	<td>创建带有指定名称的属性节点，并返回新的 Attr 对象。</td>
+</tr>
+<tr>
+<td>createAttributeNS(uri,name)</td>
+	<td>创建带有指定名称和命名空间的属性节点，并返回新的 Attr 对象。</td>
+</tr>
+<tr>
+<td><a href="met-document-createcdatasection.html">createCDATASection()</a></td>
+	<td>创建 CDATA 区段节点。</td>
+</tr>
+<tr>
+<td><a href="dom-met-document-createcomment.html">createComment()</a></td>
+	<td>创建注释节点。</td>
+</tr>
+<tr>
+<td>createDocumentFragment()</td>
+	<td>创建空的 DocumentFragment 对象，并返回此对象。</td>
+</tr>
+<tr>
+<td><a href="dom-met-document-createelement.html">createElement()</a></td>
+	<td>创建元素节点。</td>
+</tr>
+<tr>
+<td><a href="met-document-createelementns.html">createElementNS()</a></td>
+	<td>创建带有指定命名空间的元素节点。</td>
+</tr>
+<tr>
+<td>createEntityReference(name)</td>
+	<td>创建 EntityReference 对象，并返回此对象。</td>
+</tr>
+<tr>
+<td>createProcessingInstruction(target,data)</td>
+	<td>创建一个 ProcessingInstruction 对象，并返回此对象。</td>
+</tr>
+<tr>
+<td><a href="dom-met-document-createtextnode.html">createTextNode()</a></td>
+	<td>创建文本节点。</td>
+</tr>
+<tr>
+<td>getElementById(id)</td>
+	<td>返回带有指定值的 ID 属性的元素。如果不存在这样的元素，则返回 null。</td>
+</tr>
+<tr>
+<td><a href="dom-met-document-getelementsbytagname.html">getElementsByTagName()</a></td>
+	<td>返回带有指定名称的所有元素的 NodeList。</td>
+</tr>
+<tr>
+<td><a href="met-document-getelementsbytagnamens.html">getElementsByTagNameNS()</a></td>
+	<td>返回带有指定名称和命名空间的所有元素的 NodeList。</td>
+</tr>
+<tr>
+<td>importNode(nodetoimport,deep)</td>
+	<td>从另一个文档向本文档选定一个节点。该方法创建源节点的一个新的副本。如果 deep 参数设置为 true，它将导入指定节点的所有子节点。 如果设置为 false，它将只导入节点本身。该方法返回被导入的节点。</td>
+</tr>
+<tr>
+<td>normalizeDocument()</td>
+	<td> </td>
+</tr>
+<tr>
+<td><a href="dom-met-document-renamenode.html">renameNode()</a></td>
+	<td>重命名元素或属性节点。</td>
+</tr>
+</table>
+<br></div></section>
+<section class="ch" id="c27"><h2>27. DOM DocumentImpl<a class="chsrc" href="https://www.runoob.com/dom/dom-documentimplementation.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>DocumentImplementation 对象</h3>
+<p>DOMImplementation 对象执行的操作是独立于文档对象模型的任何特定实例。</p>
+
+<h3>DocumentImplementation 对象方法</h3>
+
+<table>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>createDocument(nsURI, name, doctype)</td>
+	<td>创建一个新的指定文档类型的 DOM Document 对象。</td>
+</tr>
+<tr>
+<td>createDocumentType(name, pubId, systemId)</td>
+	<td>创建一个空的 DocumentType 节点。</td>
+</tr>
+<tr>
+<td>getFeature(feature, version)</td>
+	<td>返回一个对象，此对象可执行带有指定特性和版本的 API。</td>
+</tr>
+<tr>
+<td>hasFeature(feature, version)</td>
+	<td>检查 DOM implementation 是否实现指定的特性和版本。</td>
+</tr>
+</table>
+<br></div></section>
+<section class="ch" id="c28"><h2>28. DOM DocumentType<a class="chsrc" href="https://www.runoob.com/dom/dom-documenttype.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>DocumentType 对象</h3>
+
+<p>每个文档都包含一个 DOCTYPE 属性，该属性值可以是一个空值或是一个 DocumentType 对象。</p>
+<p>DocumentType 对象提供了一个接口，用于定义 XML 文档的实体。</p>
+
+<h3>DocumentType 对象属性</h3>
+
+<table>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+<tr>
+<td><a href="prop-documenttype-entities.html">entities</a></td>
+	<td>返回包含有在 DTD 中所声明的实体的 NamedNodeMap。</td>
+</tr>
+<tr>
+<td><a href="prop-documenttype-internalsubset.html">internalSubset</a></td>
+	<td>以字符串形式返回内部 DTD。</td>
+</tr>
+<tr>
+<td><a href="prop-documenttype-name.html">name</a></td>
+	<td>返回 DTD 的名称。</td>
+</tr>
+<tr>
+<td>notations</td>
+	<td>返回包含 DTD 声明的符号的 NamedNodeMap。</td>
+</tr>
+<tr>
+<td><a href="prop-documenttype-systemid.html">systemId</a></td>
+	<td>返回外部 DTD 的系统标识符。</td>
+</tr>
+</table>
+<br></div></section>
+<section class="ch" id="c29"><h2>29. DOM ProcessingInst<a class="chsrc" href="https://www.runoob.com/dom/dom-processinginstruction.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>ProcessingInstruction 对象</h3>
+
+<p>ProcessingInstruction 对象代表一个处理指令。</p>
+<p>处理指令用于维护 XML 文档的文本中特定处理器的信息。</p>
+
+<h3>ProcessingInstruction 对象属性</h3>
+<table>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>data</td>
+	<td>设置或返回处理指令的内容。</td>
+</tr>
+<tr>
+<td>target</td>
+	<td>返回处理指令的目标。</td>
+</tr>
+</table>
+<br></div></section>
+<section class="ch" id="c30"><h2>30. DOM Element<a class="chsrc" href="https://www.runoob.com/dom/dom-element.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>Element 对象</h3>
+<p>Element 对象代表 XML 文档中的一个元素。元素可以包含属性、其他元素或文本。如果一个元素包含文本，则在文本节点中表示该文本。</p>
+<p><b>重要事项：</b>文本永远存储在文本节点中。在 DOM 处理过程中的一个常见的错误是，导航到元素节点，并认为此节点含有文本。不过，即使最简单的元素节点之下也拥有文本节点。举例，在 &lt;year&gt;2005&lt;/year&gt; 中，有一个元素节点（year），同时此节点之下存在一个文本节点，其中含有文本（2005）。</p>
+<p>由于 Element 对象也是一种节点，因此它可继承 Node 对象的属性和方法。</p>
+
+<h3>Element 对象属性</h3>
+<table>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+<tr>
+<td><a href="prop-element-attributes.html">attributes</a></td>
+	<td>返回元素的属性的 NamedNodeMap。</td>
+</tr>
+<tr>
+<td><a href="prop-element-baseuri.html">baseURI</a></td>
+	<td>返回元素的绝对基准 URI。</td>
+</tr>
+<tr>
+<td><a href="prop-element-childnodes.html">childNodes</a></td>
+	<td>返回元素的子节点的 NodeList。</td>
+</tr>
+<tr>
+<td><a href="prop-element-firstchild.html">firstChild</a></td>
+	<td>返回元素的第一个子节点。</td>
+</tr>
+<tr>
+<td><a href="prop-element-lastchild.html">lastChild</a></td>
+	<td>返回元素的最后一个子节点。</td>
+</tr>
+<tr>
+<td><a href="prop-element-localname.html">localName</a></td>
+	<td>返回元素名称的本地部分。</td>
+</tr>
+<tr>
+<td><a href="prop-element-namespaceuri.html">namespaceURI</a></td>
+	<td>返回元素的命名空间 URI。</td>
+</tr>
+<tr>
+<td><a href="prop-element-nextsibling.html">nextSibling</a></td>
+	<td>返回元素之后紧接的节点。</td>
+</tr>
+<tr>
+<td><a href="prop-element-nodename.html">nodeName</a></td>
+	<td>返回节点的名称，根据其类型。</td>
+</tr>
+<tr>
+<td><a href="prop-element-nodetype.html">nodeType</a></td>
+	<td>返回节点的类型。</td>
+</tr>
+<tr>
+<td><a href="prop-element-ownerdocument.html">ownerDocument</a></td>
+	<td>返回元素所属的根元素 (document 对象)。</td>
+</tr>
+<tr>
+<td><a href="prop-element-parentnode.html">parentNode</a></td>
+	<td>返回元素的父节点。</td>
+</tr>
+<tr>
+<td><a href="prop-element-prefix.html">prefix</a></td>
+	<td>设置或返回元素的命名空间前缀。</td>
+</tr>
+<tr>
+<td><a href="prop-element-previoussibling.html">previousSibling</a></td>
+	<td>返回元素之前紧接的节点。</td>
+</tr>
+<tr>
+<td>schemaTypeInfo</td>
+	<td>返回与元素相关联的类型信息。</td>
+</tr>
+<tr>
+<td><a href="dom-prop-element-tagname.html">tagName</a></td>
+	<td>返回元素的名称。</td>
+</tr>
+<tr>
+<td><a href="prop-element-textcontent.html">textContent</a></td>
+	<td>设置或返回元素及其后代的文本内容。</td>
+</tr>
+</table>
+<h3>Element 对象方法</h3>
+<table>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+<tr>
+<td><a href="met-element-appendchild.html">appendChild()</a></td>
+	<td>把新的子节点添加到节点的子节点列表末尾。</td>
+</tr>
+<tr>
+<td><a href="met-element-clonenode.html">cloneNode()</a></td>
+	<td>克隆节点。</td>
+</tr>
+<tr>
+<td><a href="met-element-comparedocumentposition.html">compareDocumentPosition()</a></td>
+	<td>比较两个节点的文档位置。</td>
+</tr>
+<tr>
+<td><a href="dom-met-element-getattribute.html">getAttribute()</a></td>
+	<td>返回属性的值。</td>
+</tr>
+<tr>
+<td><a href="met-element-getattributens.html">getAttributeNS()</a></td>
+	<td>返回属性的值（带有命名空间）。</td>
+</tr>
+<tr>
+<td><a href="dom-met-element-getattributenode.html">getAttributeNode()</a></td>
+	<td>以 Attribute 对象返回属性节点。</td>
+</tr>
+<tr>
+<td><a href="met-element-getattributenodens.html">getAttributeNodeNS()</a></td>
+	<td>以 Attribute 对象返回属性节点（带有命名空间）。</td>
+</tr>
+<tr>
+<td><a href="dom-met-element-getelementsbytagname.html">getElementsByTagName()</a></td>
+	<td>返回匹配的元素节点及它们的子节点的 NodeList。</td>
+</tr>
+<tr>
+<td><a href="met-element-getelementsbytagnamens.html">getElementsByTagNameNS()</a></td>
+	<td>返回匹配的元素节点（带有命名空间）及它们的子节点的 NodeList。</td>
+</tr>
+<tr>
+<td>getFeature(feature,version)</td>
+	<td>返回 DOM 对象，此对象可执行带有指定特性和版本的专门的 API。</td>
+</tr>
+<tr>
+<td>getUserData(key)</td>
+	<td>返回与节点上键关联的对象。此对象必须首先通过使用相同的键调用 setUserData 来设置到此节点。</td>
+</tr>
+<tr>
+<td><a href="dom-met-element-hasattribute.html">hasAttribute()</a></td>
+	<td>返回元素是否拥有匹配指定名称的属性。</td>
+</tr>
+<tr>
+<td><a href="met-element-hasattributens.html">hasAttributeNS()</a></td>
+	<td>返回元素是否拥有匹配指定名称和命名空间的属性。</td>
+</tr>
+<tr>
+<td><a href="met-element-hasattributes.html">hasAttributes()</a></td>
+	<td>返回元素是否拥有属性。</td>
+</tr>
+<tr>
+<td><a href="met-element-haschildnodes.html">hasChildNodes()</a></td>
+	<td>返回元素是否拥有子节点。</td>
+</tr>
+<tr>
+<td><a href="met-element-insertbefore.html">insertBefore()</a></td>
+	<td>在已有的子节点之前插入一个新的子节点。</td>
+</tr>
+<tr>
+<td>isDefaultNamespace(URI)</td>
+	<td>返回指定的 namespaceURI 是否为默认。</td>
+</tr>
+<tr>
+<td><a href="met-element-isequalnode.html">isEqualNode()</a></td>
+	<td>检查两个节点是否相等。</td>
+</tr>
+<tr>
+<td><a href="met-element-issamenode.html">isSameNode()</a></td>
+	<td>检查两个节点是否为同一节点。</td>
+</tr>
+<tr>
+<td>isSupported(feature,version)</td>
+	<td>返回指定的特性是否在此元素上得到支持。</td>
+</tr>
+<tr>
+<td><a href="met-element-lookupnamespaceuri.html">lookupNamespaceURI()</a></td>
+	<td>返回匹配指定前缀的命名空间 URI。</td>
+</tr>
+<tr>
+<td><a href="met-element-lookupprefix.html">lookupPrefix()</a></td>
+	<td>返回匹配指定命名空间 URI 的前缀。</td>
+</tr>
+<tr>
+<td>normalize()</td>
+	<td>把节点（包括属性）下的所有文本节点放置到一个"标准"的格式中，其中只有结构（比如元素、注释、处理指令、CDATA 区段以及实体引用）来分隔 Text 节点，例如，既没有相邻的 Text 节点，也没有空的 Text 节点。</td>
+</tr>
+<tr>
+<td><a href="dom-met-element-removeattribute.html">removeAttribute()</a></td>
+	<td>删除指定的属性。</td>
+</tr>
+<tr>
+<td><a href="met-element-removeattributens.html">removeAttributeNS()</a></td>
+	<td>删除指定的属性（带有命名空间）。</td>
+</tr>
+<tr>
+<td><a href="dom-met-element-removeattributenode.html">removeAttributeNode()</a></td>
+	<td>删除指定的属性节点。</td>
+</tr>
+<tr>
+<td><a href="met-element-removechild.html">removeChild()</a></td>
+	<td>删除子节点。</td>
+</tr>
+<tr>
+<td><a href="met-element-replacechild.html">replaceChild()</a></td>
+	<td>替换子节点。</td>
+</tr>
+<tr>
+<td>setUserData(key,data,handler)</td>
+	<td>把对象关联到元素上的键。</td>
+</tr>
+<tr>
+<td><a href="dom-met-element-setattribute.html">setAttribute()</a></td>
+	<td>添加新属性。</td>
+</tr>
+<tr>
+<td><a href="met-element-setattributens.html">setAttributeNS()</a></td>
+	<td>添加新属性（带有命名空间）。</td>
+</tr>
+<tr>
+<td><a href="dom-met-element-setattributenode.html">setAttributeNode()</a></td>
+	<td>添加新的属性节点。</td>
+</tr>
+<tr>
+<td>setAttributeNodeNS(attrnode)</td>
+	<td>添加新的属性节点（带有命名空间）。</td>
+</tr>
+<tr>
+<td>setIdAttribute(name,isId)</td>
+	<td>如果 Attribute 对象的 isId 属性为 true，那么此方法会把指定的属性声明为一个用户确定 ID 的属性（user-determined ID attribute）。</td>
+</tr>
+<tr>
+<td>setIdAttributeNS(uri,name,isId)</td>
+	<td>如果 Attribute 对象的 isId 属性为 true，那么此方法会把指定的属性声明为一个用户确定 ID 的属性（user-determined ID attribute）（带有命名空间）。</td>
+</tr>
+<tr>
+<td>setIdAttributeNode(idAttr,isId)</td>
+	<td>如果 Attribute 对象的 isId 属性为 true，那么此方法会把指定的属性声明为一个用户确定 ID 的属性（user-determined ID attribute）。</td>
+</tr>
+</table>
+<br></div></section>
+<section class="ch" id="c31"><h2>31. DOM Attribute<a class="chsrc" href="https://www.runoob.com/dom/dom-attribute.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>Attr 对象</h3>
+<p>Attr 对象表示 Element 对象的属性。属性的容许值通常定义在 DTD 中。</p>
+<p>由于 Attr 对象也是一种节点，因此它继承 Node 对象的属性和方法。不过属性无法拥有父节点，同时属性也不被认为是元素的子节点，对于许多 Node 属性来说都将返回 null。</p>
+
+<h3>Attr 对象属性</h3>
+<table>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+<tr>
+<td><a href="prop-attr-baseuri.html">baseURI</a></td>
+	<td>返回属性的绝对基准 URI。</td>
+</tr>
+<tr>
+<td><a href="dom-prop-attr-isid.html">isId</a></td>
+	<td>如果属性是 ID 类型，则返回 true，否则返回 false。</td>
+</tr>
+<tr>
+<td><a href="prop-attr-localname.html">localName</a></td>
+	<td>返回属性名称的本地部分。</td>
+</tr>
+<tr>
+<td><a href="dom-prop-attr-name.html">name</a></td>
+	<td>返回属性的名称。</td>
+</tr>
+<tr>
+<td><a href="prop-attr-namespaceuri.html">namespaceURI</a></td>
+	<td>返回属性的命名空间 URI。</td>
+</tr>
+<tr>
+<td><a href="prop-attr-nodename.html">nodeName</a></td>
+	<td>返回节点的名称，根据其类型。</td>
+</tr>
+<tr>
+<td><a href="prop-attr-nodetype.html">nodeType</a></td>
+	<td>返回节点的类型。</td>
+</tr>
+<tr>
+<td><a href="prop-attr-nodevalue.html">nodeValue</a></td>
+	<td>设置或返回节点的值，根据其类型。</td>
+</tr>
+<tr>
+<td><a href="prop-attr-ownerdocument.html">ownerDocument</a></td>
+	<td>返回属性所属的根元素（document 对象）。</td>
+</tr>
+<tr>
+<td><a href="prop-attr-ownerelement.html">ownerElement</a></td>
+	<td>返回属性所附属的元素节点。</td>
+</tr>
+<tr>
+<td><a href="prop-attr-prefix.html">prefix</a></td>
+	<td>设置或返回属性的命名空间前缀。</td>
+</tr>
+<tr>
+<td>schemaTypeInfo</td>
+	<td>返回与属性相关联的类型信息。</td>
+</tr>
+<tr>
+<td><a href="dom-prop-attr-specified.html">specified</a></td>
+	<td>如果属性值被设置在文档中，则返回 true，如果其默认值被设置在 DTD/Schema 中，则返回 false。</td>
+</tr>
+<tr>
+<td><a href="prop-attr-textcontent.html">textContent</a></td>
+	<td>设置或返回属性的文本内容。</td>
+</tr>
+<tr>
+<td><a href="dom-prop-attr-value.html">value</a></td>
+	<td>设置或返回属性的值。</td>
+</tr>
+</table>
+<br></div></section>
+<section class="ch" id="c32"><h2>32. DOM Text<a class="chsrc" href="https://www.runoob.com/dom/dom-text.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>Text 对象</h3>
+<p>Text 对象表示元素或属性的文本内容。</p>
+<h3>Text 对象属性</h3>
+<table>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+<tr>
+<td><a href="prop-text-data.html">data</a></td>
+	<td>设置或返回元素或属性的文本。</td>
+</tr>
+<tr>
+<td>isElementContentWhitespace</td>
+	<td>判断文本节点是否包含空白字符内容。如果文本节点包含空白字符内容，则返回 true，否则返回 false。</td>
+</tr>
+<tr>
+<td><a href="prop-text-length.html">length</a></td>
+	<td>返回元素或属性的文本长度。</td>
+</tr>
+<tr>
+<td>wholeText</td>
+	<td>以文档中的顺序向此节点返回相邻文本节点的所有文本。</td>
+</tr>
+</table>
+<h3>Text 对象方法</h3>
+<table>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+<tr>
+<td><a href="met-text-appenddata.html">appendData()</a></td>
+	<td>向节点追加数据。</td>
+</tr>
+<tr>
+<td><a href="met-text-deletedata.html">deleteData()</a></td>
+	<td>从节点删除数据。</td>
+</tr>
+<tr>
+<td><a href="met-text-insertdata.html">insertData()</a></td>
+	<td>向节点中插入数据。</td>
+</tr>
+<tr>
+<td><a href="met-text-replacedata.html">replaceData()</a></td>
+	<td>替换节点中的数据。</td>
+</tr>
+<tr>
+<td>replaceWholeText(text)</td>
+	<td>使用指定文本来替换此节点以及所有相邻的文本节点。</td>
+</tr>
+<tr>
+<td><a href="met-text-splittext.html">splitText()</a></td>
+	<td>在指定的偏移处将此节点拆分为两个节点，同时返回包含偏移处之后的文本的新节点。</td>
+</tr>
+<tr>
+<td><a href="met-text-substringdata.html">substringData()</a></td>
+	<td>从节点提取数据。</td>
+</tr>
+</table>
+<br></div></section>
+<section class="ch" id="c33"><h2>33. DOM CDATA<a class="chsrc" href="https://www.runoob.com/dom/dom-cdatasection.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+
+<img src="img/22fab39e8e98ea93.gif" alt="实例" loading="lazy"><h3>尝试一下 - 实例</h3>
+
+<p>下面的实例使用 XML 文件 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>。<br>
+<a href="dom-loadxmldoc.html">外部 JavaScript</a> 用于加载 XML 文件。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_createcdatasection" class="ext">createCDATASection() - 创建一个 CDATA 区段节点</a></p>
+<hr>
+<h3>CDATASection 对象</h3>
+<p>CDATASection 对象表示文档中的 CDATA 区段。</p>
+<p>CDATA 区段包含了不会被解析器解析的文本。一个 CDATA 区段中的标签不会被视为标记，同时实体也不会被展开。主要的目的是为了包含诸如 XML 片段之类的材料，而无需转义所有的分隔符。</p>
+<p>在一个 CDATA 区段中唯一被识别的分隔符是 "]]&gt;"，它可标示 CDATA 区段的结束。CDATA 区段不能进行嵌套。</p>
+
+<h3>CDATASection 对象属性</h3>
+<table>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+<tr>
+<td><a href="prop-cdata-data.html">data</a></td>
+	<td>设置或返回此节点的文本。</td>
+</tr>
+<tr>
+<td><a href="prop-cdata-length.html">length</a></td>
+	<td>返回 CDATA 区段的长度。</td>
+</tr>
+</table>
+<h3>CDATASection 对象方法</h3>
+<table>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+<tr>
+<td><a href="met-cdata-appenddata.html">appendData()</a></td>
+	<td>向节点追加数据。</td>
+</tr>
+<tr>
+<td><a href="met-cdata-deletedata.html">deleteData()</a></td>
+	<td>从节点删除数据。</td>
+</tr>
+<tr>
+<td><a href="met-cdata-insertdata.html">insertData()</a></td>
+	<td>向节点中插入数据。</td>
+</tr>
+<tr>
+<td><a href="met-cdata-replacedata.html">replaceData()</a></td>
+	<td>替换节点中的数据。</td>
+</tr>
+<tr>
+<td><a href="met-cdata-splittext.html">splitText()</a></td>
+	<td>把 CDATA 节点分拆为两个节点。</td>
+</tr>
+<tr>
+<td><a href="met-cdata-substringdata.html">substringData()</a></td>
+	<td>从节点提取数据。</td>
+</tr>
+</table>
+<br></div></section>
+<section class="ch" id="c34"><h2>34. DOM Comment<a class="chsrc" href="https://www.runoob.com/dom/dom-comment.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+
+<img src="img/22fab39e8e98ea93.gif" alt="实例" loading="lazy"><h3>尝试一下 - 实例</h3>
+
+<p>下面的实例使用 XML 文件 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">books.xml</a>。<br>
+<a href="dom-loadxmldoc.html">外部 JavaScript</a> 用于加载 XML 文件。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_createcomment" class="ext">createComment() - 创建一个注释节点</a></p>
+<hr>
+<h3>Comment 对象</h3>
+<p>Comment 对象表示文档中注释节点的内容。</p>
+
+<h3>Comment 对象属性</h3>
+<table>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+<tr>
+<td><a href="prop-comment-data.html">data</a></td>
+	<td>设置或返回此节点的文本。</td>
+</tr>
+<tr>
+<td><a href="prop-comment-length.html">length</a></td>
+	<td>返回此节点的文本的长度。</td>
+</tr>
+</table>
+<h3>Comment 对象方法</h3>
+<table>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+<tr>
+<td><a href="met-comment-appenddata.html">appendData()</a></td>
+	<td>向节点追加数据。</td>
+</tr>
+<tr>
+<td><a href="met-comment-deletedata.html">deleteData()</a></td>
+	<td>从节点删除数据。</td>
+</tr>
+<tr>
+<td><a href="met-comment-insertdata.html">insertData()</a></td>
+	<td>向节点中插入数据。</td>
+</tr>
+<tr>
+<td><a href="met-comment-replacedata.html">replaceData()</a></td>
+	<td>替换节点中的数据。</td>
+</tr>
+<tr>
+<td><a href="met-comment-substringdata.html">substringData()</a></td>
+	<td>从节点中提取数据。</td>
+</tr>
+</table>
+<br></div></section>
+<section class="ch" id="c35"><h2>35. DOM XMLHttpRequest<a class="chsrc" href="https://www.runoob.com/dom/dom-http.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>通过 XMLHttpRequest 对象，您可以在不重新加载整个页面的情况下更新网页中的某个部分。</p>
+<hr>
+
+<img src="img/22fab39e8e98ea93.gif" alt="实例" loading="lazy"><h3>尝试一下 - 实例</h3>
+
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_xmlhttprequest_first" class="ext">一个简单的 XMLHttpRequest 实例</a><br>
+创建一个简单的 XMLHttpRequest，从 TXT 文件中检索数据。</p>
+
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_xmlhttprequest_header" class="ext">
+通过 getAllResponseHeaders() 检索头信息</a><br>
+检索资源（文件）的头信息。</p>
+
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_xmlhttprequest_lastmodified" class="ext">
+通过 getResponseHeader() 检索指定头信息</a><br>
+检索资源（文件）的指定头信息。</p>
+
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_xmlhttprequest_suggest" class="ext">检索 ASP 文件的内容</a><br>
+当用户在输入字段键入字符时，网页如何与 Web 服务器进行通信。</p>
+
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_xmlhttprequest_database" class="ext">从数据库中检索内容</a><br>
+网页如何通过 XMLHttpRequest 对象从数据库中提取信息。</p>
+
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_xmlhttprequest_xml" class="ext">检索 XML 文件的内容</a><br>
+创建一个 XMLHttpRequest 从 XML 文件中检索数据并把数据显示在一个 HTML 表格中。</p>
+<hr>
+<h3>XMLHttpRequest 对象</h3>
+<p>XMLHttpRequest 对象是用于幕后与服务器交换数据。</p>
+<p>XMLHttpRequest 对象是<b>开发者的梦想</b>，因为您可以：</p>
+<ul>
+<li>在不重新加载页面的情况下更新网页</li>
+	<li>在页面已加载后从服务器请求数据</li>
+	<li>在页面已加载后从服务器接收数据</li>
+	<li>在后台向服务器发送数据</li>
+</ul>
+<h3>XMLHttpRequest 对象方法</h3>
+<table>
+<tr>
+<th>方法</th>
+    <th>描述</th>
+  </tr>
+<tr>
+<td>abort()</td>
+    <td>取消当前的请求。</td>
+  </tr>
+<tr>
+<td>getAllResponseHeaders()</td>
+    <td>返回头信息。</td>
+  </tr>
+<tr>
+<td>getResponseHeader()</td>
+    <td>返回指定的头信息。</td>
+  </tr>
+<tr>
+<td>open(method,url,async,uname,pswd)</td>
+    <td>规定请求的类型，URL，请求是否应该进行异步处理，以及请求的其他可选属性。
+	<br><br>method：请求的类型：GET 或 POST<br>
+	url：文件在服务器上的位置<br>
+	async：true（异步）或 false（同步）</td>
+  </tr>
+<tr>
+<td>send(string)</td>
+    <td>发送请求到服务器。<br><br>
+	string：仅用于 POST 请求</td>
+  </tr>
+<tr>
+<td>setRequestHeader()</td>
+    <td>把标签/值对添加到要发送的头文件。</td>
+  </tr>
+</table>
+<h3>XMLHttpRequest 对象属性</h3>
+<table>
+<tr>
+<th>属性</th>
+    <th>描述</th>
+  </tr>
+<tr>
+<td>onreadystatechange</td>
+    <td>存储函数（或函数的名称）在每次 readyState 属性变化时被自动调用。</td>
+  </tr>
+<tr>
+<td>readyState</td>
+    <td>存放了 XMLHttpRequest 的状态。从 0 到 4 变化：<br>
+	0：请求未初始化<br>
+	1：服务器建立连接<br>
+	2：收到的请求<br>
+	3：处理请求<br>
+	4：请求完成和响应准备就绪</td>
+  </tr>
+<tr>
+<td>responseText</td>
+    <td>返回作为一个字符串的响应数据。</td>
+  </tr>
+<tr>
+<td>responseXML</td>
+    <td>返回作为 XML 数据响应数据。</td>
+  </tr>
+<tr>
+<td>status</td>
+    <td>返回状态数（例如 "404" 为 "Not Found" 或 "200" 为 "OK"）。</td>
+  </tr>
+<tr>
+<td>statusText</td>
+    <td>返回状态文本（如 "Not Found" 或 "OK"）。</td>
+  </tr>
+</table>
+<br></div></section>
+<section class="ch" id="c36"><h2>36. DOM ParseError Obj<a class="chsrc" href="https://www.runoob.com/dom/dom-errors.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>微软的 parseError 对象可用于从微软的 XML 分析器取回错误信息。</p>
+<p>要查看 Firefox 如何处理解析器错误，请看本教程的下一个页面。</p>
+<hr>
+<h3>parseError 对象</h3>
+<p>在您试图打开一个 XML 文档时，就可能发生一个解析器错误（parser-error）。</p>
+<p>通过这个 parseError 对象，您可取回错误代码、错误文本、引起错误的行等等。</p>
+<p><b>注意：</b>parseError 对象不属于 W3C DOM 标准！</p>
+<hr>
+<h3>文件错误（File Error）</h3>
+<p>在下面的代码中，我们会试图加载一个不存在的文件，并显示某些错误属性：</p>
+
+<h3>实例</h3>
+
+xmlDoc=new ActiveXObject("Microsoft.XMLDOM");<br>
+xmlDoc.async=false;<br>
+xmlDoc.load("ksdjf.xml");<br><br>
+document.write("Error code: " + xmlDoc.parseError.errorCode);<br>
+document.write("<br>Error reason: " + xmlDoc.parseError.reason);<br>
+document.write("<br>Error line: " + xmlDoc.parseError.line);
+
+<br><a href="https://www.runoob.com/try/try.php?filename=note_error" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>XML 错误（XML Error）</h3>
+<p>在下面的代码中，我们会让解析器加载一个形式不良的 XML 文档。</p>
+<p>（您可以在我们的 <a href="xml.html#c1">XML 教程</a>中阅读更多有关形式良好且有效的 XML。）</p>
+
+<h3>实例</h3>
+
+xmlDoc=new ActiveXObject("Microsoft.XMLDOM");<br>
+xmlDoc.async=false;<br>
+xmlDoc.load("note_error.xml");<br><br>
+document.write("Error code: " + xmlDoc.parseError.errorCode);<br>
+document.write("<br>Error reason: " + xmlDoc.parseError.reason);<br>
+document.write("<br>Error line: " + xmlDoc.parseError.line);
+
+<br><a href="https://www.runoob.com/try/try.php?filename=note_error_two" class="ext">尝试一下 »</a>
+
+<p>查看 XML 文件：<a href="https://www.runoob.com/try/demo_source/note_error.xml" class="ext">note_error.xml</a></p>
+<hr>
+<h3>parseError 对象的属性</h3>
+<table>
+<tr>
+<th>属性</th>
+    <th>描述</th>
+  </tr>
+<tr>
+<td>errorCode</td>
+    <td>返回一个长整数错误代码。</td>
+  </tr>
+<tr>
+<td>reason</td>
+    <td>返回一个字符串，包含错误的原因。</td>
+  </tr>
+<tr>
+<td>line</td>
+    <td>返回一个长整数，代表错误的行号。</td>
+  </tr>
+<tr>
+<td>linepos</td>
+    <td>返回一个长整数，代表错误的行位置。</td>
+  </tr>
+<tr>
+<td>srcText</td>
+    <td>返回一个字符串，包含引起错误的行。</td>
+  </tr>
+<tr>
+<td>url</td>
+    <td>返回指向被加载文档的 URL。</td>
+  </tr>
+<tr>
+<td>filepos</td>
+    <td>返回错误的一个长整型文件位置。</td>
+  </tr>
+</table>
+<br></div></section>
+<section class="ch" id="c37"><h2>37. DOM 解析器错误<a class="chsrc" href="https://www.runoob.com/dom/dom-errors-crossbrowser.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>当 Firefox 遇到解析器错误，它会载入一个包含错误的 XML 文档。</p>
+<hr>
+<h3>在 Firefox 中的解析器错误</h3>
+
+<p>在您试图打开一个 XML 文档时，就可能发生一个解析器错误（parser-error）。</p>
+<p>与 Internet Explorer 浏览器不同，如果 Firefox 遇到错误，它会载入包含错误描述的 XML 文档中。</p>
+<p>XML 错误文档的根节点的名称是 "parsererror"。这是用来检查是否有错误。</p>
+
+<hr>
+<h3>XML 错误（XML Error）
+</h3>
+
+<p>在下面的代码中，我们会让解析器加载一个形式不良的 XML 文档。
+</p>
+
+<p>（您可以在我们的 <a href="xml.html#c1">XML 教程</a>中阅读更多有关形式良好且有效的 XML。）</p>
+
+<h3>实例</h3>
+
+xmlDoc=document.implementation.createDocument("","",null);<br>
+xmlDoc.async=false;<br>
+xmlDoc.load("note_error.xml");<br><br>
+if (xmlDoc.documentElement.nodeName=="parsererror")<br>
+{<br>
+errStr=xmlDoc.documentElement.childNodes[0].nodeValue;<br>
+errStr=errStr.replace(/&lt;/g, "&amp;lt;");<br>
+document.write(errStr);<br>
+}<br>
+else<br>
+{<br>
+document.write("XML is valid");<br>
+}
+
+<br><a href="https://www.runoob.com/try/try.php?filename=note_error_firefox" class="ext">尝试一下 »</a>
+
+<p>查看 XML 文件：<a href="https://www.runoob.com/try/demo_source/note_error.xml" class="ext">note_error.xml</a></p>
+<p>实例解释：</p>
+<ol>
+<li>加载 XML 文件</li>
+	<li>检查根节点的节点名称是否是 "parsererror"</li>
+	<li>把错误字符串载入变量 "errStr"</li>
+	<li>在错误字符串编写为 HTML 之前，把 "&lt;" 字符替换为 "&amp;lt;"</li>
+</ol>
+<p><b>注意：</b>实际上，只有 Internet Explorer 会用 DTD 检查您的 XML，Firefox 不会。</p>
+
+<hr>
+<h3>跨浏览器的错误检查</h3>
+<p>在这里，我们创建了一个 XML 加载函数，在 Internet Explorer 和 Firefox 中检查解析器错误：</p>
+
+<h3>实例</h3>
+
+function loadXMLDocErr(dname)<br>
+{<br>
+try //Internet Explorer<br>
+  {<br>
+  xmlDoc=new ActiveXObject("Microsoft.XMLDOM");<br>
+  xmlDoc.async=false;<br>
+  xmlDoc.load(dname); <br><br>
+  if (xmlDoc.parseError.errorCode != 0)<br>
+    {<br>
+    alert("Error in line " + xmlDoc.parseError.line +<br>
+    " position " + xmlDoc.parseError.linePos +<br>
+    "nError Code: " + xmlDoc.parseError.errorCode +<br>
+    "nError Reason: " + xmlDoc.parseError.reason +<br>
+    "Error Line: " + xmlDoc.parseError.srcText);<br>
+    return(null);<br>
+    }<br>
+  }<br>
+catch(e)<br>
+  {<br>
+  try //Firefox<br>
+    {<br>
+    xmlDoc=document.implementation.createDocument("","",null);<br>
+    xmlDoc.async=false;<br>
+    xmlDoc.load(dname);<br>
+    if (xmlDoc.documentElement.nodeName=="parsererror")<br>
+      {<br>
+      alert(xmlDoc.documentElement.childNodes[0].nodeValue);<br>
+      return(null);<br>
+      }<br>
+    }<br>
+  catch(e) {alert(e.message)}<br>
+  }<br>
+try<br>
+  {<br>
+  return(xmlDoc);<br>
+  }<br>
+catch(e) {alert(e.message)}<br>
+return(null);<br>
+}
+
+<br><a href="https://www.runoob.com/try/try.php?filename=note_error_crossbrowser" class="ext">尝试一下 »</a>
+
+<p>查看 XML 文件：<a href="https://www.runoob.com/try/demo_source/note_error.xml" class="ext">note_error.xml</a></p>
+<p>实例解释 - Internet Explorer：</p>
+<ol>
+<li>第一行创建一个空的微软 XML 文档对象。</li>
+	<li>第二行关闭异步加载，确保在文档完全加载之前解析器不会继续执行脚本。</li>
+	<li>第三行告知解析器加载名为 "note_error.xml" 的 XML 文档。</li>
+	<li>如果 parseError 对象的 ErrorCode 属性和 "0" 不同，提醒错误并退出函数。</li>
+	<li>如果 ErrorCode 属性为 "0"，返回 XML 文档。</li>
+</ol>
+<p>实例解释 - Firefox：</p>
+<ol>
+<li>第一行创建一个空的XML文档对象。</li>
+	<li>第二行关闭异步加载，确保在文档完全加载之前解析器不会继续执行脚本。</li>
+	<li>第三行告知解析器加载名为 "note_error.xml" 的 XML 文档。</li>
+	<li>如果返回的文档是一个错误的文档，提醒错误并退出函数。</li>
+	<li>如果没有，则返回 XML 文档。</li>
+</ol>
+<br></div></section>
+<section class="ch" id="c38"><h2>38. DOM 总结<a class="chsrc" href="https://www.runoob.com/dom/dom-summary.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>XML DOM 总结</h3>
+<p>XML DOM 定义了访问和操作 XML 的标准。</p>
+<p>根据 DOM，XML 文档中的一切是一个<a href="dom-nodes.html">节点</a>。</p>
+<p>元素节点中的文本存储在一个<a href="dom-nodes.html">文本节点</a>中。</p>
+<p>XML DOM 把 XML 文档视为树结构。树结构被称为<a href="dom-nodetree.html">节点树</a>。</p>
+<p>在节点树中，父级、子级和同级是用来描述关系。</p>
+<p>所有现代的浏览器都有内建的 <a href="dom-parser.html">XML 解析器</a>，可用于读取和操作 XML。</p>
+<p>通过 XML DOM <a href="dom-methods.html">属性和方法</a>，您可以<a href="dom-nodes-access.html">访问</a> XML 文档中的每个节点。</p>
+<p>重要节点属性：<a href="dom-nodes-info.html">nodeName、nodeValue 和 nodeType</a>。</p>
+<p>当使用像 childNodes 或 getElementsByTagName() 的属性或方法时，返回<a href="dom-nodes-nodelist.html">节点列表对象</a>。</p>
+<p><a href="dom-mozilla-vs-ie.html">不同的浏览器</a>处理节点之间的换行或空格字符时是不同的。</p>
+<p>如需<a href="dom-mozilla-vs-ie.html">忽略元素节点间的空文本字节</a>，您可以检查节点类型。</p>
+<p>节点可以使用节点的关系进行<a href="dom-nodes-navigate.html">导航</a>。</p>
+<p>我们的 <a href="xml-dom-examples.html">XML DOM 实例</a>也表示了 XML DOM 教程的一个总结。</p>
+<hr>
+<h3>下一步该学习什么呢？</h3>
+<p>我们的建议是学习 XSLT。</p>
+<p>如果您想要学习更多有关验证 XML 的知识，我们建议学习 DTD 和 XML Schema。</p>
+<p>下面是每个主题的一个简短描述。</p>
+<hr>
+<h3>XSLT（XML 样式表语言转换）</h3>
+<p>XSLT 是 XML 文件的样式表语言。</p>
+<p>通过使用 XSLT，可以把 XML 文档转换为其他格式，比如 XHTML。</p>
+<p>如果您想要学习更多有关 XSLT 的知识，请访问我们的 XSLT 教程。</p>
+<hr>
+<h3>XML DTD（文档类型定义）</h3>
+<p>DTD 的目的是定义 XML 文档中合法的元素、属性和实体。</p>
+<p>通过使用 DTD，每个 XML 文件可以随身携带它自己的格式的描述。</p>
+<p>DTD 可以被用来确认您收到的数据和您自己的数据是否有效。</p>
+<p>如果您想要学习更多有关 DTD 的知识，请访问我们的 DTD 教程。</p>
+<br></div></section>
+<section class="ch" id="c39"><h2>39. DOM 实例<a class="chsrc" href="https://www.runoob.com/dom/xml-dom-examples.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p><b>XML DOM 解析</b></p>
+<p>下面的实例使用 XML 文件 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">
+books.xml</a>。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_loadxml" class="ext">加载一个 
+XML 文件</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_loadxmltext" class="ext">加载一个 
+XML 字符串</a></p>
+<p><a href="dom-parser.html">实例解释</a></p>
+<hr>
+<p><b>XML DOM 属性和方法</b></p>
+<p>下面的实例使用 XML 文件 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">
+books.xml</a>。<br>
+函数 <a href="dom-loadxmldoc.html">loadXMLDoc()</a>，在外部 JavaScript 中，用于加载 XML 文件。<br>
+函数 <a href="dom-loadxmldoc.html">loadXMLString()</a>，在外部 JavaScript 中，用于加载 XML 字符串。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_parsertest" class="ext">加载并解析 XML 文件 - 外部解析脚本</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_parsertest2" class="ext">加载并解析 XML 字符串 - 外部解析脚本</a></p>
+<p><a href="dom-methods.html">实例解释</a></p>
+<hr>
+<p><b>XML DOM 访问节点</b></p>
+<p>下面的实例使用 XML 文件 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">
+books.xml</a>。<br>
+函数 <a href="dom-loadxmldoc.html">loadXMLDoc()</a>，在外部 JavaScript 中，用于加载 XML 文件。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_index" class="ext">使用节点列表中的索引号访问节点</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_list_loop" class="ext">使用 length 属性循环遍历节点</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_root" class="ext">查看元素的节点类型</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_loop" class="ext">循环遍历元素节点</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_navigate" class="ext">使用节点关系循环遍历元素节点</a></p>
+<p><a href="dom-nodes-access.html">实例解释</a></p>
+<hr>
+<p><b>XML DOM 节点信息</b></p>
+<p>下面的实例使用 XML 文件 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">
+books.xml</a>。<br>
+函数 <a href="dom-loadxmldoc.html">loadXMLDoc()</a>，在外部 JavaScript 中，用于加载 XML 文件。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_nodename3" class="ext">获取元素节点的节点名称</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_getelement" class="ext">从文本节点获取文本</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_changeelement" class="ext">更改文本节点的文本</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_root" class="ext">获取元素节点的节点名称和类型</a></p>
+<p><a href="dom-nodes-info.html">实例解释</a></p>
+<hr>
+<p><b>XML DOM 节点列表和属性列表</b></p>
+<p>下面的实例使用 XML 文件 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">
+books.xml</a>。<br>
+函数 <a href="dom-loadxmldoc.html">loadXMLDoc()</a>，在外部 JavaScript 中，用于加载 XML 文件。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_nodelist" class="ext">从第一个 &lt;title&gt; 元素获取文本</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_nodelist_length" class="ext">使用 length 属性循环遍历节点</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_attributes" class="ext">获取元素的属性</a></p>
+<p><a href="dom-nodes-nodelist.html">实例解释</a></p>
+<hr>
+<p><b>XML DOM 遍历节点树</b></p>
+<p>下面的实例使用 XML 文件 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">
+books.xml</a>。<br>
+函数 <a href="dom-loadxmldoc.html">loadXMLString()</a>，在外部 JavaScript 中，用于加载 XML 字符串。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_parsertest3" class="ext">遍历节点树</a></p>
+<p><a href="dom-nodes-traverse.html">实例解释</a></p>
+<hr>
+<p><b>XML DOM 浏览器差异</b></p>
+<p>下面的实例使用 XML 文件 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">
+books.xml</a>。<br>
+函数 <a href="dom-loadxmldoc.html">loadXMLDoc()</a>，在外部 JavaScript 中，用于加载 XML 文件。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_nodetype_ievsmozilla" class="ext">
+显示节点列表的长度 - IE 和其他浏览器的不同结果</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_nodetype_ievsmozilla2" class="ext">
+忽略节点之间的空文本</a></p>
+<p><a href="dom-mozilla-vs-ie.html">实例解释</a></p>
+<hr>
+<p><b>XML DOM 导航节点</b></p>
+<p>下面的实例使用 XML 文件 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">
+books.xml</a>。<br>
+函数 <a href="dom-loadxmldoc.html">loadXMLDoc()</a>，在外部 JavaScript 中，用于加载 XML 文件。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_nav_parentnode" class="ext">获取节点的父节点</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_nav_firstchild" class="ext">获取节点的第一个子元素</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_nav_lastchild" class="ext">获取节点的最后一个子元素</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_nav_nextsibling" class="ext">获取节点的下一个同级元素</a> <br><a href="https://www.runoob.com/try/try.php?filename=try_dom_nav_prevsibling" class="ext">获取节点的上一个同级元素</a></p>
+<p><a href="dom-nodes-navigate.html">实例解释</a></p>
+<hr>
+<p><b>XML DOM 获取节点值</b></p>
+
+<p>下面的实例使用 XML 文件 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">
+books.xml</a>。<br>
+函数 <a href="dom-loadxmldoc.html">loadXMLDoc()</a>，在外部 JavaScript 中，用于加载 XML 文件。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_getelementsbytagname" class="ext">获取元素的文本值</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_getattribute" class="ext">获取属性的文本值</a></p>
+<p><a href="dom-nodes-get.html">实例解释</a></p>
+<hr>
+<p><b>XML DOM 更改节点值</b></p>
+
+<p>下面的实例使用 XML 文件 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">
+books.xml</a>。<br>
+函数 <a href="dom-loadxmldoc.html">loadXMLDoc()</a>，在外部 JavaScript 中，用于加载 XML 文件。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_change_nodevalue" class="ext">更改元素文本节点</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_setattribute1" class="ext">使用 setAttribute 更改属性值</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_att_nodevalue" class="ext">使用 nodeValue 更改属性值</a></p>
+<p><a href="dom-nodes-set.html">实例解释</a></p>
+<hr>
+<p><b>XML DOM 删除节点</b></p>
+
+<p>下面的实例使用 XML 文件 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">
+books.xml</a>。<br>
+函数 <a href="dom-loadxmldoc.html">loadXMLDoc()</a>，在外部 JavaScript 中，用于加载 XML 文件。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_removechild" class="ext">删除元素节点</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_removecurrent" class="ext">删除当前的元素节点</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_removetextnode" class="ext">删除文本节点</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_remove_nodevalue" class="ext">清空文本节点的文本</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_removeattribute" class="ext">按名称删除属性</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_removeattributenode" class="ext">按对象删除属性</a></p>
+<p><a href="dom-nodes-remove.html">实例解释</a></p>
+<hr>
+<p><b>XML DOM 替换节点</b></p>
+
+<p>下面的实例使用 XML 文件 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">
+books.xml</a>。<br>
+函数 <a href="dom-loadxmldoc.html">loadXMLDoc()</a>，在外部 JavaScript 中，用于加载 XML 文件。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_replacechild" class="ext">替换元素节点</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_replacedata2" class="ext">替换文本节点中的数据</a></p>
+<p><a href="dom-nodes-replace.html">实例解释</a></p>
+<hr>
+<p><b>XML DOM 创建节点</b></p>
+
+<p>下面的实例使用 XML 文件 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">
+books.xml</a>。<br>
+函数 <a href="dom-loadxmldoc.html">loadXMLDoc()</a>，在外部 JavaScript 中，用于加载 XML 文件。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_createelement1" class="ext">创建元素节点</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_createattribute" class="ext">使用 createAttribute 创建属性节点</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_createattribute3" class="ext">使用 setAttribute 创建属性节点</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_createelement1" class="ext">创建文本节点</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_createcdatasection1" class="ext">创建 CDATA 区段节点</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_createcomment1" class="ext">创建注释节点</a></p>
+<p><a href="dom-nodes-create.html">实例解释</a></p>
+<hr>
+<p><b>XML DOM 添加节点</b></p>
+
+<p>下面的实例使用 XML 文件 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">
+books.xml</a>。<br>
+函数 <a href="dom-loadxmldoc.html">loadXMLDoc()</a>，在外部 JavaScript 中，用于加载 XML 文件。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_createelement2" class="ext">在最后一个子节点后添加一个节点</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_insertbefore" class="ext">在指定子节点前添加一个节点</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_createattribute3" class="ext">添加一个新的属性</a><br><a href="https://www.runoob.com/try/try.php?filename=try_dom_insertdata" class="ext">向文本节点添加数据</a></p>
+<p><a href="dom-nodes-add.html">实例解释</a></p>
+<hr>
+<p><b>XML DOM 克隆节点</b></p>
+
+<p>下面的实例使用 XML 文件 <a href="https://www.runoob.com/try/demo_source/books.xml" class="ext">
+books.xml</a>。<br>
+函数 <a href="dom-loadxmldoc.html">loadXMLDoc()</a>，在外部 JavaScript 中，用于加载 XML 文件。</p>
+<p><a href="https://www.runoob.com/try/try.php?filename=try_dom_clonenode" class="ext">复制一个节点，并把它追加到已有的节点</a></p>
+<p><a href="dom-nodes-clone.html">实例解释</a></p>
+<hr>
+<p><b>XML DOM XMLHttpRequest 对象</b></p>
+
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=try_dom_xmlhttprequest_first" class="ext">一个简单的 XMLHttpRequest 实例</a><br>
+创建一个简单的 XMLHttpRequest，并从一个 TXT 文件中检索数据。
+</p>
+
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=try_dom_xmlhttprequest_header" class="ext">
+通过 getAllResponseHeaders() 检索头信息</a><br>
+检索资源（文件）的头信息。
+</p>
+
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=try_dom_xmlhttprequest_lastmodified" class="ext">
+通过 getResponseHeader() 检索指定的头信息</a><br>
+检索资源（文件）的指定头信息。
+</p>
+
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=try_dom_xmlhttprequest_suggest" class="ext">检索 ASP 文件的内容</a><br>
+用户在输入字段中键入字符时，网页如何与 Web 服务器进行通信。
+</p>
+
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=try_dom_xmlhttprequest_database" class="ext">从数据库检索内容</a><br>
+网页如何通过 XMLHttpRequest 对象从数据库中提取信息。
+</p>
+
+<p>
+<a href="https://www.runoob.com/try/try.php?filename=try_dom_xmlhttprequest_xml" class="ext">检索 XML 文件的内容</a><br>
+创建一个 XMLHttpRequest 从 XML 文件中检索数据并把数据显示在一个 HTML 表格中。
+</p>
+
+<p><a href="dom-httprequest.html">实例解释</a></p>
+<br></div></section>
+<section class="ch" id="c40"><h2>40. DOM 验证<a class="chsrc" href="https://www.runoob.com/dom/dom-validate.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>XML 错误将会停止您的 XML 程序
+</h3>
+
+<p><b>XML 文档中的错误将停止您的 XML 程序。</b>
+</p>
+<p>W3C XML 规范规定如果发现错误，程序不应该继续处理 XML 文档。究其原因是 XML 软件应该是易于编写的，所有的 XML 文档应该是兼容的。
+</p>
+<p>通过 HTML 就有可能创建带有"错误"（如缺少结束标签）的文档。HTML 浏览器如此巨大且不相容的主要原因之一是在遇到 HTML 错误时它们都有自己的方法弄明白文档本应该是什么样的。
+</p>
+<p>通过 XML，这应该是不可能的。</p>
+
+<hr>
+<h3>验证您的 XML 语法</h3>
+
+<p>为协助检查您的 XML 语法，请粘贴下面文本区中的 XML 代码，并按"验证 XML"按钮。</p>
+
+<hr>
+<h3>验证您的 XML 文件</h3>
+<p>如需检查 XML 文件的语法，请在下面输入字段中键入文件的 URL，并按"验证 XML"按钮。</p>
+
+<p>为了验证一个错误的XML文件，请把下面的 URL 粘贴到上面的输入字段中：http://www.w3cschool.cc/dom/cd_catalog.xml</p>
+
+<p><b>注意：</b>当您访问这个文件时，如果显示 "Access denied" 的错误，这是因为您的浏览器安全设置不允许跨域访问。</p>
+<br></div></section>
+<footer><p>离线版 · 内容抓取自 runoob.com，仅用于个人离线阅读；页面结构与广告已去除，原文版权归菜鸟教程及原作者。</p><p><a href="index.html">← 返回总索引</a></p></footer></body></html>

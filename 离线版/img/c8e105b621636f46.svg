@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="310" viewBox="0 0 940 310" role="img" aria-label="AI Remotion 视频制作">
+<rect width="940" height="310" rx="17" fill="#f5f8fb"/>
+<rect x="1" y="1" width="938" height="308" rx="16" fill="none" stroke="#d9e3ec"/>
+<text x="32" y="44" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-weight="700" font-size="23" fill="#213a53">AI Remotion 视频制作</text>
+<text x="32" y="68" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" fill="#667e93">Codex 生图 · 代码编排 · 本地渲染 · 逐帧验收</text>
+<rect x="32" y="97" width="158" height="162" rx="13" fill="white" stroke="#d9e3ec"/>
+<rect x="46" y="113" width="34" height="34" rx="10" fill="#e0ecf4"/>
+<text x="63" y="136" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#213a53">01</text>
+<text x="47" y="180" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="600" fill="#213a53">明确分镜</text>
+<text x="47" y="206" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#667e93">时长、画幅、</text>
+<text x="47" y="226" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#667e93">字幕与配乐</text>
+<path d="M193 180 L202 180" stroke="#db915d" stroke-width="3" stroke-linecap="round"/>
+<rect x="212" y="97" width="158" height="162" rx="13" fill="white" stroke="#d9e3ec"/>
+<rect x="226" y="113" width="34" height="34" rx="10" fill="#e5f2ed"/>
+<text x="243" y="136" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#213a53">02</text>
+<text x="227" y="180" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="600" fill="#213a53">Codex 生图</text>
+<text x="227" y="206" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#667e93">素材统一存入</text>
+<text x="227" y="226" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#667e93">public 目录</text>
+<path d="M373 180 L382 180" stroke="#db915d" stroke-width="3" stroke-linecap="round"/>
+<rect x="392" y="97" width="158" height="162" rx="13" fill="white" stroke="#d9e3ec"/>
+<rect x="406" y="113" width="34" height="34" rx="10" fill="#f0e9f6"/>
+<text x="423" y="136" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#213a53">03</text>
+<text x="407" y="180" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="600" fill="#213a53">编写组件</text>
+<text x="407" y="206" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#667e93">Remotion 动画、</text>
+<text x="407" y="226" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#667e93">转场与字幕</text>
+<path d="M553 180 L562 180" stroke="#db915d" stroke-width="3" stroke-linecap="round"/>
+<rect x="572" y="97" width="158" height="162" rx="13" fill="white" stroke="#d9e3ec"/>
+<rect x="586" y="113" width="34" height="34" rx="10" fill="#fdeee2"/>
+<text x="603" y="136" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#213a53">04</text>
+<text x="587" y="180" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="600" fill="#213a53">预览渲染</text>
+<text x="587" y="206" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#667e93">先低分辨率预览，</text>
+<text x="587" y="226" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#667e93">再输出 1080p</text>
+<path d="M733 180 L742 180" stroke="#db915d" stroke-width="3" stroke-linecap="round"/>
+<rect x="752" y="97" width="158" height="162" rx="13" fill="white" stroke="#d9e3ec"/>
+<rect x="766" y="113" width="34" height="34" rx="10" fill="#e0ecf4"/>
+<text x="783" y="136" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#213a53">05</text>
+<text x="767" y="180" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="600" fill="#213a53">逐帧验收</text>
+<text x="767" y="206" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#667e93">文字、时长、</text>
+<text x="767" y="226" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#667e93">比例逐项核对</text>
+<text x="32" y="292" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#8aa0b3">教学示意 · 视频由代码在本机渲染，不调用视频生成接口</text>
+</svg>

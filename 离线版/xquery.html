@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>XQuery 教程 · 离线版</title>
+<link rel="stylesheet" href="css/offline.css">
+</head><body>
+<nav class="topbar"><a href="index.html">← 返回总索引</a><span>·</span><span>H 遗留与历史技术</span>
+<span>·</span><span>12 章</span></nav>
+<h1>XQuery 教程</h1>
+<p class="docmeta">来源：<a class="ext" href="https://www.runoob.com/xquery/xquery-tutorial.html">https://www.runoob.com/xquery/xquery-tutorial.html</a><br>
+适用性：<b style="color:#b26a00">谨慎</b>
+｜ 时效：历史 ｜ 抓取：2026-11-13 ｜ 本页为离线阅读版，章节按教程侧栏顺序合并，广告与评论已去除。</p>
+<details class="toc-ch"><summary>本篇目录（12 章，点击展开）</summary><ol>
+<li><a href="#c1">XQuery 教程</a></li>
+<li><a href="#c2">XQuery 简介</a></li>
+<li><a href="#c3">XQuery 实例</a></li>
+<li><a href="#c4">XQuery FLWOR 表达式</a></li>
+<li><a href="#c5">XQuery FLWOR + HTML</a></li>
+<li><a href="#c6">XQuery 术语</a></li>
+<li><a href="#c7">XQuery 语法</a></li>
+<li><a href="#c8">XQuery 添加元素和属性</a></li>
+<li><a href="#c9">XQuery 选择和过滤</a></li>
+<li><a href="#c10">XQuery 函数</a></li>
+<li><a href="#c11">XQuery 总结</a></li>
+<li><a href="#c12">XQuery 参考手册</a></li>
+</ol></details>
+<section class="ch" id="c1"><h2>1. XQuery 教程<a class="chsrc" href="https://www.runoob.com/xquery/xquery-tutorial.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><br>
+<p>XQuery 之于 XML 作用就类似于 SQL 之于数据库的作用。</p>
+<p>XQuery 被设计用来查询 XML 数据。</p>
+<p><b>现在开始学习 XQuery !</b></p>
+
+<h3>XQuery 实例</h3>
+
+for $x in doc("books.xml")/bookstore/book<br>
+where $x/price&gt;30<br>
+order by $x/title<br>
+return $x/title
+<br>
+
+<br><h3>XQuery 参考手册</h3>
+<p>在菜鸟教程中，我们提供 XQuery 1.0 中所有运算符、内置函数、数据类型的完整参考手册。</p>
+<p><a href="#c12">XQuery 参考手册</a></p></div></section>
+<section class="ch" id="c2"><h2>2. XQuery 简介<a class="chsrc" href="https://www.runoob.com/xquery/xquery-intro.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>解释 XQuery 最佳方式是这样讲：XQuery 相对于 XML 的关系，等同于 SQL 相对于数据库表的关系。
+</p>
+<p>XQuery 被设计用来查询 XML 数据 - 不仅仅限于 XML 文件，还包括任何可以 XML 形态呈现的数据，包括数据库。</p>
+<hr>
+<h3>您应该具备的基础知识：</h3>
+<p>在您继续学习之前，需要对下面的知识有基本的了解：</p>
+<ul>
+<li>HTML / XHTML</li>
+<li>XML / XML 命名空间</li>
+<li>XPath</li>
+</ul>
+<p>如果您希望首先学习这些项目，请在我们的 <a href="https://www.runoob.com//www.runoob.com/" class="ext" title="W3School在线教程">首页</a> 访问这些教程。</p>
+
+<hr>
+<h3>什么是 XQuery?</h3>
+
+<table><tr>
+<td><img src="img/af4fbc94e14b5bd0.gif" alt="XQuery" loading="lazy"></td>
+<td>
+<ul>
+<li>XQuery 是用于 XML 数据查询的语言</li>
+<li>XQuery 对 XML 的作用类似 SQL 对数据库的作用</li>
+<li>XQuery 建立在 XPath 表达式之上</li>
+<li>XQuery 被所有主要的数据库引擎支持（IBM、Oracle、Microsoft等等）</li>
+<li>XQuery 是 W3C 标准
+</li></ul>
+
+</td>
+</tr></table>
+<br><hr>
+<h3>XQuery 和 XML 查询有关</h3>
+<p>XQuery 是用来从 XML 文档查找和提取元素及属性的语言。</p>
+<p>这是一个 XQuery 解决实际问题的例子：</p>
+<p>"从存储在名为 cd_catalog.xml 的 XML 文档中的 CD 集那里选取所有价格低于 10 美元的 CD 记录。"</p>
+
+<hr>
+<h3>XQuery 与 XPath</h3>
+<p>XQuery 1.0 和 XPath 2.0 共享相同的数据模型，并支持相同的函数和运算符。假如您已经学习了 XPath，那么学习 XQuery 也不会有问题。</p>
+<p>您可以在我们的《<a href="xpath.html#c1" title="XPath 教程">XPath 教程</a>》中阅读更多有关 XPath 的知识。</p>
+
+<hr>
+<h3>XQuery - 应用举例</h3>
+<p>XQuery 可用于：</p>
+<ul>
+<li>提取信息以便在网络服务中使用</li>
+<li>生成摘要报告</li>
+<li>把 XML 数据转换为 XHTML</li>
+<li>为获得相关信息而搜索网络文档</li>
+</ul>
+
+<hr>
+<h3>XQuery 是一个 W3C 推荐标准</h3>
+<p>XQuery 与多种 W3C 标准相兼容，比如 XML、Namespaces、XSLT、XPath 以及 XML Schema。</p>
+<p>XQuery 1.0 在 2007年1月23日 被确立为 W3C 推荐标准。</p>
+<p>如需获得更多有关 W3C 的 XQuery 活动的信息，请阅读我们的《<a href="w3c.html#c11" title="W3C XQuery 活动">W3C 教程</a>》。</p></div></section>
+<section class="ch" id="c3"><h2>3. XQuery 实例<a class="chsrc" href="https://www.runoob.com/xquery/xquery-example.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>在本节，让我们通过研究一个例子来学习一些基础的 XQuery 语法。</p>
+<hr>
+<h3>XML 实例文档</h3>
+<p>我们将在下面的例子中使用这个 XML 文档。</p>
+<p>"books.xml":</p>
+
+&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;<br><br>
+&lt;bookstore&gt;<br><br>
+&lt;book category="COOKING"&gt;<br>
+   
+  &lt;title lang="en"&gt;Everyday Italian&lt;/title&gt;<br>
+   
+  &lt;author&gt;Giada De Laurentiis&lt;/author&gt;<br>
+   
+  &lt;year&gt;2005&lt;/year&gt;<br>
+   
+  &lt;price&gt;30.00&lt;/price&gt;<br>
+&lt;/book&gt;<br><br>
+&lt;book category="CHILDREN"&gt;<br>
+   
+  &lt;title lang="en"&gt;Harry Potter&lt;/title&gt;<br>
+   
+  &lt;author&gt;J K. Rowling&lt;/author&gt;<br>
+   
+  &lt;year&gt;2005&lt;/year&gt;<br>
+   
+  &lt;price&gt;29.99&lt;/price&gt;<br>
+&lt;/book&gt;<br><br>
+&lt;book category="WEB"&gt;<br>
+   
+  &lt;title lang="en"&gt;XQuery Kick Start&lt;/title&gt;<br>
+   
+  &lt;author&gt;James McGovern&lt;/author&gt;<br>
+   
+  &lt;author&gt;Per Bothner&lt;/author&gt;<br>
+   
+  &lt;author&gt;Kurt Cagle&lt;/author&gt;<br>
+   
+  &lt;author&gt;James Linn&lt;/author&gt;<br>
+   
+  &lt;author&gt;Vaidyanathan Nagarajan&lt;/author&gt;<br>
+   
+  &lt;year&gt;2003&lt;/year&gt;<br>
+   
+  &lt;price&gt;49.99&lt;/price&gt;<br>
+&lt;/book&gt;<br><br>
+&lt;book category="WEB"&gt;<br>
+   
+  &lt;title lang="en"&gt;Learning XML&lt;/title&gt;<br>
+   
+  &lt;author&gt;Erik T. Ray&lt;/author&gt;<br>
+   
+  &lt;year&gt;2003&lt;/year&gt;<br>
+   
+  &lt;price&gt;39.95&lt;/price&gt;<br>
+&lt;/book&gt;<br><br>
+&lt;/bookstore&gt;
+
+<p><a href="https://www.runoob.com/try/xml/books.xml" class="ext">在您的浏览器中查看 "books.xml" 文件</a>。</p>
+<hr>
+<h3>如何从 "books.xml" 选取节点？</h3>
+
+<h4>函数
+
+</h4>
+<p>XQuery 使用函数来提取 XML 文档中的数据。</p>
+<p>doc() 用于打开 "books.xml" 文件：</p>
+
+doc("books.xml")
+
+<h4>路径表达式</h4>
+<p>XQuery 使用路径表达式在 XML 文档中通过元素进行导航。</p>
+<p>下面的路径表达式用于在 "books.xml" 文件中选取所有的 title 元素：</p>
+
+doc("books.xml")<span class="marked">/bookstore/book/title</span>
+
+<p>(/bookstore 选取 bookstore 元素，/book 选取 bookstore 元素下的所有 book 元素，而 /title 选取每个 book 元素下的所有 title 元素)</p>
+<p>上面的 XQuery 可提取以下数据：</p>
+
+&lt;title lang="en"&gt;Everyday Italian&lt;/title&gt;<br>
+&lt;title lang="en"&gt;Harry Potter&lt;/title&gt;<br>
+&lt;title lang="en"&gt;XQuery Kick Start&lt;/title&gt;<br>
+&lt;title lang="en"&gt;Learning XML&lt;/title&gt;
+
+<h4>谓语</h4>
+<p>XQuery 使用谓语来限定从 XML 文档所提取的数据。</p>
+<p>下面的谓语用于选取 bookstore 元素下的所有 book 元素，并且所选取的 book 元素下的 price 元素的值必须小于 30：</p>
+
+doc("books.xml")/bookstore/book<span class="marked">[price&lt;30]</span>
+
+<p>上面的 XQuery 可提取到下面的数据：</p>
+
+&lt;book category="CHILDREN"&gt;<br>
+   
+  &lt;title lang="en"&gt;Harry Potter&lt;/title&gt;<br>
+   
+  &lt;author&gt;J K. Rowling&lt;/author&gt;<br>
+   
+  &lt;year&gt;2005&lt;/year&gt;<br>
+   
+  &lt;price&gt;29.99&lt;/price&gt;<br>
+&lt;/book&gt;</div></section>
+<section class="ch" id="c4"><h2>4. XQuery FLWOR 表达式<a class="chsrc" href="https://www.runoob.com/xquery/xquery-flwor.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>XML 实例文档</h3>
+<p>我们将在下面的例子中继续使用这个 "books.xml" 文档（与上一节中的 XML 文件相同）。</p>
+<p><a href="https://www.runoob.com/try/xml/books.xml" class="ext">在您的浏览器中查看 "books.xml" 文件</a>。</p>
+<hr>
+<h3>如果使用 FLWOR 从 "books.xml" 选取节点</h3>
+<p>请看下面这个路径表达式：</p>
+
+doc("books.xml")/bookstore/book[price&gt;30]/title
+
+<p>上面这个表达式可选取 bookstore 元素下的 book 元素下所有的 title 元素，并且其中的 price 元素的值必须大于 30。</p>
+<p>下面这个 FLWOR 表达式所选取的数据和上面的路径表达式是相同的：</p>
+
+for $x in doc("books.xml")/bookstore/book<br>
+where $x/price&gt;30<br>
+return $x/title
+
+<p>输出结果：</p>
+
+&lt;title lang="en"&gt;XQuery Kick Start&lt;/title&gt;<br>
+&lt;title lang="en"&gt;Learning XML&lt;/title&gt;
+
+<p>通过 FLWOR，您可以对结果进行排序：</p>
+
+for $x in doc("books.xml")/bookstore/book<br>
+where $x/price&gt;30<br>
+order by $x/title<br>
+return $x/title
+
+<p><strong>FLWOR 是 "For, Let, Where, Order by, Return" 的只取首字母缩写。</strong></p>
+
+<p><strong>for</strong> 语句把 bookstore 元素下的所有 book 元素提取到名为 $x 的变量中。</p>
+
+<p><strong>where</strong> 语句选取了 price 元素值大于 30 的 book 元素。</p>
+
+<p><strong>order by</strong> 语句定义了排序次序。将根据 title 元素进行排序。</p>
+
+<p><strong>return</strong> 语句规定返回什么内容。在此返回的是 title 元素。</p>
+
+<p>上面的 XQuery 表达式的结果：</p>
+
+&lt;title lang="en"&gt;Learning XML&lt;/title&gt;<br>
+&lt;title lang="en"&gt;XQuery Kick Start&lt;/title&gt;</div></section>
+<section class="ch" id="c5"><h2>5. XQuery FLWOR + HTML<a class="chsrc" href="https://www.runoob.com/xquery/xquery-flwor-html.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>XML 实例文档</h3>
+<p>我们将在下面的例子中继续使用这个 "books.xml" 文档（与上一节中的文件相同）。</p>
+<p><a href="https://www.runoob.com/try/xml/books.xml" class="ext">在您的浏览器中查看 "books.xml" 文件</a>。</p>
+<hr>
+<h3>在一个 HTML 列表中提交结果</h3>
+<p>请看下面的 XQuery FLWOR 表达式：</p>
+
+for $x in doc("books.xml")/bookstore/book/title<br>
+order by $x<br>
+return $x
+
+<p>上面的表达式会选取 bookstore 元素下的 book 元素下的所有 title 元素，并以字母顺序返回 title 元素。</p>
+
+<p>现在，我们希望使用 HTML 列表列出我们的书店中所有的书目。我们向 FLWOR 表达式添加 &lt;ul&gt; 和 &lt;li&gt; 标签：</p>
+
+<span class="marked">&lt;ul&gt;<br>
+{</span><br>
+for $x in doc("books.xml")/bookstore/book/title<br>
+order by $x<br>
+return <span class="marked">&lt;li&gt;{</span>$x<span class="marked">}&lt;/li&gt;<br>
+}<br>
+&lt;/ul&gt;</span>
+
+<p>以上代码输出结果：</p>
+
+&lt;ul&gt;<br>
+&lt;li&gt;&lt;title lang="en"&gt;Everyday Italian&lt;/title&gt;&lt;/li&gt;<br>
+&lt;li&gt;&lt;title lang="en"&gt;Harry Potter&lt;/title&gt;&lt;/li&gt;<br>
+&lt;li&gt;&lt;title lang="en"&gt;Learning XML&lt;/title&gt;&lt;/li&gt;<br>
+&lt;li&gt;&lt;title lang="en"&gt;XQuery Kick Start&lt;/title&gt;&lt;/li&gt;<br>
+&lt;/ul&gt;
+
+<p>现在我们希望去除 title 元素，而仅仅显示 title 元素内的数据。</p>
+
+&lt;ul&gt;<br>
+{<br>
+for $x in doc("books.xml")/bookstore/book/title<br>
+order by $x<br>
+return &lt;li&gt;{<span class="marked">data(</span>$x<span class="marked">)</span>}&lt;/li&gt;<br>
+}<br>
+&lt;/ul&gt;
+
+<p>结果将是一个 HTML 列表：</p>
+
+&lt;ul&gt;<br>
+&lt;li&gt;Everyday Italian&lt;/li&gt;<br>
+&lt;li&gt;Harry Potter&lt;/li&gt;<br>
+&lt;li&gt;Learning XML&lt;/li&gt;<br>
+&lt;li&gt;XQuery Kick Start&lt;/li&gt;<br>
+&lt;/ul&gt;</div></section>
+<section class="ch" id="c6"><h2>6. XQuery 术语<a class="chsrc" href="https://www.runoob.com/xquery/xquery-terms.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>在 XQuery 中，有七种节点：元素、属性、文本、命名空间、处理指令、注释、以及文档节点（或称为根节点）。</p>
+<hr>
+<h3>XQuery 术语</h3>
+<h4>节点</h4>
+<p>在 XQuery 中，有七种节点：元素、属性、文本、命名空间、处理指令、注释、以及文档（根）节点。XML 文档是被作为节点树来对待的。树的根被称为文档节点或者根节点。</p>
+<p>请看下面的 XML 文档：</p>
+
+&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;<br><br>
+&lt;bookstore&gt;<br><br>
+&lt;book&gt;<br>
+   
+  &lt;title lang="en"&gt;Harry Potter&lt;/title&gt;<br>
+   
+  &lt;author&gt;J K. Rowling&lt;/author&gt;<br>
+   
+  &lt;year&gt;2005&lt;/year&gt;<br>
+   
+  &lt;price&gt;29.99&lt;/price&gt;<br>
+&lt;/book&gt;<br><br>
+&lt;/bookstore&gt;
+
+<p>上面的 XML 文档中的节点例子：</p>
+
+&lt;bookstore&gt; (文档节点)<br><br>
+&lt;author&gt;J K. Rowling&lt;/author&gt; (元素节点)<br><br>
+lang="en" (属性节点)
+
+<p>基本值是无父或无子的节点。
+</p>
+<p>基本值的例子：</p>
+
+J K. Rowling<br><br>
+"en"
+
+<h4>项目
+</h4>
+<p>项目是基本值或者节点。</p>
+<hr>
+<h3>节点关系</h3>
+
+<h4>父（Parent）</h4>
+
+<p>每个元素以及属性都有一个父。</p>
+
+<p>在下面的例子中，book 元素是 title、author、year 以及 price 元素的父：</p>
+
+&lt;book&gt;<br>
+   
+  &lt;title&gt;Harry Potter&lt;/title&gt;<br>
+   
+  &lt;author&gt;J K. Rowling&lt;/author&gt;<br>
+   
+  &lt;year&gt;2005&lt;/year&gt;<br>
+   
+  &lt;price&gt;29.99&lt;/price&gt;<br>
+&lt;/book&gt;
+
+<h4>子（Children）</h4>
+
+<p>节点元素可有零个、一个或多个子。</p>
+
+<p>在下面的例子中，title、author、year 以及 price 元素都是 book 元素的子：</p>
+
+&lt;book&gt;<br>
+   
+  &lt;title&gt;Harry Potter&lt;/title&gt;<br>
+   
+  &lt;author&gt;J K. Rowling&lt;/author&gt;<br>
+   
+  &lt;year&gt;2005&lt;/year&gt;<br>
+   
+  &lt;price&gt;29.99&lt;/price&gt;<br>
+&lt;/book&gt;
+
+<h4>同胞（Sibling）</h4>
+
+<p>拥有相同的父的节点。</p>
+
+<p>在下面的例子中，title、author、year 以及 price 元素都是同胞：</p>
+
+&lt;book&gt;<br>
+   
+  &lt;title&gt;Harry Potter&lt;/title&gt;<br>
+   
+  &lt;author&gt;J K. Rowling&lt;/author&gt;<br>
+   
+  &lt;year&gt;2005&lt;/year&gt;<br>
+   
+  &lt;price&gt;29.99&lt;/price&gt;<br>
+&lt;/book&gt;
+
+<h4>先辈（Ancestor）</h4>
+
+<p>某节点的父、父的父，等等。</p>
+
+<p>在下面的例子中，title 元素的先辈是 book 元素和 bookstore元素：</p>
+
+&lt;bookstore&gt;<br><br>
+&lt;book&gt;<br>
+   
+  &lt;title&gt;Harry Potter&lt;/title&gt;<br>
+   
+  &lt;author&gt;J K. Rowling&lt;/author&gt;<br>
+   
+  &lt;year&gt;2005&lt;/year&gt;<br>
+   
+  &lt;price&gt;29.99&lt;/price&gt;<br>
+&lt;/book&gt;<br><br>
+&lt;/bookstore&gt;
+
+<h4>后代（Descendant）</h4>
+
+<p>某个节点的子，子的子，等等。</p>
+
+<p>在下面的例子中，bookstore 的后代是 book、title、author、year 以及 price元素：</p>
+
+&lt;bookstore&gt;<br><br>
+&lt;book&gt;<br>
+   
+  &lt;title&gt;Harry Potter&lt;/title&gt;<br>
+   
+  &lt;author&gt;J K. Rowling&lt;/author&gt;<br>
+   
+  &lt;year&gt;2005&lt;/year&gt;<br>
+   
+  &lt;price&gt;29.99&lt;/price&gt;<br>
+&lt;/book&gt;<br><br>
+&lt;/bookstore&gt;</div></section>
+<section class="ch" id="c7"><h2>7. XQuery 语法<a class="chsrc" href="https://www.runoob.com/xquery/xquery-syntax.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>XQuery 对大小写敏感，XQuery 的元素、属性以及变量必须是合法的 XML 名称。</p>
+<hr>
+<h3>XQuery 的基础语法规则：</h3>
+
+<p>一些基本的语法规则：</p>
+
+<ul>
+<li>XQuery 对大小写敏感</li>
+<li>XQuery 的元素、属性以及变量必须是合法的 XML 名称。</li>
+<li>XQuery 字符串值可使用单引号或双引号。</li>
+<li>XQuery 变量由 "$" 并跟随一个名称来进行定义，举例，$bookstore</li>
+<li>XQuery 注释被 (: 和 :) 分割，例如，(: XQuery 注释 :)</li>
+</ul>
+
+<hr>
+<h3>XQuery 条件表达式</h3>
+
+<p>"If-Then-Else" 可以在 XQuery 中使用。</p>
+
+<p>请看下面的例子：</p>
+
+for $x in doc("books.xml")/bookstore/book<br>
+return	<span class="marked">if (</span>$x/@category="CHILDREN"<span class="marked">)</span><br><span class="marked">then</span> &lt;child&gt;{data($x/title)}&lt;/child&gt;<br><span class="marked">else</span> &lt;adult&gt;{data($x/title)}&lt;/adult&gt;
+
+<p>请注意 "If-Then-Else" 的语法：if 表达式后的圆括号是必需的。else 也是必需的，不过只写 "else ()" 也可以。</p>
+
+<p>上面的例子的结果：</p>
+
+&lt;adult&gt;Everyday Italian&lt;/adult&gt;<br>
+&lt;child&gt;Harry Potter&lt;/child&gt;<br>
+&lt;adult&gt;Learning XML&lt;/adult&gt;<br>
+&lt;adult&gt;XQuery Kick Start&lt;/adult&gt;
+
+<br><hr>
+<h3>XQuery 比较</h3>
+
+<p>在 XQuery 中，有两种方法来比较值。</p>
+
+<ol>
+<li>通用比较：=, !=, &lt;, &lt;=, &gt;, &gt;=</li>
+<li>值的比较：eq、ne、lt、le、gt、ge</li>
+</ol>
+
+<h4>这两种比较方法的差异如下：</h4>
+
+<p>请看下面的 XQuery 表达式：</p>
+
+$bookstore//book/@q &gt; 10
+<p>如果 q 属性的值大于 10，上面的表达式的返回值为 true。</p>
+
+<p>如下实例，如果仅返回一个 q，且它的值大于 10，那么表达式返回 true。如果不止一个 q 被返回，则会发生错误：</p>
+
+$bookstore//book/@q gt 10</div></section>
+<section class="ch" id="c8"><h2>8. XQuery 添加元素和属性<a class="chsrc" href="https://www.runoob.com/xquery/xquery-add.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>XML 实例文档</h3>
+<p>我们将在下面的例子中继续使用这个 "books.xml" 文档（和上面的章节所使用的 XML 文件相同）。</p>
+<p><a href="https://www.runoob.com/try/xml/books.xml" class="ext">在您的浏览器中查看 "books.xml" 文件</a>。</p>
+<hr>
+<h3>向结果添加元素和属性</h3>
+
+<p>正如在前面一节看到的，我们可以在结果中引用输入文件中的元素和属性：</p>
+
+for $x in doc("books.xml")/bookstore/book/title<br>
+order by $x<br>
+return $x<br>
+
+<p>上面的 XQuery 表达式会在结果中引用 title 元素和 lang 属性，就像这样：</p>
+
+&lt;title lang="en"&gt;Everyday Italian&lt;/title&gt;<br>
+&lt;title lang="en"&gt;Harry Potter&lt;/title&gt;<br>
+&lt;title lang="en"&gt;Learning XML&lt;/title&gt;<br>
+&lt;title lang="en"&gt;XQuery Kick Start&lt;/title&gt;
+
+<p>以上 XQuery 表达式返回 title 元素的方式和它们在输入文档中被描述的方式的相同的。</p>
+
+<p>现在我们要向结果添加我们自己的元素和属性！</p>
+
+<h4>添加 HTML 元素和文本</h4>
+
+<p>现在，我们要向结果添加 HTML 元素。我们会把结果放在一个 HTML 列表中：</p>
+
+&lt;html&gt;<br>
+&lt;body&gt;<br><br>
+&lt;h1&gt;Bookstore&lt;/h1&gt;<br><br>
+&lt;ul&gt;<br>
+{<br>
+for $x in doc("books.xml")/bookstore/book<br>
+order by $x/title<br>
+return &lt;li&gt;{data($x/title)}. Category: {data($x/@category)}&lt;/li&gt;<br>
+}<br>
+&lt;/ul&gt;<br><br>
+&lt;/body&gt;<br>
+&lt;/html&gt;
+
+<p>以上 XQuery 表达式会生成下面的结果：</p>
+
+&lt;html&gt;<br>
+&lt;body&gt;<br><br>
+&lt;h1&gt;Bookstore&lt;/h1&gt;<br><br>
+&lt;ul&gt;<br>
+&lt;li&gt;Everyday Italian. Category: COOKING&lt;/li&gt;<br>
+&lt;li&gt;Harry Potter. Category: CHILDREN&lt;/li&gt;<br>
+&lt;li&gt;Learning XML. Category: WEB&lt;/li&gt;<br>
+&lt;li&gt;XQuery Kick Start. Category: WEB&lt;/li&gt;<br>
+&lt;/ul&gt;<br><br>
+&lt;/body&gt;<br>
+&lt;/html&gt;
+
+<h4>向 HTML 元素添加属性</h4>
+
+<p>接下来，我们要把 category 属性作为 HTML 列表中的 class 属性来使用：</p>
+
+&lt;html&gt;<br>
+&lt;body&gt;<br><br>
+&lt;h1&gt;Bookstore&lt;/h1&gt;<br><br>
+&lt;ul&gt;<br>
+{<br>
+for $x in doc("books.xml")/bookstore/book<br>
+order by $x/title<br>
+return &lt;li class="{data($x/@category)}"&gt;{data($x/title)}&lt;/li&gt;<br>
+}<br>
+&lt;/ul&gt;<br><br>
+&lt;/body&gt;<br>
+&lt;/html&gt;
+
+<p>上面的 XQuery 表达式可生成以下结果：</p>
+
+&lt;html&gt;<br>
+&lt;body&gt;<br>
+&lt;h1&gt;Bookstore&lt;/h1&gt;<br><br>
+&lt;ul&gt;<br>
+&lt;li class="COOKING"&gt;Everyday Italian&lt;/li&gt;<br>
+&lt;li class="CHILDREN"&gt;Harry Potter&lt;/li&gt;<br>
+&lt;li class="WEB"&gt;Learning XML&lt;/li&gt;<br>
+&lt;li class="WEB"&gt;XQuery Kick Start&lt;/li&gt;<br>
+&lt;/ul&gt;<br><br>
+&lt;/body&gt;<br>
+&lt;/html&gt;</div></section>
+<section class="ch" id="c9"><h2>9. XQuery 选择和过滤<a class="chsrc" href="https://www.runoob.com/xquery/xquery-select.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>XML实例文档</h3>
+<p>我们将在下面的例子中继续使用这个 "books.xml" 文档（和上面的章节所使用的 XML 文件相同）。
+</p>
+<p><a href="https://www.runoob.com/try/xml/books.xml" class="ext">在您的浏览器中查看 "books.xml" 文件</a>。</p>
+<hr>
+<h3>选择和过滤元素
+</h3>
+<p>正如在前面的章节所看到的，我们使用路径表达式或 FLWOR 表达式来选取和过滤元素。
+</p>
+<p>请看下面的 FLWOR 表达式：</p>
+
+for $x in doc("books.xml")/bookstore/book<br>
+where $x/price&gt;30<br>
+order by $x/title<br>
+return $x/title
+
+<ul>
+<li>for - （可选） 向每个由 in 表达式返回的项目捆绑一个变量</li>
+	<li>let - （可选） </li>
+	<li>where - （可选） 设定一个条件</li>
+	<li>order by - （可选） 设定结果的排列顺序</li>
+	<li>return - 规定在结果中返回的内容</li>
+</ul>
+<h3>for 语句</h3>
+<p>for 语句可将变量捆绑到由 in 表达式返回的每个项目。for 语句可产生迭代。在同一个 FLWOR 表达式中可存在多重 for 语句。
+</p>
+<p>如需在一个 for 语句中进行指定次数地循环，您可使用关键词 to ：</p>
+
+for $x in (1 to 5)<br>
+return &lt;test&gt;{$x}&lt;/test&gt;
+
+<p>结果：</p>
+
+&lt;test&gt;1&lt;/test&gt;<br>
+&lt;test&gt;2&lt;/test&gt;<br>
+&lt;test&gt;3&lt;/test&gt;<br>
+&lt;test&gt;4&lt;/test&gt;<br>
+&lt;test&gt;5&lt;/test&gt;
+
+<p>关键词 <strong>at </strong>可用于计算迭代：</p>
+
+for $x at $i in doc("books.xml")/bookstore/book/title<br>
+return &lt;book&gt;{$i}. {data($x)}&lt;/book&gt;
+
+<p>结果：</p>
+
+&lt;book&gt;1. Everyday Italian&lt;/book&gt;<br>
+&lt;book&gt;2. Harry Potter&lt;/book&gt;<br>
+&lt;book&gt;3. XQuery Kick Start&lt;/book&gt;<br>
+&lt;book&gt;4. Learning XML&lt;/book&gt;
+
+<p>在 for 语句中同样允许多个 in 表达式。请使用逗号来分割每一个 in 表达式：</p>
+
+for $x in (10,20), $y in (100,200)<br>
+return &lt;test&gt;x={$x} and y={$y}&lt;/test&gt;
+
+<p>结果：</p>
+
+&lt;test&gt;x=10 and y=100&lt;/test&gt;<br>
+&lt;test&gt;x=10 and y=200&lt;/test&gt;<br>
+&lt;test&gt;x=20 and y=100&lt;/test&gt;<br>
+&lt;test&gt;x=20 and y=200&lt;/test&gt;
+
+<h3>let 语句
+</h3>
+<p>let 语句可完成变量分配，并可避免多次重复相同的表达式。let 语句不会导致迭代。</p>
+
+let $x := (1 to 5)<br>
+return &lt;test&gt;{$x}&lt;/test&gt;
+
+<p>结果：</p>
+
+&lt;test&gt;1 2 3 4 5&lt;/test&gt;
+
+<h3>where 语句
+</h3>
+<p>where 语句用于为结果设定一个或多个条件（criteria）。</p>
+
+where $x/price&gt;30 and $x/price&lt;100
+
+<h3>order by 语句
+</h3>
+<p>order by 语句用于规定结果的排序次序。在这里，我们要根据 category 和 title 来对结果进行排序：</p>
+
+for $x in doc("books.xml")/bookstore/book<br>
+order by $x/@category, $x/title<br>
+return $x/title
+
+<p>结果：</p>
+
+&lt;title lang="en"&gt;Harry Potter&lt;/title&gt;<br>
+&lt;title lang="en"&gt;Everyday Italian&lt;/title&gt;<br>
+&lt;title lang="en"&gt;Learning XML&lt;/title&gt;<br>
+&lt;title lang="en"&gt;XQuery Kick Start&lt;/title&gt;
+
+<h3>return 语句：
+</h3>
+<p>return 语句规定要返回的内容。</p>
+
+for $x in doc("books.xml")/bookstore/book<br>
+return $x/title
+
+<p>结果：</p>
+
+&lt;title lang="en"&gt;Everyday Italian&lt;/title&gt;<br>
+&lt;title lang="en"&gt;Harry Potter&lt;/title&gt;<br>
+&lt;title lang="en"&gt;XQuery Kick Start&lt;/title&gt;<br>
+&lt;title lang="en"&gt;Learning XML&lt;/title&gt;</div></section>
+<section class="ch" id="c10"><h2>10. XQuery 函数<a class="chsrc" href="https://www.runoob.com/xquery/xquery-functions.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>XQuery 1.0、XPath 2.0 以及 XSLT 2.0 共享相同的函数库。</p>
+<hr>
+<h3>XQuery 函数</h3>
+
+<p>XQuery 含有超过 100 个内建的函数。这些函数可用于字符串值、数值、日期以及时间比较、节点和 QName 操作、序列操作、逻辑值等等。您也可在 XQuery 中定义自己的函数。</p>
+
+<hr>
+<h3>XQuery 内建函数</h3>
+
+<p>XQuery 函数命名空间的 URI：</p>
+
+<p>http://www.w3.org/2005/02/xpath-functions</p>
+
+<p>函数命名空间的默认前缀是 fn:。</p>
+
+<p><span>提示：</span>函数经常被通过 fn: 前缀进行调用，例如 fn:string()。不过，由于 fn: 是命名空间的默认前缀，所以函数名称不必在被调用时使用前缀。</p>
+
+<p>您可以在我们的 XPath 教程中找到完整的《<a href="xpath.html#c1">内建 XQuery 函数参考手册</a>》。</p>
+
+<hr>
+<h3>函数调用实例</h3>
+
+<p>函数调用可与表达式一同使用。请看下面的例子：</p>
+
+<h4>例1：在元素中</h4>
+
+&lt;name&gt;{upper-case($booktitle)}&lt;/name&gt;
+
+<h4>例2: 在路径表达式的谓语中</h4>
+
+doc("books.xml")/bookstore/book[substring(title,1,5)='Harry']
+
+<h4>例3: 在 let 语句中</h4>
+
+let $name := (substring($booktitle,1,4))
+
+<br><hr>
+<h3>XQuery 用户定义函数</h3>
+
+<p>如果找不到所需的 XQuery 函数，你可以编写自己的函数。</p>
+
+<p>可在查询中或独立的库中定义用户自定义函数。</p>
+
+<h4>语法</h4>
+
+declare function <i>前缀:函数名</i>($<i>参数 </i>AS<i> 数据类型</i>)<br>
+AS <i>返回的数据类型</i><br>
+{<br>
+ ...<i>函数代码</i>...<br>
+}
+
+<h4>关于用户自定义函数的注意事项：</h4>
+
+<ul>
+<li>请使用 declare function 关键词</li>
+<li>函数名须使用前缀</li>
+<li>参数的数据类型通常与在 XML Schema 中定义的数据类型一致</li>
+<li>函数主体须被花括号包围</li>
+</ul>
+
+<h4>一个在查询中声明的用户自定义函数的例子：</h4>
+
+declare function local:minPrice($p as xs:decimal?,$d as xs:decimal?)<br>
+  AS xs:decimal?<br>
+{<br>
+let $disc := ($p * $d) div 100<br>
+return ($p - $disc)<br>
+}<br><br>
+Below is an example of how to call the function above:<br><br>
+&lt;minPrice&gt;{local:minPrice($book/price,$book/discount)}&lt;/minPrice&gt;</div></section>
+<section class="ch" id="c11"><h2>11. XQuery 总结<a class="chsrc" href="https://www.runoob.com/xquery/xquery-summary.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>XQuery 概要</h3>
+
+<p>本教程已经向您讲解了如何查询 XML 数据。</p>
+
+<p>您已经明白，XQuery 被设计来查询以 XML 形态存在的任何数据，包括数据库。</p>
+
+<p>您也学习了如何使用 FLWOR 表达式来查询 XML 数据，以及如何由选定的数据构造 XHTML 输出。</p>
+
+<p>如需更多有关 XQuery 的信息，请阅读我们的《<a href="#c12" title="XQuery参考手册">XQuery 参考手册</a>》。</p>
+
+<hr>
+<h3>您已经学习了 XQuery，接下来该学习什么内容呢？</h3>
+<p>下一步该学习 XLink 和 XPointer。</p>
+
+<h4>XLink 和 XPointer</h4>
+
+<p>XML 中的链接被分为两部分：XLink 和 XPointer。</p>
+
+<p>XLink 和 XPointer 定义了一套标准的在XML文档中创建超级链接的方法。</p>
+
+<p>如果您希望学习更多有关 XLink 和 XPointer 的知识，请访问我们的《<a href="xlink.html#c1" title="XLink和XPointer教程">XLink 和 XPointer 教程</a>》。</p></div></section>
+<section class="ch" id="c12"><h2>12. XQuery 参考手册<a class="chsrc" href="https://www.runoob.com/xquery/xquery-reference.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>XQuery 1.0 和 XPath 2.0 分享相同的数据模型，并支持相同的函数和运算符。</p>
+<hr>
+<h3>XQuery 函数</h3>
+
+<p>XQuery 构建在 XPath 表达式之上。XQuery 1.0 和 XPath 2.0 分享相同的数据模型，并支持相同的函数和运算符。</p>
+
+<p><a href="xpath.html#c6">XPath Operators</a></p>
+<p><a href="xpath.html#c9">XPath Functions</a></p>
+
+<h3>XQuery 数据类型
+</h3>
+
+<p>XQuery 分享与 XML Schema 1.0 (XSD) 相同的数据类型。</p>
+
+<p><a href="schema.html#c19">XSD String</a></p>
+
+<p><a href="schema.html#c20">XSD Date</a></p>
+
+<p><a href="schema.html#c21">XSD Numeric</a></p>
+
+<p><a href="schema.html#c22">XSD Misc</a></p>
+<br></div></section>
+<footer><p>离线版 · 内容抓取自 runoob.com，仅用于个人离线阅读；页面结构与广告已去除，原文版权归菜鸟教程及原作者。</p><p><a href="index.html">← 返回总索引</a></p></footer></body></html>

@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JSON 教程 · 离线版</title>
+<link rel="stylesheet" href="css/offline.css">
+</head><body>
+<nav class="topbar"><a href="index.html">← 返回总索引</a><span>·</span><span>A 前端与界面</span>
+<span>·</span><span>12 章</span></nav>
+<h1>JSON 教程</h1>
+<p class="docmeta">来源：<a class="ext" href="https://www.runoob.com/json/json-tutorial.html">https://www.runoob.com/json/json-tutorial.html</a><br>
+适用性：<b style="color:#0b6bcb">可用</b>
+｜ 时效：在役 ｜ 抓取：2026-11-13 ｜ 本页为离线阅读版，章节按教程侧栏顺序合并，广告与评论已去除。</p>
+<details class="toc-ch"><summary>本篇目录（12 章，点击展开）</summary><ol>
+<li><a href="#c1">JSON 教程</a></li>
+<li><a href="#c2">JSON 简介</a></li>
+<li><a href="#c3">JSON 语法</a></li>
+<li><a href="#c4">JSON vs XML</a></li>
+<li><a href="#c5">JSON 对象</a></li>
+<li><a href="#c6">JSON 数组</a></li>
+<li><a href="#c7">JSON.parse()</a></li>
+<li><a href="#c8">JSON.stringify()</a></li>
+<li><a href="#c9">JSON 使用</a></li>
+<li><a href="#c10">JSONP 教程</a></li>
+<li><a href="#c11">PHP JSON</a></li>
+<li><a href="#c12">JSON格式化工具</a></li>
+</ol></details>
+<section class="ch" id="c1"><h2>1. JSON 教程<a class="chsrc" href="https://www.runoob.com/json/json-tutorial.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<br>
+<img src="img/e9516f0d68431bfb.png" loading="lazy">
+<p>JSON: <b>J</b>ava<b>S</b>cript <b>O</b>bject <b>N</b>otation(JavaScript 对象表示法)</p>
+	<p>JSON 是存储和交换文本信息的语法，类似 XML。</p>
+	<p>JSON 比 XML 更小、更快，更易解析。</p>
+<p>JSON  易于人阅读和编写。</p>
+<p>C、Python、C++、Java、PHP、Go 等编程语言都支持 JSON。</p>
+
+<h3>JSON 实例</h3>
+
+<span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-quotes">"</span><span class="hl-string">sites</span><span class="hl-quotes">"</span><span class="hl-code">: </span><span class="hl-brackets">[</span><span class="hl-code">
+    </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">菜鸟教程</span><span class="hl-quotes">"</span><span class="hl-code"> , </span><span class="hl-quotes">"</span><span class="hl-string">url</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">www.runoob.com</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-brackets">}</span><span class="hl-code">, 
+    </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">google</span><span class="hl-quotes">"</span><span class="hl-code"> , </span><span class="hl-quotes">"</span><span class="hl-string">url</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">www.google.com</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-brackets">}</span><span class="hl-code">, 
+    </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">微博</span><span class="hl-quotes">"</span><span class="hl-code"> , </span><span class="hl-quotes">"</span><span class="hl-string">url</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">www.weibo.com</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-brackets">}</span><span class="hl-code">
+    </span><span class="hl-brackets">]</span><span class="hl-code">
+</span><span class="hl-brackets">}</span>
+
+<p>这个 sites 对象是包含 3 个站点记录（对象）的数组。</p>
+<hr>
+<h3>什么是 JSON ？</h3>
+<ul>
+<li>JSON 指的是 JavaScript 对象表示法（<b>J</b>ava<b>S</b>cript <b>O</b>bject <b>N</b>otation）</li>
+<li>JSON 是轻量级的文本数据交换格式</li>
+<li>JSON 独立于语言：JSON 使用 Javascript语法来描述数据对象，但是 JSON 仍然独立于语言和平台。JSON 解析器和 JSON 库支持许多不同的编程语言。 目前非常多的动态（PHP，JSP，.NET）编程语言都支持 JSON</li>
+<li>JSON 具有自我描述性，更易理解</li>
+</ul>
+
+<hr>
+<h3>JSON - 转换为 JavaScript 对象</h3>
+<p>JSON 文本格式在语法上与创建 JavaScript 对象的代码相同。</p>
+<p>由于这种相似性，无需解析器，JavaScript 程序能够使用内建的 eval() 函数，用 JSON 数据来生成原生的 JavaScript 对象。</p>
+<hr>
+<h3>JSON 工具</h3>
+	<ul>
+<li>JSON 格式化工具：<a href="https://www.jyshare.com/front-end/53/" class="ext">https://www.jyshare.com/front-end/53/</a></li>
+	<li>
+JSON 转义/去除转义：<a href="https://www.jyshare.com/front-end/7683/" class="ext">https://www.jyshare.com/front-end/7683/</a></li>
+	<li>
+JSON 在线解析工具：<a href="https://www.jyshare.com/front-end/7438/" class="ext">https://www.jyshare.com/front-end/7438/</a></li>
+	<li>
+JSON 差异对比工具：<a href="https://www.jyshare.com/front-end/9557/" class="ext">https://www.jyshare.com/front-end/9557/</a></li></ul></div></section>
+<section class="ch" id="c2"><h2>2. JSON 简介<a class="chsrc" href="https://www.runoob.com/json/json-intro.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>在线实例</h3>
+<p>通过我们的编辑器，您可以在线编辑 JavaScript 代码，然后通过点击一个按钮来查看结果：</p>
+
+<h3>JSON 实例</h3>
+
+<span class="hl-brackets">&lt;</span><span class="hl-code">!</span><span class="hl-var">DOCTYPE</span><span class="hl-code"> </span><span class="hl-var">html</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">html</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">head</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">meta</span><span class="hl-code"> </span><span class="hl-var">charset</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">utf-8</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">title</span><span class="hl-brackets">&gt;</span><span class="hl-code">菜鸟教程(runoob.com)</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">title</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">head</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">body</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">h2</span><span class="hl-brackets">&gt;</span><span class="hl-code">JavaScript 创建 JSON 对象</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">h2</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">p</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+网站名称: </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">span</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">jname</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">span</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">br</span><span class="hl-code"> </span><span class="hl-brackets">/&gt;</span><span class="hl-code"> 
+网站地址: </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">span</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">jurl</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">span</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">br</span><span class="hl-code"> </span><span class="hl-brackets">/&gt;</span><span class="hl-code"> 
+网站 slogan: </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">span</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">jslogan</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">span</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">br</span><span class="hl-code"> </span><span class="hl-brackets">/&gt;</span><span class="hl-code"> 
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">p</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span> <span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">JSONObject</span><span class="hl-code">= </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">菜鸟教程</span><span class="hl-quotes">"</span><span class="hl-code">,
+    </span><span class="hl-quotes">"</span><span class="hl-string">url</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">www.runoob.com</span><span class="hl-quotes">"</span><span class="hl-code">, 
+    </span><span class="hl-quotes">"</span><span class="hl-string">slogan</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">学的不仅是技术，更是梦想！</span><span class="hl-quotes">"</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">;
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">jname</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code">=</span><span class="hl-identifier">JSONObject</span><span class="hl-code">.</span><span class="hl-identifier">name</span><span class="hl-code"> 
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">jurl</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code">=</span><span class="hl-identifier">JSONObject</span><span class="hl-code">.</span><span class="hl-identifier">url</span><span class="hl-code"> 
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">jslogan</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code">=</span><span class="hl-identifier">JSONObject</span><span class="hl-code">.</span><span class="hl-identifier">slogan</span> <span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+ 
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">body</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">html</span><span class="hl-brackets">&gt;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_create" class="ext">尝试一下 »</a>
+<br>
+点击 "尝试一下" 按钮查看在线实例。
+
+<br><hr>
+<h3>与 XML 相同之处</h3>
+
+<ul>
+<li>JSON 是纯文本</li>
+<li>JSON 具有"自我描述性"（人类可读）</li>
+<li>JSON 具有层级结构（值中存在值）</li>
+<li>JSON 可通过 JavaScript 进行解析</li>
+<li>JSON 数据可使用 AJAX 进行传输</li>
+</ul>
+
+<hr>
+<h3>与 XML 不同之处</h3>
+
+<ul>
+<li>没有结束标签</li>
+<li>更短</li>
+<li>读写的速度更快</li>
+<li>能够使用内建的 JavaScript eval() 方法进行解析</li>
+<li>使用数组</li>
+<li>不使用保留字</li>
+</ul>
+
+<hr>
+<h3>为什么使用 JSON？</h3>
+
+<p>对于 AJAX 应用程序来说，JSON 比 XML 更快更易使用：</p>
+
+<h5>使用 XML</h5>
+
+<ul>
+<li>读取 XML 文档</li>
+<li>使用 XML DOM 来循环遍历文档</li>
+<li>读取值并存储在变量中</li>
+</ul>
+
+<h5>使用 JSON</h5>
+
+<ul>
+<li>读取 JSON 字符串</li>
+<li>用 eval() 处理 JSON 字符串</li>
+</ul></div></section>
+<section class="ch" id="c3"><h2>3. JSON 语法<a class="chsrc" href="https://www.runoob.com/json/json-syntax.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>JSON 语法是 JavaScript 语法的子集。</p>
+<hr>
+<h3>JSON 语法规则</h3>
+<p>JSON 语法是 JavaScript 对象表示语法的子集。</p>
+<ul>
+<li>数据在<span class="marked">名称/值</span>对中</li>
+<li>数据由逗号 <span class="marked">,</span> 分隔</li>
+<li>使用斜杆 <span class="marked">\</span> 来转义字符</li>
+<li>大括号 <span class="marked">{}</span> 保存对象</li>
+<li>中括号 <span class="marked">[]</span> 保存数组，数组可以包含多个对象</li>
+</ul>
+<p><strong>JSON 的两种结构：</strong></p>
+<p><strong>1、对象：</strong>大括号 <span class="marked">{}</span> 保存的对象是一个无序的<strong>名称/值</strong>对集合。一个对象以左括号 <span class="marked">{</span>  开始， 右括号 <span class="marked">}</span> 结束。每个"键"后跟一个冒号 <span class="marked">:</span>，<strong>名称/值</strong>对使用逗号 <span class="marked">,</span> 分隔。</p>
+<p><img src="img/6f0dafcc9fe39746.png" loading="lazy"></p>
+<p><strong>2、数组：</strong>中括号 <span class="marked">[]</span> 保存的数组是值（value）的有序集合。一个数组以左中括号 <span class="marked">[</span> 开始， 右中括号 <span class="marked">]</span> 结束，值之间使用逗号 <span class="marked">,</span> 分隔。</p>
+<p><img src="img/512cc5c177108443.png" loading="lazy"></p>
+
+<p>
+值（value）可以是双引号括起来的字符串（string）、数值(number)、true、false、 null、对象（object）或者数组（array），它们是可以嵌套。</p>
+<p><img src="img/d05bccaeda83a69c.png" loading="lazy"></p>
+<hr>
+<h3>JSON 名称/值对</h3>
+
+<p>JSON 数据的书写格式是：</p>
+<pre>key : value</pre>
+<p>名称/值对包括字段名称（在双引号中），后面写一个冒号，然后是值：</p>
+
+<span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code"> : </span><span class="hl-quotes">"</span><span class="hl-string">菜鸟教程</span><span class="hl-quotes">"</span>
+
+<p>这很容易理解，等价于这条 JavaScript 语句：</p>
+
+<span class="hl-identifier">name</span><span class="hl-code"> = </span><span class="hl-quotes">"</span><span class="hl-string">菜鸟教程</span><span class="hl-quotes">"</span>
+
+<hr>
+<h3>JSON 值</h3>
+
+<p>JSON 值可以是：</p>
+
+<ul>
+<li>数字（整数或浮点数）</li>
+<li>字符串（在双引号中）</li>
+<li>逻辑值（true 或 false）</li>
+<li>数组（在中括号中）</li>
+<li>对象（在大括号中）</li>
+<li>null</li>
+</ul>
+<hr>
+<h3>JSON 数字</h3>
+<p>JSON 数字可以是整型或者浮点型：</p>
+
+<span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">age</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-number">30</span><span class="hl-code"> </span><span class="hl-brackets">}</span>
+
+<hr>
+<h3>JSON 对象</h3>
+
+<p>JSON 对象在大括号 <span class="marked">{}</span> 中书写：</p>
+<pre>{key1 : value1, key2 : value2, ... keyN : valueN }</pre>
+<p>对象可以包含多个名称/值对：</p>
+
+<span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">菜鸟教程</span><span class="hl-quotes">"</span><span class="hl-code"> , </span><span class="hl-quotes">"</span><span class="hl-string">url</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">www.runoob.com</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-brackets">}</span>
+
+<p>这一点也容易理解，与这条 JavaScript 语句等价：</p>
+
+<span class="hl-identifier">name</span><span class="hl-code"> = </span><span class="hl-quotes">"</span><span class="hl-string">菜鸟教程</span><span class="hl-quotes">"</span><span class="hl-code">
+</span><span class="hl-identifier">url</span><span class="hl-code"> = </span><span class="hl-quotes">"</span><span class="hl-string">www.runoob.com</span><span class="hl-quotes">"</span>
+
+<br><hr>
+<h3>JSON 数组</h3>
+
+<p>JSON 数组在中括号 <span class="marked">[]</span> 中书写：</p>
+
+<p>数组可包含多个对象：</p>
+<pre>[
+    { key1 : value1-1 , key2:value1-2 }, 
+    { key1 : value2-1 , key2:value2-2 }, 
+    { key1 : value3-1 , key2:value3-2 }, 
+    ...
+    { key1 : valueN-1 , key2:valueN-2 }, 
+]</pre>
+
+<span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-quotes">"</span><span class="hl-string">sites</span><span class="hl-quotes">"</span><span class="hl-code">: </span><span class="hl-brackets">[</span><span class="hl-code">
+        </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">菜鸟教程</span><span class="hl-quotes">"</span><span class="hl-code"> , </span><span class="hl-quotes">"</span><span class="hl-string">url</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">www.runoob.com</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-brackets">}</span><span class="hl-code">, 
+        </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">google</span><span class="hl-quotes">"</span><span class="hl-code"> , </span><span class="hl-quotes">"</span><span class="hl-string">url</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">www.google.com</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-brackets">}</span><span class="hl-code">, 
+        </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">微博</span><span class="hl-quotes">"</span><span class="hl-code"> , </span><span class="hl-quotes">"</span><span class="hl-string">url</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">www.weibo.com</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-brackets">}</span><span class="hl-code">
+    </span><span class="hl-brackets">]</span><span class="hl-code">
+</span><span class="hl-brackets">}</span>
+
+<p>在上面的例子中，对象 <strong>sites</strong> 是包含三个对象的数组。每个对象代表一条关于某个网站（name、url）的记录。</p>
+<hr>
+<h3>JSON 布尔值</h3>
+<p>JSON 布尔值可以是 true 或者 false：</p>
+
+<span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">flag</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-reserved">true</span><span class="hl-code"> </span><span class="hl-brackets">}</span>
+
+<hr>
+<h3>JSON null</h3>
+<p>JSON 可以设置 null 值：</p>
+
+<span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">runoob</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-reserved">null</span><span class="hl-code"> </span><span class="hl-brackets">}</span>
+
+<hr>
+<h3>JSON 使用 JavaScript 语法</h3>
+
+<p>因为 JSON 使用 JavaScript 语法，所以无需额外的软件就能处理 JavaScript 中的 JSON。</p>
+
+<p>通过 JavaScript，您可以创建一个对象数组，并像这样进行赋值：</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">sites</span><span class="hl-code"> = </span><span class="hl-brackets">[</span><span class="hl-code">
+    </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">runoob</span><span class="hl-quotes">"</span><span class="hl-code"> , </span><span class="hl-quotes">"</span><span class="hl-string">url</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">www.runoob.com</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-brackets">}</span><span class="hl-code">, 
+    </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">google</span><span class="hl-quotes">"</span><span class="hl-code"> , </span><span class="hl-quotes">"</span><span class="hl-string">url</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">www.google.com</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-brackets">}</span><span class="hl-code">, 
+    </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">微博</span><span class="hl-quotes">"</span><span class="hl-code"> , </span><span class="hl-quotes">"</span><span class="hl-string">url</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">www.weibo.com</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-brackets">]</span><span class="hl-code">;</span>
+
+<p>可以像这样访问 JavaScript 对象数组中的第一项（索引从 0 开始）：</p>
+
+<span class="hl-identifier">sites</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">name</span><span class="hl-code">;</span>
+
+<p>返回的内容是：</p>
+
+<span class="hl-identifier">runoob</span>
+
+<p>可以像这样修改数据：</p>
+
+<span class="hl-identifier">sites</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">name</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">菜鸟教程</span><span class="hl-quotes">"</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_objectarray" class="ext">尝试一下 »</a>
+
+ <p>在下面的章节，您将学到如何把 JSON 文本转换为 JavaScript 对象。<br></p>
+
+<hr>
+<h3>JSON 文件</h3>
+
+<ul>
+<li>JSON 文件的文件类型是  <span class="marked">.json</span></li>
+<li>JSON 文本的 MIME 类型是 <span class="marked">application/json</span></li>
+</ul></div></section>
+<section class="ch" id="c4"><h2>4. JSON vs XML<a class="chsrc" href="https://www.runoob.com/json/json-vs-xml.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>JSON 和 XML 都用于接收 web 服务端的数据。</p>
+
+<p>JSON 和 XML在写法上有所不同，如下所示：</p>
+
+<h3>JSON 实例</h3>
+
+<span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-quotes">"</span><span class="hl-string">sites</span><span class="hl-quotes">"</span><span class="hl-code">: </span><span class="hl-brackets">[</span><span class="hl-code">
+    </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">菜鸟教程</span><span class="hl-quotes">"</span><span class="hl-code"> , </span><span class="hl-quotes">"</span><span class="hl-string">url</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">www.runoob.com</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-brackets">}</span><span class="hl-code">, 
+    </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">google</span><span class="hl-quotes">"</span><span class="hl-code"> , </span><span class="hl-quotes">"</span><span class="hl-string">url</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">www.google.com</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-brackets">}</span><span class="hl-code">, 
+    </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">微博</span><span class="hl-quotes">"</span><span class="hl-code"> , </span><span class="hl-quotes">"</span><span class="hl-string">url</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">www.weibo.com</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-brackets">}</span><span class="hl-code">
+    </span><span class="hl-brackets">]</span><span class="hl-code">
+</span><span class="hl-brackets">}</span>
+
+<h3>XML 实例</h3>
+
+<span class="hl-brackets">&lt;</span><span class="hl-reserved">sites</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+  </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">site</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">name</span><span class="hl-brackets">&gt;</span><span class="hl-code">菜鸟教程</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">name</span><span class="hl-brackets">&gt;</span><span class="hl-code"> </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">url</span><span class="hl-brackets">&gt;</span><span class="hl-code">www.runoob.com</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">url</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+  </span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">site</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+  </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">site</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">name</span><span class="hl-brackets">&gt;</span><span class="hl-code">google</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">name</span><span class="hl-brackets">&gt;</span><span class="hl-code"> </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">url</span><span class="hl-brackets">&gt;</span><span class="hl-code">www.google.com</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">url</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+  </span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">site</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+  </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">site</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">name</span><span class="hl-brackets">&gt;</span><span class="hl-code">微博</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">name</span><span class="hl-brackets">&gt;</span><span class="hl-code"> </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">url</span><span class="hl-brackets">&gt;</span><span class="hl-code">www.weibo.com</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">url</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+  </span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">site</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">sites</span><span class="hl-brackets">&gt;</span>
+
+<p>JSON 与 XML 的相同之处：</p>
+<ul>
+  <li>JSON 和 XML 数据都是 "自我描述" ，都易于理解。</li>
+  <li>JSON 和 XML 数据都是有层次的结构</li>
+  <li>JSON 和 XML 数据可以被大多数编程语言使用</li>
+  
+</ul>
+
+JSON 与 XML 的不同之处：
+
+<ul>
+  <li>JSON 不需要结束标签</li>
+  <li>JSON 更加简短</li>
+  <li>JSON 读写速度更快</li>
+  <li>JSON 可以使用数组</li>
+</ul>
+
+<blockquote><p><strong>最大的不同是</strong>：XML 需要使用 XML 解析器来解析，JSON 可以使用标准的 JavaScript 函数来解析。</p>
+<ul><li>
+<a href="https://www.runoob.com//www.runoob.com/js/javascript-json-parse.html" class="ext">JSON.parse()</a>: 将一个 JSON 字符串转换为 JavaScript 对象。</li><li>
+<a href="https://www.runoob.com//www.runoob.com/js/javascript-json-stringify.html" class="ext">JSON.stringify()</a>: 将 JavaScript 值转换为 JSON 字符串。</li></ul>
+</blockquote>
+
+<hr>
+<h3>为什么 JSON 比 XML 更好？</h3>
+
+<p>XML 比 JSON 更难解析。</p> 
+<p>JSON 可以直接使用现有的 JavaScript 对象解析。</p>
+
+<p>针对 AJAX 应用，JSON 比 XML 数据加载更快，而且更简单：</p>
+<p>使用 XML</p>
+<ul>
+  <li>获取 XML 文档</li>
+  <li>使用 XML DOM 迭代循环文档</li>
+  <li>接数据解析出来复制给变量</li>
+</ul>
+<p>使用 JSON</p>
+<ul>
+  <li>获取 JSON 字符串</li>
+  <li>JSON.Parse 解析 JSON 字符串</li>
+</ul>
+<hr><h3>相关文章</h3>
+<ul>
+  <li>JavaScript JSON: <a href="js.html#c39">https://www.runoob.com/js/js-json.html</a></li><li>
+XML DOM 教程: <a href="xmldom.html#c1">https://www.runoob.com/dom/dom-tutorial.html</a></li>
+</ul></div></section>
+<section class="ch" id="c5"><h2>5. JSON 对象<a class="chsrc" href="https://www.runoob.com/json/js-json-objects.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>对象语法</h3>
+
+<h3>实例</h3>
+
+<span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">runoob</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">alexa</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-number">10000</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">site</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-reserved">null</span><span class="hl-code"> </span><span class="hl-brackets">}</span>
+
+<p>JSON 对象使用在大括号 <span class="marked">{...}</span> 中书写。</p>
+<p>对象可以包含多个 <b>key/value（键/值）</b>对。</p>
+<p>key 必须是字符串，value 可以是合法的 JSON 数据类型（字符串, 数字, 对象, 数组, 布尔值或 null）。</p>
+<p>key 和 value 中使用冒号 <span class="marked">:</span> 分割。</p>
+<p>每个 key/value 对使用逗号 <span class="marked">,</span> 分割。</p><p><img src="img/6f0dafcc9fe39746.png" loading="lazy"></p>
+<hr>
+<h3>访问对象值</h3>
+<p>你可以使用点号 <span class="marked">.</span> 来访问对象的值：</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">myObj</span><span class="hl-code">, </span><span class="hl-identifier">x</span><span class="hl-code">;
+</span><span class="hl-identifier">myObj</span><span class="hl-code"> = </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">runoob</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">alexa</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-number">10000</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">site</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-reserved">null</span><span class="hl-code"> </span><span class="hl-brackets">}</span><span class="hl-code">;
+</span><span class="hl-identifier">x</span><span class="hl-code"> = </span><span class="hl-identifier">myObj</span><span class="hl-code">.</span><span class="hl-identifier">name</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_object_dot" class="ext">尝试一下 »</a>
+
+<p>你也可以使用中括号（[]）来访问对象的值：</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">myObj</span><span class="hl-code">, </span><span class="hl-identifier">x</span><span class="hl-code">;
+</span><span class="hl-identifier">myObj</span><span class="hl-code"> = </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">runoob</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">alexa</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-number">10000</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">site</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-reserved">null</span><span class="hl-code"> </span><span class="hl-brackets">}</span><span class="hl-code">;
+</span><span class="hl-identifier">x</span><span class="hl-code"> = </span><span class="hl-identifier">myObj</span><span class="hl-brackets">[</span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-brackets">]</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_object_bracket" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>循环对象</h3>
+<p>你可以使用 for-in 来循环对象的属性：</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">myObj</span><span class="hl-code"> = </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">runoob</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">alexa</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-number">10000</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">site</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-reserved">null</span><span class="hl-code"> </span><span class="hl-brackets">}</span><span class="hl-code">;
+</span><span class="hl-reserved">for</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-code"> </span><span class="hl-reserved">in</span><span class="hl-code"> </span><span class="hl-identifier">myObj</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">demo</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> += </span><span class="hl-identifier">x</span><span class="hl-code"> + </span><span class="hl-quotes">"</span><span class="hl-string">&lt;br&gt;</span><span class="hl-quotes">"</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_object_loop" class="ext">尝试一下 »</a>
+
+<p>在 for-in 循环对象的属性时，使用中括号（[]）来访问属性的值：</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">myObj</span><span class="hl-code"> = </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">runoob</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">alexa</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-number">10000</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">site</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-reserved">null</span><span class="hl-code"> </span><span class="hl-brackets">}</span><span class="hl-code">;
+</span><span class="hl-reserved">for</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">x</span><span class="hl-code"> </span><span class="hl-reserved">in</span><span class="hl-code"> </span><span class="hl-identifier">myObj</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">demo</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> += </span><span class="hl-identifier">myObj</span><span class="hl-brackets">[</span><span class="hl-identifier">x</span><span class="hl-brackets">]</span><span class="hl-code"> + </span><span class="hl-quotes">"</span><span class="hl-string">&lt;br&gt;</span><span class="hl-quotes">"</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_object_loop_bracket" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>嵌套 JSON 对象</h3>
+
+<p>JSON 对象中可以包含另外一个 JSON 对象：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">myObj</span><span class="hl-code"> = </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">runoob</span><span class="hl-quotes">"</span><span class="hl-code">,
+    </span><span class="hl-quotes">"</span><span class="hl-string">alexa</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-number">10000</span><span class="hl-code">,
+    </span><span class="hl-quotes">"</span><span class="hl-string">sites</span><span class="hl-quotes">"</span><span class="hl-code">: </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-quotes">"</span><span class="hl-string">site1</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">www.runoob.com</span><span class="hl-quotes">"</span><span class="hl-code">,
+        </span><span class="hl-quotes">"</span><span class="hl-string">site2</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">m.runoob.com</span><span class="hl-quotes">"</span><span class="hl-code">,
+        </span><span class="hl-quotes">"</span><span class="hl-string">site3</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">c.runoob.com</span><span class="hl-quotes">"</span><span class="hl-code">
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-brackets">}</span>
+
+<p>你可以使用点号 <span class="marked">.</span> 或者中括号 <span class="marked">[...]</span> 来访问嵌套的 JSON 对象。</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">x</span><span class="hl-code"> = </span><span class="hl-identifier">myObj</span><span class="hl-code">.</span><span class="hl-identifier">sites</span><span class="hl-code">.</span><span class="hl-identifier">site1</span><span class="hl-code">;
+</span><span class="hl-comment">//</span><span class="hl-comment"> 或者</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-identifier">x</span><span class="hl-code"> = </span><span class="hl-identifier">myObj</span><span class="hl-code">.</span><span class="hl-identifier">sites</span><span class="hl-brackets">[</span><span class="hl-quotes">"</span><span class="hl-string">site1</span><span class="hl-quotes">"</span><span class="hl-brackets">]</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_object_nested" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>修改值</h3>
+<p>你可以使用点号 <span class="marked">.</span> 来修改 JSON 对象的值：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">myObj</span><span class="hl-code">.</span><span class="hl-identifier">sites</span><span class="hl-code">.</span><span class="hl-identifier">site1</span><span class="hl-code"> = </span><span class="hl-quotes">"</span><span class="hl-string">www.google.com</span><span class="hl-quotes">"</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_object_modify" class="ext">尝试一下 »</a>
+
+<p>你可以使用中括号 <span class="marked">[...]</span> 来修改 JSON 对象的值：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">myObj</span><span class="hl-code">.</span><span class="hl-identifier">sites</span><span class="hl-brackets">[</span><span class="hl-quotes">"</span><span class="hl-string">site1</span><span class="hl-quotes">"</span><span class="hl-brackets">]</span><span class="hl-code"> = </span><span class="hl-quotes">"</span><span class="hl-string">www.google.com</span><span class="hl-quotes">"</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_object_modify_bracket" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>删除对象属性</h3>
+<p>我们可以使用 <b>delete</b> 关键字来删除 JSON 对象的属性：</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">delete</span><span class="hl-code"> </span><span class="hl-identifier">myObj</span><span class="hl-code">.</span><span class="hl-identifier">sites</span><span class="hl-code">.</span><span class="hl-identifier">site1</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_object_delete" class="ext">尝试一下 »</a>
+
+<p>你可以使用中括号 <span class="marked">[...]</span> 来删除 JSON 对象的属性：</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">delete</span><span class="hl-code"> </span><span class="hl-identifier">myObj</span><span class="hl-code">.</span><span class="hl-identifier">sites</span><span class="hl-brackets">[</span><span class="hl-quotes">"</span><span class="hl-string">site1</span><span class="hl-quotes">"</span><span class="hl-brackets">]</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_object_delete_bracket" class="ext">尝试一下 »</a></div></section>
+<section class="ch" id="c6"><h2>6. JSON 数组<a class="chsrc" href="https://www.runoob.com/json/js-json-arrays.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>数组作为 JSON 对象</h3>
+
+<h3>实例</h3>
+
+<span class="hl-brackets">[</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">Google</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">Runoob</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">Taobao</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-brackets">]</span>
+
+<p>JSON 数组在中括号中书写。</p>
+<p>中括号 <span class="marked">[]</span> 保存的数组是值（value）的有序集合。一个数组以左中括号 <span class="marked">[</span> 开始， 右中括号 <span class="marked">]</span> 结束，值之间使用逗号 <span class="marked">,</span> 分隔。</p>
+<p><img src="img/512cc5c177108443.png" loading="lazy"></p>
+<p>JSON 中数组值必须是合法的 JSON 数据类型（字符串, 数字, 对象, 数组, 布尔值或 null）。</p>
+<p>JavaScript 中，数组值可以是以上的 JSON 数据类型，也可以是 JavaScript 的表达式，包括函数，日期，及 <i>undefined</i>。</p>
+
+<hr>
+<h3>JSON 对象中的数组</h3>
+<p>对象属性的值可以是一个数组：</p>
+
+<h3>实例</h3>
+
+<span class="hl-brackets">{</span><span class="hl-code">
+</span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">网站</span><span class="hl-quotes">"</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class="hl-string">num</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-number">3</span><span class="hl-code">,
+</span><span class="hl-quotes">"</span><span class="hl-string">sites</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-brackets">[</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">Google</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">Runoob</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">Taobao</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-brackets">]</span><span class="hl-code">
+</span><span class="hl-brackets">}</span>
+
+<p>我们可以使用索引值来访问数组：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">x</span><span class="hl-code"> = </span><span class="hl-identifier">myObj</span><span class="hl-code">.</span><span class="hl-identifier">sites</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_array_access" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>循环数组</h3>
+<p>你可以使用 for-in 来访问数组：</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">for</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">i</span><span class="hl-code"> </span><span class="hl-reserved">in</span><span class="hl-code"> </span><span class="hl-identifier">myObj</span><span class="hl-code">.</span><span class="hl-identifier">sites</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">x</span><span class="hl-code"> += </span><span class="hl-identifier">myObj</span><span class="hl-code">.</span><span class="hl-identifier">sites</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code"> + </span><span class="hl-quotes">"</span><span class="hl-string">&lt;br&gt;</span><span class="hl-quotes">"</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_array_loop_in" class="ext">尝试一下 »</a>
+
+<p>你也可以使用 for 循环：</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">for</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">i</span><span class="hl-code"> = </span><span class="hl-number">0</span><span class="hl-code">; </span><span class="hl-identifier">i</span><span class="hl-code"> &lt; </span><span class="hl-identifier">myObj</span><span class="hl-code">.</span><span class="hl-identifier">sites</span><span class="hl-code">.</span><span class="hl-identifier">length</span><span class="hl-code">; </span><span class="hl-identifier">i</span><span class="hl-code">++</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">x</span><span class="hl-code"> += </span><span class="hl-identifier">myObj</span><span class="hl-code">.</span><span class="hl-identifier">sites</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code"> + </span><span class="hl-quotes">"</span><span class="hl-string">&lt;br&gt;</span><span class="hl-quotes">"</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_array_loop" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>嵌套 JSON 对象中的数组</h3>
+
+<p>JSON 对象中数组可以包含另外一个数组，或者另外一个 JSON 对象：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">myObj</span><span class="hl-code"> = </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">网站</span><span class="hl-quotes">"</span><span class="hl-code">,
+    </span><span class="hl-quotes">"</span><span class="hl-string">num</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-number">3</span><span class="hl-code">,
+    </span><span class="hl-quotes">"</span><span class="hl-string">sites</span><span class="hl-quotes">"</span><span class="hl-code">: </span><span class="hl-brackets">[</span><span class="hl-code">
+        </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">Google</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">info</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-brackets">[</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">Android</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">Google 搜索</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">Google 翻译</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-brackets">]</span><span class="hl-code"> </span><span class="hl-brackets">}</span><span class="hl-code">,
+        </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">Runoob</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">info</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-brackets">[</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">菜鸟教程</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">菜鸟工具</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">菜鸟微信</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-brackets">]</span><span class="hl-code"> </span><span class="hl-brackets">}</span><span class="hl-code">,
+        </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">Taobao</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">info</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-brackets">[</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">淘宝</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">网购</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-brackets">]</span><span class="hl-code"> </span><span class="hl-brackets">}</span><span class="hl-code">
+    </span><span class="hl-brackets">]</span><span class="hl-code">
+</span><span class="hl-brackets">}</span>
+
+<p>我们可以使用 for-in  来循环访问每个数组：</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">for</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">i</span><span class="hl-code"> </span><span class="hl-reserved">in</span><span class="hl-code"> </span><span class="hl-identifier">myObj</span><span class="hl-code">.</span><span class="hl-identifier">sites</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">x</span><span class="hl-code"> += </span><span class="hl-quotes">"</span><span class="hl-string">&lt;h1&gt;</span><span class="hl-quotes">"</span><span class="hl-code"> + </span><span class="hl-identifier">myObj</span><span class="hl-code">.</span><span class="hl-identifier">sites</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">name</span><span class="hl-code"> + </span><span class="hl-quotes">"</span><span class="hl-string">&lt;/h1&gt;</span><span class="hl-quotes">"</span><span class="hl-code">;
+    </span><span class="hl-reserved">for</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">j</span><span class="hl-code"> </span><span class="hl-reserved">in</span><span class="hl-code"> </span><span class="hl-identifier">myObj</span><span class="hl-code">.</span><span class="hl-identifier">sites</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">info</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-identifier">x</span><span class="hl-code"> += </span><span class="hl-identifier">myObj</span><span class="hl-code">.</span><span class="hl-identifier">sites</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">info</span><span class="hl-brackets">[</span><span class="hl-identifier">j</span><span class="hl-brackets">]</span><span class="hl-code"> + </span><span class="hl-quotes">"</span><span class="hl-string">&lt;br&gt;</span><span class="hl-quotes">"</span><span class="hl-code">;
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-brackets">}</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_array_nested" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>修改数组值</h3>
+<p>你可以使用索引值来修改数组值：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">myObj</span><span class="hl-code">.</span><span class="hl-identifier">sites</span><span class="hl-brackets">[</span><span class="hl-number">1</span><span class="hl-brackets">]</span><span class="hl-code"> = </span><span class="hl-quotes">"</span><span class="hl-string">Github</span><span class="hl-quotes">"</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_array_modify" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>删除数组元素</h3>
+<p>我们可以使用 <b>delete</b> 关键字来删除数组元素：</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">delete</span><span class="hl-code"> </span><span class="hl-identifier">myObj</span><span class="hl-code">.</span><span class="hl-identifier">sites</span><span class="hl-brackets">[</span><span class="hl-number">1</span><span class="hl-brackets">]</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_array_delete" class="ext">尝试一下 »</a></div></section>
+<section class="ch" id="c7"><h2>7. JSON.parse()<a class="chsrc" href="https://www.runoob.com/json/json-parse.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>
+JSON 通常用于与服务端交换数据。</p><p>
+
+在接收服务器数据时一般是字符串。</p><p>
+我们可以使用 JSON.parse() 方法将数据转换为 JavaScript 对象。
+
+</p>
+<h4>语法</h4>
+<pre>JSON.parse(text[, reviver])</pre><p><b>参数说明：</b></p>
+<ul>
+<li><b>text:</b>必需， 一个有效的 JSON 字符串。</li>
+<li><b>reviver:</b> 可选，一个转换结果的函数， 将为对象的每个成员调用此函数。</li>
+</ul>
+<hr>
+<h3>JSON 解析实例</h3>
+<p>例如我们从服务器接收了以下数据：</p>
+
+<span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">runoob</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">alexa</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-number">10000</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">site</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">www.runoob.com</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-brackets">}</span>
+
+<p>我们使用  JSON.parse()  方法处理以上数据，将其转换为 JavaScript 对象：</p>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">obj</span><span class="hl-code"> = </span><span class="hl-identifier">JSON</span><span class="hl-code">.</span><span class="hl-identifier">parse</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">{ "name":"runoob", "alexa":10000, "site":"www.runoob.com" }</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+
+<blockquote>
+<p>解析前要确保你的数据是标准的 JSON 格式，否则会解析出错。</p>
+<p>你可以使用我们的在线工具检测：<a href="https://www.jyshare.com/front-end/53" class="ext">https://www.jyshare.com/front-end/53</a>。</p></blockquote>
+
+<p>解析完成后，我们就可以在网页上使用 JSON 数据了：</p>
+
+<h3>实例</h3>
+
+<span class="hl-brackets">&lt;</span><span class="hl-reserved">p</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">demo</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">p</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+ 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+var obj = JSON.parse('{ "name":"runoob", "alexa":10000, "site":"www.runoob.com" }');
+document.getElementById("demo").innerHTML = obj.name + "：" + obj.site;
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_parse3" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>从服务端接收 JSON 数据</h3>
+<p>我们可以使用 AJAX 从服务器请求 JSON 数据，并解析为 JavaScript 对象。</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">xmlhttp</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">XMLHttpRequest</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">onreadystatechange</span><span class="hl-code"> = </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-reserved">this</span><span class="hl-code">.</span><span class="hl-identifier">readyState</span><span class="hl-code"> == </span><span class="hl-number">4</span><span class="hl-code"> &amp;&amp; </span><span class="hl-reserved">this</span><span class="hl-code">.</span><span class="hl-identifier">status</span><span class="hl-code"> == </span><span class="hl-number">200</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-identifier">myObj</span><span class="hl-code"> = </span><span class="hl-identifier">JSON</span><span class="hl-code">.</span><span class="hl-identifier">parse</span><span class="hl-brackets">(</span><span class="hl-reserved">this</span><span class="hl-code">.</span><span class="hl-identifier">responseText</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">demo</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> = </span><span class="hl-identifier">myObj</span><span class="hl-code">.</span><span class="hl-identifier">name</span><span class="hl-code">;
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">;
+</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">open</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">GET</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">/try/ajax/json_demo.txt</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-reserved">true</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">send</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_ajax" class="ext">尝试一下 »</a>
+<p>查看服务端数据： <a href="https://www.runoob.com/try/ajax/json_demo.txt" class="ext">json_demo.txt</a></p>
+
+<hr>
+<h3><h3>从服务端接收数组的 JSON 数据</h3>
+<p>如果从服务端接收的是数组的 JSON 数据，则 JSON.parse 会将其转换为 JavaScript 数组：</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">xmlhttp</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">XMLHttpRequest</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">onreadystatechange</span><span class="hl-code"> = </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-reserved">this</span><span class="hl-code">.</span><span class="hl-identifier">readyState</span><span class="hl-code"> == </span><span class="hl-number">4</span><span class="hl-code"> &amp;&amp; </span><span class="hl-reserved">this</span><span class="hl-code">.</span><span class="hl-identifier">status</span><span class="hl-code"> == </span><span class="hl-number">200</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-identifier">myArr</span><span class="hl-code"> = </span><span class="hl-identifier">JSON</span><span class="hl-code">.</span><span class="hl-identifier">parse</span><span class="hl-brackets">(</span><span class="hl-reserved">this</span><span class="hl-code">.</span><span class="hl-identifier">responseText</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">demo</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> = </span><span class="hl-identifier">myArr</span><span class="hl-brackets">[</span><span class="hl-number">1</span><span class="hl-brackets">]</span><span class="hl-code">;
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">;
+</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">open</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">GET</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">/try/ajax/json_demo_array.txt</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-reserved">true</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">xmlhttp</span><span class="hl-code">.</span><span class="hl-identifier">send</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_ajax_array" class="ext">尝试一下 »</a>
+<p>查看服务端数据： <a href="https://www.runoob.com/try/ajax/json_demo_array.txt" class="ext">json_demo_array.txt</a></p>
+
+<hr>
+<h3>异常</h3>
+<h4>解析数据</h4>
+<p>JSON 不能存储 Date 对象。</p>
+<p>如果你需要存储 Date 对象，需要将其转换为字符串。</p>
+<p>之后再将字符串转换为 Date 对象。</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">text</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">{ "name":"Runoob", "initDate":"2013-12-14", "site":"www.runoob.com"}</span><span class="hl-quotes">'</span><span class="hl-code">;
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">obj</span><span class="hl-code"> = </span><span class="hl-identifier">JSON</span><span class="hl-code">.</span><span class="hl-identifier">parse</span><span class="hl-brackets">(</span><span class="hl-identifier">text</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">obj</span><span class="hl-code">.</span><span class="hl-identifier">initDate</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-builtin">Date</span><span class="hl-brackets">(</span><span class="hl-identifier">obj</span><span class="hl-code">.</span><span class="hl-identifier">initDate</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">demo</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> = </span><span class="hl-identifier">obj</span><span class="hl-code">.</span><span class="hl-identifier">name</span><span class="hl-code"> + </span><span class="hl-quotes">"</span><span class="hl-string">创建日期: </span><span class="hl-quotes">"</span><span class="hl-code"> + </span><span class="hl-identifier">obj</span><span class="hl-code">.</span><span class="hl-identifier">initDate</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_parse_date" class="ext">尝试一下 »</a>
+
+<p>我们可以启用 JSON.parse 的第二个参数 reviver，一个转换结果的函数，对象的每个成员调用此函数。</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">text</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">{ "name":"Runoob", "initDate":"2013-12-14", "site":"www.runoob.com"}</span><span class="hl-quotes">'</span><span class="hl-code">;
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">obj</span><span class="hl-code"> = </span><span class="hl-identifier">JSON</span><span class="hl-code">.</span><span class="hl-identifier">parse</span><span class="hl-brackets">(</span><span class="hl-identifier">text</span><span class="hl-code">, </span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">key</span><span class="hl-code">, </span><span class="hl-identifier">value</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">key</span><span class="hl-code"> == </span><span class="hl-quotes">"</span><span class="hl-string">initDate</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-builtin">Date</span><span class="hl-brackets">(</span><span class="hl-identifier">value</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-brackets">}</span><span class="hl-code"> </span><span class="hl-reserved">else</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-identifier">value</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">demo</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> = </span><span class="hl-identifier">obj</span><span class="hl-code">.</span><span class="hl-identifier">name</span><span class="hl-code"> + </span><span class="hl-quotes">"</span><span class="hl-string">创建日期：</span><span class="hl-quotes">"</span><span class="hl-code"> + </span><span class="hl-identifier">obj</span><span class="hl-code">.</span><span class="hl-identifier">initDate</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_parse_reviver" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>解析函数</h3>
+<p>JSON 不允许包含函数，但你可以将函数作为字符串存储，之后再将字符串转换为函数。</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">text</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">{ "name":"Runoob", "alexa":"function () {return 10000;}", "site":"www.runoob.com"}</span><span class="hl-quotes">'</span><span class="hl-code">;
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">obj</span><span class="hl-code"> = </span><span class="hl-identifier">JSON</span><span class="hl-code">.</span><span class="hl-identifier">parse</span><span class="hl-brackets">(</span><span class="hl-identifier">text</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">obj</span><span class="hl-code">.</span><span class="hl-identifier">alexa</span><span class="hl-code"> = </span><span class="hl-identifier">eval</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">(</span><span class="hl-quotes">"</span><span class="hl-code"> + </span><span class="hl-identifier">obj</span><span class="hl-code">.</span><span class="hl-identifier">alexa</span><span class="hl-code"> + </span><span class="hl-quotes">"</span><span class="hl-string">)</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">demo</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> = </span><span class="hl-identifier">obj</span><span class="hl-code">.</span><span class="hl-identifier">name</span><span class="hl-code"> + </span><span class="hl-quotes">"</span><span class="hl-string"> Alexa 排名：</span><span class="hl-quotes">"</span><span class="hl-code"> + </span><span class="hl-identifier">obj</span><span class="hl-code">.</span><span class="hl-identifier">alexa</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_parse_function" class="ext">尝试一下 »</a>
+
+<p>不建议在 JSON 中使用函数。</p>
+<hr>
+<h3>浏览器支持</h3>
+<p>主流浏览器都支持 JSON.parse() 函数：</p>
+<table>
+  <tbody><tr>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>                
+  </tr>
+  <tr>
+    <td>支持</td>
+    <td>8.0</td>    
+    <td>3.5</td>
+    <td>4.0</td>
+    <td>10.0</td>
+  </tr>
+</tbody></table><p>
+
+旧版浏览器可以使用第三方库来支持：<a href="https://github.com/douglascrockford/JSON-js" class="ext">https://github.com/douglascrockford/JSON-js</a></p>			
+						
+			
+			
+		
+
+		
+		
+
+		
+		
+		
+</h3></div></section>
+<section class="ch" id="c8"><h2>8. JSON.stringify()<a class="chsrc" href="https://www.runoob.com/json/json-stringify.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>
+JSON 通常用于与服务端交换数据。</p><p>
+
+在向服务器发送数据时一般是字符串。</p><p>
+我们可以使用 JSON.stringify() 方法将 JavaScript 对象转换为字符串。
+
+</p>
+<h4>语法</h4>
+<pre>JSON.stringify(value[, replacer[, space]])</pre><p><b>参数说明：</b></p>
+<ul>
+<li><b>value:</b><p>必需， 要转换的 JavaScript 值（通常为对象或数组）。</p></li>
+<li><b>replacer:</b> <p>可选。用于转换结果的函数或数组。</p><p>
+如果 replacer 为函数，则 JSON.stringify 将调用该函数，并传入每个成员的键和值。使用返回值而不是原始值。如果此函数返回 undefined，则排除成员。根对象的键是一个空字符串：""。</p><p>
+如果 replacer 是一个数组，则仅转换该数组中具有键值的成员。成员的转换顺序与键在数组中的顺序一样。当 value 参数也为数组时，将忽略 replacer 数组。</p></li>
+<li><b>space:</b> <p>可选，文本添加缩进、空格和换行符，如果 space 是一个数字，则返回值文本在每个级别缩进指定数目的空格，如果 space 大于 10，则文本缩进 10 个空格。space 也可以使用非数字，如：\t。</p></li>
+</ul>
+<hr>
+<h3>JavaScript 对象转换</h3>
+<p>例如我们向服务器发送以下数据：</p>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">obj</span><span class="hl-code"> = </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">runoob</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">alexa</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-number">10000</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">site</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">www.runoob.com</span><span class="hl-quotes">"</span><span class="hl-brackets">}</span><span class="hl-code">;</span>
+
+<p>我们使用  JSON.stringify()  方法处理以上数据，将其转换为字符串：</p>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">myJSON</span><span class="hl-code"> = </span><span class="hl-identifier">JSON</span><span class="hl-code">.</span><span class="hl-identifier">stringify</span><span class="hl-brackets">(</span><span class="hl-identifier">obj</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+
+<p>myJSON 为字符串。</p>
+<p>我们可以将 myJSON 发送到服务器：</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">obj</span><span class="hl-code"> = </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">runoob</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">alexa</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-number">10000</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">site</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">www.runoob.com</span><span class="hl-quotes">"</span><span class="hl-brackets">}</span><span class="hl-code">;
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">myJSON</span><span class="hl-code"> = </span><span class="hl-identifier">JSON</span><span class="hl-code">.</span><span class="hl-identifier">stringify</span><span class="hl-brackets">(</span><span class="hl-identifier">obj</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">demo</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> = </span><span class="hl-identifier">myJSON</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_stringify1" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>JavaScript 数组转换</h3>
+
+<p>我们也可以将 JavaScript 数组转换为 JSON 字符串：</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">arr</span><span class="hl-code"> = </span><span class="hl-brackets">[</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">Google</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">Runoob</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">Taobao</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">Facebook</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-brackets">]</span><span class="hl-code">;
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">myJSON</span><span class="hl-code"> = </span><span class="hl-identifier">JSON</span><span class="hl-code">.</span><span class="hl-identifier">stringify</span><span class="hl-brackets">(</span><span class="hl-identifier">arr</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+
+<p>myJSON 为字符串。</p>
+<p>我们可以将 myJSON 发送到服务器：</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">arr</span><span class="hl-code"> = </span><span class="hl-brackets">[</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">Google</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">Runoob</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">Taobao</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">Facebook</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-brackets">]</span><span class="hl-code">;
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">myJSON</span><span class="hl-code"> = </span><span class="hl-identifier">JSON</span><span class="hl-code">.</span><span class="hl-identifier">stringify</span><span class="hl-brackets">(</span><span class="hl-identifier">arr</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">demo</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> = </span><span class="hl-identifier">myJSON</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_stringify2" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>异常</h3>
+<h4>解析数据</h4>
+<p>JSON 不能存储 Date 对象。</p>
+<p>JSON.stringify() 会将所有日期转换为字符串。</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">obj</span><span class="hl-code"> = </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">Runoob</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">initDate</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-builtin">Date</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">site</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">www.runoob.com</span><span class="hl-quotes">"</span><span class="hl-brackets">}</span><span class="hl-code">;
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">myJSON</span><span class="hl-code"> = </span><span class="hl-identifier">JSON</span><span class="hl-code">.</span><span class="hl-identifier">stringify</span><span class="hl-brackets">(</span><span class="hl-identifier">obj</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">demo</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> = </span><span class="hl-identifier">myJSON</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_stringify_date" class="ext">尝试一下 »</a>
+
+<p>之后你可以再将字符串转换为 Date 对象。</p>
+
+<hr>
+<h3>解析函数</h3>
+<p>JSON 不允许包含函数，JSON.stringify() 会删除 JavaScript 对象的函数，包括 key 和 value。</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">obj</span><span class="hl-code"> = </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">Runoob</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">alexa</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-number">10000</span><span class="hl-code">;</span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">site</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">www.runoob.com</span><span class="hl-quotes">"</span><span class="hl-brackets">}</span><span class="hl-code">;
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">myJSON</span><span class="hl-code"> = </span><span class="hl-identifier">JSON</span><span class="hl-code">.</span><span class="hl-identifier">stringify</span><span class="hl-brackets">(</span><span class="hl-identifier">obj</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">demo</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> = </span><span class="hl-identifier">myJSON</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_stringify_function" class="ext">尝试一下 »</a>
+
+<p>我们可以在执行 JSON.stringify() 函数前将函数转换为字符串来避免以上问题的发生：</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">obj</span><span class="hl-code"> = </span><span class="hl-brackets">{</span><span class="hl-code"> </span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">Runoob</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">alexa</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-number">10000</span><span class="hl-code">;</span><span class="hl-brackets">}</span><span class="hl-code">, </span><span class="hl-quotes">"</span><span class="hl-string">site</span><span class="hl-quotes">"</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">www.runoob.com</span><span class="hl-quotes">"</span><span class="hl-brackets">}</span><span class="hl-code">;
+</span><span class="hl-identifier">obj</span><span class="hl-code">.</span><span class="hl-identifier">alexa</span><span class="hl-code"> = </span><span class="hl-identifier">obj</span><span class="hl-code">.</span><span class="hl-identifier">alexa</span><span class="hl-code">.</span><span class="hl-identifier">toString</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">myJSON</span><span class="hl-code"> = </span><span class="hl-identifier">JSON</span><span class="hl-code">.</span><span class="hl-identifier">stringify</span><span class="hl-brackets">(</span><span class="hl-identifier">obj</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">demo</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> = </span><span class="hl-identifier">myJSON</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_stringify_function_tostring" class="ext">尝试一下 »</a>
+
+<p>不建议在 JSON 中使用函数。</p>
+<hr>
+<h3>浏览器支持</h3>
+<p>主流浏览器都支持 JSON.stringify() 函数：</p>
+<ul>
+  <li>Firefox 3.5</li>
+  <li>Internet Explorer 8</li>
+  <li>Chrome</li>
+  <li>Opera 10</li>
+  <li>Safari 4<br></li>
+</ul></div></section>
+<section class="ch" id="c9"><h2>9. JSON 使用<a class="chsrc" href="https://www.runoob.com/json/json-eval.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>把 JSON 文本转换为 JavaScript 对象</h3>
+
+<p>JSON 最常见的用法之一，是从 web 服务器上读取 JSON 数据（作为文件或作为 HttpRequest），将 JSON 数据转换为 JavaScript 对象，然后在网页中使用该数据。</p>
+
+<p>为了更简单地为您讲解，我们使用字符串作为输入进行演示（而不是文件）。</p>
+
+<hr>
+<h3>JSON 实例 - 来自字符串的对象</h3>
+<p>创建包含 JSON 语法的 JavaScript 字符串：</p>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">txt</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">{ "sites" : [</span><span class="hl-quotes">'</span><span class="hl-code"> +
+</span><span class="hl-quotes">'</span><span class="hl-string">{ "name":"菜鸟教程" , "url":"www.runoob.com" },</span><span class="hl-quotes">'</span><span class="hl-code"> +
+</span><span class="hl-quotes">'</span><span class="hl-string">{ "name":"google" , "url":"www.google.com" },</span><span class="hl-quotes">'</span><span class="hl-code"> +
+</span><span class="hl-quotes">'</span><span class="hl-string">{ "name":"微博" , "url":"www.weibo.com" } ]}</span><span class="hl-quotes">'</span><span class="hl-code">;</span>
+
+<p>由于 JSON 语法是 JavaScript 语法的子集，JavaScript 函数 eval() 可用于将 JSON 文本转换为 JavaScript 对象。</p>
+
+<p>eval() 函数使用的是 JavaScript 编译器，可解析 JSON 文本，然后生成 JavaScript 对象。必须把文本包围在括号中，这样才能避免语法错误：</p>
+
+var obj = eval ("(" + txt + ")");
+
+<p>在网页中使用 JavaScript 对象：</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">txt</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">{ "sites" : [</span><span class="hl-quotes">'</span><span class="hl-code"> +
+</span><span class="hl-quotes">'</span><span class="hl-string">{ "name":"菜鸟教程" , "url":"www.runoob.com" },</span><span class="hl-quotes">'</span><span class="hl-code"> +
+</span><span class="hl-quotes">'</span><span class="hl-string">{ "name":"google" , "url":"www.google.com" },</span><span class="hl-quotes">'</span><span class="hl-code"> +
+</span><span class="hl-quotes">'</span><span class="hl-string">{ "name":"微博" , "url":"www.weibo.com" } ]}</span><span class="hl-quotes">'</span><span class="hl-code">;
+ 
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">obj</span><span class="hl-code"> = </span><span class="hl-identifier">eval</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">(</span><span class="hl-quotes">"</span><span class="hl-code"> + </span><span class="hl-identifier">txt</span><span class="hl-code"> + </span><span class="hl-quotes">"</span><span class="hl-string">)</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">name</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code">=</span><span class="hl-identifier">obj</span><span class="hl-code">.</span><span class="hl-identifier">sites</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">name</span><span class="hl-code"> 
+</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">url</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code">=</span><span class="hl-identifier">obj</span><span class="hl-code">.</span><span class="hl-identifier">sites</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">url</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryjson_eval" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>JSON 解析器</h3>
+<p><img src="https://www.runoob.com/images/lamp2.gif" data-ext="1" alt="lamp" loading="lazy">  eval() 函数可编译并执行任何 JavaScript 代码。这隐藏了一个潜在的安全问题。</p>
+<p>使用 JSON 解析器将 JSON 转换为 JavaScript 对象是更安全的做法。JSON 解析器只能识别 JSON 文本，而不会编译脚本。 </p>
+<p>在浏览器中，这提供了原生的 JSON 支持，而且 JSON 解析器的速度更快。</p>
+<p>较新的浏览器和最新的 ECMAScript (JavaScript) 标准中均包含了原生的对 JSON 的支持。</p>
+<table>
+<tr>
+<th>Web 浏览器支持</th>
+<th>Web 软件支持</th>
+</tr>
+<tr>
+<td><ul>
+<li>Firefox (Mozilla) 3.5</li>
+	<li>Internet Explorer 8</li>
+	<li>Chrome</li>
+	<li>Opera 10</li>
+	<li>Safari 4<br>
+</li>
+</ul></td>
+<td><ul>
+<li>jQuery</li>
+	<li>Yahoo UI</li>
+	<li>Prototype</li>
+	<li>Dojo</li>
+	<li>ECMAScript 1.5<br>
+</li>
+</ul></td>
+</tr>
+</table>
+<p><a href="https://www.runoob.com/try/try.php?filename=tryjson_parse" class="ext">尝试一下 »</a></p>
+<p>对于较老的浏览器，可使用 JavaScript 库：
+<a href="https://github.com/douglascrockford/JSON-js" class="ext">
+https://github.com/douglascrockford/JSON-js</a></p>
+<p>JSON 格式最初是
+<a href="http://developer.yahoo.com/yui/theater/video.php?v=crockford-json" class="ext">
+originally specified by Douglas Crockford</a> </p></div></section>
+<section class="ch" id="c10"><h2>10. JSONP 教程<a class="chsrc" href="https://www.runoob.com/json/json-jsonp.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>本章节我们将向大家介绍 JSONP 的知识。</p>
+<p>Jsonp(JSON with Padding) 是 json 的一种"使用模式"，可以让网页从别的域名（网站）那获取资料，即跨域读取数据。</p>
+<p>
+为什么我们从不同的域（网站）访问数据需要一个特殊的技术( JSONP )呢？这是因为同源策略。
+</p><p>同源策略，它是由 Netscape 提出的一个著名的安全策略，现在所有支持 JavaScript 的浏览器都会使用这个策略。</p>
+
+<hr>
+<h3>JSONP 应用</h3>
+<h4>1. 服务端 JSONP 格式数据</h4>
+<p>如客户想访问 : <strong>https://www.runoob.com/try/ajax/jsonp.php?jsoncallback=callbackFunction</strong>。</p>
+<p>假设客户期望返回数据：["customername1","customername2"]。</p>
+<p>真正返回到客户端的数据显示为: callbackFunction(["customername1","customername2"])。</p>
+<p>服务端文件 jsonp.php 代码为：</p>
+
+<h3>jsonp.php 文件代码</h3>
+
+<span class="hl-inlinetags">&lt;?php</span><span class="hl-code">
+</span><span class="hl-identifier">header</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">Content-type: application/json</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-comment">//</span><span class="hl-comment">获取回调函数名</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-var">$jsoncallback</span><span class="hl-code"> = </span><span class="hl-identifier">htmlspecialchars</span><span class="hl-brackets">(</span><span class="hl-var">$_REQUEST</span><span class="hl-code"> </span><span class="hl-brackets">[</span><span class="hl-quotes">'</span><span class="hl-string">jsoncallback</span><span class="hl-quotes">'</span><span class="hl-brackets">]</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-comment">//</span><span class="hl-comment">json数据</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-var">$json_data</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">["customername1","customername2"]</span><span class="hl-quotes">'</span><span class="hl-code">;
+</span><span class="hl-comment">//</span><span class="hl-comment">输出jsonp格式的数据</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-reserved">echo</span><span class="hl-code"> </span><span class="hl-var">$jsoncallback</span><span class="hl-code"> . </span><span class="hl-quotes">"</span><span class="hl-string">(</span><span class="hl-quotes">"</span><span class="hl-code"> . </span><span class="hl-var">$json_data</span><span class="hl-code"> . </span><span class="hl-quotes">"</span><span class="hl-string">)</span><span class="hl-quotes">"</span><span class="hl-code">;
+</span><span class="hl-inlinetags">?&gt;</span>
+
+<h4>2. 客户端实现 callbackFunction 函数</h4>
+
+<span class="hl-code">&lt;</span><span class="hl-identifier">script</span><span class="hl-code"> </span><span class="hl-identifier">type</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">text/javascript</span><span class="hl-quotes">"</span><span class="hl-code">&gt;
+</span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">callbackFunction</span><span class="hl-brackets">(</span><span class="hl-identifier">result</span><span class="hl-code">, </span><span class="hl-identifier">methodName</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">html</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">&lt;ul&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
+    </span><span class="hl-reserved">for</span><span class="hl-brackets">(</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">i</span><span class="hl-code"> = </span><span class="hl-number">0</span><span class="hl-code">; </span><span class="hl-identifier">i</span><span class="hl-code"> &lt; </span><span class="hl-identifier">result</span><span class="hl-code">.</span><span class="hl-identifier">length</span><span class="hl-code">; </span><span class="hl-identifier">i</span><span class="hl-code">++</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-identifier">html</span><span class="hl-code"> += </span><span class="hl-quotes">'</span><span class="hl-string">&lt;li&gt;</span><span class="hl-quotes">'</span><span class="hl-code"> + </span><span class="hl-identifier">result</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code"> + </span><span class="hl-quotes">'</span><span class="hl-string">&lt;/li&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+    </span><span class="hl-identifier">html</span><span class="hl-code"> += </span><span class="hl-quotes">'</span><span class="hl-string">&lt;/ul&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
+    </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">divCustomers</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> = </span><span class="hl-identifier">html</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-code">
+&lt;/</span><span class="hl-identifier">script</span><span class="hl-code">&gt;</span>
+
+<h4>页面展示</h4>
+
+<span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">divCustomers</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span>
+
+<h4>客户端页面完整代码</h4>
+
+<span class="hl-brackets">&lt;</span><span class="hl-code">!</span><span class="hl-var">DOCTYPE</span><span class="hl-code"> </span><span class="hl-var">html</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">html</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">head</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">meta</span><span class="hl-code"> </span><span class="hl-var">charset</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">utf-8</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">title</span><span class="hl-brackets">&gt;</span><span class="hl-code">JSONP 实例</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">title</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">head</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">body</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">divCustomers</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">text/javascript</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span>
+<span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">callbackFunction</span><span class="hl-brackets">(</span><span class="hl-identifier">result</span><span class="hl-code">, </span><span class="hl-identifier">methodName</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">html</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">&lt;ul&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
+    </span><span class="hl-reserved">for</span><span class="hl-brackets">(</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">i</span><span class="hl-code"> = </span><span class="hl-number">0</span><span class="hl-code">; </span><span class="hl-identifier">i</span><span class="hl-code"> &lt; </span><span class="hl-identifier">result</span><span class="hl-code">.</span><span class="hl-identifier">length</span><span class="hl-code">; </span><span class="hl-identifier">i</span><span class="hl-code">++</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-identifier">html</span><span class="hl-code"> += </span><span class="hl-quotes">'</span><span class="hl-string">&lt;li&gt;</span><span class="hl-quotes">'</span><span class="hl-code"> + </span><span class="hl-identifier">result</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code"> + </span><span class="hl-quotes">'</span><span class="hl-string">&lt;/li&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+    </span><span class="hl-identifier">html</span><span class="hl-code"> += </span><span class="hl-quotes">'</span><span class="hl-string">&lt;/ul&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
+    </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">divCustomers</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> = </span><span class="hl-identifier">html</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span>
+<span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">text/javascript</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-var">src</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">https://www.runoob.com/try/ajax/jsonp.php?jsoncallback=callbackFunction</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">body</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">html</span><span class="hl-brackets">&gt;</span>
+
+<hr>
+<h3>jQuery 使用 JSONP</h3>
+<p>以上代码可以使用 jQuery 代码实例：</p>
+
+<span class="hl-brackets">&lt;</span><span class="hl-code">!</span><span class="hl-var">DOCTYPE</span><span class="hl-code"> </span><span class="hl-var">html</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">html</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">head</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">meta</span><span class="hl-code"> </span><span class="hl-var">charset</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">utf-8</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">title</span><span class="hl-brackets">&gt;</span><span class="hl-code">JSONP 实例</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">title</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-code"> </span><span class="hl-var">src</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">https://cdn.static.runoob.com/libs/jquery/1.8.3/jquery.js</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">    
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">head</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">body</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">divCustomers</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span>
+<span class="hl-code">$.</span><span class="hl-identifier">getJSON</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">https://www.runoob.com/try/ajax/jsonp.php?jsoncallback=?</span><span class="hl-quotes">"</span><span class="hl-code">, </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">data</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    
+    </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">html</span><span class="hl-code"> = </span><span class="hl-quotes">'</span><span class="hl-string">&lt;ul&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
+    </span><span class="hl-reserved">for</span><span class="hl-brackets">(</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">i</span><span class="hl-code"> = </span><span class="hl-number">0</span><span class="hl-code">; </span><span class="hl-identifier">i</span><span class="hl-code"> &lt; </span><span class="hl-identifier">data</span><span class="hl-code">.</span><span class="hl-identifier">length</span><span class="hl-code">; </span><span class="hl-identifier">i</span><span class="hl-code">++</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-identifier">html</span><span class="hl-code"> += </span><span class="hl-quotes">'</span><span class="hl-string">&lt;li&gt;</span><span class="hl-quotes">'</span><span class="hl-code"> + </span><span class="hl-identifier">data</span><span class="hl-brackets">[</span><span class="hl-identifier">i</span><span class="hl-brackets">]</span><span class="hl-code"> + </span><span class="hl-quotes">'</span><span class="hl-string">&lt;/li&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+    </span><span class="hl-identifier">html</span><span class="hl-code"> += </span><span class="hl-quotes">'</span><span class="hl-string">&lt;/ul&gt;</span><span class="hl-quotes">'</span><span class="hl-code">;
+    
+    $</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">#divCustomers</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">html</span><span class="hl-brackets">(</span><span class="hl-identifier">html</span><span class="hl-brackets">)</span><span class="hl-code">; 
+</span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+<span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">body</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">html</span><span class="hl-brackets">&gt;</span></div></section>
+<section class="ch" id="c11"><h2>11. PHP JSON<a class="chsrc" href="https://www.runoob.com/php/php-json.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>本章节我们将为大家介绍如何使用 PHP 语言来编码和解码 JSON 对象。</p>
+<hr>
+<h3>环境配置</h3>
+<p>在 php5.2.0 及以上版本已经内置 JSON 扩展。</p>
+<hr>
+<h3>JSON 函数</h3>
+<table>
+<tbody><tr><th>函数</th><th>描述</th></tr>
+<tr><td>json_encode </td><td>对变量进行 JSON 编码</td></tr>
+<tr><td>json_decode</td><td>对 JSON 格式的字符串进行解码，转换为 PHP 变量 </td></tr>
+<tr><td>json_last_error</td><td> 返回最后发生的错误</td></tr>
+</tbody></table>
+<hr>
+<h3>
+json_encode</h3>
+<p>PHP json_encode() 用于对变量进行 JSON 编码，该函数如果执行成功返回 JSON  数据，否则返回 FALSE 。</p>
+<h4>语法</h4>
+<pre>string json_encode ( $value [, $options = 0 ] )</pre>
+<h4>参数</h4>
+<ul>
+<li><b>value</b>: 要编码的值。该函数只对 UTF-8 编码的数据有效。</li>
+<li><p><b>options</b>:由以下常量组成的二进制掩码 JSON_HEX_QUOT, JSON_HEX_TAG, JSON_HEX_AMP, JSON_HEX_APOS, JSON_NUMERIC_CHECK, JSON_PRETTY_PRINT, JSON_UNESCAPED_SLASHES, JSON_FORCE_OBJECT, JSON_PRESERVE_ZERO_FRACTION, JSON_UNESCAPED_UNICODE, JSON_PARTIAL_OUTPUT_ON_ERROR。</p> 要注意的是 JSON_UNESCAPED_UNICODE 选项，如果我们不希望中文被编码，可以添加该选项。 </li>
+</ul>
+
+<h4>实例</h4>
+<p>以下实例演示了如何将 PHP 数组转换为 JSON 格式数据：</p>
+<pre>
+&lt;?php
+   $arr = array('a' =&gt; 1, 'b' =&gt; 2, 'c' =&gt; 3, 'd' =&gt; 4, 'e' =&gt; 5);
+   echo json_encode($arr);
+?&gt;
+</pre>
+<p>以上代码执行结果为：</p>
+<pre>
+{"a":1,"b":2,"c":3,"d":4,"e":5}
+</pre>
+<p>以下实例演示了如何将 PHP 对象转换为 JSON 格式数据：</p>
+
+<h3>实例</h3> 
+<span style="color:#000000">&lt;?php</span><br>
+   <span style="color:#000000">class</span> Emp <span style="color:#164">{</span><br>
+       <span style="color:#000000">public</span> <span style="color:#05a">$name</span> <span style="color:#000000">=</span> <span style="color:#a11">""</span><span style="color:#000000">;</span><br>
+       <span style="color:#000000">public</span> <span style="color:#05a">$hobbies</span>  <span style="color:#000000">=</span> <span style="color:#a11">""</span><span style="color:#000000">;</span><br>
+       <span style="color:#000000">public</span> <span style="color:#05a">$birthdate</span> <span style="color:#000000">=</span> <span style="color:#a11">""</span><span style="color:#000000">;</span><br>
+   <span style="color:#164">}</span><br>
+   <span style="color:#05a">$e</span> <span style="color:#000000">=</span> <span style="color:#000000">new</span> Emp<span style="color:#164">(</span><span style="color:#164">)</span><span style="color:#000000">;</span><br>
+   <span style="color:#05a">$e</span><span style="color:#000000">-&gt;</span><span style="color:#004000">name</span> <span style="color:#000000">=</span> <span style="color:#a11">"sachin"</span><span style="color:#000000">;</span><br>
+   <span style="color:#05a">$e</span><span style="color:#000000">-&gt;</span><span style="color:#004000">hobbies</span>  <span style="color:#000000">=</span> <span style="color:#a11">"sports"</span><span style="color:#000000">;</span><br>
+   <span style="color:#05a">$e</span><span style="color:#000000">-&gt;</span><span style="color:#004000">birthdate</span> <span style="color:#000000">=</span> <span style="color:#990000">date</span><span style="color:#164">(</span><span style="color:#a11">'m/d/Y h:i:s a'</span><span style="color:#000000">,</span> <span style="color:#a11">"8/5/1974 12:20:03 p"</span><span style="color:#164">)</span><span style="color:#000000">;</span><br>
+   <span style="color:#05a">$e</span><span style="color:#000000">-&gt;</span><span style="color:#004000">birthdate</span> <span style="color:#000000">=</span> <span style="color:#990000">date</span><span style="color:#164">(</span><span style="color:#a11">'m/d/Y h:i:s a'</span><span style="color:#000000">,</span> <span style="color:#990000">strtotime</span><span style="color:#164">(</span><span style="color:#a11">"8/5/1974 12:20:03"</span><span style="color:#164">)</span><span style="color:#164">)</span><span style="color:#000000">;</span><br>
+<br>
+   <span style="color:#708">echo</span> <span style="color:#990000">json_encode</span><span style="color:#164">(</span><span style="color:#05a">$e</span><span style="color:#164">)</span><span style="color:#000000">;</span><br>
+<span style="color:#000000">?&gt;</span><br>
+
+<p>以上代码执行结果为：</p>
+<pre>
+{"name":"sachin","hobbies":"sports","birthdate":"08\/05\/1974 12:20:03 pm"}
+</pre>
+
+<h3>使用 JSON_UNESCAPED_UNICODE 选项</h3> 
+<span style="color:#000000">&lt;</span>?php<br>
+   <span style="color:#007800">$arr</span> = array<span style="color:#7a0874">(</span><span style="color:#a10">'runoob'</span> =<span style="color:#000000">&gt;</span> <span style="color:#a10">'菜鸟教程'</span>, <span style="color:#a10">'taobao'</span> =<span style="color:#000000">&gt;</span> <span style="color:#a10">'淘宝网'</span><span style="color:#7a0874">)</span>;<br>
+   <span style="color:#7a0874">echo</span> json_encode<span style="color:#7a0874">(</span><span style="color:#007800">$arr</span><span style="color:#7a0874">)</span>; <span style="color:#000000">//</span> 编码中文<br>
+   <span style="color:#7a0874">echo</span> PHP_EOL;  <span style="color:#000000">//</span> 换行符<br>
+   <span style="color:#7a0874">echo</span> json_encode<span style="color:#7a0874">(</span><span style="color:#007800">$arr</span>, JSON_UNESCAPED_UNICODE<span style="color:#7a0874">)</span>;  <span style="color:#000000">//</span> 不编码中文<br>
+?<span style="color:#000000">&gt;</span><br>
+
+<p>以上代码执行结果为：</p>
+<pre>
+{"runoob":"\u83dc\u9e1f\u6559\u7a0b","taobao":"\u6dd8\u5b9d\u7f51"}
+{"runoob":"菜鸟教程","taobao":"淘宝网"}
+</pre>
+<hr>
+<h3>json_decode</h3>
+<p>PHP json_decode() 函数用于对 JSON 格式的字符串进行解码，并转换为 PHP 变量。</p>
+<h4>语法</h4>
+<pre>
+mixed json_decode ($json_string [,$assoc = false [, $depth = 512 [, $options = 0 ]]])
+</pre>
+<h4>参数</h4>
+<ul>
+<li><p><b>json_string</b>: 待解码的 JSON 字符串，必须是 UTF-8 编码数据</p></li>
+<li><p><b>assoc</b>: 当该参数为 TRUE 时，将返回数组，FALSE 时返回对象。</p></li>
+<li><p><b>depth</b>: 整数类型的参数，它指定递归深度</p></li>
+<li><p><b>options</b>: 二进制掩码，目前只支持 JSON_BIGINT_AS_STRING 。</p></li>
+</ul>
+<h4>实例</h4>
+<p>以下实例演示了如何解码 JSON 数据：</p>
+<h3>实例</h3> 
+<span style="color:#000000">&lt;?php</span><br>
+   <span style="color:#05a">$json</span> <span style="color:#000000">=</span> <span style="color:#a11">'{"a":1,"b":2,"c":3,"d":4,"e":5}'</span><span style="color:#000000">;</span><br>
+<br>
+   <span style="color:#990000">var_dump</span><span style="color:#164">(</span><span style="color:#990000">json_decode</span><span style="color:#164">(</span><span style="color:#05a">$json</span><span style="color:#164">)</span><span style="color:#164">)</span><span style="color:#000000">;</span><br>
+   <span style="color:#990000">var_dump</span><span style="color:#164">(</span><span style="color:#990000">json_decode</span><span style="color:#164">(</span><span style="color:#05a">$json</span><span style="color:#000000">,</span> <span style="color:#164">true</span><span style="color:#164">)</span><span style="color:#164">)</span><span style="color:#000000">;</span><br>
+<span style="color:#000000">?&gt;</span><br>
+
+<p>以上代码执行结果为：</p>
+<pre>
+object(stdClass)#1 (5) {
+    ["a"] =&gt; int(1)
+    ["b"] =&gt; int(2)
+    ["c"] =&gt; int(3)
+    ["d"] =&gt; int(4)
+    ["e"] =&gt; int(5)
+}
+
+array(5) {
+    ["a"] =&gt; int(1)
+    ["b"] =&gt; int(2)
+    ["c"] =&gt; int(3)
+    ["d"] =&gt; int(4)
+    ["e"] =&gt; int(5)
+}
+</pre></div></section>
+<section class="ch" id="c12"><h2>12. JSON格式化工具<a class="chsrc" href="http://c.runoob.com/front-end/53" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p class="miss">[该页正文未能提取]</p></div></section>
+<footer><p>离线版 · 内容抓取自 runoob.com，仅用于个人离线阅读；页面结构与广告已去除，原文版权归菜鸟教程及原作者。</p><p><a href="index.html">← 返回总索引</a></p></footer></body></html>

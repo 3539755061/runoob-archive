@@ -1,0 +1,2555 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Markdown 教程 · 离线版</title>
+<link rel="stylesheet" href="css/offline.css">
+</head><body>
+<nav class="topbar"><a href="index.html">← 返回总索引</a><span>·</span><span>F 工程化与工具链</span>
+<span>·</span><span>18 章</span></nav>
+<h1>Markdown 教程</h1>
+<p class="docmeta">来源：<a class="ext" href="https://www.runoob.com/markdown/md-tutorial.html">https://www.runoob.com/markdown/md-tutorial.html</a><br>
+适用性：<b style="color:#1a7f37">推荐</b>
+｜ 时效：在役 ｜ 抓取：2026-11-13 ｜ 本页为离线阅读版，章节按教程侧栏顺序合并，广告与评论已去除。</p>
+<details class="toc-ch"><summary>本篇目录（18 章，点击展开）</summary><ol>
+<li><a href="#c1">Markdown 教程</a></li>
+<li><a href="#c2">Markdown 编辑器</a></li>
+<li><a href="#c3">Markdown 第一个文件</a></li>
+<li><a href="#c4">Markdown 标题</a></li>
+<li><a href="#c5">Markdown 文本格式</a></li>
+<li><a href="#c6">Markdown 列表</a></li>
+<li><a href="#c7">Markdown 引用块</a></li>
+<li><a href="#c8">Markdown 代码</a></li>
+<li><a href="#c9">Markdown 链接</a></li>
+<li><a href="#c10">Markdown 图片</a></li>
+<li><a href="#c11">Markdown 表格</a></li>
+<li><a href="#c12">Markdown 高级技巧</a></li>
+<li><a href="#c13">Markdown 分割线</a></li>
+<li><a href="#c14">Markdown 数学公式</a></li>
+<li><a href="#c15">Markdown 图表绘制</a></li>
+<li><a href="#c16">Markdown 实战</a></li>
+<li><a href="#c17">Markdown 测验</a></li>
+<li><a href="#c18">Obsidian 使用教程</a></li>
+</ol></details>
+<section class="ch" id="c1"><h2>1. Markdown 教程<a class="chsrc" href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><img src="img/1e60e8bcce5e03eb.png" loading="lazy">
+<p>Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。</p>
+<p>Markdown 语言在 2004 由约翰·格鲁伯（英语：John Gruber）创建。</p><p>
+Markdown 的设计理念是"易读易写"，让人们能够使用简单的纯文本格式来编写结构化文档。</p>
+<p>Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式的文档。</p>
+
+<p>Markdown 编写的文档后缀为 <span class="marked">.md</span>, <span class="marked">.markdown</span>。</p>
+
+<hr><p>Markdown 的核心特点包括：</p>
+<p><strong>简洁性</strong>：使用直观的符号来表示格式，比如用 <code><span class="marked">#</span></code> 表示标题，用 <code><span class="marked">*</span></code> 表示列表项。这些符号在视觉上就能传达其含义，即使不进行渲染也具有良好的可读性。</p>
+<p><strong>可读性</strong>：即使是纯文本形式的 Markdown 文档，也能清晰地展现文档的结构和层次。读者无需专门的软件就能理解内容的组织方式。</p>
+<p><strong>便携性</strong>：Markdown 文件是纯文本格式，可以在任何文本编辑器中打开和编辑，不依赖特定的软件或操作系统。</p>
+<p><strong>转换性</strong>：可以轻松转换为 HTML、PDF、Word 文档等多种格式，满足不同的发布需求。</p><hr>
+<h3>轻量级标记语言的概念</h3>
+<p>标记语言是一种用特定符号来描述文档结构和格式的语言。传统的标记语言如 HTML 功能强大但语法复杂，而轻量级标记语言则简化了这一过程。</p>
+<p>与 HTML 相比，Markdown 的优势在于：</p>
+<ul>
+    <li>学习成本低，几分钟就能掌握基本语法</li>
+    <li>编写效率高，无需输入复杂的标签</li>
+    <li>专注内容，而非格式细节</li>
+    <li>版本控制友好，便于协作和变更追踪</li>
+</ul><hr>
+<h3>Markdown 与 HTML 的关系
+<p>Markdown 并不是 HTML 的替代品，而是 HTML 的简化版本。实际上，Markdown 的最终目标就是转换为 HTML。两者的关系可以这样理解：</p>
+<pre>Markdown 源码 → 解析器 → HTML 输出 → 浏览器渲染</pre>
+<p>例如，当你写下：</p>
+<pre># 这是一个标题</pre>
+<p>它会被转换为：</p>
+<pre>&lt;h1&gt;这是一个标题&lt;/h1&gt;</pre>
+<p>重要的是，在 Markdown 中你可以直接使用 HTML 标签，这为复杂格式提供了灵活性。当 Markdown 的基础语法无法满足需求时，可以嵌入 HTML 代码来实现特定效果。</p><hr>
+<h3>为什么选择 Markdown</h3>
+<p><strong>提高写作效率</strong>：无需频繁使用鼠标进行格式设置，可以保持思路的连贯性。写作者可以专注于内容创作，而不被格式问题分散注意力。</p>
+<p><strong>降低学习门槛</strong>：相比于 LaTeX、HTML 等标记语言，Markdown 的语法极其简单，大多数人可以在一小时内掌握基本用法。</p>
+<p><strong>广泛兼容性</strong>：几乎所有的现代文本编辑器、代码编辑器、笔记应用都支持 Markdown。从简单的记事本到专业的 IDE，你都能找到 Markdown 的身影。</p>
+<p><strong>版本控制友好</strong>：由于是纯文本格式，Markdown 文件可以很好地与 Git 等版本控制系统配合，便于追踪文档的修改历史和团队协作。</p>
+<p><strong>未来适应性</strong>：即使特定的软件或平台消失，Markdown 文件作为纯文本仍然可以被访问和编辑，确保了内容的长期可用性。</p>
+<hr><h3>Markdown 的应用场景</h3>
+<h4>技术文档编写</h4>
+<p>在软件开发领域，Markdown 已成为技术文档的标准格式。它特别适合：</p>
+	<ul>
+<li><p><strong>API 文档</strong>：清晰的标题层次和代码块展示，让 API 说明既专业又易读。许多 API 文档生成工具（如 Swagger）都支持 Markdown 格式的描述。</p></li>
+	<li>
+<p><strong>项目说明</strong>：从安装指南到使用手册，Markdown 能够有效组织技术信息。代码示例、配置文件、命令行操作都能得到恰当的展示。</p></li>
+	<li>
+<p><strong>开发规范</strong>：团队的编码规范、设计准则、工作流程等都可以用 Markdown 编写，方便团队成员查阅和更新。</p></li></ul>
+
+<h4>博客文章创作</h4>
+<p>现代的博客平台和静态网站生成器大多支持 Markdown：</p>
+	<ul>
+<li><p><strong>内容管理</strong>：博主可以专注于内容创作，而不必担心复杂的 HTML 编码。文章的格式化通过简单的标记即可完成。</p></li>
+	<li>
+<p><strong>平台迁移</strong>：使用 Markdown 编写的文章可以轻松在不同平台间迁移，不会因为平台特有的格式而被锁定。</p></li>
+	<li>
+<p><strong>离线编写</strong>：可以在任何文本编辑器中离线编写文章，然后批量发布，提高了写作的灵活性。</p></li></ul>
+
+<h4>GitHub README 文件</h4>
+<p>GitHub 平台广泛使用 Markdown，特别是项目的 README 文件：</p>	<ul>
+<li>
+<p><strong>项目介绍</strong>：清晰展示项目的目的、特性、使用方法等关键信息。</p></li>
+	<li>
+<p><strong>安装指南</strong>：通过代码块和列表，提供详细的安装和配置步骤。</p></li>
+	<li>
+<p><strong>贡献指南</strong>：说明如何参与项目开发，包括代码规范、提交流程等。</p></li>
+	<li>
+<p><strong>问题跟踪</strong>：在 Issues 和 Pull Requests 中，开发者使用 Markdown 来描述问题、提供解决方案。</p></li></ul>
+
+<h4>笔记记录和知识管理</h4>
+<p>Markdown 正成为数字笔记的首选格式：</p>	<ul>
+<li>
+<p><strong>学习笔记</strong>：支持数学公式、代码高亮、图表等多种内容类型，适合技术学习和知识整理。</p></li>
+	<li>
+<p><strong>会议记录</strong>：清晰的标题结构和列表格式，让会议要点一目了然。</p></li>
+	<li>
+<p><strong>知识库建设</strong>：企业和个人都在使用 Markdown 构建知识库，通过链接和标签组织信息。</p></li></ul>
+
+<h4>在线写作平台</h4>
+<p>越来越多的写作平台开始支持 Markdown：</p>	<ul>
+<li>
+<p><strong>GitHub、简书、知乎</strong>：这些平台的编辑器支持 Markdown 语法，让创作者能够快速格式化文章。</p></li>
+	<li>
+<p><strong>GitBook、Notion</strong>：专业的文档和笔记平台，原生支持 Markdown，提供强大的组织和协作功能。</p></li>
+	<li>
+<p><strong>静态博客生成器</strong>：Jekyll、Hugo、Hexo 等工具让用户能够用 Markdown 创建专业的网站。</p></li></ul>
+
+<hr>
+<h3>有用的书籍</h3>
+<p>《了不起的Markdown》：</p>
+<ul><li>
+ <a href="https://union-click.jd.com/jdc?e=618%7Cpc%7C&amp;p=JF8BAM0JK1olXwUFU1xdCE4TBl8IGFwSVQUEUW4ZVxNJXF9RXh5UHw0cSgYYXBcIWDoXSQVJQwYBU1lVC00SHDZNRwYlIXBjCCEWQUl0dmhjaBBFWVp7FABVXkcbM244GFkUXwYyZF5aOBl529m-w_6kQdKo24vVn3sWM28PHV0cVQ4GVl5aAE0nBG8BKx5NDVlCDBcFV3snM2w4HFscSQBwFQxJDjknM284GGsVVA4DV15dAU8LA24LGVMJXQEEUldVAE4eAG0PHWsXXAcGXW5t" class="ext">京东</a></li></ul>
+			
+						
+			
+			
+		
+
+		
+		
+
+		
+		
+		
+</h3></div></section>
+<section class="ch" id="c2"><h2>2. Markdown 编辑器<a class="chsrc" href="https://www.runoob.com/markdown/md-editor.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>工欲善其事，必先利其器，选择一个合适的编辑器对学习 Markdown 至关重要：</p>
+<h4>1、专业代码编辑器</h4>
+<p><em>Visual Studio Code</em>：微软开发的免费编辑器，通过安装 Markdown 相关扩展，可以获得强大的编辑和预览功能。</p>
+<p><strong>VScode 安装教程：</strong><a href="vscode.html#c1">https://www.runoob.com/vscode/vscode-tutorial.html</a></p>
+<p>VScode 支持 Markdown 的扩展包括：</p>
+<ul>
+    <li>Markdown All in One：提供快捷键、目录生成、数学公式支持</li>
+    <li>Markdown Preview Enhanced：增强的预览功能，支持图表和演示模式</li>
+    <li>markdownlint：语法检查和格式规范</li>
+</ul>
+<p>另外国内阿里与字节也有基于 VS Code 开发的 IDE：</p>
+	<ul>
+
+<li>
+<strong>字节 Trae：</strong><a href="https://www.trae.cn/sem/?utm_source=advertising&amp;utm_medium=runoob_ug_cpa&amp;utm_term=hw_trae_runoob" class="ext">https://www.trae.cn/</a></li>
+
+<li><strong>阿里 Qoder：</strong><a href="https://qoder.cn/referral?utm_source=paid&amp;utm_medium=affiliate&amp;utm_campaign=cainiaojiaocheng" class="ext">https://qoder.com/</a></li>
+
+</ul>
+<p><em> <strong>Obsidian</strong> </em>：本地 Markdown 笔记系统，用文件夹和纯文本驱动知识结构，使用教程参考： <a href="https://www.runoob.com/markdown/obsidian-tutorial.html" class="ext">https://www.runoob.com/markdown/obsidian-tutorial.html</a>。</p>
+<h4>2、专门的 Markdown 编辑器</h4>
+	<ul>
+<li><p><em>Mark Text</em>：开源的实时预览 Markdown 编辑器，界面简洁，功能完整。下载地址：<a href="https://github.com/marktext/marktext/" class="ext">https://github.com/marktext/marktext/</a></p></li>
+	<li>
+<p><em>Zettlr</em>：学术写作导向的 Markdown 编辑器，支持引用管理和论文写作功能。下载地址：<a href="https://github.com/Zettlr/Zettlr" class="ext">https://github.com/Zettlr/Zettlr</a></p></li>
+	<li>
+<p><em>
+Joplin</em>：免费开源的支持 markdown 免费的笔记应用 -- <a href="https://joplinapp.org/" class="ext">https://joplinapp.org/</a></p></li></ul>
+
+<h4>3、在线编辑器</h4>
+	<ul>
+<li><p><em>Markdown 在线编辑器</em>：<a href="https://www.jyshare.com/front-end/712/" class="ext">https://www.jyshare.com/front-end/712/</a>。</p></li>
+
+	<li><p>
+<em>Dillinger</em>：<a href="https://dillinger.io/" class="ext">https://dillinger.io/</a>，功能齐全的在线 Markdown 编辑器，支持云同步和多种导出格式。</p></li>
+
+	<li><p><em>StackEdit</em>：<a href="https://stackedit.io/" class="ext">https://stackedit.io/</a>，基于浏览器的编辑器，与 Google Drive、Dropbox 等云服务集成。</p></li>
+
+	<li><p><em>简书、语雀编辑器</em>：国内平台提供的在线 Markdown 编辑环境。</p></li></ul>
+
+<hr>
+<h3>VS Code Markdown</h3>
+
+<p>本教程将使用 VSCode 编辑器来讲解 Markdown 的语法，VSCode 支持 MacOS 、Windows、Linux 平台，且包含多种主题。</p>
+
+<p>VSCode 默认集成了 Markdown 文档编辑插件，原生就支持高亮 Markdown 的语法。</p>
+<p>VSCode（全称：Visual Studio Code）是一款由微软开发且跨平台的免费源代码编辑器。</p>
+<ul><li>
+<strong>VScode 安装教程：</strong><a href="vscode.html#c1">https://www.runoob.com/vscode/vscode-install.html</a></li><li>
+<strong>VScode 官网地址：</strong><a href="https://code.visualstudio.com/" class="ext">https://code.visualstudio.com/</a></li></ul>
+<p><img src="img/a65606ac0701e761.jpeg" loading="lazy"></p>
+<p>VSCode 实时预览还需要执行 <span class="marked">Markdown: Open Preview to the Side</span> 命令来实现。</p>
+<p>在命令窗口输入 <span class="marked">Markdown: Open Preview to the Side</span> 命令：</p>
+<p><img src="img/dbbd1d53e4d050b9.jpeg" loading="lazy"></p>
+<p>最终效果：</p>
+<p><img src="img/2c53f99a0099159c.jpeg" loading="lazy"></p>
+<p>如果你需要将 markdown 转为 PDF、图片、HTML 等格式也可以安装对应的插件来实现。</p>
+
+<p>你也可以使用我们的在线编辑器来测试：<a href="https://www.jyshare.com/front-end/712" class="ext">https://www.jyshare.com/front-end/712</a>。</p>
+<p>MarkDown 思维导图工具：<a href="https://www.jyshare.com/front-end/9692" class="ext">https://www.jyshare.com/front-end/9692/</a>。</p>
+
+<h4>测试实例</h4>
+
+<p>接下来的测试中，我们先在 VSCode 下安装 <strong>Markdown Preview Enhanced</strong> 插件来实现更强大的功能。</p>
+<p>点击右侧栏扩展按钮，查找<strong>Markdown Preview Enhanced</strong> 插件，点击安装：</p>
+<p><img src="img/4e68a0b0e035c56a.jpeg" loading="lazy"></p>
+<p><strong>安装完成后重启 VSCode。</strong></p>
+<p>在 RUNOOB.md 输入以下代码：</p>
+<pre>
+# RUNOOB Markdown Test
+## Hello World!
+</pre>
+
+<p>将该代码格式粘贴到文件 RUNOOB.md 上，效果如下：</p>
+<p><img src="img/45d9a030e5bbd229.jpeg" loading="lazy"></p>
+<p>在预览框中右击鼠标还提供了各种导出功能：</p>
+<p><img src="img/aeabea55c9cdca1a.jpeg" loading="lazy"></p>
+
+<hr><h3>MarkText</h3><p>
+我们也可以使用 <a href="https://www.runoob.com/w3cnote/github-marktext.html" class="ext">MarkText-- 一款简单而优雅的开源 Markdown 编辑器</a>。</p>
+<p>
+MarkText 下载地址 <a href="https://github.com/marktext/marktext/releases" class="ext">https://github.com/marktext/marktext/releases</a>，可以根据不同系统选择不同的安装包：</p>
+<p><img src="img/2264313c94a23f30.png" loading="lazy"></p>
+<p>
+下载安装后，我们可以在菜单的 <span class="marked">View</span> 选项切换源码模式，也可以显示菜单栏：</p>
+<p><img src="img/ef95b5deb67aa09b.png" loading="lazy"></p>
+<p>
+通过菜单的 File 选项，可以导出不同格式的文件：</p>
+<p><img src="img/fc2ac41840739f07.png" loading="lazy"></p></div></section>
+<section class="ch" id="c3"><h2>3. Markdown 第一个文件<a class="chsrc" href="https://www.runoob.com/markdown/md-first-file.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>现在让我们创建第一个 Markdown 文件来开始实践：</p>
+<h4>步骤1：创建文件</h4>
+<ul>
+    <li>打开你选择的编辑器</li>
+    <li>创建一个新文件</li>
+    <li>将文件保存为 <code>RUNOOB.md</code>（注意扩展名是 <span class="marked">.md</span>）</li>
+</ul>
+<h4>步骤2：编写内容</h4>
+<pre>
+# 我的第一个 Markdown 文档
+
+这是我学习 Markdown 的开始。
+
+## 学习目标
+
+- 掌握基本语法
+- 了解应用场景
+- 能够独立创作文档
+
+## 今天的感受
+
+学习 Markdown 比我想象的**简单**，我对接下来的学习充满*期待*！
+
+---
+
+&gt; 学习是一个持续的过程，每一小步都是进步。
+</pre>
+<h4>步骤3：预览效果</h4>
+<ul> <li><p>如果使用 VS Code 等编辑器，按 <code>Ctrl+Shift+V</code> 打开预览面板，也可以点击右上角的预览图标：</p><p><img src="img/71063f82c9370e62.png" loading="lazy"></p>
+<p>效果如下：</p>
+<p><img src="img/a5efcfe620653bb3.png" loading="lazy"></p>
+</li>
+    <li>如果使用支持实时预览的编辑器（如 MarkText），可以直接看到渲染效果：<p><img src="img/51125e9394873ed7.png" loading="lazy"></p></li>
+   
+    <li>可以观察源码和渲染结果的对应关系。</li>
+</ul>
+<h4>步骤4：实验和探索</h4><p>尝试修改文件内容：</p>
+<ul>
+    <li>改变标题级别（增加或减少 <code><span class="marked">#</span></code> 号）</li>
+    <li>添加更多的列表项</li>
+    <li>尝试不同的强调方式</li>
+</ul>
+<p>通过这个简单的练习，你已经创建了第一个 Markdown 文档，并体验了基本的语法效果。</p>
+<p>记住，学习 Markdown 最好的方法就是实践。在阅读教程的同时，不断地在编辑器中尝试各种语法，观察它们的渲染效果。随着实践的增加，你会发现 Markdown 的简洁和强大。</p></div></section>
+<section class="ch" id="c4"><h2>4. Markdown 标题<a class="chsrc" href="https://www.runoob.com/markdown/md-title.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>Markdown 标题有两种格式。</p>
+<h4>1、使用 = 和 - 标记一级和二级标题</h4>
+<p>= 和 - 标记语法格式如下：</p>
+<pre>
+我展示的是一级标题
+=================
+
+我展示的是二级标题
+-----------------
+</pre>
+
+<p>显示效果如下图：</p>
+
+<p><img src="img/12916baf34baa379.jpg" loading="lazy"></p>
+<h4>使用 # 号标记</h4>
+
+<p>Markdown 使用 <code><span class="marked">#</span></code> 号来创建标题，这是从 HTML 的 <code>&lt;h1&gt;</code> 到 <code>&lt;h6&gt;</code> 标签概念演化而来的。</p>
+
+<p>使用 <span class="marked">#</span> 号可表示 1-6 级标题，一级标题对应一个 <span class="marked">#</span> 号，二级标题对应两个 <span class="marked">#</span> 号，以此类推。</p>
+<pre>
+# 一级标题
+## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
+###### 六级标题
+</pre>
+
+<p>显示效果如下图：</p>
+
+<p><img src="img/626ecc55a854cd65.gif" loading="lazy"></p>
+
+<p><strong>重要注意事项</strong>：</p>
+<p><em>符号与文字间的空格</em>：<code>#</code> 号和标题文字之间必须有一个空格。这是标准的 Markdown 语法要求。</p>
+<pre># 正确写法
+#错误写法</pre>
+<p><em>行首位置</em>：<code>#</code> 号必须在行首，前面不能有其他字符（空格或制表符）。</p>
+<p><em>唯一的一级标题</em>：在一个文档中，通常只使用一个一级标题作为文档的主标题，这符合良好的文档结构规范。</p>
+
+<h4>标题的嵌套结构</h4>
+<p>标题的层次结构应该遵循逻辑顺序，不应该跳级使用。良好的标题结构就像一本书的目录：</p>
+<p><strong>推荐的层次结构</strong>：</p>
+<pre>
+# 主题：人工智能概述
+
+## 第一部分：基础概念
+### 什么是人工智能
+### 发展历史
+#### 早期发展（1950-1980）
+#### 现代发展（1980至今）
+
+## 第二部分：应用领域
+### 自然语言处理
+### 计算机视觉
+### 机器学习
+#### 监督学习
+#### 无监督学习
+#### 强化学习
+</pre>
+<p><strong>避免的错误结构</strong>：</p>
+<pre>
+# 主标题
+### 直接跳到三级标题（不推荐）
+## 然后才是二级标题
+</pre>
+<h4>标题编号的最佳实践</h4>
+<p><strong>自动编号 vs 手动编号</strong>：</p>
+<p>许多 Markdown 处理器和编辑器支持自动生成标题编号，因此在源码中通常不需要手动添加编号：</p>
+<pre>
+# 引言
+## 背景
+## 目标
+# 方法论
+## 数据收集
+## 分析方法
+</pre>
+<p><strong>标题锚点</strong>：</p>
+<p>大多数 Markdown 处理器会自动为标题创建锚点（anchor），便于页面内跳转：</p>
+<pre>[跳转到方法论部分](#方法论)</pre>
+<p><strong>标题长度建议</strong>：</p>
+<ul>
+    <li>保持标题简洁明了，一般不超过 10 个汉字或 20 个英文字符</li>
+    <li>使用描述性词语，避免模糊的标题如"其他"、"杂项"</li>
+    <li>可以使用冒号来分隔主题和副主题</li>
+</ul></div></section>
+<section class="ch" id="c5"><h2>5. Markdown 文本格式<a class="chsrc" href="https://www.runoob.com/markdown/md-paragraph.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>
+Markdown 段落没有特殊的格式，直接编写文字就好，<strong>段落的换行是使用两个以上空格加上回车</strong>。</p>
+<p><img src="img/9ca72f1eff5528a7.jpg" loading="lazy"></p>
+<p>当然也可以在段落后面使用一个空行来表示重新开始一个段落。</p>
+
+<p><img src="img/4cc65f1ff4547669.jpg" loading="lazy"></p>
+
+<hr>
+<h3>字体</h3><p>
+文本强调是写作中的重要技巧，Markdown 提供了简洁的方式来实现粗体和斜体效果。</p>
+<p>Markdown 可以使用以下几种字体：粗体和斜体。</p>
+<p>
+<strong>粗体语法：</strong>使用两个星号 <span class="marked">**</span> 或两个下划线 <span class="marked">__</span> 包围文字：</p>
+<pre>这是**粗体文字**使用星号
+这是__粗体文字__使用下划线</pre>
+<p>
+<strong>斜体语法：</strong>使用一个星号 <span class="marked">*</span> 或一个下划线 <span class="marked">_</span> 包围文字：</p>
+<pre>这是*斜体文字*使用星号
+这是_斜体文字_使用下划线</pre><p>
+<strong>粗斜体组合：</strong>使用三个星号 <span class="marked">***</span> 或三个下划线 <span class="marked">___</span>。</p>
+
+<pre>*斜体文本*
+_斜体文本_
+**粗体文本**
+__粗体文本__
+***粗斜体文本***
+___粗斜体文本___</pre>
+<p>显示效果如下所示：</p>
+<p><img src="img/febe875df702f406.gif" loading="lazy"></p>
+<p><strong>混合使用技巧：</strong></p>
+
+<pre>这段文字包含**粗体**、*斜体*和***粗斜体***的组合效果。</pre>
+<p>渲染效果如下：</p>
+
+<p><img src="img/78a806b387c700da.png" loading="lazy"></p>
+
+<p><strong>使用建议</strong>：</p>
+<ul>
+    <li>推荐使用星号 <code><span class="marked">*</span></code> 而不是下划线 <code><span class="marked">_</span></code>，因为星号在各种 Markdown 解析器中兼容性更好</li>
+    <li>不要过度使用强调，重点突出才有效果</li>
+    <li>在中英文混合时，建议在强调符号前后加空格以提高可读性</li>
+</ul>
+
+<hr>
+<h3>分隔线</h3>
+<p>
+你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线：</p>
+
+<pre>***
+
+* * *
+
+*****
+
+- - -
+
+----------</pre>
+<p>显示效果如下所示：</p>
+
+<p><img src="img/0296481bb1641e35.jpg" loading="lazy"></p>
+<hr>
+<h3>删除线</h3>
+<p>如果段落上的文字要添加删除线，只需要在文字的两端加上两个波浪线 <span class="marked">~~</span> 即可，实例如下：</p>
+
+<pre>RUNOOB.COM
+GOOGLE.COM
+~~BAIDU.COM~~</pre>
+<p>显示效果如下所示：</p>
+<p><img src="img/667817f9dacf58a5.jpg" loading="lazy"></p>
+<hr>
+<h3>下划线</h3>
+<p>下划线可以通过 HTML 的 <span class="marked">&lt;u&gt;</span> 标签来实现：</p>
+<pre>&lt;u&gt;带下划线文本&lt;/u&gt;</pre>
+<p>显示效果如下所示：</p>
+<p><img src="img/c47f4b8f7eaf4155.jpg" loading="lazy"></p>
+<hr>
+<h3>脚注</h3>
+<p>脚注是对文本的补充说明。</p>
+<p>Markdown 脚注的格式如下:</p>
+<pre>[^要注明的文本]</pre>
+
+<p>以下实例演示了脚注的用法：</p>
+<pre>创建脚注格式类似这样 [^RUNOOB]。
+
+[^RUNOOB]: 菜鸟教程 -- 学的不仅是技术，更是梦想！！！</pre>
+
+<p>演示效果如下：</p>
+
+<p><img src="img/fd933eaef93bef0c.gif" loading="lazy"></p>
+
+<hr>
+<h3>行内代码标记</h3>
+<p>行内代码用于在正文中标记代码片段、命令、变量名等：</p>
+<p><strong>基本语法</strong>：<br>使用一个反引号 <span class="marked">`</span> 包围代码：</p>
+<pre>
+使用 `git commit` 命令提交代码
+变量 `userName` 存储用户名
+在终端中输入 `npm install` 安装依赖
+</pre>
+<p>渲染效果：</p>
+<p><img src="img/ef1fb6cfb3e0dd11.png" loading="lazy"></p>
+<p>
+<strong>包含反引号的代码：</strong>当代码本身包含反引号时，使用两个反引号包围。</p>
+<pre>
+要显示反引号，使用 `` `code` `` 这样的格式</pre>
+<p>渲染效果：</p>
+<p><img src="img/ea21deaf3565f8e7.png" loading="lazy"></p>
+<p><strong>应用场景</strong>：</p>
+<ul>
+    <li>技术文档中的 API 名称、函数名</li>
+    <li>配置文件中的参数名</li>
+    <li>命令行指令</li>
+    <li>键盘快捷键（如 <code>Ctrl+C</code>）</li>
+</ul><hr>
+<h3>文本高亮（扩展语法）</h3>
+<p>文本高亮不是标准 Markdown 语法，但许多扩展支持：</p>
+<p><strong>常见语法</strong>（部分平台支持）：</p>
+<pre>这是==高亮文本==</pre>
+<p><strong>HTML 替代方案</strong>：</p>
+<pre>这是&lt;mark&gt;高亮文本&lt;/mark&gt;</pre>
+
+<p><img src="img/8c87b0f76f67b975.png" loading="lazy"></p>
+
+<hr>
+<h3>段落和换行</h3><h4>段落的创建方法</h4>
+<p>在 Markdown 中，段落是文本的基本单位，理解段落规则对于正确格式化文档至关重要。</p>
+<p><strong>段落基本规则</strong>：</p>
+<ul>
+    <li>段落由一个或多个连续的文本行组成</li>
+    <li>段落之间由一个或多个空行分隔</li>
+    <li>普通段落不应该用空格或制表符缩进</li>
+</ul>
+<p><strong>正确的段落写法</strong>：</p>
+<pre>
+这是第一个段落。它可以包含多个句子，内容可以很长，会自动换行显示。
+
+这是第二个段落。注意上面有一个空行分隔。
+
+这是第三个段落。
+</pre>
+<p><img src="img/eacc38b1959934e1.png" loading="lazy"></p>
+<p><strong>常见错误</strong>：</p>
+<pre>
+这是第一段
+这是第二段（错误：没有空行分隔）
+
+    这是缩进段落（错误：不应该缩进）
+</pre>
+<p><img src="img/0aeb3253baea679b.png" loading="lazy"></p>
+
+<h4>强制换行技巧</h4>
+<p>有时需要在不创建新段落的情况下换行，Markdown 提供了几种方法：</p>
+<p><strong>方法一：行尾两个空格</strong><br>在行尾添加两个或更多空格，然后按回车：</p>
+<pre>第一行内容（这里有两个空格）  
+第二行内容</pre>
+<p><strong>方法二：HTML 换行标签</strong></p>
+<pre>第一行内容&lt;br&gt;
+第二行内容</pre>
+<p><strong>方法三：反斜杠（部分解析器支持）</strong></p>
+<pre>第一行内容\
+第二行内容</pre>
+<p><strong>实际应用示例</strong>：</p>
+<pre>地址：北京市朝阳区  
+电话：010-12345678  
+邮箱：admin@runoob.com
+
+诗歌示例：
+床前明月光，  
+疑是地上霜。  
+举头望明月，  
+低头思故乡。</pre><p><img src="img/55af461359a1dbd1.png" loading="lazy"></p>
+<h4>空行的作用</h4>
+<p>空行在 Markdown 中扮演重要角色：</p>
+<p><strong>分隔段落</strong>：</p>
+<pre>第一段内容
+
+第二段内容</pre>
+<p><strong>分隔不同元素</strong>：</p>
+<pre>
+# 标题
+
+段落内容
+
+- 列表项1
+- 列表项2
+
+另一段内容
+</pre>
+<p><strong>最佳实践建议</strong>：</p>
+<ul>
+    <li>在标题和内容之间留空行</li>
+    <li>在列表前后留空行</li>
+    <li>在代码块前后留空行</li>
+    <li>保持一致的空行使用习惯</li>
+</ul></div></section>
+<section class="ch" id="c6"><h2>6. Markdown 列表<a class="chsrc" href="https://www.runoob.com/markdown/md-lists.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>
+Markdown 支持<strong>有序列表</strong>和<strong>无序列表</strong>。</p><hr>
+<h3>无序列表</h3>
+<p>无序列表使用星号(<span class="marked">*</span>)、加号(<span class="marked">+</span>)或是减号(<span class="marked">-</span>)作为列表标记，这些标记后面要添加一个空格，然后再填写内容：</p>
+
+<pre>* 第一项
+* 第二项
+* 第三项
+
++ 第一项
++ 第二项
++ 第三项
+
+- 第一项
+- 第二项
+- 第三项</pre>
+
+<p>显示结果如下：</p>
+
+<p><img src="img/1fa4771ea60f0f6c.jpg" loading="lazy"></p>
+<p>
+<strong>
+选择建议：</strong></p>
+<ul>
+	<li>
+建议统一使用减号 <span class="marked">-</span>，因为它在视觉上更清晰</li>
+	<li>
+在同一文档中保持一致的标记方式</li>
+	<li>
+标记符号后必须有一个空格</li></ul>
+
+<hr><h3>有序列表</h3><p>
+有序列表用于展示有顺序要求的步骤或项目。</p>
+<p>有序列表使用数字并加上 <span class="marked">.</span> 号来表示，如：</p>
+
+<pre>1. 第一项
+2. 第二项
+3. 第三项</pre>
+<p>显示结果如下：</p>
+
+<p><img src="img/3d3e8b6e13b7beba.jpg" loading="lazy"></p>
+<h4>数字可以不连续</h4><p>
+Markdown 会自动修正数字顺序：</p>
+<pre>1. 第一项
+3. 第二项（实际显示为2）
+7. 第三项（实际显示为3）</pre><p><img src="img/06aac8844b6a613b.png" loading="lazy"></p>
+<p>从指定数字开始：</p>
+<pre>5. 第五项
+6. 第六项
+7. 第七项</pre>
+<p><img src="img/d7aae05b60c126ca.png" loading="lazy"></p>
+<hr><h3>列表嵌套</h3>
+
+<h4>列表嵌套技巧</h4>
+<p>列表可以嵌套使用，创建多层次的结构：</p>
+<p><strong>无序列表嵌套</strong>：</p>
+<pre>
+- 水果
+  - 苹果
+    - 红苹果
+    - 绿苹果
+  - 香蕉
+  - 橙子
+- 蔬菜
+  - 胡萝卜
+  - 白菜
+</pre>
+<p><strong>有序列表嵌套</strong>：</p>
+<pre>
+1. 准备阶段
+   1. 收集资料
+   2. 制定计划
+2. 执行阶段
+   1. 开始实施
+   2. 监控进度
+3. 总结阶段
+</pre>
+<p><strong>混合嵌套</strong>：</p>
+<pre>
+1. 主要任务
+   - 子任务A
+   - 子任务B
+     1. 详细步骤1
+     2. 详细步骤2
+   - 子任务C
+2. 次要任务
+</pre>
+
+<p>列表混合嵌套只需在子列表中的选项前面添加两个或四个空格即可：</p>
+<pre>1. 第一项：
+    - 第一项嵌套的第一个元素
+    - 第一项嵌套的第二个元素
+2. 第二项：
+    - 第二项嵌套的第一个元素
+    - 第二项嵌套的第二个元素</pre>
+
+<p>显示结果如下：</p><p><img src="img/5d178c35dab8f5fd.jpg" loading="lazy"></p>
+<p><strong>嵌套规则</strong>：</p>
+<ul>
+    <li>子列表需要缩进 2-4 个空格（推荐 2 个）</li>
+    <li>保持一致的缩进长度</li>
+    <li>可以无限层嵌套，但实际使用中建议不超过 3 层</li>
+</ul>
+<h4>任务列表（复选框列表）</h4>
+<p>任务列表是 GitHub 风格 Markdown 的扩展功能，现在被广泛支持：</p>
+<p><strong>基本语法</strong>：</p>
+<pre>
+- [ ] 未完成的任务
+- [x] 已完成的任务
+- [ ] 另一个未完成的任务
+</pre>
+<p>渲染效果：</p>
+
+<p><img src="img/7e83a279adc66cbc.png" loading="lazy"></p>
+<p><strong>实际应用示例</strong>：</p>
+<pre>
+## 项目待办清单
+
+### 设计阶段
+- [x] 需求分析
+- [x] 原型设计
+- [ ] UI 设计
+
+### 开发阶段
+- [ ] 前端开发
+  - [x] 页面布局
+  - [ ] 交互功能
+  - [ ] 响应式适配
+- [ ] 后端开发
+  - [ ] 数据库设计
+  - [ ] API 开发
+  - [ ] 性能优化
+
+### 测试阶段
+- [ ] 单元测试
+- [ ] 集成测试
+- [ ] 用户验收测试
+</pre>
+<p><img src="img/9fb287aaa0af10fc.png" loading="lazy"></p>
+<p><strong>使用技巧</strong>：</p>
+<ul>
+    <li>方括号内的空格和 x 很重要：<code>[ ]</code> 和 <code>[x]</code></li>
+    <li>可以与嵌套列表结合使用</li>
+    <li>在项目管理、学习计划、生活清单中特别有用</li>
+    <li>某些编辑器支持点击复选框来切换状态</li>
+</ul>
+<p><strong>高级列表技巧</strong>：</p>
+<p><em>列表项中包含多段内容</em>：</p>
+<pre>
+1. 第一项
+
+   这是第一项的详细说明，需要与列表项对齐缩进。
+   
+   还可以包含第二段内容。
+
+2. 第二项
+
+   &gt; 可以在列表项中使用引用
+</pre>
+
+<p><img src="img/e9a83283d132ab95.png" loading="lazy"></p>
+
+<p><em>列表项中的换行</em>：</p>
+<pre>- 这是一个很长的列表项，
+  需要换行显示，注意第二行需要与第一行对齐
+- 另一个列表项</pre>
+<p><img src="img/a5cd8a923e68bd92.png" loading="lazy"></p>
+<p>通过掌握这些基础语法，你已经能够创建结构清晰、格式规范的 Markdown 文档了。这些语法是日常写作中最常用的，熟练掌握它们将大大提高你的文档编写效率。</p></div></section>
+<section class="ch" id="c7"><h2>7. Markdown 引用块<a class="chsrc" href="https://www.runoob.com/markdown/md-block.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>引用块用于突出显示重要信息、引用他人观点或创建视觉层次。</p>
+<h4>单级引用的使用</h4>
+<p>基本语法：</p>
+
+<p>Markdown 区块引用是在段落开头使用 <span class="marked">&gt;</span> 符号 ，然后后面紧跟一个<strong>空格</strong>符号：</p>
+
+<pre>&gt; 区块引用
+&gt; 菜鸟教程
+&gt; 学的不仅是技术更是梦想</pre>
+
+<p>显示结果如下：</p>
+
+<p><img src="img/950340d98f66a02d.jpg" loading="lazy"></p>
+
+<p>
+多行引用：</p>
+<pre>&gt; 这是引用的第一行。
+&gt; 这是引用的第二行。
+&gt; 
+&gt; 这是引用的第二段。</pre><p>
+<strong>简化写法：</strong></p><p>
+只在第一行使用 <span class="marked">&gt;</span> ，其余行会自动包含在引用中：</p><pre>
+&gt; 这是一个长引用，
+包含多行内容，
+只需要在第一行使用 &gt; 符号。</pre>
+
+<p><img src="img/33873077d46b08c6.png" loading="lazy"></p>
+<h4>多级嵌套引用</h4>
+<p>另外区块是可以嵌套的，一个 <span class="marked">&gt;</span> 符号是最外层，两个<span class="marked"> &gt;</span> 符号是第一层嵌套，以此类推：</p>
+
+<pre>&gt; 最外层
+&gt; &gt; 第一层嵌套
+&gt; &gt; &gt; 第二层嵌套</pre>
+
+<p>显示结果如下：</p>
+
+<p><img src="img/b84f684de3312a49.jpg" loading="lazy"></p>
+<p>实际应用示例：</p>
+<pre>&gt; **用户反馈**：这个功能很有用！
+&gt; 
+&gt; &gt; **开发团队回复**：感谢您的反馈，我们会继续优化。
+&gt; &gt; 
+&gt; &gt; &gt; **项目经理补充**：预计下个版本会有更多改进。</pre>
+<p><img src="img/d5954cdace1dd743.png" loading="lazy"></p>
+<h4>区块中使用列表</h4>
+<p>区块中使用列表实例如下：</p>
+
+<pre>&gt; 区块中使用列表
+&gt; 1. 第一项
+&gt; 2. 第二项
+&gt; + 第一项
+&gt; + 第二项
+&gt; + 第三项</pre>
+<p>显示结果如下：</p>
+<p><img src="img/990c9a3b2fab84d2.jpg" loading="lazy"></p>
+<h4>列表中使用区块</h4>
+
+<p>如果要在列表项目内放进区块，那么就需要在 <span class="marked">&gt;</span> 前添加四个空格的缩进。</p>
+<p>列表中使用区块实例如下：</p>
+<pre>* 第一项
+    &gt; 菜鸟教程
+    &gt; 学的不仅是技术更是梦想
+* 第二项</pre>
+<p>显示结果如下：</p>
+<p><img src="img/01701c9f8937685c.jpg" loading="lazy"></p><hr>
+<h3>引用块内的其他元素</h3><p>
+引用块内可以包含几乎所有其他 Markdown 元素。</p>
+<p><strong>包含标题：</strong></p><pre>
+&gt; ## 重要提醒
+&gt; 
+&gt; 请在操作前仔细阅读文档，避免数据丢失。</pre><p>
+<strong>包含列表：</strong></p>
+<pre>&gt; ### 注意事项
+&gt; 
+&gt; 1. 备份重要数据
+&gt; 2. 检查系统兼容性
+&gt; 3. 准备回滚方案
+&gt; 
+&gt; - 测试环境验证
+&gt; - 生产环境部署
+&gt; - 监控系统状态</pre><p>
+<strong>包含代码：</strong></p>
+<pre>&gt; 要运行这个脚本，请使用以下命令：
+&gt; 
+&gt; ```bash
+&gt; npm install
+&gt; npm start
+&gt; ```
+&gt; 
+&gt; 执行后会在 `http://localhost:3000` 看到结果。</pre><p>
+<strong>包含链接和图片：</strong></p>
+<pre>&gt; &amp;#x1f4da; **推荐阅读**
+&gt; 
+&gt; 详细信息请参考 [官方文档](https://example.com)
+&gt; 
+&gt; ![示例图片](./images/example.png)</pre>
+<h4>引用的最佳实践</h4><p>
+<strong>名言警句引用</strong></p>
+<pre>&gt; "在软件开发中，最昂贵的错误就是构建正确的系统错误的方式，或者构建错误的系统正确的方式。"
+&gt; 
+&gt; — Barry Boehm，软件工程专家</pre><h4>重要信息提示</h4><p>
+<strong>成功提示：</strong></p>
+<pre>&gt; &amp;#x2705; **成功**
+&gt; 
+&gt; 配置已保存并生效。系统将在下次重启时应用新设置。</pre><p>
+<strong>警告信息：</strong></p>
+<pre>&gt; &amp;#x26a0;&amp;#xfe0f; **警告**
+&gt; 
+&gt; 此操作不可逆转，请确保已备份重要数据。</pre><p>
+<strong>错误信息：</strong></p>
+<pre>&gt; &amp;#x274c; **错误**
+&gt; 
+&gt; 连接数据库失败，请检查网络连接或联系系统管理员。</pre><p>
+<strong>信息提示：</strong></p>
+<pre>&gt; &amp;#x2139;&amp;#xfe0f; **提示**
+&gt; 
+&gt; 首次使用需要进行账户验证，验证邮件已发送到您的邮箱。</pre>
+
+<p><img src="img/8acc1c6bd157ac58.png" loading="lazy"></p>
+
+<h4>文档结构中的引用</h4>
+<p><strong>章节摘要：</strong></p>
+<pre># 第一章：项目概述
+
+&gt; **本章要点**
+&gt; 
+&gt; - 了解项目背景和目标
+&gt; - 掌握核心功能特性
+&gt; - 熟悉技术架构设计</pre>
+
+<p><img src="img/25a67849e0bfb77c.png" loading="lazy"></p>
+<p>
+<strong>版本更新说明：</strong></p>
+<pre>## v2.1.0 更新内容
+
+&gt; **重大变更**
+&gt; 
+&gt; &amp;#x26a0;&amp;#xfe0f; API 接口路径已调整，旧版本客户端需要更新
+&gt; 
+&gt; 详见 [迁移指南](./migration-guide.md)</pre></div></section>
+<section class="ch" id="c8"><h2>8. Markdown 代码<a class="chsrc" href="https://www.runoob.com/markdown/md-code.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>Markdown 提供了多种方式来展示代码，从简单的行内代码到复杂的代码块，满足不同场景下的代码展示需求。</p><hr>
+<h3>
+行内代码</h3>
+<p>如果是段落上的一个函数或片段的代码可以用反引号把它包起来（<span class="marked">`</span>），例如：</p>
+
+<pre>`printf()` 函数</pre>
+<p>显示结果如下：</p>
+
+<p><img src="img/b96e5368ec4d62aa.jpg" loading="lazy"></p>
+
+<p><strong>常见用法示例：</strong></p>
+<ul>
+    <li>函数名：使用 <code>console.log()</code> 输出信息</li>
+    <li>变量名：将值赋给 <code>userName</code> 变量</li>
+    <li>命令行：运行 <code>npm install</code> 安装依赖</li>
+    <li>键盘按键：按 <code>Ctrl+C</code> 复制内容</li>
+    <li>文件名：编辑 <code>index.html</code> 文件</li>
+</ul>
+<p><img src="img/289e272323d9e1af.png" loading="lazy"></p>
+
+<h4>
+特殊字符转义</h4><p>
+当需要在行内代码中显示反引号或其他特殊字符时，需要进行转义处理。</p>
+<p>显示反引号的方法：</p><p>
+<strong>
+使用双反引号包围单反引号：</strong></p>
+<pre>
+``使用 `反引号` 包围代码``</pre>
+<p>渲染效果：</p>
+<p><img src="img/c0bfc7447781b0d3.png" loading="lazy"></p>
+
+<p>
+<strong>使用多个反引号包围：</strong></p>
+<pre>
+```包含 `` 双反引号的代码```</pre>
+<p>渲染效果：</p>
+
+<p><img src="img/0d796559667bbdd7.png" loading="lazy"></p>
+<p><strong>其他特殊字符处理：</strong></p>
+<ul>
+    <li>HTML 标签：<code>&lt;div&gt;</code> 元素</li>
+    <li>数学符号：计算 <code>x + y = z</code></li>
+    <li>特殊符号：使用 <code>&amp;nbsp;</code> 表示空格</li>
+</ul>
+<hr>
+<h3>代码区块</h3>
+<h4>缩进式代码块</h4>
+
+<p>代码区块使用 <strong>4 个空格</strong>或者一个<strong>制表符（Tab 键）</strong>。</p>
+<p>语法格式：</p><pre>
+正常文本段落
+
+    这是缩进式代码块
+    每行前面有四个空格
+    保持代码的原始格式
+    
+继续正常文本</pre>
+<p><img src="img/d73c9bbeb387174a.png" loading="lazy"></p>
+<p>实例如下：</p>
+
+<p><img src="img/2b684981436a79d7.jpg" loading="lazy"></p>
+
+<p>显示结果如下：</p>
+<p><img src="img/adaac20c3b6eec32.jpg" loading="lazy"></p>
+
+<h4>三反引号代码块</h4>
+<p>你也可以用 <span class="marked">```</span> 包裹一段代码，并指定一种语言（也可以不指定）：</p>
+<pre>```
+多行代码内容
+可以包含空行
+保持原有缩进
+```</pre>
+<p><img src="img/6ee52d8425832f08.png" loading="lazy"></p>
+<p>
+三反引号（<span class="marked">```</span>）是最常用的代码块语法，支持语法高亮和多行代码展示。</p>
+<pre>```javascript
+$(document).ready(function () {
+    alert('RUNOOB');
+});
+```</pre>
+
+<p>显示结果如下：</p>
+
+<p><img src="img/49e1b9f977d4f9b0.jpg" loading="lazy"></p>
+
+<p><strong>注意事项：</strong></p>
+<ul>
+    <li>缩进式代码块前后需要空行分隔</li>
+    <li>所有代码行必须保持一致的缩进</li>
+    <li>不支持语法高亮</li>
+    <li>在列表中使用时需要8个空格缩进</li>
+</ul>
+<h4>语言标识和语法高亮</h4>
+
+<p>在三反引号后添加语言标识符可以启用语法高亮功能。</p>
+<p><strong>常用语言标识符列表：</strong></p>
+<ul>
+    <li><code>javascript</code> / <code>js</code> - JavaScript</li>
+    <li><code>python</code> / <code>py</code> - Python </li>
+    <li><code>html</code> - HTML</li>
+    <li><code>css</code> - CSS</li>
+    <li><code>sql</code> - SQL</li>
+    <li><code>json</code> - JSON</li>
+    <li><code>xml</code> - XML</li>
+    <li><code>yaml</code> / <code>yml</code> - YAML</li>
+    <li><code>bash</code> / <code>shell</code> - Shell脚本</li>
+    <li><code>java</code> - Java</li>
+    <li><code>cpp</code> / <code>c++</code> - C++</li>
+    <li><code>csharp</code> / <code>c#</code> - C#</li>
+    <li><code>php</code> - PHP</li>
+    <li><code>ruby</code> / <code>rb</code> - Ruby</li>
+    <li><code>go</code> - Go语言</li>
+    <li><code>rust</code> - Rust</li>
+    <li><code>typescript</code> / <code>ts</code> - TypeScript</li>
+</ul>
+<p><strong>JavaScript:</strong></p>
+<pre>
+```javascript
+const users = [
+    { name: "Alice", age: 25 },
+    { name: "Bob", age: 30 }
+];
+
+const adults = users.filter(user =&gt; user.age &gt;= 18);
+console.log(adults);
+```
+</pre>
+<p><strong>Python:</strong></p>
+<pre>
+```python
+def calculate_area(radius):
+    """计算圆的面积"""
+    import math
+    return math.pi * radius ** 2
+
+# 使用函数
+area = calculate_area(5)
+print(f"圆的面积是: {area:.2f}")
+```
+</pre>
+<p><strong>SQL:</strong></p>
+<pre>
+```sql
+SELECT u.name, u.email, COUNT(o.id) as order_count
+FROM users u
+LEFT JOIN orders o ON u.id = o.user_id
+WHERE u.created_at &gt;= '2024-01-01'
+GROUP BY u.id, u.name, u.email
+ORDER BY order_count DESC
+LIMIT 10;
+```
+</pre><p><img src="img/bf7f57ba1e03ae58.png" loading="lazy"></p>
+<hr>
+<h3>
+代码块的高级特性</h3>
+<h4>行号显示</h4><p>
+某些 Markdown 渲染器支持显示行号，通过特定的语法或配置实现。</p><p><strong>语法示例（部分支持）：</strong></p>
+<pre>
+```javascript {.line-numbers}
+function fibonacci(n) {
+    if (n &lt;= 1) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+console.log(fibonacci(10));
+```</pre><p><img src="img/aa3574dd4193de4b.png" loading="lazy"></p>
+<p>或者使用：</p><pre>
+```javascript showLineNumbers
+const numbers = [1, 2, 3, 4, 5];
+const doubled = numbers.map(x =&gt; x * 2);
+const sum = doubled.reduce((a, b) =&gt; a + b, 0);
+console.log(`总和: ${sum}`);
+```</pre>
+
+<h4>
+代码差异对比</h4><p>
+用于显示代码的添加、删除或修改，常用于展示版本控制中的变更。</p>
+<p><strong>Diff 语法：</strong></p>
+<pre>```diff
+function calculateTotal(items) {
+-   let total = 0;
++   let total = 0.0;
+    
+    for (let item of items) {
+-       total += item.price;
++       total += parseFloat(item.price);
+    }
+    
++   // 保留两位小数
++   total = Math.round(total * 100) / 100;
+    return total;
+}
+```</pre>
+
+<p><img src="img/0f9bec96ed95ad53.png" loading="lazy"></p>
+<p>
+<strong>Git 风格的差异显示：</strong></p>
+<pre>```diff
+@@ -1,5 +1,8 @@
+ function greetUser(name) {
+-    console.log("Hello " + name);
++    if (!name) {
++        throw new Error("Name is required");
++    }
++    console.log(`Hello, ${name}!`);
+ }
+```</pre><p>
+<strong>语言特定的差异对比：</strong></p>
+<pre>```javascript
+// 之前的代码
+const oldFunction = () =&gt; {
+    var x = 10;  // &amp;#x274c; 使用 var
+    console.log("Value: " + x);  // &amp;#x274c; 字符串拼接
+}
+
+// 改进后的代码  
+const newFunction = () =&gt; {
+    const x = 10;  // &amp;#x2705; 使用 const
+    console.log(`Value: ${x}`);  // &amp;#x2705; 模板字符串
+}
+```</pre>
+
+<p><img src="img/83ab7bf0623aee7f.png" loading="lazy"></p></div></section>
+<section class="ch" id="c9"><h2>9. Markdown 链接<a class="chsrc" href="https://www.runoob.com/markdown/md-link.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>链接是使 Markdown 文档具有交互性的关键元素。</p><p>掌握链接语法能让你创建内容丰富、易于导航的文档。</p>
+
+<p>链接使用方法如下：</p>
+
+<pre>
+[链接名称](链接地址)
+[链接文字](链接地址 "可选的标题")</pre>
+<p>或者:</p>
+
+<pre>
+&lt;链接地址&gt;
+</pre>
+<p>一个简单的链接：</p>
+<pre>这是一个链接 [菜鸟教程](https://www.runoob.com)
+</pre>
+<p>显示结果如下：</p>
+<p><img src="img/2c48a5762d0647f8.jpg" loading="lazy"></p>
+<p>直接使用链接地址：</p>
+<pre>&lt;https://www.runoob.com&gt;</pre>
+<p>显示结果如下：</p>
+<p><img src="img/3ea53f9308319ca1.jpg" loading="lazy"></p>
+<p>设置可选标题：</p>
+<pre>这是一个链接 [菜鸟教程](https://www.runoob.com)
+欢迎访问 [GitHub](https://github.com) 官网
+这是 [百度搜索](https://www.baidu.com "百度一下，你就知道")
+</pre>
+<p>显示结果如下：</p>
+<p><img src="img/baa26ca21b079583.png" loading="lazy"></p>
+<p><strong>
+链接标题的作用：</strong></p>
+	<ul>
+<li>
+当鼠标悬停在链接上时显示提示信息</li>
+	<li>
+对搜索引擎优化和无障碍访问有帮助</li>
+	<li>
+标题文字放在双引号、单引号或括号中都可以</li></ul>
+<p>
+邮箱链接：</p>
+<pre>markdown联系我：[发送邮件](mailto:example@email.com)
+电话联系：[拨打电话](tel:+86-138-0013-8000)</pre>
+
+<h4>参考链接</h4>
+<p>
+参考式链接将链接定义与使用分离，让文档更整洁，特别适合长文档或需要多次引用相同链接的情况。</p>
+<p>基本语法：</p>
+<pre>markdown[链接文字][参考标签]
+
+[参考标签]: URL "可选标题"</pre>
+
+<p>我们可以通过变量来设置一个链接，变量赋值在文档末尾进行：</p>
+<pre>
+这个链接用 1 作为网址变量 [Google][1]
+这个链接用 runoob 作为网址变量 [Runoob][runoob]
+然后在文档的结尾为变量赋值（网址）
+
+  [1]: http://www.google.com/
+  [runoob]: http://www.runoob.com/</pre>
+<p>显示结果如下：</p>
+<p><img src="img/b33b8b92720f1bb4.jpg" loading="lazy"></p>
+<p>
+<strong>简化写法：</strong></p><p>
+当参考标签与链接文字相同时，可以省略第二个方括号：</p><pre>
+markdown 我喜欢使用 [GitHub][] 来管理代码。
+
+[GitHub]: https://github.com
+</pre><p>
+<strong>参考链接的优势：</strong></p>
+	<ul>
+<li>
+文档正文更清爽，不被长 URL 打断</li>
+	<li>
+便于链接的统一管理和更新</li>
+	<li>
+相同链接可以重复使用，避免重复定义</li>
+	<li>
+链接定义可以放在文档任意位置（通常放在末尾）</li></ul>
+<p>
+<strong>组织技巧：</strong></p>
+<pre>markdown# 学习资源推荐
+
+## 在线教程
+- [MDN Web Docs][mdn] - 权威的 Web 技术文档
+- [RUNOOB][rnb] - 适合初学者的教程网站
+- [freeCodeCamp][fcc] - 免费的编程学习平台
+
+## 代码托管
+- [GitHub][github] - 最受欢迎的代码托管服务
+- [GitLab][gitlab] - 企业级的代码管理平台
+
+&lt;!-- 链接定义区域 --&gt;
+[mdn]: https://developer.mozilla.org/
+[rnb]: https://www.runoob.com/
+[fcc]: https://www.freecodecamp.org/
+[github]: https://github.com/
+[gitlab]: https://gitlab.com/</pre>
+<p><img src="img/86f2ec2cd77b4fcf.png" loading="lazy"></p>
+<h4>自动链接识别</h4><p>
+现代 Markdown 解析器通常支持自动识别 URL 和邮箱地址：</p>
+<p>URL 自动识别：</p><pre>
+markdown直接输入网址：https://www.example.com
+用尖括号包围：&lt;https://www.example.com&gt;</pre>
+<p>邮箱自动识别：</p><pre>
+markdown联系邮箱：example@email.com
+或者：&lt;example@email.com&gt;</pre>
+<p><strong>
+注意事项：</strong></p>
+	<ul>
+<li>
+自动识别功能依赖于具体的 Markdown 解析器</li>
+	<li>
+为了确保兼容性，建议使用标准的链接语法</li>
+	<li>
+某些特殊字符可能影响自动识别</li></ul>
+
+<h4>锚点链接的使用</h4><p>
+锚点链接用于在同一文档内跳转，特别适合长文档的导航：</p><p>
+跳转到标题：</p>
+<pre>## 目录
+- [第一章：介绍](#第一章介绍)
+- [第二章：安装](#第二章安装)
+- [第三章：使用方法](#第三章使用方法)
+
+# 第一章：介绍
+这里是介绍内容...
+
+# 第二章：安装
+这里是安装说明...
+
+# 第三章：使用方法
+这里是使用说明...</pre>
+<p><img src="img/7fda4359208720a1.png" loading="lazy"></p>
+<p><strong>锚点规则：</strong></p>
+	<ul>
+<li>
+标题会自动生成锚点</li>
+	<li>
+锚点名称通常是标题的小写形式</li>
+	<li>
+空格替换为连字符</li>
+	<li>
+移除特殊字符</li></ul>
+
+<p>
+
+<strong>
+手动创建锚点：</strong></p>
+<pre>&lt;a id="custom-anchor"&gt;&lt;/a&gt;
+## 自定义锚点位置
+
+[跳转到自定义位置](#custom-anchor)</pre>
+<p>页面顶部返回链接：</p><pre>
+[回到顶部](#)</pre></div></section>
+<section class="ch" id="c10"><h2>10. Markdown 图片<a class="chsrc" href="https://www.runoob.com/markdown/md-image.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>图片能让文档更加生动和易于理解。</p><p>Markdown 的图片语法简洁而灵活。</p>
+<p>Markdown 图片语法格式如下：</p>
+<pre>![替代文字](图片路径)
+![替代文字](图片路径 "图片标题")</pre>
+
+<ul>
+    <li>开头一个感叹号 !</li>
+    <li>接着一个方括号，里面放上图片的替代文字</li>
+    <li>接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上选择性的 'title' 属性的文字。</li>
+  </ul>
+
+<p><strong>相对路径示例：</strong></p>
+<pre>![项目截图](./images/screenshot.png)
+![用户界面](../assets/ui-demo.jpg "用户界面演示")
+![图标](images/icon.svg "应用图标")</pre>
+<p><strong>绝对路径示例：</strong></p>
+<pre>![本地图片](/Users/username/Documents/image.png)
+![系统截图](C:\Users\username\Pictures\screenshot.png)</pre>
+
+<p><strong>路径使用建议：</strong></p>
+	<ul>
+<li>
+推荐使用相对路径，便于项目移植</li>
+	<li>
+建议创建专门的图片文件夹（如 images/、assets/）</li>
+	<li>
+使用有意义的文件名，便于管理</li>
+	<li>
+注意路径分隔符在不同操作系统中的差异</li></ul>
+
+<p>直接引用网络图片：</p>
+<pre>![RUNOOB 图标](https://static.jyshare.com/images/runoob-logo.png)
+
+![RUNOOB 图标](https://static.jyshare.com/images/runoob-logo.png "RUNOOB")</pre>
+<p>显示结果如下：</p>
+
+<p><img src="img/6b0dbda04268ab25.jpg" loading="lazy"></p>
+<p>当然，你也可以像网址那样对图片网址使用变量:</p>
+
+<pre>这个链接用 1 作为网址变量 [RUNOOB][1].
+然后在文档的结尾为变量赋值（网址）
+
+[1]: https://static.jyshare.com/images/runoob-logo.png</pre>
+
+<p>显示结果如下：</p>
+
+<p><img src="img/ee91e564837f32fd.jpg" loading="lazy"></p>
+ <p>Markdown 还没有办法指定图片的高度与宽度，如果你需要的话，你可以使用普通的 &lt;img&gt; 标签。</p>
+
+<pre>&lt;img src="https://static.jyshare.com/images/runoob-logo.png" width="50%"&gt;</pre>
+<p>显示结果如下：</p>
+<p><img src="img/2a5512b8ab6e4373.jpg" loading="lazy"></p>
+<p><strong>使用 CDN 服务：</strong></p>
+<pre>![示例图片](https://cdn.jsdelivr.net/gh/user/repo/image.png)
+![Unsplash 图片](https://images.unsplash.com/photo-1506905925346-21bda4d32df4)</pre>
+<p>网络图片注意事项：</p>
+	<ul>
+<li>
+确保图片 URL 的稳定性和可访问性</li>
+	<li>
+注意图片的版权问题</li>
+	<li>
+考虑加载速度和网络环境</li>
+	<li>
+建议本地备份重要图片</li></ul>
+<h4>
+图片 alt 文本的重要性</h4><p>
+Alt 文本（替代文字）在图片无法显示时提供替代信息，同时对无障碍访问和 SEO 很重要：</p>
+<p><strong>好的 alt 文本示例：</strong></p>
+<pre>![苹果公司总部大楼外观，现代玻璃幕墙建筑](./images/apple-headquarters.jpg)
+![网站流量统计图表，显示过去六个月的访问量呈上升趋势](./charts/traffic-stats.png)
+![用户登录界面，包含用户名和密码输入框](./screenshots/login-page.png)</pre>
+<p><strong>避免的 alt 文本：</strong></p>
+<pre>![图片](image.jpg)  // 太简单，没有描述性
+![](image.jpg)      // 完全没有 alt 文本
+![点击这里](image.jpg)  // 不描述图片内容</pre><p>
+<strong>alt 文本最佳实践：</strong></p>
+<ul>
+
+	<li>简洁但有描述性</li>
+	<li>
+描述图片的主要内容和用途</li>
+	<li>
+避免使用"图片"、"照片"等冗余词汇</li>
+	<li>
+对于装饰性图片，可以使用空的 alt 文本</li>
+	<li>
+考虑上下文，提供有意义的信息</li></ul>
+
+<hr>
+<h3>
+图片尺寸控制（HTML方式）</h3><p>
+标准 Markdown 不支持直接控制图片尺寸，但可以使用 HTML 标签。</p>
+<p><strong>使用 HTML img 标签：</strong></p>
+<pre>&lt;img src="image.jpg" alt="描述文字" width="300" height="200"&gt;
+&lt;img src="image.jpg" alt="描述文字" width="50%"&gt;
+&lt;img src="image.jpg" alt="描述文字" style="width: 300px; height: auto;"&gt;</pre>
+<p><strong>响应式图片：</strong></p>
+<pre>&lt;img src="image.jpg" alt="描述文字" style="max-width: 100%; height: auto;"&gt;</pre>
+<p><strong>图片对齐：</strong></p>
+<pre>&lt;!-- 居中对齐 --&gt;
+&lt;div align="center"&gt;
+  &lt;img src="image.jpg" alt="居中图片" width="400"&gt;
+&lt;/div&gt;
+
+&lt;!-- 左对齐（默认） --&gt;
+&lt;img src="image.jpg" alt="左对齐图片" style="float: left; margin-right: 20px;"&gt;
+
+&lt;!-- 右对齐 --&gt;
+&lt;img src="image.jpg" alt="右对齐图片" style="float: right; margin-left: 20px;"&gt;</pre><hr>
+<h3>链接和图片的高级用法</h3>
+<h4>图片链接组合</h4><p>
+将图片作为链接的可点击元素。</p>
+<p>基本语法：</p>
+<pre>[![图片alt文本](图片URL)](链接URL)</pre>
+<p>实际示例：</p>
+<pre>[![GitHub项目截图](./images/project-screenshot.png)](https://github.com/username/project)
+[![访问官网](https://example.com/logo.png)](https://example.com "点击访问官网")</pre>
+<p><strong>常见应用场景：</strong></p>
+<pre>&lt;!-- 项目徽章 --&gt;
+[![Build Status](https://travis-ci.org/user/repo.svg?branch=master)](https://travis-ci.org/user/repo)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+&lt;!-- 应用商店下载 --&gt;
+[![App Store](./images/app-store-badge.png)](https://apps.apple.com/app/your-app)
+[![Google Play](./images/google-play-badge.png)](https://play.google.com/store/apps/details?id=com.yourapp)</pre>
+<h4>相对路径与绝对路径</h4><p>
+相对路径的优势：</p>
+<pre>&lt;!-- 项目结构 --&gt;
+project/
+├── README.md
+├── docs/
+│   ├── guide.md
+│   └── images/
+│       └── screenshot.png
+└── assets/
+    └── logo.png
+
+&lt;!-- 在 README.md 中 --&gt;
+![Logo](./assets/logo.png)
+
+&lt;!-- 在 docs/guide.md 中 --&gt;
+![Screenshot](./images/screenshot.png)
+![Logo](../assets/logo.png)</pre>
+<p>路径规划建议：</p>
+	<ul>
+<li>
+在项目根目录创建统一的资源文件夹</li>
+	<li>
+使用描述性的文件夹名称</li>
+	<li>
+保持路径结构的一致性</li>
+	<li>
+考虑静态网站生成器的路径规则</li></ul>
+
+<h4>
+图片居中和对齐</h4><p>
+<strong>方法一：HTML + CSS</strong></p>
+<pre>&lt;div style="text-align: center;"&gt;
+  &lt;img src="image.jpg" alt="居中图片" style="max-width: 100%;"&gt;
+&lt;/div&gt;</pre><p><strong>
+方法二：使用 HTML 对齐属性</strong></p>
+<pre>&lt;p align="center"&gt;
+  &lt;img src="image.jpg" alt="居中图片" width="400"&gt;
+&lt;/p&gt;</pre><p><strong>
+方法三：创建图片画廊</strong></p>
+<pre>&lt;div style="display: flex; justify-content: space-around; flex-wrap: wrap;"&gt;
+  &lt;img src="image1.jpg" alt="图片1" style="width: 30%; margin: 10px;"&gt;
+  &lt;img src="image2.jpg" alt="图片2" style="width: 30%; margin: 10px;"&gt;
+  &lt;img src="image3.jpg" alt="图片3" style="width: 30%; margin: 10px;"&gt;
+&lt;/div&gt;</pre>
+<p>实用的图片展示模板：</p>
+<pre>## 产品展示
+
+### 主要功能
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td align="center"&gt;
+      &lt;img src="./images/feature1.png" width="200" alt="功能1"&gt;
+      &lt;br&gt;
+      &lt;strong&gt;智能识别&lt;/strong&gt;
+      &lt;br&gt;
+      &lt;sub&gt;AI驱动的图像识别技术&lt;/sub&gt;
+    &lt;/td&gt;
+    &lt;td align="center"&gt;
+      &lt;img src="./images/feature2.png" width="200" alt="功能2"&gt;
+      &lt;br&gt;
+      &lt;strong&gt;快速处理&lt;/strong&gt;
+      &lt;br&gt;
+      &lt;sub&gt;毫秒级响应速度&lt;/sub&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+### 界面预览
+| 移动端 | 桌面端 |
+|:---:|:---:|
+| ![移动界面](./images/mobile.png) | ![桌面界面](./images/desktop.png) |
+| 响应式设计，完美适配 | 大屏体验，功能齐全 |</pre>
+<p><strong>性能优化建议：</strong></p>
+	<ul>
+<li>
+优化图片大小和格式（WebP &gt; PNG &gt; JPG）</li>
+	<li>
+使用适当的图片尺寸，避免在网页中缩放大图</li>
+	<li>
+考虑使用图片压缩工具</li>
+	<li>
+为不同设备准备不同尺寸的图片</li></ul>
+
+<h4>
+链接和图片的故障排除</h4><p>
+<strong>常见问题及解决方案：</strong></p>
+	<ul>
+<li>
+链接无法点击：检查语法格式，确保方括号和圆括号正确配对</li>
+	<li>
+图片无法显示：验证图片路径和文件存在性</li>
+	<li>
+图片过大：使用 HTML 控制尺寸或优化图片文件</li>
+	<li>
+链接在新窗口打开：使用 HTML <span class="marked">&lt;a target="_blank"&gt;</span> 标签</li></ul>
+
+<p>
+<strong>调试技巧：</strong></p>
+<pre>&lt;!-- 测试链接是否有效 --&gt;
+测试链接：[点击测试](https://httpbin.org/get)
+
+&lt;!-- 测试图片路径 --&gt;
+![测试图片](./images/test.png)
+&lt;!-- 如果不显示，尝试绝对路径或检查文件名大小写 --&gt;</pre><p>
+通过掌握链接和图片的各种用法，你可以创建内容丰富、导航清晰的 Markdown 文档。这些技能对于编写技术文档、项目说明和在线内容都非常重要。</p></div></section>
+<section class="ch" id="c11"><h2>11. Markdown 表格<a class="chsrc" href="https://www.runoob.com/markdown/md-table.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>
+表格和引用是 Markdown 中重要的内容组织工具。</p><p>表格能够清晰地展示结构化数据，而引用则用于突出重要信息或引用他人观点。</p>
+<p>Markdown 制作表格使用 <span class="marked">|</span> 来分隔不同的单元格，使用 <span class="marked">-</span> 来分隔表头和其他行。</p>
+
+<p>语法格式如下：</p>
+
+<pre>|  表头   | 表头  |
+|  ----  | ----  |
+| 单元格  | 单元格 |
+| 单元格  | 单元格 |</pre>
+<p>以上代码显示结果如下：</p><p>
+<img src="img/0d04cefb7432368a.jpg" loading="lazy"></p>
+
+<p><strong>语法要点</strong>：</p>
+<ul>
+    <li>表头和数据行之间必须有分隔线</li>
+    <li>分隔线至少需要三个连字符 <code><span class="marked">---</span></code></li>
+    <li>两端的竖线 <code><span class="marked">|</span></code> 是可选的，但建议保留以提高可读性</li>
+    <li>不需要严格对齐，但对齐后更美观</li>
+</ul>
+
+<h4>对齐方式</h4>
+<p><strong>我们可以设置表格的对齐方式：</strong></p>
+<ul><li>
+<span class="marked">---:</span> 设置内容和标题栏居右对齐。</li><li>
+<span class="marked">:---</span> 设置内容和标题栏居左对齐。</li><li>
+<span class="marked">:---:</span> 设置内容和标题栏居中对齐。</li></ul>
+
+<p>实例如下：</p>
+
+<pre>| 左对齐 | 右对齐 | 居中对齐 |
+| :-----| ----: | :----: |
+| 单元格 | 单元格 | 单元格 |
+| 单元格 | 单元格 | 单元格 |</pre>
+
+<p>以上代码显示结果如下：</p>
+<img src="img/107f5c3fcbce86cc.jpg" loading="lazy">
+
+<h4>复杂表格的处理技巧</h4>
+<h5>元格内容格式化</h5>
+<p>表格单元格内可以使用大部分 Markdown 语法：</p>
+
+<pre>| 功能 | 描述 | 状态 |
+|------|------|:----:|
+| **用户登录** | 支持邮箱和手机号登录 | &amp;#x2705; |
+| *密码重置* | 通过邮箱重置密码 | &amp;#x26a0;&amp;#xfe0f; |
+| `API接口` | RESTful API 设计 | &amp;#x2705; |
+| [文档链接](https://example.com) | 查看详细文档 | &amp;#x1f4d6; |</pre>
+
+<p><img src="img/02ed2da239ef88da.png" loading="lazy"></p>
+
+<h4>处理长文本</h4>
+<p>当单元格内容较长时，可以使用以下技巧：</p>
+<p><strong>换行处理</strong>：</p>
+
+<pre>| 项目 | 详细说明 |
+|------|----------|
+| 需求分析 | 1. 收集用户需求&lt;br&gt;2. 分析业务场景&lt;br&gt;3. 确定功能范围 |
+| 技术选型 | 前端：React + TypeScript&lt;br&gt;后端：Node.js + Express&lt;br&gt;数据库：MongoDB |</pre>
+<p><strong>
+缩写和链接：</strong></p>
+<pre>| 技术栈 | 说明 | 官网 |
+|--------|------|------|
+| React | 用户界面库 | [链接](https://reactjs.org) |
+| Vue.js | 渐进式框架 | [链接](https://vuejs.org) |
+| Angular | 完整的框架 | [链接](https://angular.io) |</pre>
+
+<p><img src="img/af3c9fddf9c24ea7.png" loading="lazy"></p>
+
+<h4>表格中的特殊字符</h4><p>
+某些字符在表格中有特殊含义，需要转义：</p>
+<pre>| 字符 | 转义方法 | 示例 |
+|------|----------|------|
+| 竖线 | `\|` | 显示 \| 符号 |
+| 反斜杠 | `\\` | 显示 \\ 符号 |
+| HTML | 直接使用 | &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; |</pre>
+
+<p><img src="img/c40eb97236091849.png" loading="lazy"></p>
+<h4>
+表格美化建议</h4><p>
+<strong>使用 Emoji 和符号</strong></p>
+<pre>| 状态 | 图标 | 说明 |
+|:----:|:----:|------|
+| 完成 | &amp;#x2705; | 任务已完成 |
+| 进行中 | &amp;#x1f504; | 正在处理 |
+| 待处理 | &amp;#x23f3; | 等待开始 |
+| 错误 | &amp;#x274c; | 出现问题 |
+| 警告 | &amp;#x26a0;&amp;#xfe0f; | 需要注意 |</pre>
+
+<p><img src="img/fdbbc038025921c6.png" loading="lazy"></p>
+
+<h4>
+数据表格最佳实践</h4>
+<p>财务数据表格：</p>
+<pre>| 月份 | 收入 | 支出 | 利润 | 增长率 |
+|:----:|-----:|-----:|-----:|-------:|
+| 1月 | ¥50,000 | ¥35,000 | ¥15,000 | - |
+| 2月 | ¥55,000 | ¥38,000 | ¥17,000 | +13.3% |
+| 3月 | ¥62,000 | ¥42,000 | ¥20,000 | +17.6% |
+| **总计** | **¥167,000** | **¥115,000** | **¥52,000** | **+31.1%** |</pre>
+
+<p><img src="img/fdca399959044f3e.png" loading="lazy"></p>
+
+<p>技术对比表格：</p>
+<pre>| 特性 | React | Vue.js | Angular | 评分 |
+|------|:-----:|:------:|:-------:|:----:|
+| 学习曲线 | 中等 | 简单 | 复杂 | Vue &amp;#x2b50;&amp;#x2b50;&amp;#x2b50; |
+| 性能表现 | 优秀 | 优秀 | 良好 | 平分 &amp;#x2b50;&amp;#x2b50;&amp;#x2b50; |
+| 生态系统 | 丰富 | 成长中 | 完整 | React &amp;#x2b50;&amp;#x2b50;&amp;#x2b50; |
+| 企业支持 | Facebook | 社区 | Google | Angular &amp;#x2b50;&amp;#x2b50;&amp;#x2b50; |</pre>
+
+<p><img src="img/f56124a16c1119af.png" loading="lazy"></p>
+
+<h4>响应式表格处理</h4><p>
+对于复杂表格，可以考虑分解为多个简单表格。</p><p>
+移动端友好的设计：</p>
+<pre>### 基本信息
+| 项目 | 值 |
+|------|-----|
+| 姓名 | 张三 |
+| 年龄 | 25 |
+| 职业 | 工程师 |
+
+### 联系方式
+| 类型 | 信息 |
+|------|------|
+| 邮箱 | zhang@example.com |
+| 电话 | 138-0013-8000 |
+| 地址 | 北京市朝阳区 |</pre>
+
+<p><img src="img/08f3f368ceeba358.png" loading="lazy"></p></div></section>
+<section class="ch" id="c12"><h2>12. Markdown 高级技巧<a class="chsrc" href="https://www.runoob.com/markdown/md-advance.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><h4>支持的 HTML 元素</h4>
+<p>不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。</p>
+<p>目前支持的 HTML 元素有：<code>&lt;kbd&gt; &lt;b&gt; &lt;i&gt; &lt;em&gt; &lt;sup&gt; &lt;sub&gt; &lt;br&gt;</code>等 ，如：</p>
+<pre>使用 &lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;Del&lt;/kbd&gt; 重启电脑</pre>
+
+<p>输出结果为：</p>
+<p><img src="img/5c3edb6a813bd471.jpg" loading="lazy"></p>
+
+<h4>转义</h4>
+
+<p>Markdown 使用了很多特殊符号来表示特定的意义，如果需要显示特定的符号则需要使用转义字符，Markdown 使用反斜杠转义特殊字符：</p>
+
+<pre>**文本加粗** 
+\*\* 正常显示星号 \*\*</pre>
+<p>输出结果为：</p>
+<p><img src="img/b858f29fc5058f22.png" loading="lazy"></p>
+
+<p>Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：</p>
+
+<pre>\   反斜线
+`   反引号
+*   星号
+_   下划线
+{}  花括号
+[]  方括号
+()  小括号
+#   井字号
++   加号
+-   减号
+.   英文句点
+!   感叹号</pre>
+
+<h4>公式</h4>
+<p><strong>Markdown Preview Enhanced</strong> 使用 <a href="https://github.com/Khan/KaTeX" class="ext">KaTeX</a> 或者 <a href="https://github.com/mathjax/MathJax" class="ext">MathJax</a> 来渲染数学表达式。</p>
+<p>KaTeX 拥有比 MathJax 更快的性能，但是它却少了很多 MathJax 拥有的特性。你可以查看 KaTeX supported functions/symbols 来了解 KaTeX 支持那些符号和函数。</p>
+
+<p>默认下的分隔符：</p>
+<ul><li><code>$...$</code> 或者 <code>\(...\)</code> 中的数学表达式将会在行内显示。</li><li><code>$$...$$</code> 或者 <code>\[...\]</code> 或者 <code>```math</code> 中的数学表达式将会在块内显示。</li></ul>
+
+<p><img src="img/617c53dfde0e32f8.gif" loading="lazy"></p>
+<pre>
+$$
+\begin{Bmatrix}
+   a &amp; b \\
+   c &amp; d
+\end{Bmatrix}
+$$
+$$
+\begin{CD}
+   A @&gt;a&gt;&gt; B \\
+@VbVV @AAcA \\
+   C @= D
+\end{CD}
+$$</pre>
+<p>输出结果为：</p>
+
+<p><img src="img/0b5e2ada5f887342.jpeg" loading="lazy"></p></div></section>
+<section class="ch" id="c13"><h2>13. Markdown 分割线<a class="chsrc" href="https://www.runoob.com/markdown/md-dividing-line.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>
+分割线用于在视觉上分隔文档的不同部分，创建清晰的内容层次。</p>
+<h4>水平分割线的三种写法</h4><p>
+Markdown 支持三种方式创建水平分割线：</p>
+<p><strong>1、使用三个连字符：</strong></p>
+<pre>---</pre>
+<p><strong>2、使用三个星号：</strong></p>
+<pre>***</pre>
+<p><strong>3、使用三个下划线：</strong></p>
+<pre>___</pre><p>
+所有三种方式的渲染效果相同：</p>
+
+<p><img src="img/52707aea4d71102e.png" loading="lazy"></p>
+
+<h4>
+扩展写法</h4><p>
+可以使用更多的符号，但三个是最小要求：</p>
+<pre>-----
+*****
+_____</pre><p>
+<strong>空格的影响：</strong>符号之间可以有空格。</p>
+<pre>- - -
+* * *
+_ _ _</pre><hr>
+<h3>分割线的使用场景</h3>
+<h4>章节分隔</h4>
+<pre># 第一章：概述
+
+内容描述...
+
+---
+
+# 第二章：安装
+
+安装步骤...
+
+---
+
+# 第三章：使用
+
+使用说明...</pre>
+
+<p><img src="img/88263bd83fca3ab0.png" loading="lazy"></p>
+<h4>
+内容区块分隔</h4>
+<pre>## 产品特性
+
+### 核心功能
+- 功能A
+- 功能B
+- 功能C
+
+---
+
+### 技术优势
+- 优势1
+- 优势2
+- 优势3
+
+---
+
+### 应用场景
+场景描述...
+页面底部分隔
+markdown正文内容...
+
+---
+
+## 相关链接
+
+- [官方网站](https://example.com)
+- [技术文档](https://docs.example.com)
+- [社区论坛](https://forum.example.com)
+
+---
+
+*最后更新：2024年3月15日*</pre>
+
+<p><img src="img/af8d77d79f325acc.png" loading="lazy"></p>
+
+<h4>引用和正文分隔</h4>
+<pre>项目介绍的正文内容...
+
+---
+
+&gt; **免责声明**
+&gt; 
+&gt; 本软件按"原样"提供，不提供任何形式的明示或暗示担保。
+
+---
+
+继续其他内容...</pre>
+
+<p><img src="img/e42602d536a24141.png" loading="lazy"></p>
+
+<hr>
+<h3>分割线的最佳实践</h3><p>
+<strong>避免过度使用：</strong></p>
+<pre># 标题
+
+内容1
+
+--- （不必要的分割线）
+
+## 子标题
+
+内容2</pre><p>
+<strong>合理的使用：</strong></p>
+<pre># 项目文档
+
+项目简介...
+
+---
+
+## 安装指南
+
+安装步骤...
+
+---
+
+## 使用说明
+
+使用方法...
+
+---
+
+## 常见问题
+
+FAQ内容...</pre><p>
+<strong>与其他元素的配合：</strong></p>
+<pre>## 版本历史
+
+### v2.0.0 (2024-03-15)
+- 新增功能A
+- 修复问题B
+
+---
+
+### v1.5.0 (2024-02-01)
+- 新增功能C
+- 优化性能
+
+---
+
+### v1.0.0 (2024-01-01)
+- 初始版本发布</pre>
+
+<p><img src="img/6b0d622148270dbc.png" loading="lazy"></p></div></section>
+<section class="ch" id="c14"><h2>14. Markdown 数学公式<a class="chsrc" href="https://www.runoob.com/markdown/md-math.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><h4>LaTeX 数学公式基础</h4>
+<p>在 Markdown 中，数学公式通过 LaTeX 语法来表示。LaTeX 是一个强大的排版系统，特别适用于包含复杂数学公式的文档。</p>
+<h5>基本语法结构</h5>
+<ul>
+    <li><strong>命令</strong>：以反斜杠 <code>\</code> 开头，如 <code>\alpha</code>、<code>\sum</code></li>
+    <li><strong>参数</strong>：用花括号 <code>{}</code> 包围，如 <code>\frac{a}{b}</code></li>
+    <li><strong>下标</strong>：使用 <code>_</code>，如 <code>x_1</code></li>
+    <li><strong>上标</strong>：使用 <code>^</code>，如 <code>x^2</code></li>
+    <li><strong>分组</strong>：用花括号将多个字符组合，如 <code>x_{i+1}</code></li>
+</ul>
+<h5>常用 LaTeX 命令</h5>
+<pre>\alpha, \beta, \gamma  % 希腊字母
+\sum, \prod, \int      % 求和、乘积、积分
+\frac{分子}{分母}      % 分数
+\sqrt{表达式}          % 平方根
+\sqrt[n]{表达式}       % n次根</pre>
+<h4>行内公式与块级公式</h4>
+<h5>行内公式</h5>
+<p>行内公式使用单个美元符号 <code>$</code> 包围，公式会嵌入到文本中，如：文本中的变量 $x = 5$ 和函数 $f(x) = x^2 + 2x + 1$。</p>
+<pre>文本中的变量 $x = 5$ 和函数 $f(x) = x^2 + 2x + 1$。</pre>
+
+<p><img src="img/0647bb7227aaf712.png" loading="lazy"></p>
+
+<h5>块级公式</h5>
+<p>块级公式使用双美元符号 <code><span class="marked">$$</span></code> 包围，公式会独立成行并居中显示：</p>
+<p>E = mc^2</p>
+<p>\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}</p>
+
+<pre>$$E = mc^2$$
+
+$$\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}$$</pre>
+
+<p><img src="img/53abd10f1f05824b.png" loading="lazy"></p>
+
+<h5>多行公式</h5>
+<p>使用 <code>align</code> 环境创建多行对齐公式：</p>
+<p><br>\begin{align}<br>f(x) &amp;= ax^2 + bx + c \<br>f'(x) &amp;= 2ax + b \<br>f''(x) &amp;= 2a<br>\end{align}<br></p>
+<pre>$$
+    \begin{align}
+    f(x) &amp;= ax^2 + bx + c \\
+    f'(x)  &amp;= 2ax + b \\
+    f''(x)  &amp;= 2a
+    \end{align}
+    $$</pre>
+
+<p><img src="img/840a19f0510f7e5f.png" loading="lazy"></p>
+<hr>
+<h3>常用数学符号</h3>
+<h4>基本运算符号</h4>
+<ul>
+    <li>加减乘除：<code>+</code>, <code>-</code>, <code>\times</code>, <code>\div</code></li>
+    <li>分数：<code>\frac{a}{b}</code> → $\frac{a}{b}$</li>
+    <li>根号：<code>\sqrt{x}</code>, <code>\sqrt[n]{x}</code> → $\sqrt{x}$, $\sqrt[n]{x}$</li>
+    <li>指数：<code>x^2</code>, <code>e^{i\pi}</code> → $x^2$, $e^{i\pi}$</li>
+</ul>
+<h4>比较符号</h4>
+<ul>
+    <li>等于：<code>=</code>, <code>\neq</code>, <code>\equiv</code> → $=$, $\neq$, $\equiv$</li>
+    <li>大小：<code>&lt;</code>, <code>&gt;</code>, <code>\leq</code>, <code>\geq</code> → $&lt;$, $&gt;$, $\leq$, $\geq$</li>
+    <li>约等于：<code>\approx</code>, <code>\sim</code> → $\approx$, $\sim$</li>
+</ul>
+<h4>集合符号</h4>
+<ul>
+    <li>属于：<code>\in</code>, <code>\notin</code> → $\in$, $\notin$</li>
+    <li>包含：<code>\subset</code>, <code>\supset</code> → $\subset$, $\supset$</li>
+    <li>交并：<code>\cap</code>, <code>\cup</code> → $\cap$, $\cup$</li>
+    <li>空集：<code>\emptyset</code> → $\emptyset$</li>
+</ul>
+<h4>希腊字母</h4>
+<p>常用希腊字母及其 LaTeX 表示：</p>
+<table>
+    <thead>
+        <tr>
+            <th>小写</th>
+            <th>大写</th>
+            <th>LaTeX</th>
+            <th>小写</th>
+            <th>大写</th>
+            <th>LaTeX</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>α</td>
+            <td>Α</td>
+            <td><code>\alpha</code></td>
+            <td>ν</td>
+            <td>Ν</td>
+            <td><code>\nu</code></td>
+        </tr>
+        <tr>
+            <td>β</td>
+            <td>Β</td>
+            <td><code>\beta</code></td>
+            <td>ο</td>
+            <td>Ο</td>
+            <td><code>o</code></td>
+        </tr>
+        <tr>
+            <td>γ</td>
+            <td>Γ</td>
+            <td><code>\gamma</code></td>
+            <td>π</td>
+            <td>Π</td>
+            <td><code>\pi</code></td>
+        </tr>
+        <tr>
+            <td>δ</td>
+            <td>Δ</td>
+            <td><code>\delta</code></td>
+            <td>ρ</td>
+            <td>Ρ</td>
+            <td><code>\rho</code></td>
+        </tr>
+        <tr>
+            <td>ε</td>
+            <td>Ε</td>
+            <td><code>\epsilon</code></td>
+            <td>σ</td>
+            <td>Σ</td>
+            <td><code>\sigma</code></td>
+        </tr>
+        <tr>
+            <td>θ</td>
+            <td>Θ</td>
+            <td><code>\theta</code></td>
+            <td>τ</td>
+            <td>Τ</td>
+            <td><code>\tau</code></td>
+        </tr>
+        <tr>
+            <td>λ</td>
+            <td>Λ</td>
+            <td><code>\lambda</code></td>
+            <td>φ</td>
+            <td>Φ</td>
+            <td><code>\phi</code></td>
+        </tr>
+        <tr>
+            <td>μ</td>
+            <td>Μ</td>
+            <td><code>\mu</code></td>
+            <td>ω</td>
+            <td>Ω</td>
+            <td><code>\omega</code></td>
+        </tr>
+    </tbody>
+</table>
+<h4>特殊函数和符号</h4>
+<ul>
+    <li>三角函数：<code>\sin</code>, <code>\cos</code>, <code>\tan</code></li>
+    <li>对数：<code>\log</code>, <code>\ln</code></li>
+    <li>极限：<code>\lim_{x \to 0}</code></li>
+    <li>求和：<code>\sum_{i=1}^{n}</code></li>
+    <li>积分：<code>\int_{a}^{b}</code></li>
+    <li>无穷：<code>\infty</code></li>
+</ul>
+<h4>矩阵表示
+<p>使用 <code>matrix</code> 环境：</p>
+<p><br>\begin{pmatrix}<br>a &amp; b \<br>c &amp; d<br>\end{pmatrix}<br></p>
+<pre>$$
+    \begin{pmatrix}
+    a &amp; b \\
+    c &amp; d
+    \end{pmatrix}
+    $$</pre><p><img src="img/5d7ca24759fccadb.png" loading="lazy"></p>
+<p>不同括号类型的矩阵：</p>
+<ul>
+    <li><code>pmatrix</code>：圆括号 $\begin{pmatrix} a &amp; b \ c &amp; d \end{pmatrix}$</li>
+    <li><code>bmatrix</code>：方括号 $\begin{bmatrix} a &amp; b \ c &amp; d \end{bmatrix}$</li>
+    <li><code>vmatrix</code>：行列式 $\begin{vmatrix} a &amp; b \ c &amp; d \end{vmatrix}$</li>
+</ul>			
+						
+			
+			
+		
+
+		
+		
+
+		
+		
+		
+</h4></div></section>
+<section class="ch" id="c15"><h2>15. Markdown 图表绘制<a class="chsrc" href="https://www.runoob.com/markdown/md-draw.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>图表在技术文档中非常重要，它可以帮助我们：</p>
+<ul>
+<li>可视化复杂的数据关系</li>
+<li>展示系统架构和工作流程</li>
+<li>更清晰地表达思想和概念</li>
+</ul>
+<hr>
+
+<h3>常见的 Markdown 图表工具</h3>
+<h4>Mermaid</h4>
+<p>Mermaid 是最流行的 Markdown 图表工具之一，它允许你使用简单的文本语法生成各种图表。</p>
+<h5>支持图表类型：</h5>
+<ul>
+<li>流程图 (Flowchart)</li>
+<li>序列图 (Sequence Diagram)</li>
+<li>类图 (Class Diagram)</li>
+<li>状态图 (State Diagram)</li>
+<li>甘特图 (Gantt Chart)</li>
+<li>饼图 (Pie Chart)</li>
+</ul>
+<h4>流程图</h4>
+<pre>
+```mermaid
+graph TD
+    A[开始] --&gt; B{条件判断}
+    B --&gt;|Yes| C[执行操作A]
+    B --&gt;|No| D[执行操作B]
+    C --&gt; E[结束]
+    D --&gt; E
+```</pre>
+<p><img src="img/3fcfc728b73b9e48.png" loading="lazy"></p>
+
+<h5>流程图方向</h5>
+<ul>
+    <li><code>TD</code> 或 <code>TB</code>：从上到下</li>
+    <li><code>BT</code>：从下到上</li>
+    <li><code>RL</code>：从右到左</li>
+    <li><code>LR</code>：从左到右</li>
+</ul>
+
+<h5>节点形状</h5>
+<ul>
+    <li><code>A[方形]</code>：矩形</li>
+    <li><code>B(圆角矩形)</code>：圆角矩形</li>
+    <li><code>C{菱形}</code>：菱形（决策）</li>
+    <li><code>D((圆形))</code>：圆形</li>
+    <li><code>E&gt;旗帜形]</code>：旗帜形</li>
+</ul>
+<h5>连接线类型</h5>
+<ul>
+    <li><code>--&gt;</code> 实线箭头</li>
+    <li><code>-.-&gt;</code> 虚线箭头</li>
+    <li><code>==&gt;</code> 粗实线箭头</li>
+    <li><code>--</code> 实线</li>
+    <li><code>-.</code> 虚线</li>
+</ul>
+
+<hr>
+
+<h4>时序图和甘特图</h4>
+<h5>时序图（Sequence Diagram）</h5>
+<pre>
+```mermaid
+sequenceDiagram
+    participant A as 用户
+    participant B as 系统
+    participant C as 数据库
+    
+    A-&gt;&gt;B: 登录请求
+    B-&gt;&gt;C: 验证用户信息
+    C--&gt;&gt;B: 返回验证结果
+    B--&gt;&gt;A: 登录成功/失败
+```
+</pre>
+<p><img src="img/aff20333188f68a6.png" loading="lazy"></p>
+<p>时序图语法要点：</p>
+<ul>
+    <li><code>participant</code> 定义参与者</li>
+    <li><code>-&gt;&gt;</code> 实线箭头</li>
+    <li><code>--&gt;&gt;</code> 虚线箭头</li>
+    <li><code>note</code> 添加注释</li>
+</ul>
+<h5>甘特图（Gantt Chart）</h5>
+<pre>
+```mermaid
+gantt
+    title 项目开发计划
+    dateFormat  YYYY-MM-DD
+    section 设计阶段
+    需求分析      :done,    des1, 2024-01-01,2024-01-15
+    UI设计       :active,  des2, 2024-01-10, 30d
+    section 开发阶段
+    前端开发      :         dev1, after des2, 45d
+    后端开发      :         dev2, 2024-02-01, 60d
+    section 测试阶段
+    单元测试      :         test1, after dev1, 15d
+    集成测试      :         test2, after dev2, 10d
+```
+</pre>
+<p><img src="img/73a7f3bdb4a38eee.png" loading="lazy"></p>
+<p>甘特图语法要点：</p>
+<ul>
+    <li><code>title</code> 设置标题</li>
+    <li><code>dateFormat</code> 定义日期格式</li>
+    <li><code>section</code> 定义阶段</li>
+    <li>任务状态：<code>done</code>（已完成）、<code>active</code>（进行中）、<code>crit</code>（关键）</li>
+</ul>
+
+<h4>饼图</h4>
+<pre>
+```mermaid
+pie
+    title 浏览器市场份额
+    "Chrome" : 65
+    "Safari" : 15
+    "Firefox" : 10
+    "其他" : 10
+```</pre>
+<p><img src="img/0767ddbd492117be.png" loading="lazy"></p>
+<hr>
+
+<h3>图表类型详解</h3>
+<h4>流程图 (Flowchart)</h4>
+<p>流程图是最常用的图表类型，用于展示过程或算法流程。</p>
+<h5>Mermaid 示例：</h5>
+<pre>
+```mermaid
+graph LR
+    A[开始] --&gt; B{条件判断}
+    B --&gt;|是| C[执行操作1]
+    B --&gt;|否| D[执行操作2]
+    C --&gt; E[结束]
+    D --&gt; E
+```</pre>
+
+<h5>语法说明：</h5>
+<ul>
+<li><code>graph</code> 声明流程图</li>
+<li><code>LR</code> 表示从左到右布局 (可选 TB/RL/BT)</li>
+<li><code>--&gt;</code> 表示箭头连接</li>
+<li><code>[]</code> 表示矩形节点</li>
+<li><code>{}</code> 表示菱形条件节点</li>
+</ul>
+<hr>
+
+<h4>序列图 (Sequence Diagram)</h4>
+<p>序列图展示对象之间的交互顺序。</p>
+<h5>Mermaid 示例：</h5>
+<pre>
+```mermaid
+sequenceDiagram
+    participant 用户
+    participant 系统
+    用户-&gt;&gt;系统: 登录请求
+    系统--&gt;&gt;用户: 验证请求
+    用户-&gt;&gt;系统: 提交凭证
+    系统--&gt;&gt;用户: 登录成功
+```</pre>
+
+<h5>语法说明：</h5>
+<ul>
+<li><code>participant</code> 定义参与者</li>
+<li><code>-&gt;&gt;</code> 表示实线箭头</li>
+<li><code>--&gt;&gt;</code> 表示虚线箭头</li>
+</ul>
+<hr>
+
+<h4>类图 (Class Diagram)</h4>
+<p>类图用于面向对象设计，展示类及其关系。</p>
+
+<pre>
+```mermaid
+classDiagram
+    class 用户 {
+        +用户名: string
+        +密码: string
+        +登录()
+    }
+    
+    class 订单 {
+        +订单号: int
+        +创建日期: date
+        +计算总价()
+    }
+    
+    用户 "1" --&gt; "n" 订单
+```</pre>
+
+<hr>
+
+<h3>高级技巧</h3>
+<h4>1. 主题定制</h4>
+<p>Mermaid 允许自定义图表样式：</p>
+<pre>
+```mermaid
+%%{init: {'theme': 'forest'}}%%
+pie
+    title 自定义主题
+    "项目A" : 30
+    "项目B" : 50
+    "项目C" : 20
+```</pre><p><img src="img/a4dcae094fac5b00.png" loading="lazy"></p>
+<h4>2. 交互式图表</h4>
+<p>一些工具支持添加交互功能：</p>
+<pre>
+```mermaid
+graph TD
+    A[点击我] --&gt; B[显示详细信息]
+    click A "https://www.runoob.com" "这是提示文本"
+```
+</pre><p><img src="img/cfab7f3054e4404a.png" loading="lazy"></p>
+<h4>3. 导出图表</h4>
+<p>大多数工具支持将图表导出为：</p>
+<ul>
+<li>PNG 图片</li>
+<li>SVG 矢量图</li>
+<li>PDF 文档</li>
+</ul>
+<hr>
+
+<h3>工具支持情况</h3>
+<table>
+<thead>
+<tr>
+<th>工具/平台</th>
+<th>Mermaid</th>
+<th>PlantUML</th>
+<th>Graphviz</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GitHub</td>
+<td>✔</td>
+<td>✖</td>
+<td>✖</td>
+</tr>
+<tr>
+<td>GitLab</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td>VS Code</td>
+<td>插件</td>
+<td>插件</td>
+<td>插件</td>
+</tr>
+<tr>
+<td>Typora</td>
+<td>✔</td>
+<td>✖</td>
+<td>✖</td>
+</tr>
+<tr>
+<td>Obsidian</td>
+<td>插件</td>
+<td>插件</td>
+<td>插件</td>
+</tr>
+</tbody></table>
+<hr>
+
+<h3>最佳实践</h3>
+<ol>
+<li><strong>保持简洁</strong>：图表应该简单明了，避免过多细节</li>
+<li><strong>统一风格</strong>：同一文档中的图表应保持一致的风格</li>
+<li><strong>添加说明</strong>：为复杂图表添加文字说明</li>
+<li><strong>版本控制</strong>：文本格式的图表可以很好地与 Git 配合使用</li>
+<li><strong>测试渲染</strong>：在不同平台上测试图表显示效果</li>
+</ol>
+<hr>
+
+<h3>常见问题解答</h3>
+<h4>Q1: 为什么我的图表无法显示？</h4>
+<ul>
+<li>检查是否使用了正确的语法</li>
+<li>确认你的 Markdown 编辑器/平台支持该图表工具</li>
+<li>查看是否有语法错误</li>
+</ul>
+<h4>Q2: 如何学习这些图表语法？</h4>
+<ul>
+<li>参考官方文档：<ul>
+<li><a href="https://mermaid.js.org" class="ext">Mermaid 官方文档</a></li>
+<li><a href="https://plantuml.com" class="ext">PlantUML 官方文档</a></li>
+</ul>
+</li>
+<li>使用在线编辑器实时练习</li>
+</ul>
+<h4>Q3: 有没有可视化编辑器？</h4>
+<ul>
+<li>Mermaid Live Editor: <a href="https://mermaid.live" class="ext">https://mermaid.live</a></li>
+<li>PlantUML Server: <a href="http://www.plantuml.com/plantuml" class="ext">http://www.plantuml.com/plantuml</a></li>
+</ul></div></section>
+<section class="ch" id="c16"><h2>16. Markdown 实战<a class="chsrc" href="https://www.runoob.com/markdown/markdown-practices.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><h3>个人简历制作</h3>
+<h4>简历结构设计</h4>
+<p>一份优秀的Markdown简历应该包含以下核心结构：</p>
+<pre>
+# 姓名
+## 联系方式
+## 职业目标/个人简介
+## 工作经验
+## 教育背景
+## 技能清单
+## 项目经历
+## 其他信息</pre>
+<h4>
+完整简历示例</h4>
+
+<pre># 张三 | 前端开发工程师
+
+## &amp;#x1f4de; 联系方式
+- **邮箱**: zhangsan@email.com
+- **电话**: 138-0000-0000
+- **GitHub**: [github.com/zhangsan](https://github.com/zhangsan)
+- **LinkedIn**: [linkedin.com/in/zhangsan](https://linkedin.com/in/zhangsan)
+- **地址**: 上海市浦东新区
+
+## &amp;#x1f3af; 职业目标
+具有3年前端开发经验的工程师，专注于React生态系统和现代化Web应用开发。寻求在创新型公司中担任高级前端开发职位，希望参与大型项目的架构设计和团队协作。
+
+## &amp;#x1f4bc; 工作经验
+
+### 高级前端开发工程师 | ABC科技有限公司
+**2022.03 - 至今**
+
+- 负责公司核心产品的前端开发，用户量达100万+
+- 使用React、TypeScript构建可维护的大型单页应用
+- 与产品和设计团队协作，将设计稿转化为高质量的用户界面
+- 建立前端组件库，提升团队开发效率30%
+- **技术栈**: React, TypeScript, Redux, Webpack, Jest
+
+### 前端开发工程师 | XYZ互联网公司
+**2021.06 - 2022.02**
+
+- 参与电商平台的前端开发和维护工作
+- 优化页面性能，首屏加载时间减少40%
+- 负责移动端H5页面开发，适配多种设备
+- **技术栈**: Vue.js, JavaScript, SCSS, Element UI</pre>
+
+<p><img src="img/e81a51807dd1675c.png" loading="lazy"></p>
+
+<h4>信息层次划分</h4>
+<p>Markdown 简历的信息层次应该遵循以下原则：</p>
+<ol>
+    <li><strong>一级标题（#）</strong>: 姓名和职位</li>
+    <li><strong>二级标题（##）</strong>: 主要板块（联系方式、工作经验等）</li>
+    <li><strong>三级标题（###）</strong>: 具体职位或项目名称</li>
+    <li><strong>四级标题（####）</strong>: 子项目或详细分类</li>
+    <li><strong>粗体文本</strong>: 重要信息强调</li>
+    <li><strong>列表</strong>: 技能点或职责描述</li>
+</ol>
+<h5>层次划分示例</h5>
+<pre>## &amp;#x1f6e0;&amp;#xfe0f; 技能清单
+
+### 编程语言
+- **熟练**: JavaScript, TypeScript, HTML5, CSS3
+- **了解**: Python, Java, Go
+
+### 前端框架
+- **React生态**: React, Redux, React Router, Next.js
+- **Vue生态**: Vue.js, Vuex, Vue Router, Nuxt.js
+- **其他**: Angular基础
+
+### 开发工具
+#### 版本控制
+- Git, GitHub, GitLab
+
+#### 构建工具
+- Webpack, Vite, Rollup
+- Babel, PostCSS
+
+#### 测试工具
+- Jest, Cypress, Testing Library</pre>
+
+<h4>格式美化技巧</h4>
+<h5>使用 Emoji 增强视觉效果</h5>
+<pre>
+## &amp;#x1f4f1; 联系方式
+## &amp;#x1f4bc; 工作经验  
+## &amp;#x1f393; 教育背景
+## &amp;#x1f6e0;&amp;#xfe0f; 技能清单
+## &amp;#x1f680; 项目经历
+## &amp;#x1f3c6; 获奖经历
+</pre>
+<h5>巧用表格展示信息</h5>
+<pre>
+## &amp;#x1f4ca; 技能评估
+
+| 技能类别 | 具体技能 | 熟练程度 |
+|---------|---------|---------|
+| 前端框架 | React | &amp;#x2b50;&amp;#x2b50;&amp;#x2b50;&amp;#x2b50;&amp;#x2b50; |
+| 前端框架 | Vue.js | &amp;#x2b50;&amp;#x2b50;&amp;#x2b50;&amp;#x2b50; |
+| 编程语言 | TypeScript | &amp;#x2b50;&amp;#x2b50;&amp;#x2b50;&amp;#x2b50; |
+| 编程语言 | JavaScript | &amp;#x2b50;&amp;#x2b50;&amp;#x2b50;&amp;#x2b50;&amp;#x2b50; |
+</pre>
+<h5>使用引用块突出重点</h5>
+<pre>
+## &amp;#x1f3af; 职业亮点
+
+&gt; **核心优势**: 3年大型项目开发经验，熟悉完整的前端开发流程
+&gt; 
+&gt; **技术特长**: React + TypeScript技术栈，具备良好的代码规范意识
+&gt; 
+&gt; **团队协作**: 具备跨部门沟通能力，参与过多个敏捷开发项目
+</pre>
+<h5>链接和徽章美化</h5>
+<pre>
+## &amp;#x1f517; 在线作品
+
+[![个人网站](https://img.shields.io/badge/Website-zhangsan.dev-blue)](https://zhangsan.dev)
+[![GitHub](https://img.shields.io/badge/GitHub-zhangsan-black)](https://github.com/zhangsan)
+[![掘金](https://img.shields.io/badge/掘金-@张三-blue)](https://juejin.cn/user/zhangsan)
+</pre></div></section>
+<section class="ch" id="c17"><h2>17. Markdown 测验<a class="chsrc" href="https://www.runoob.com/markdown/md-quiz.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p class="miss">[该页正文未能提取]</p></div></section>
+<section class="ch" id="c18"><h2>18. Obsidian 使用教程<a class="chsrc" href="https://www.runoob.com/markdown/obsidian-usage.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><p>Obsidian 的定位是本地 Markdown 笔记系统，用文件夹和纯文本驱动知识结构。</p>
+<p>Obsidian 不依赖云端格式，不锁用户数据，任何时间可迁移，可被任意编辑器读取。</p>
+<p>Obsidian 本质上是一个强大的笔记应用，但它不仅仅是记录文字，它是一种将你的笔记、想法和知识点连接起来的工具，旨在构建一个网状的、可搜索的、私人的知识网络，就像你大脑中的神经元连接一样。</p>
+<h4>为什么要用 Obsidian？</h4>
+
+<ul>
+    <li>纯文本与开放生态，基于 Markdown 和本地文件。</li>
+    <li>链接系统构建网状知识结构，比传统树状笔记更适合学习与整理。</li>
+    <li>本地运行，不依赖网络，不存在服务停运导致的数据丢失问题。</li>
+    <li>高度可定制，拥有数千个社区插件和主题。</li>
+</ul>
+<hr>
+<h3>安装与基础设置</h3>
+<h4>1、下载与安装</h4><p>
+Obsidian 官方网站： <a href="https://obsidian.md/" class="ext">https://obsidian.md/</a></p>
+<p><img src="img/dcc2b1e0a9c07696.png" loading="lazy"></p>
+<p>你可以选择对应你的操作系统（Windows/Mac/iOS/Android/Linux）的版本下载并安装。</p>
+<p>Obsidian 下载页面：<a href="https://obsidian.md/download" class="ext">https://obsidian.md/download</a></p><p>
+Obsidian Github 地址：<a href="https://github.com/obsidianmd" class="ext">https://github.com/obsidianmd</a></p>
+<p>下载后就可以双击安装，选择语言等配置：</p>
+
+<p><img src="img/ee851f0138c73af5.png" loading="lazy"></p>
+<p>然后选择快速开始直接进入页面看看布局：</p>
+<p><img src="img/dfe55d0b271b1816.png" loading="lazy"></p>
+<ol>
+    <li><strong>左侧栏 (文件管理器)：</strong> 管理你的文件夹和笔记列表。</li>
+    <li><strong>中间区域 (编辑器)：</strong> 你主要写作的地方，支持"实时预览"模式，即你输入 Markdown 符号时，它会立刻渲染成格式。</li>
+    <li><strong>右侧栏 (面板)：</strong> 默认显示<strong>反向链接</strong>（即其他哪些笔记提到了你正在看的这篇笔记）和大纲。</li>
+    <li><strong>命令面板 (Ctrl/Cmd + P)：</strong> 新手神器！按此快捷键，输入你想要做的操作（如"创建新笔记"），无需点击菜单。</li>
+</ol>
+<h4>2、创建第一个库 (Vault)</h4>
+<p>Vault 是 Obsidian 中最重要的概念。</p>
+<p>
+Vault = 文件夹： <span class="marked">库</span>其实就是你电脑上的一个普通文件夹，用来存放你所有的笔记文件。</p>
+<p>
+首次打开 Obsidian，在新建仓库位置选择"创建"按钮：</p>。
+
+<p><img src="img/ba1e2012a9783b73.png" loading="lazy"></p>
+<p>如果已经打开的，点击左侧最底部的 Obsidian Vault 来管理已建好的仓库，也可以重新设置仓库：</p>
+
+<p><img src="img/bbfbd7cb5699062b.png" loading="lazy"></p>
+
+然后给你的知识库起个名字（例如：我的第二大脑），再选择一个你容易找到的本地文件夹位置（例如：桌面或文档文件夹下的 Obsidian Vaults）
+<p><img src="img/06440b22796f0ff6.png" loading="lazy"></p>
+<p>创建后，接着就可以看到我们当前的仓库名了，比如我的 RUNOOB，我们可以对默认的"欢迎"文件重命名来开始写第一篇笔记：</p>
+<p><img src="img/d47d45e5eda4f9a3.png" loading="lazy"></p>
+<p>把文件名改为 <span class="marked">RUNOOB-Obsidian 使用教程</span>，然后编写以下markdown 内容：
+</p>
+
+<pre>### 什么是 Obsidian？
+
+Obsidian 本质上是一个**强大的笔记应用**，但它不仅仅是记录文字。它是一种将你的笔记、想法和知识点连接起来的工具，旨在构建一个**网状的、可搜索的、私人的知识网络**，就像你大脑中的神经元连接一样。
+
+* **本地文件存储：** Obsidian 的所有文件都以纯文本的 **Markdown** 格式存储在你的本地电脑上。这意味着：
+ * **安全可控：** 你的数据完全属于你自己，不需要依赖任何云服务商。
+ * **永不过时：** Markdown 是最通用的纯文本格式，即使 Obsidian 停止服务，你仍然可以用任何文本编辑器打开你的笔记。
+
+### 为什么要用 Obsidian？（核心优势）
+
+你可能用过 Word、Evernote 或 Notion，为什么还要选择 Obsidian？
+
+| 优势 | 描述 | 对你的好处 |
+| :--- | :--- | :--- |
+| **双向链接 (Bi-directional Linking)** | 使用 `[[笔记名]]` 语法，你可以将笔记像网页一样连接起来。 | 你能轻松发现知识点之间的**关联**，将零散的想法变成一个完整的知识体系。 |
+| **关系图谱 (Graph View)** | 将所有笔记和连接以可视化网络图的形式展示出来。 | 直观地看到你的知识网是如何成长的，找到未连接的“孤岛”笔记。 | 
+| **纯文本与开放生态** | 基于 Markdown 和本地文件。 | 跨平台兼容性强，未来可导出性高，方便配合其他工具使用。 |
+| **高度可定制** | 拥有数千个社区插件和主题。 | 无论是学生、程序员还是作家，你都可以根据需求定制功能和外观。 |</pre>
+<p>
+显示结果如下：</p><p><img src="img/c66c8fe246e07479.png" loading="lazy"></p>
+<p><strong> 注意：</strong>你的所有 Markdown 文件 (<span class="marked">.md</span> 后缀) 都将存储在这个文件夹里。Obsidian 只是读取和编辑这些文件的一个工具。</p>
+<hr><h3>Obsidian 插件</h3>
+<p>Obsidian 的强大之处，很大程度上来自于其插件市场。插件允许用户根据自己的需求，将 Obsidian 从一个基础的 Markdown 编辑器，扩展成一个功能无限的瑞士军刀。</p>
+
+<p>Obsidian 的插件分为两大类：<strong>核心插件</strong>和<strong>社区插件</strong>，可以在设置选择打开查看。</p>
+<p><img src="img/db69eaec811fc6f1.png" loading="lazy"></p>
+<h4>1. 核心插件 (Core Plugins)</h4>
+<ul>
+    <li><strong>定义：</strong> 这些是 Obsidian 软件自带的、官方维护的功能模块。它们默认安装在每个 Obsidian 实例中，但可以根据需要选择开启或关闭。</li>
+    <li><strong>作用：</strong> 提供软件的基础和重要功能，例如笔记之间的<strong>双向链接</strong>、<strong>关系图谱</strong>、<strong>每日笔记</strong>、<strong>模板</strong>、<strong>标签面板</strong>等。</li>
+    <li><strong>应用举例：</strong>
+        <ul>
+            <li><strong>每日笔记 (Daily Notes)：</strong> 快速创建并跳转到当天的笔记，非常适合做每日记录或任务追踪。</li>
+            <li><strong>画布 (Canvas)：</strong> 让你在一个无限大的白板上自由布局笔记、图片和网页，进行视觉化的思维组织。</li>
+            <li><strong>模板 (Templates)：</strong> 允许你定义重复使用的笔记结构（如读书笔记、会议记录），提高效率。</li>
+        </ul>
+    </li>
+</ul>
+<h4>2. 第三方插件</h4>
+<ul>
+    <li><strong>定义：</strong> 这些是由全球 Obsidian 用户（开发者）创建、维护和分享的第三方功能扩展。</li>
+    <li><strong>特点：</strong> 数量庞大，功能五花八门，极大地丰富了 Obsidian 的生态系统。</li>
+    <li><strong>安全性：</strong> 在安装第三方插件之前，Obsidian 默认开启<strong>安全模式</strong>。安装插件需要手动关闭安全模式，Obsidian 会提醒用户注意安全风险（建议只安装下载量大、评分高且功能明确的插件）。</li>
+</ul>
+<p>对于新手用户，以下是一些最受欢迎、功能强大且能迅速提升体验的第三方插件：</p>
+<table>
+    <thead>
+        <tr>
+            <th>插件名称</th>
+            <th>主要功能</th>
+            <th>典型应用场景</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Dataview</strong></td>
+            <td>将你的笔记库视为一个数据库，用代码查询并展示数据。</td>
+            <td>自动生成任务列表、汇总所有带有特定标签的项目或书籍清单。</td>
+        </tr>
+        <tr>
+            <td><strong>Excalidraw</strong></td>
+            <td>在 Obsidian 中创建手绘风格的图表和思维导图。</td>
+            <td>制作流程图、概念草图或进行手写注释。</td>
+        </tr>
+        <tr>
+            <td><strong>Calendar</strong></td>
+            <td>在右侧边栏显示一个日历视图。</td>
+            <td>快速查看和跳转到过去的每日笔记，形成日程回顾。</td>
+        </tr>
+        <tr>
+            <td><strong>Advanced Tables</strong></td>
+            <td>简化 Markdown 表格的创建和格式化。</td>
+            <td>轻松对齐和编辑复杂的表格，无需手动调整空格。</td>
+        </tr>
+        <tr>
+            <td><strong>Kanban</strong></td>
+            <td>在 Obsidian 中创建类 Trello 或 Notion 的看板视图。</td>
+            <td>任务管理、项目进度追踪或将想法从"待办"拖动到"完成"。</td>
+        </tr>
+        <tr>
+            <td><strong>Obsidian Git</strong></td>
+            <td>自动将你的库备份到 Git 仓库（如 GitHub）。</td>
+            <td>实现版本控制和多设备同步，提供额外的安全保障。</td>
+        </tr>
+    </tbody>
+</table>
+<h4>如何安装和管理插件</h4>
+<h5>1. 进入插件设置</h5>
+<ol>
+    <li>点击左下角的 <strong>"设置"</strong> (齿轮图标)</li>
+    <li>在侧边栏找到 <strong>"核心插件"</strong> 和 <strong>"第三方插件"</strong>。</li>
+</ol>
+<h5>2. 安装第三方插件的步骤</h5>
+<ol>
+    <li>进入 <strong>"第三方创建"</strong> 选项卡。</li>
+    <li><strong>关闭安全模式：</strong> Obsidian 会提示你进行此操作。</li>
+    <li>点击 <strong>"浏览"</strong>。</li>
+    <li>在搜索框输入插件名称（如 <code>Dataview</code>）。</li>
+    <li>点击插件，然后点击 <strong>"安装"</strong>。</li>
+    <li><strong>激活插件：</strong> 安装完成后，点击 <strong>"启用"</strong> 按钮。插件才会开始工作。</li>
+</ol>
+<p><img src="img/ccfc476b5b2abc47.png" loading="lazy"></p>
+<p><img src="img/9d7c7f550a79bf55.png" loading="lazy"></p>
+<p><img src="img/04fe934a965683ee.png" loading="lazy"></p>
+<blockquote>
+    <p><strong>小提示：</strong> 插件安装后，通常会在左侧栏、右侧栏或通过<strong>命令面板</strong> (<code>Ctrl/Cmd + P</code>) 来调用其功能。</p>
+</blockquote></div></section>
+<footer><p>离线版 · 内容抓取自 runoob.com，仅用于个人离线阅读；页面结构与广告已去除，原文版权归菜鸟教程及原作者。</p><p><a href="index.html">← 返回总索引</a></p></footer></body></html>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="310" viewBox="0 0 940 310" role="img" aria-label="AI Remotion 视频制作产出示意">
+<rect width="940" height="310" rx="17" fill="#f5f8fb"/>
+<rect x="1" y="1" width="938" height="308" rx="16" fill="none" stroke="#d9e3ec"/>
+<text x="32" y="44" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-weight="700" font-size="23" fill="#213a53">产出示意：素材到成片</text>
+<text x="32" y="68" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="14" fill="#667e93">仅作教学示意，不代表某个模型的实测结果</text>
+<rect x="32" y="97" width="150" height="162" rx="13" fill="white" stroke="#d9e3ec"/>
+<text x="107" y="128" text-anchor="middle" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="15" font-weight="600" fill="#213a53">素材帧 A</text>
+<rect x="52" y="140" width="110" height="74" rx="8" fill="#e0ecf4"/>
+<text x="107" y="182" text-anchor="middle" font-family="Arial" font-size="12" fill="#51770e" opacity="0"> </text>
+<text x="107" y="182" text-anchor="middle" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" fill="#667e93">product.png</text>
+<text x="107" y="238" text-anchor="middle" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" fill="#8aa0b3">Codex 生成</text>
+<path d="M186 180 L195 180" stroke="#db915d" stroke-width="3" stroke-linecap="round"/>
+<rect x="205" y="97" width="150" height="162" rx="13" fill="white" stroke="#d9e3ec"/>
+<text x="280" y="128" text-anchor="middle" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="15" font-weight="600" fill="#213a53">素材帧 B</text>
+<rect x="225" y="140" width="110" height="74" rx="8" fill="#e5f2ed"/>
+<text x="280" y="182" text-anchor="middle" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" fill="#667e93">scene.png</text>
+<text x="280" y="238" text-anchor="middle" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" fill="#8aa0b3">Codex 生成</text>
+<path d="M359 180 L368 180" stroke="#db915d" stroke-width="3" stroke-linecap="round"/>
+<rect x="378" y="97" width="150" height="162" rx="13" fill="white" stroke="#d9e3ec"/>
+<text x="453" y="128" text-anchor="middle" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="15" font-weight="600" fill="#213a53">时间轴编排</text>
+<rect x="398" y="140" width="110" height="74" rx="8" fill="#f0e9f6"/>
+<text x="453" y="168" text-anchor="middle" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" fill="#667e93">序列 + 转场</text>
+<text x="453" y="190" text-anchor="middle" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" fill="#667e93">字幕 + 配乐</text>
+<text x="453" y="238" text-anchor="middle" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" fill="#8aa0b3">Remotion 组件</text>
+<path d="M532 180 L541 180" stroke="#db915d" stroke-width="3" stroke-linecap="round"/>
+<rect x="551" y="97" width="170" height="162" rx="13" fill="#213a53"/>
+<text x="636" y="128" text-anchor="middle" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="15" font-weight="600" fill="#ffffff">渲染成片</text>
+<rect x="571" y="140" width="130" height="74" rx="8" fill="#3c5a76"/>
+<text x="636" y="182" text-anchor="middle" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" fill="#ffffff">runoob-promo.mp4</text>
+<text x="636" y="238" text-anchor="middle" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="12" fill="#c7d6e4">1920×1080 · 30fps</text>
+<path d="M725 180 L734 180" stroke="#db915d" stroke-width="3" stroke-linecap="round"/>
+<rect x="744" y="97" width="166" height="162" rx="13" fill="white" stroke="#d9e3ec"/>
+<text x="827" y="128" text-anchor="middle" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="15" font-weight="600" fill="#213a53">逐帧验收</text>
+<text x="759" y="158" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#667e93">文字逐字准确</text>
+<text x="759" y="180" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#667e93">时长 150 帧整</text>
+<text x="759" y="202" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#667e93">字幕音乐对齐</text>
+<text x="759" y="224" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#667e93">比例 16:9</text>
+<text x="32" y="292" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="13" fill="#8aa0b3">教学示意 · 输出文件名含 RUNOOB 前缀，存放于 out 目录</text>
+</svg>

@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Google 地图基础 · 离线版</title>
+<link rel="stylesheet" href="css/offline.css">
+</head><body>
+<nav class="topbar"><a href="index.html">← 返回总索引</a><span>·</span><span>A 前端与界面</span>
+<span>·</span><span>9 章</span></nav>
+<h1>Google 地图基础</h1>
+<p class="docmeta">来源：<a class="ext" href="https://www.runoob.com/googleapi/google-maps-basic.html">https://www.runoob.com/googleapi/google-maps-basic.html</a><br>
+适用性：<b style="color:#b26a00">谨慎</b>
+｜ 时效：在役 ｜ 抓取：2026-11-13 ｜ 本页为离线阅读版，章节按教程侧栏顺序合并，广告与评论已去除。</p>
+<details class="toc-ch"><summary>本篇目录（9 章，点击展开）</summary><ol>
+<li><a href="#c1">Google API 教程</a></li>
+<li><a href="#c2">Google 地图 API</a></li>
+<li><a href="#c3">Google 地图基础</a></li>
+<li><a href="#c4">Google 地图叠加层</a></li>
+<li><a href="#c5">Google 地图事件</a></li>
+<li><a href="#c6">Google 地图控件集</a></li>
+<li><a href="#c7">Google 地图类型</a></li>
+<li><a href="#c8">Google 地图参考手册</a></li>
+<li><a href="#c9">地图 API Map() 构造器</a></li>
+</ol></details>
+<section class="ch" id="c1"><h2>1. Google API 教程<a class="chsrc" href="https://www.runoob.com/googleapi/googleapi-tutorial.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><br>
+<p>在本教程中我们将学习如何使用谷歌地图API V3创建交互式地图。</p>
+<p><b><a href="#c2">现在开始学习 Google Maps API ！</a></b></p>
+
+<br><hr>
+<h3>什么是 API?</h3>
+
+<p><strong>API</strong> = 应用程序编程接口（Application programming interface）。</p>
+<p><strong>API（Application Programming Interface，应用编程接口）</strong>其实就是操作系统留给应用程序的一个调用接口，应用程序通过调用操作系统的 API 而使操作系统去执行应用程序的命令（动作）。</p></div></section>
+<section class="ch" id="c2"><h2>2. Google 地图 API<a class="chsrc" href="https://www.runoob.com/googleapi/google-maps-api-key.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>开始学习本教程前，你需要拥有一个免费的 Google 地图 API key。</p>
+<hr>
+<h3>开始学习？</h3>
+
+<p>开始学习本教程前，你需要在Google上申请一个指定的API key。</p>
+<p>通过以下步骤我们可以免费获取 API key 。</p>
+<p>访问 <a href="https://code.google.com/apis/console/" class="ext">https://code.google.com/apis/console/</a>, 
+使用你的Google账号登陆。</p>
+<p>登陆后会出现如下界面：</p>
+<p><img src="img/f6ef6678898a04bb.png" alt="Create project API" loading="lazy"></p>
+<p>点击 "Create Project" 按钮。</p>
+<p>在服务列表中找到 <b>Google Maps API v3,</b> 然后点击 "off"（关闭） 让其开启该服务器</p>
+<p>在下一个步骤中，选择"I Agree..." 然后点击 "Accept" 按钮。 现在你在服务列表中应该就可以看到 Google Maps API v3 已经变为 "on"（开启）状态。</p>
+<p>接着在左侧菜单中点击 "API Access" ，在右侧栏中将看到以下提示
+"Create an OAuth 2.0 client id..."。</p>
+<p>点击 "Create an OAuth 2.0 client id..."，将弹出一个表单，表单需要你填入你的项目名称，项目图片或者logo，然后点击 "Next" 按钮。</p>
+<p>然后，我们需要选择应用类型 ("Web application" ：网站应用), 然后填写你的站点地址，之后点击 "Create Client Id" 按钮即可。</p>
+<p>最后我们就可以得到我们需要的 API key,如下图所示：</p>
+<p><img src="img/57ecbce44f3c304e.png" alt="API key" loading="lazy"></p>
+<p><img src="img/4b10aab21427d9a3.gif" alt="Remark" loading="lazy"><b>注意：</b> 保存你的API key！ ( 在填写的指定 URL 中开发所有的 Google 地图应用你需要使用该API key)。</p></div></section>
+<section class="ch" id="c3"><h2>3. Google 地图基础<a class="chsrc" href="https://www.runoob.com/googleapi/google-maps-basic.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>创建一个简单的 Google 地图</h3>
+<p>现在让我们创建一个简单的 Google 地图。</p>
+<p>以下是显示了英国伦敦的 Google 地图：</p>
+
+<h3>实例</h3>
+
+<span class="hl-brackets">&lt;</span><span class="hl-code">!</span><span class="hl-var">DOCTYPE</span><span class="hl-code"> </span><span class="hl-var">html</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">html</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">head</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-code"> </span><span class="hl-var">src</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">https://maps.googleapis.com/maps/api/js?key=AIzaSyDJW4jsPlNKgv6jFm3B5Edp5ywgdqLWdmc&amp;callback=initMap</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-var">async</span><span class="hl-code"> </span><span class="hl-var">defer</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+ 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+function initialize()
+{
+    var mapProp = {
+        center:new google.maps.LatLng(51.508742,-0.120850),
+        zoom:5,
+        mapTypeId:google.maps.MapTypeId.ROADMAP
+    };
+    var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+}
+ 
+google.maps.event.addDomListener(window, 'load', initialize);
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">head</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+ 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">body</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">googleMap</span><span class="hl-quotes">"</span><span class="hl-code"> </span><span class="hl-var">style</span><span class="hl-code">=</span><span class="hl-quotes">"</span><span class="hl-string">width:500px;height:380px;</span><span class="hl-quotes">"</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+ 
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">body</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">html</span><span class="hl-brackets">&gt;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryhtml_map_first" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>实例解析</h3>
+<p>我们以以上实例来解析 Google 地图的创建过程。</p>
+<h3>应用为什么要声明 HTML5?</h3>
+
+&lt;!DOCTYPE html&gt;
+<p>大多数浏览器使用 "标准模式" 的 HTML5 文档渲染页面，这就意味着你的应用是兼容各大浏览器的。</p>
+<p>另外，如果没有DOCTYPE标签，浏览器则使用混杂模式 (quirks mode)进行渲染页面内容。</p>
+<p><b>提示：</b> 应该注意的是一些"混杂模式 "中的CSS并不能使用于标准模式中。在具体的应用中，所有基于百分比的大小都必须从父块元素继承 。如果在父模块中没有指定大小，默认值为 0 x 0 像素。如果你想使用百分比，可以在&lt;style&gt; 标签中声明，如下所示：</p>
+
+&lt;style type="text/css"&gt;<br>
+html {height:100%}<br>
+body {height:100%;margin:0;padding:0}<br>
+#googleMap {height:100%}<br>
+&lt;/style&gt;
+<p>这个样式声明表明地图模块的（GoogleMap）应
+HTML高度为100%。</p>
+<hr>
+<h3>添加 Google 地图  API Key</h3>
+<p>在以下实例中第一个&lt;script&gt; 标签中必须包含 Google 地图 API：</p>
+
+&lt;script src="http://maps.googleapis.com/maps/api/js?key=<i><b>YOUR_API_KEY</b></i>&amp;sensor=<b><i>TRUE_OR_FALSE</i></b>"&gt;&lt;/script&gt;
+<p>将google生成的 API key 放置于 <b>key</b> 参数中(key=<i>YOUR_API_KEY)</i>。</p>
+<p>The <b>sensor</b> 参数是必须的，该参数用于指明应用程序是否使用一个传感器 (类似 GPS 导航) 来定位用户的位置。参数值可以设置为 true 或者 false。</p>
+
+<p><b>HTTPS</b></p>
+<p>如果你的应用是安全的HTTP(HTTPS:HTTP Secure)应用,你可以使用 HTTPS  来加载 Google 
+地图 API：</p>
+
+&lt;script src="https://maps.googleapis.com/maps/api/js?key=<i><b>YOUR_API_KEY</b></i>&amp;sensor=<b><i>TRUE_OR_FALSE</i></b>"&gt;&lt;/script&gt;
+
+<p><b>异步加载</b></p>
+<p>同样我们也可以在页面完全载入后再加载 Google 地图  API。</p>
+<p>以下实例使用了 window.onload 来实现页面完全载入后加载 Google 地图 。
+ loadScript() 函数创建了加载 Google 地图 API &lt;script&gt; 标签。此外在标签的末尾添加了
+callback=initialize 参数， initialize()作为回调函数会在API完全载入后执行：</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">loadScript</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">script</span><span class="hl-code"> = </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">createElement</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">script</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">;
+  </span><span class="hl-identifier">script</span><span class="hl-code">.</span><span class="hl-identifier">type</span><span class="hl-code"> = </span><span class="hl-quotes">"</span><span class="hl-string">text/javascript</span><span class="hl-quotes">"</span><span class="hl-code">;
+  </span><span class="hl-identifier">script</span><span class="hl-code">.</span><span class="hl-identifier">src</span><span class="hl-code"> = </span><span class="hl-quotes">"</span><span class="hl-string">https://maps.googleapis.com/maps/api/js?key=AIzaSyBzE9xAESye6Kde-3hT-6B90nfwUkcS8Yw&amp;sensor=false&amp;callback=initialize</span><span class="hl-quotes">"</span><span class="hl-code">;
+  </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">body</span><span class="hl-code">.</span><span class="hl-identifier">appendChild</span><span class="hl-brackets">(</span><span class="hl-identifier">script</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-code">
+ 
+</span><span class="hl-builtin">window</span><span class="hl-code">.</span><span class="hl-identifier">onload</span><span class="hl-code"> = </span><span class="hl-identifier">loadScript</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryhtml_map_async" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>定义地图属性</h3>
+<p>在初始化地图前，我们需要先创建一个 Map 属性对象来定义一些地图的属性：</p>
+
+var mapProp = {<br>
+  center:new google.maps.LatLng(51.508742,-0.120850),<br>
+  zoom:7,<br>
+  mapTypeId: google.maps.MapTypeId.ROADMAP<br>
+};
+
+<p><b>center（中心点）</b></p>
+<p>中心属性指定了地图的中心，该中心通过坐标（纬度，经度）在地图上创建一个中心点。</p>
+<p><b>Zoom（缩放级数）</b></p>
+<p> zoom 属性指定了地图的 缩放级数。zoom: 0 显示了整个地球地图的完全缩放。</p>
+<p><b>MapTypeId（地图的初始类型）</b></p>
+<p> mapTypeId 属性指定了地图的初始类型。</p>
+<p>mapTypeId包括如下四种类型：</p>
+<ul>
+<li>google.maps.MapTypeId.HYBRID：显示卫星图像的主要街道透明层</li>
+<li>google.maps.MapTypeId.ROADMAP：显示普通的街道地图</li>
+<li>google.maps.MapTypeId.SATELLITE：显示卫星图像</li>
+<li>google.maps.MapTypeId.TERRAIN：显示带有自然特征（如地形和植被）的地图</li></ul>
+<hr>
+<h3>在哪里显示 Google 地图</h3>
+<p>通常 Google 地图使用于 &lt;div&gt; 元素中：</p>
+
+&lt;div id="googleMap" style="width:500px;height:380px;"&gt;&lt;/div&gt;
+<p><b>注意：</b> 地图将以div中设置的大小来显示地图的大小，所以我们可以在 &lt;div&gt; 元素中设置地图的大小。</p>
+<hr>
+<h3>创建一个 Map 对象</h3>
+
+var map=new google.maps.Map(document.getElementById("googleMap")<br>
+,mapProp);
+<p>以上代码使用参数(mapProp)在&lt;div&gt; 元素 (id为googleMap) 创建了一个新的地图。</p>
+<p><b>提示：</b>如果想在页面中创建多个地图，你只需要添加新的地图对象即可。</p>
+<p>以下实例定义了四个地图实例 (四个地图使用了不同的地图类型):</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">map</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">google</span><span class="hl-code">.</span><span class="hl-identifier">maps</span><span class="hl-code">.</span><span class="hl-identifier">Map</span><span class="hl-brackets">(</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">googleMap</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">,</span><span class="hl-identifier">mapProp</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">map2</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">google</span><span class="hl-code">.</span><span class="hl-identifier">maps</span><span class="hl-code">.</span><span class="hl-identifier">Map</span><span class="hl-brackets">(</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">googleMap2</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">,</span><span class="hl-identifier">mapProp2</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">map3</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">google</span><span class="hl-code">.</span><span class="hl-identifier">maps</span><span class="hl-code">.</span><span class="hl-identifier">Map</span><span class="hl-brackets">(</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">googleMap3</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">,</span><span class="hl-identifier">mapProp3</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">map4</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">google</span><span class="hl-code">.</span><span class="hl-identifier">maps</span><span class="hl-code">.</span><span class="hl-identifier">Map</span><span class="hl-brackets">(</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">"</span><span class="hl-string">googleMap4</span><span class="hl-quotes">"</span><span class="hl-brackets">)</span><span class="hl-code">,</span><span class="hl-identifier">mapProp4</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryhtml_map_many" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>加载地图</h3>
+<p>窗口载入后通过执行 initialize() 函数来初始化 Map 对象，这样可以确保在页面完全载入后再加载 Google 地图：</p>
+
+google.maps.event.addDomListener(window, 'load', initialize);</div></section>
+<section class="ch" id="c4"><h2>4. Google 地图叠加层<a class="chsrc" href="https://www.runoob.com/googleapi/google-maps-overlays.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>在Google地图中添加一个标记</p>
+
+<hr>
+<h3>Google 地图 - 叠加层</h3>
+<p>叠加层是地图上绑定到经度/纬度坐标的对象，会随您拖动或缩放地图而移动。</p>
+<p>Google 地图 API 有如下几种叠加层：</p>
+<ul>
+  	
+    <li>地图上的点使用标记来显示，通常显示自定义图标。标记是 GMarker 类型的对象，并且可以利用 GIcon 类型的对象来自定义图标。</li>
+    
+    <li>地图上的线使用折线（表示点的集合）来显示。线是类型为 GPolyline 的对象。</li>
+    
+    <li>地图上的区域显示为多边形（如果是任意形状的区域）或底面叠加层（如果是矩形区域）。多边形类似于闭合的折线，因此可以是任何形状。地面叠加层通常用于地图上与图块有直接或间接关联的区域。</li>
+    
+    <li>地图本身使用图块叠加层显示。如果您有自己的系列图块，可以使用 GTileLayerOverlay 类来改变地图上已有的图块，甚至可以使用 GMapType 来创建您自己的地图类型。</li>
+    
+    <li>信息窗口也是一种特殊的叠加层。但是请注意，信息窗口会自动添加到地图中，并且地图只能添加一个类型为 GInfoWindow 的对象。</li>
+    
+  </ul>
+
+<hr>
+<h3>Google 地图 - 添加标记</h3>
+<p>记标识地图上的点。默认情况下，它们使用 G_DEFAULT_ICON（您也可以指定自定义图标）。GMarker 构造函数将 GLatLng 和 GMarkerOptions（可选）对象作为参数。
+标记设计为可交互。例如，默认情况下它们接收 "click" 事件，常用于在事件侦听器中打开信息窗口。</p>
+<p>通过 setMap() 
+方法在地图上添加标记:</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">marker</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">google</span><span class="hl-code">.</span><span class="hl-identifier">maps</span><span class="hl-code">.</span><span class="hl-identifier">Marker</span><span class="hl-brackets">(</span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">position</span><span class="hl-code">:</span><span class="hl-identifier">myCenter</span><span class="hl-code">,
+</span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-identifier">marker</span><span class="hl-code">.</span><span class="hl-identifier">setMap</span><span class="hl-brackets">(</span><span class="hl-identifier">map</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryhtml_map_overlays_marker" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>Google 地图 - 可拖动的标记</h3>
+<p>以下实例将介绍如何使用 animation 属性来拖动标记:</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">marker</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">google</span><span class="hl-code">.</span><span class="hl-identifier">maps</span><span class="hl-code">.</span><span class="hl-identifier">Marker</span><span class="hl-brackets">(</span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">position</span><span class="hl-code">:</span><span class="hl-identifier">myCenter</span><span class="hl-code">,
+    </span><span class="hl-identifier">animation</span><span class="hl-code">:</span><span class="hl-identifier">google</span><span class="hl-code">.</span><span class="hl-identifier">maps</span><span class="hl-code">.</span><span class="hl-identifier">Animation</span><span class="hl-code">.</span><span class="hl-identifier">BOUNCE</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-identifier">marker</span><span class="hl-code">.</span><span class="hl-identifier">setMap</span><span class="hl-brackets">(</span><span class="hl-identifier">map</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryhtml_map_overlays_animate" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>Google 地图 - 图标</h3>
+<p>标记可以用自定义的新图标来显示，以替代默认图标:</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">marker</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">google</span><span class="hl-code">.</span><span class="hl-identifier">maps</span><span class="hl-code">.</span><span class="hl-identifier">Marker</span><span class="hl-brackets">(</span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">position</span><span class="hl-code">:</span><span class="hl-identifier">myCenter</span><span class="hl-code">,
+    </span><span class="hl-identifier">icon</span><span class="hl-code">:</span><span class="hl-quotes">'</span><span class="hl-string">pinkball.png</span><span class="hl-quotes">'</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-identifier">marker</span><span class="hl-code">.</span><span class="hl-identifier">setMap</span><span class="hl-brackets">(</span><span class="hl-identifier">map</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryhtml_map_overlays_icon" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>Google 地图 - 折线</h3>
+<p>GPolyline 对象可在地图上创建线性叠加层。GPolyline 包括一系列点，并创建一系列有序连接这些点的线段。</p>
+<p>折线支持以下属性：</p>
+<ul>
+<li>path - 指定了多个直线的纬度/经度坐标 </li>
+	<li>strokeColor - 指定直线的十六进制颜色值(格式: "#FFFFFF")</li>
+	<li>strokeOpacity - 指定直线的透明度(该值为  0.0 
+	到 1.0)</li>
+	<li>strokeWeight - 定义线的宽度,以像素为单位。</li>
+	<li>editable - 定义用户是否可编辑直线(true/false)</li>
+</ul>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">myTrip</span><span class="hl-code"> = </span><span class="hl-brackets">[</span><span class="hl-identifier">stavanger</span><span class="hl-code">,</span><span class="hl-identifier">amsterdam</span><span class="hl-code">,</span><span class="hl-identifier">london</span><span class="hl-brackets">]</span><span class="hl-code">;
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">flightPath</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">google</span><span class="hl-code">.</span><span class="hl-identifier">maps</span><span class="hl-code">.</span><span class="hl-identifier">Polyline</span><span class="hl-brackets">(</span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-identifier">path</span><span class="hl-code">:</span><span class="hl-identifier">myTrip</span><span class="hl-code">,
+  </span><span class="hl-identifier">strokeColor</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">#0000FF</span><span class="hl-quotes">"</span><span class="hl-code">,
+  </span><span class="hl-identifier">strokeOpacity</span><span class="hl-code">:</span><span class="hl-number">0.8</span><span class="hl-code">,
+  </span><span class="hl-identifier">strokeWeight</span><span class="hl-code">:</span><span class="hl-number">2</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryhtml_map_overlays_polyline" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>Google 地图 - 多边形</h3>
+<p>GPolygon 对象类似于 GPolyline 对象，因为它们都包括一系列有序的点。但是，多边形不像折线一样有两个端点，而是设计为定义形成闭环的区域。</p>
+<p>和折线一样，您可以自定义多边形边（线）的颜色、粗细和透明度，以及封闭的填充区域的颜色和透明度。颜色应是十六进制数字 HTML 样式。</p>
+<p>多边形支持以下属性：</p>
+<ul>
+<li>path - 指定多个直线纬度的坐标 (第一个和最后一个坐标是相等的)</li>
+	<li>strokeColor - 指定直线的十六进制颜色值(格式: "#FFFFFF")</li>
+	<li>strokeOpacity -指定直线的透明度(该值为  0.0 
+	到 1.0)</li>
+	<li>strokeWeight - 定义线的宽度,以像素为单位。</li>
+	<li>fillColor - 指定闭合区域的十六进制颜色值 (格式: "#FFFFFF")</li>
+	<li>fillOpacity - 指定填充颜色的透明度 (该值为 
+	0.0 到  1.0)</li>
+	<li>editable - 定义用户是否可编辑直线(true/false)</li>
+</ul>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">myTrip</span><span class="hl-code"> = </span><span class="hl-brackets">[</span><span class="hl-identifier">stavanger</span><span class="hl-code">,</span><span class="hl-identifier">amsterdam</span><span class="hl-code">,</span><span class="hl-identifier">london</span><span class="hl-code">,</span><span class="hl-identifier">stavanger</span><span class="hl-brackets">]</span><span class="hl-code">;
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">flightPath</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">google</span><span class="hl-code">.</span><span class="hl-identifier">maps</span><span class="hl-code">.</span><span class="hl-identifier">Polygon</span><span class="hl-brackets">(</span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-identifier">path</span><span class="hl-code">:</span><span class="hl-identifier">myTrip</span><span class="hl-code">,
+  </span><span class="hl-identifier">strokeColor</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">#0000FF</span><span class="hl-quotes">"</span><span class="hl-code">,
+  </span><span class="hl-identifier">strokeOpacity</span><span class="hl-code">:</span><span class="hl-number">0.8</span><span class="hl-code">,
+  </span><span class="hl-identifier">strokeWeight</span><span class="hl-code">:</span><span class="hl-number">2</span><span class="hl-code">,
+  </span><span class="hl-identifier">fillColor</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">#0000FF</span><span class="hl-quotes">"</span><span class="hl-code">,
+  </span><span class="hl-identifier">fillOpacity</span><span class="hl-code">:</span><span class="hl-number">0.4</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryhtml_map_overlays_polygon" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>Google 地图 - 圆</h3>
+<p>圆支持以下属性：</p>
+<ul>
+<li>center - 指定圆的中心点参数 google.maps.LatLng </li>
+	<li>radius - 指定圆的半径，以米为单位</li>
+	<li>strokeColor - 指定弧线的十六进制颜色值(格式: "#FFFFFF")</li>
+	<li>strokeOpacity - 指定弧线的透明度(该值为  0.0 
+	到 1.0)</li>
+	<li>strokeWeight -定义线的宽度,以像素为单位。</li>
+	<li>fillColor - 指定圆的十六进制颜色值填充值 (格式: "#FFFFFF")</li>
+	<li>fillOpacity - 指定填充颜色的透明度 (该值为 
+	0.0 到  1.0)</li>
+	<li>定义用户是否可编辑直线(true/false)</li>
+</ul>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">myCity</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">google</span><span class="hl-code">.</span><span class="hl-identifier">maps</span><span class="hl-code">.</span><span class="hl-identifier">Circle</span><span class="hl-brackets">(</span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-identifier">center</span><span class="hl-code">:</span><span class="hl-identifier">amsterdam</span><span class="hl-code">,
+  </span><span class="hl-identifier">radius</span><span class="hl-code">:</span><span class="hl-number">20000</span><span class="hl-code">,
+  </span><span class="hl-identifier">strokeColor</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">#0000FF</span><span class="hl-quotes">"</span><span class="hl-code">,
+  </span><span class="hl-identifier">strokeOpacity</span><span class="hl-code">:</span><span class="hl-number">0.8</span><span class="hl-code">,
+  </span><span class="hl-identifier">strokeWeight</span><span class="hl-code">:</span><span class="hl-number">2</span><span class="hl-code">,
+  </span><span class="hl-identifier">fillColor</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">#0000FF</span><span class="hl-quotes">"</span><span class="hl-code">,
+  </span><span class="hl-identifier">fillOpacity</span><span class="hl-code">:</span><span class="hl-number">0.4</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryhtml_map_overlays_circle" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>Google 地图 - 信息窗口</h3>
+<p>在一个标记上显示一个文本信息窗口：</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">infowindow</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">google</span><span class="hl-code">.</span><span class="hl-identifier">maps</span><span class="hl-code">.</span><span class="hl-identifier">InfoWindow</span><span class="hl-brackets">(</span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-identifier">content</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">Hello World!</span><span class="hl-quotes">"</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-identifier">infowindow</span><span class="hl-code">.</span><span class="hl-identifier">open</span><span class="hl-brackets">(</span><span class="hl-identifier">map</span><span class="hl-code">,</span><span class="hl-identifier">marker</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryhtml_map_overlays_infowindow" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>Google 地图 - 叠加层参考手册</h3>
+<p><a href="google-maps-ref.html">Google Maps API 参考手册</a>.</p></div></section>
+<section class="ch" id="c5"><h2>5. Google 地图事件<a class="chsrc" href="https://www.runoob.com/googleapi/google-maps-events.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>点击标记缩放地图 - 绑定在google地图上的事件。</p>
+
+<hr>
+<h3>点击标记缩放地图</h3>
+<p>我们仍然使用上一遍文章使用的英国伦敦的地图。</p>
+<p>点用户点击标记时实现缩放地图的功能(点击标记时绑定地图缩放事件)。</p>
+<p>代码如下：</p>
+
+<h3>实例</h3>
+
+<span class="hl-comment">//</span><span class="hl-comment"> Zoom to 9 when clicking on marker</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-identifier">google</span><span class="hl-code">.</span><span class="hl-identifier">maps</span><span class="hl-code">.</span><span class="hl-identifier">event</span><span class="hl-code">.</span><span class="hl-identifier">addListener</span><span class="hl-brackets">(</span><span class="hl-identifier">marker</span><span class="hl-code">,</span><span class="hl-quotes">'</span><span class="hl-string">click</span><span class="hl-quotes">'</span><span class="hl-code">,</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-identifier">map</span><span class="hl-code">.</span><span class="hl-identifier">setZoom</span><span class="hl-brackets">(</span><span class="hl-number">9</span><span class="hl-brackets">)</span><span class="hl-code">;
+  </span><span class="hl-identifier">map</span><span class="hl-code">.</span><span class="hl-identifier">setCenter</span><span class="hl-brackets">(</span><span class="hl-identifier">marker</span><span class="hl-code">.</span><span class="hl-identifier">getPosition</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryhtml_map_marker_click" class="ext">尝试一下 »</a>
+
+<p>使用 addListener() 事件处理程序来注册事件的监听。该方法使用一个对象，一个事件来监听，当指定的事件发生时
+函数将被调用。</p>
+<hr>
+<h3>重置标记</h3>
+<p>我们通过给地图添加事件处理程序来改变 'center' 属性，以下代码使用 center_changed 事件在3秒后标记移会中心点:</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">google</span><span class="hl-code">.</span><span class="hl-identifier">maps</span><span class="hl-code">.</span><span class="hl-identifier">event</span><span class="hl-code">.</span><span class="hl-identifier">addListener</span><span class="hl-brackets">(</span><span class="hl-identifier">map</span><span class="hl-code">,</span><span class="hl-quotes">'</span><span class="hl-string">center_changed</span><span class="hl-quotes">'</span><span class="hl-code">,</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-builtin">window</span><span class="hl-code">.</span><span class="hl-identifier">setTimeout</span><span class="hl-brackets">(</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">map</span><span class="hl-code">.</span><span class="hl-identifier">panTo</span><span class="hl-brackets">(</span><span class="hl-identifier">marker</span><span class="hl-code">.</span><span class="hl-identifier">getPosition</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code">;
+  </span><span class="hl-brackets">}</span><span class="hl-code">,</span><span class="hl-number">3000</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryhtml_map_marker_pan" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>点击标记时打开信息窗口。</h3>
+<p>点击标记在信息窗口显示一些文本信息：</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">infowindow</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">google</span><span class="hl-code">.</span><span class="hl-identifier">maps</span><span class="hl-code">.</span><span class="hl-identifier">InfoWindow</span><span class="hl-brackets">(</span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-identifier">content</span><span class="hl-code">:</span><span class="hl-quotes">"</span><span class="hl-string">Hello World!</span><span class="hl-quotes">"</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-identifier">google</span><span class="hl-code">.</span><span class="hl-identifier">maps</span><span class="hl-code">.</span><span class="hl-identifier">event</span><span class="hl-code">.</span><span class="hl-identifier">addListener</span><span class="hl-brackets">(</span><span class="hl-identifier">marker</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">click</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-identifier">infowindow</span><span class="hl-code">.</span><span class="hl-identifier">open</span><span class="hl-brackets">(</span><span class="hl-identifier">map</span><span class="hl-code">,</span><span class="hl-identifier">marker</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;</span>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryhtml_map_marker_infowindow" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>设置标记及打开每个标记的信息窗口</h3>
+<p>当用户点击地图时执行一个窗口</p>
+<p>用户点击地图某个位置时使用 placeMarker() 函数在指定位置上放置一个标记，并弹出信息窗口：</p>
+
+<h3>实例</h3>
+
+<span class="hl-identifier">google</span><span class="hl-code">.</span><span class="hl-identifier">maps</span><span class="hl-code">.</span><span class="hl-identifier">event</span><span class="hl-code">.</span><span class="hl-identifier">addListener</span><span class="hl-brackets">(</span><span class="hl-identifier">map</span><span class="hl-code">, </span><span class="hl-quotes">'</span><span class="hl-string">click</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">event</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-identifier">placeMarker</span><span class="hl-brackets">(</span><span class="hl-identifier">event</span><span class="hl-code">.</span><span class="hl-identifier">latLng</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">placeMarker</span><span class="hl-brackets">(</span><span class="hl-identifier">location</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+  </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">marker</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">google</span><span class="hl-code">.</span><span class="hl-identifier">maps</span><span class="hl-code">.</span><span class="hl-identifier">Marker</span><span class="hl-brackets">(</span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">position</span><span class="hl-code">: </span><span class="hl-identifier">location</span><span class="hl-code">,
+    </span><span class="hl-identifier">map</span><span class="hl-code">: </span><span class="hl-identifier">map</span><span class="hl-code">,
+  </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;
+  </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">infowindow</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">google</span><span class="hl-code">.</span><span class="hl-identifier">maps</span><span class="hl-code">.</span><span class="hl-identifier">InfoWindow</span><span class="hl-brackets">(</span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">content</span><span class="hl-code">: </span><span class="hl-quotes">'</span><span class="hl-string">Latitude: </span><span class="hl-quotes">'</span><span class="hl-code"> + </span><span class="hl-identifier">location</span><span class="hl-code">.</span><span class="hl-identifier">lat</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code"> +
+    </span><span class="hl-quotes">'</span><span class="hl-string">&lt;br&gt;Longitude: </span><span class="hl-quotes">'</span><span class="hl-code"> + </span><span class="hl-identifier">location</span><span class="hl-code">.</span><span class="hl-identifier">lng</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">
+  </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;
+  </span><span class="hl-identifier">infowindow</span><span class="hl-code">.</span><span class="hl-identifier">open</span><span class="hl-brackets">(</span><span class="hl-identifier">map</span><span class="hl-code">,</span><span class="hl-identifier">marker</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span>
+<br><a href="https://www.runoob.com/try/try.php?filename=tryhtml_map_marker_infowindow2" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>Google 地图 - 事件参考手册</h3>
+<p><a href="google-maps-ref.html">Google Maps API 参考手册</a>。<br></p></div></section>
+<section class="ch" id="c6"><h2>6. Google 地图控件集<a class="chsrc" href="https://www.runoob.com/googleapi/google-maps-controls.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>一个Google 地图 - 默认控件集设置：</p>
+
+<hr>
+<h3>Google 地图 - 默认控件集设置：</h3>
+<p>当使用一个标准的google地图，它的默认设置如下：</p>
+<ul>
+<li> .Zoom-显示一个滑动条来控制map的Zoom级别</li>
+	<li>.PPan-地图上显示的是一个平底碗样的控件，点击4个角平移地图</li>
+	<li>
+.MapType-允许用户在map types(roadmap 和 satellite)之间切换</li>
+	<li>.StreetView-显示为一个街景小人图标，可拖拽到地图上某个点来打开街景</li>
+</ul>
+<hr>
+<h3>Google 地图 - 更多控件集</h3>
+<p>除了以上默认控件集,Google还有：</p>
+<ul>
+<li> .Scale-显示地图比例尺
+</li>
+	<li>.Rotate-显示一个小的圆周图标，可以转动地图</li>
+	<li>.verview Map-从一个广域的视角俯视地图</li>
+</ul>
+<p>创建地图时你可以通过设置选项指定哪些控件集显示或者通过调用 setOptions() 来改变地图的设置选项。 </p>
+<hr>
+<h3>Google 地图 - 关闭默认控件集</h3>
+<p>你可能希望能够关闭默认的控件集。</p>
+<p> 为了关闭默认控件集,设置地图的disableDefaultUI的属性为true:</p>
+
+<h3>实例</h3>
+
+disableDefaultUI:true
+<br><a href="https://www.runoob.com/try/try.php?filename=tryhtml_map_controls_disable" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>Google 地图 - 开所有控件集</h3>
+<p>一些控件集默认显示在地图上，而其它的不会，除非你设置它们。</p>
+
+<p>设置控件为true使其可见-设置控件为false则隐藏它。</p>
+<p>以下实例开启所有的控件：</p>
+
+<h3>实例</h3>
+
+panControl:true,<br>
+zoomControl:true,<br>
+mapTypeControl:true,<br>
+scaleControl:true,<br>
+streetViewControl:true,<br>
+overviewMapControl:true,<br>
+rotateControl:true
+<br><a href="https://www.runoob.com/try/try.php?filename=tryhtml_map_controls_add" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>Google 地图 - 修改控件集</h3>
+<p>某些地图控件是可配置的。通过制定控件选项域改变控件集。
+
+ </p>
+<p>F举个例子来说，修改Zoom 控件的选项在zoomControlOptions指定。zoomControlOptions包含如下3种选项：</p>
+<ul>
+<li>.google.maps.ZoomControlStyle.SMALL-显示最小化zoom 控件
+
+ </li>
+	<li>.google.maps.ZoomControlStyle.LARGE-显示标准zoom滑动控件
+
+ </li>
+	<li>.google.maps.ZoomControlStyle.DEFAULT-基于设备和地图大小，选择最合适的控件</li>
+</ul>
+
+<h3>实例</h3>
+
+<span class="pln">zoomControl</span><span class="pun">:</span><span class="kwd">true</span><span class="pun">,</span><span class="pln"><br>
+zoomControlOptions</span><span class="pun">:</span><span class="pln"> </span>
+<span class="pun">{</span><span class="pln"><br>
+  style</span><span class="pun">:</span><span class="pln">google</span><span class="pun">.</span><span class="pln">maps</span><span class="pun">.</span><span class="typ">ZoomControlStyle</span><span class="pun">.</span><span class="pln">SMALL<br>
+}</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryhtml_map_controls_modify1" class="ext">尝试一下 »</a>
+
+<p><b>注意：</b> 如果需要修改一个控件，首先开启控件(设置其为true)。</p>
+<p>另一个控件为 MapType 控件。</p>
+<p>MapType 控件可显示为以下 style 选项之一：</p>
+<ul>
+<li>google.maps.MapTypeControlStyle.HORIZONTAL_BAR，用于在水平栏中将一组控件显示为如 Google Maps 中所示按钮。
+</li>
+	<li>google.maps.MapTypeControlStyle.DROPDOWN_MENU，用于显示单个按钮控件，以便您从下拉菜单中选择地图类型。
+</li>
+	<li>google.maps.MapTypeControlStyle.DEFAULT，用于显示"默认"的行为，该行为取决于屏幕尺寸，并且可能会在 API 以后的版本中有所变化。</li>
+</ul>
+
+<h3>实例</h3>
+
+<span class="pln">mapTypeControl:true,<br>
+mapTypeControlOptions: {<br>
+  style:google.maps.MapTypeControlStyle.DROPDOWN_MENU<br>
+}</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryhtml_map_controls_modify2" class="ext">尝试一下 »</a>
+
+<p>同样你可以使用ControlPosition属性指定控件的位置:</p>
+
+<h3>实例</h3>
+
+<span class="pln">mapTypeControl:true,<br>
+mapTypeControlOptions: {<br>
+  style:google.maps.MapTypeControlStyle.DROPDOWN_MENU,<br>
+  position:google.maps.ControlPosition.TOP_CENTER<br>
+}</span>
+
+<br><a href="https://www.runoob.com/try/try.php?filename=tryhtml_map_controls_modify3" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>Google 地图 - 自定义控件集</h3>
+<p>创建一个返回伦敦自定义控件，用于点击事件：
+(如果地图被拖拽):</p>
+
+<h3>实例</h3>
+
+controlDiv.style.padding = '5px';<br>
+var controlUI = document.createElement('div');<br>
+controlUI.style.backgroundColor = 'yellow';<br>
+controlUI.style.border='1px solid';<br>
+controlUI.style.cursor = 'pointer';<br>
+controlUI.style.textAlign = 'center';<br>
+controlUI.title = 'Set map to London';<br>
+controlDiv.appendChild(controlUI);<br>
+var controlText = document.createElement('div');<br>
+controlText.style.fontFamily='Arial,sans-serif';<br>
+controlText.style.fontSize='12px';<br>
+controlText.style.paddingLeft = '4px';<br>
+controlText.style.paddingRight = '4px';<br>
+controlText.innerHTML = '&lt;b&gt;Home&lt;b&gt;'<br>
+controlUI.appendChild(controlText);
+<br><a href="https://www.runoob.com/try/try.php?filename=tryhtml_map_controls_custom" class="ext">尝试一下 »</a>
+
+<br><hr>
+<h3>Google 地图 - 控件集参考手册</h3>
+<p><a href="google-maps-ref.html">Google Maps API 参考手册</a>.</p></div></section>
+<section class="ch" id="c7"><h2>7. Google 地图类型<a class="chsrc" href="https://www.runoob.com/googleapi/google-maps-types.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<p>HYBRID类型的google地图:</p>
+
+<hr>
+<h3>Google 地图- 基本地图类型</h3>
+<p>Google Maps API 中提供了以下地图类型：</p>
+<ul>
+  <li><code>MapTypeId.ROADMAP</code>，用于显示默认的道路地图视图</li>
+  <li><code>MapTypeId.SATELLITE</code>，用于显示 Google 地球卫星图片</li>
+  <li><code>MapTypeId.HYBRID</code>，用于同时显示普通视图和卫星视图</li>
+  <li><code>MapTypeId.TERRAIN</code>，用于根据地形信息显示实际地图。
+</li></ul>
+<p>要通过 Map 修改正在使用的地图类型，您可以为其设置 mapTypeId 属性:</p>
+
+var mapProp = {<br>
+  center:new google.maps.LatLng(51.508742,-0.120850),<br>
+  zoom:7,<br>
+  mapTypeId: google.maps.MapTypeId.HYBRID<br>
+};
+<p>或者动态修改 mapTypeId：</p>
+
+map.setMapTypeId(google.maps.MapTypeId.HYBRID);
+<br>
+<hr>
+
+<h3>Google 地图- 45° 图像</h3>
+<p>Google Maps API 针对特定位置支持特殊的 45° 图像。</p>
+<p>此类高分辨率图像可提供朝向各基本方向（东南西北）的透视视图。对于支持的地图类型，这些图片还可提供更高的缩放级别。</p>
+<p>现有的 google.maps.MapTypeId.SATELLITE 和 google.maps.MapTypeId.HYBRID 地图类型支持高缩放级别的 45° 透视图像（如果有的话）。如果您放大的位置拥有此类图像，那么这些地图类型将会自动通过以下方式更改其视图：</p>
+<ul>
+  <li><em></em>地图上现有的任何平移控件都将会变更为在现有的导航控件周围添加一个罗盘转轮。您可以通过该罗盘来更改任意 45° 图像的方向，方法是：拖动该罗盘转轮，然后将方向对准包含图像的最近支持方向。</li>
+  <li><em></em>一个旋转控件将会间隙显示在现有的平移和缩放控件之间，它可用于将图像围绕支持方向旋转。旋转控件仅支持顺时针方向旋转。</li>
+  <li>以当前位置为中心的 45° 透视图像将会替代卫星图像或混合图像。默认情况下，此类视图会朝向北方。如果您缩小地图，则地图会重新显示默认的卫星图像或混合图像。</li>
+  <li>MapType 控件将启用子菜单切换控件，用于显示 45° 图像。</li>
+</ul>
+<p><b>注意：</b>缩小显示 45° 图像的地图类型将会还原所有更改，并重新构建原始地图类型。</p>
+<p>以下示例显示了意大利威尼斯公爵宫45°视图：</p>
+
+<h3>实例</h3>
+
+<span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">mapProp</span><span class="hl-code"> = </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">center</span><span class="hl-code">:</span><span class="hl-identifier">myCenter</span><span class="hl-code">,
+    </span><span class="hl-identifier">zoom</span><span class="hl-code">:</span><span class="hl-number">18</span><span class="hl-code">,
+    </span><span class="hl-identifier">mapTypeId</span><span class="hl-code">:</span><span class="hl-identifier">google</span><span class="hl-code">.</span><span class="hl-identifier">maps</span><span class="hl-code">.</span><span class="hl-identifier">MapTypeId</span><span class="hl-code">.</span><span class="hl-identifier">HYBRID</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">;</span>
+<br>
+<a href="https://www.runoob.com/try/tryit.php?filename=tryhtml_map_types_45" class="ext">尝试一下 »</a>
+
+<p><b>提示：</b>Google 正在不断地为更多城市添加 45° 图像。有关最新信息，请参阅 <a href="http://goo.gl/AIWE" class="ext">Google 地图上的 45° 图像</a>列表。</p>
+<hr>
+
+<h3>Google 地图 - 启用和停用 45° 图像 - setTilt(0)</h3>
+<p>您可以通过在 Map 对象上调用 setTilt(0) 来停用 45° 图像。要启用适用于支持的地图类型的 45° 透视图像，请调用 setTilt(45)。</p>
+
+<h3>实例</h3>
+
+map.setTilt(0);
+<br>
+<a href="https://www.runoob.com/try/tryit.php?filename=tryhtml_map_types_settilt" class="ext">尝试一下 »</a>
+
+<hr>
+
+<h3>Google 地图 - 参考手册</h3>
+<p><a href="google-maps-ref.html">Google 地图 API 参考手册</a>。</p></div></section>
+<section class="ch" id="c8"><h2>8. Google 地图参考手册<a class="chsrc" href="https://www.runoob.com/googleapi/google-maps-ref.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><hr>
+<h3>Google 地图API 参考手册</h3>
+
+<h3>地图</h3>
+
+<table>
+<tr>
+<th>构造函数/对象</th>
+    <th>描述</th>
+  </tr>
+<tr>
+<td><a href="ref-map.html">Map()</a></td>
+    <td>在指定的 HTML 容器中创建新的地图，该容器通常是一个DIV元素。</td>
+  </tr>
+</table>
+<h3>叠加层</h3>
+<table>
+<tr>
+<th>构造函数/对象</th>
+    <th>描述</th>
+  </tr>
+<tr>
+<td>Marker</td>
+    <td>创建一个标记。</td>
+  </tr>
+<tr>
+<td>MarkerOptions</td>
+    <td>标记的选项。由DirectionsRenderer渲染的所有标记都将使用这些选项。</td>
+  </tr>
+<tr>
+<td>MarkerImage</td>
+    <td>A structure representing a Marker icon or shadow image</td>
+  </tr>
+<tr>
+<td>MarkerShape</td>
+    <td>Defines the marker shape to use in determination of a marker's clickable 
+	region (type and coord)</td>
+  </tr>
+<tr>
+<td>Animation</td>
+    <td>Specifies animations that can be played on a marker (bounce or drop)</td>
+  </tr>
+<tr>
+<td>InfoWindow</td>
+    <td>Creates an info window</td>
+  </tr>
+<tr>
+<td>InfoWindowOptions</td>
+    <td>Options for rendering the info window</td>
+  </tr>
+<tr>
+<td>Polyline</td>
+    <td>Creates a polyline (contains path and stroke styles)</td>
+  </tr>
+<tr>
+<td>PolylineOptions</td>
+    <td>Options for rendering the polyline</td>
+  </tr>
+<tr>
+<td>Polygon</td>
+    <td>Creates a polygon (contains path and stroke+fill styles)</td>
+  </tr>
+<tr>
+<td>PolygonOptions</td>
+    <td>Options for rendering the polygon</td>
+  </tr>
+<tr>
+<td>Rectangle</td>
+    <td>Creates a rectangle (contains bounds and stroke+fill styles)</td>
+  </tr>
+<tr>
+<td>RectangleOptions</td>
+    <td>Options for rendering the rectangle</td>
+  </tr>
+<tr>
+<td>Circle</td>
+    <td>Creates a circle (contains center+radius and stroke+fill styles)</td>
+  </tr>
+<tr>
+<td>CircleOptions</td>
+    <td>Options for rendering the circle</td>
+  </tr>
+<tr>
+<td>GroundOverlay</td>
+    <td> </td>
+  </tr>
+<tr>
+<td>GroundOverlayOptions</td>
+    <td> </td>
+  </tr>
+<tr>
+<td>OverlayView</td>
+    <td> </td>
+  </tr>
+<tr>
+<td>MapPanes</td>
+    <td> </td>
+  </tr>
+<tr>
+<td>MapCanvasProjection</td>
+    <td> </td>
+  </tr>
+</table>
+<h3>事件</h3>
+
+<table>
+<tr>
+<th>构造函数/对象</th>
+    <th>描述</th>
+  </tr>
+<tr>
+<td>MapsEventListener</td>
+    <td>It has no methods and no constructor. Its instances are returned from 
+	addListener(), addDomListener() and are eventually passed back to 
+	removeListener()</td>
+  </tr>
+<tr>
+<td>event</td>
+    <td>Adds/Removes/Trigger event listeners</td>
+  </tr>
+<tr>
+<td>MouseEvent</td>
+    <td>Returned from various mouse events on the map and overlays</td>
+  </tr>
+</table>
+<h3>控件集</h3>
+<table>
+<tr>
+<th>构造函数/对象</th>
+    <th>描述</th>
+  </tr>
+<tr>
+<td>MapTypeControlOptions</td>
+    <td>Holds options for modifying a control (position and style)</td>
+  </tr>
+<tr>
+<td>MapTypeControlStyle</td>
+    <td>Specifies what kind of map control to display (Drop-down menu or 
+	buttons) </td>
+  </tr>
+<tr>
+<td>OverviewMapControlOptions</td>
+    <td>Options for rendering of the overview map control (opened or collapsed)</td>
+  </tr>
+<tr>
+<td>PanControlOptions</td>
+    <td>Options for rendering of the pan control (position)</td>
+  </tr>
+<tr>
+<td>RotateControlOptions</td>
+    <td>Options for rendering of the rotate control (position)</td>
+  </tr>
+<tr>
+<td>ScaleControlOptions</td>
+    <td>Options for rendering of the scale control (position and style)</td>
+  </tr>
+<tr>
+<td>ScaleControlStyle</td>
+    <td>Specifies what kind of scale control to display</td>
+  </tr>
+<tr>
+<td>StreetViewControlOptions</td>
+    <td>Options for rendering of the street view pegman control (position)</td>
+  </tr>
+<tr>
+<td>ZoomControlOptions</td>
+    <td>Options for rendering of the zoom control (position and style)</td>
+  </tr>
+<tr>
+<td>ZoomControlStyle</td>
+    <td>Specifies what kind of zoom control to display (large or small)</td>
+  </tr>
+<tr>
+<td>ControlPosition</td>
+    <td>Specifies the placement of controls on the map</td>
+  </tr>
+</table></div></section>
+<section class="ch" id="c9"><h2>9. 地图 API Map() 构造器<a class="chsrc" href="https://www.runoob.com/googleapi/ref-map.html" target="_blank" rel="noopener">原文↗</a></h2><div class="ch-body"><br>
+<h3>实例</h3>
+<p>创建一个  Google 地图:</p>
+
+var map=new google.maps.Map(document.getElementById("googleMap"),mapOpt);
+<br><a href="https://www.runoob.com/try/try.php?filename=tryhtml_ref_map" class="ext">尝试一下 »</a>
+
+<hr>
+<h3>定义和用法</h3>
+<p>Map() 构造器创建了一个新的地图并插入到指定的HTML元素中（&lt;div&gt; 
+	元素)。</p>
+<hr>
+<h3>语法</h3>
+
+new google.maps.Map(<i>HTMLElement</i>,<i>MapOptions</i>)
+<h3>参数值</h3>
+<table>
+<tbody>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+<tr>
+<td><i>HTMLElement</i></td>
+<td>规定要把地图放置在那个 HTML 元素中。</td>
+</tr>
+<tr>
+<td><i><a href="ref-mapoptions.html">MapOptions</a></i></td>
+<td>带有地图初始化变量/选项的 MapOptions 对象。</td>
+</tr>
+</tbody>
+</table>
+
+<hr>
+
+<h3> Map() 的方法</h3>
+<table>
+<tbody>
+<tr>
+<th>方法</th>
+<th>返回值</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>fitBounds(<i>LatLngBounds</i>)</td>
+<td>None</td>
+<td>设置要包含给定边界的视口。</td>
+</tr>
+<tr>
+<td><a href="ref-getbounds.html">getBounds()</a></td>
+<td><i>LatLng,LatLng </i></td>
+<td>返回当前视口的西南纬度/经度和东北纬度/经度。</td>
+</tr>
+<tr>
+<td><a href="ref-getcenter.html">getCenter()</a></td>
+<td><i>LatLng</i></td>
+<td>返回地图的中心的纬度/经度。</td>
+</tr>
+<tr>
+<td><a href="ref-getdiv.html">getDiv()</a></td>
+<td><i>Node</i></td>
+<td>返回包含地图的 DOM 对象。</td>
+</tr>
+<tr>
+<td><a href="ref-getheading.html">getHeading()</a></td>
+<td><i>number</i></td>
+<td>返回航拍图像的罗盘航向（支持 SATELLITE 和 HYBRID 地图类型）。</td>
+</tr>
+<tr>
+<td><a href="ref-getmaptypeid.html">getMapTypeId()</a></td>
+<td>HYBRID
+
+ROADMAP
+
+SATELLITE
+
+TERRAIN</td>
+<td>返回当前地图类型。</td>
+</tr>
+<tr>
+<td>getProjection()</td>
+<td><i>Projection</i></td>
+<td>返回当前 Projection（投影）。</td>
+</tr>
+<tr>
+<td>getStreetView()</td>
+<td><i>StreetViewPanorama</i></td>
+<td>返回绑定到地图的默认的 StreetViewPanorama。</td>
+</tr>
+<tr>
+<td>getTilt()</td>
+<td><i>number</i></td>
+<td>返回航拍图像的入射角度数（支持 SATELLITE 和 HYBRID 地图类型）。</td>
+</tr>
+<tr>
+<td><a href="ref-getzoom.html">getZoom()</a></td>
+<td><i>number</i></td>
+<td>返回地图的当前缩放级别。</td>
+</tr>
+<tr>
+<td>panBy(<i>xnumber,ynumber</i>)</td>
+<td>None</td>
+<td>通过以像素计的给定距离改变地图的中心。</td>
+</tr>
+<tr>
+<td>panTo(<i>LatLng</i>)</td>
+<td>None</td>
+<td>改变地图的中心为给定的 LatLng。</td>
+</tr>
+<tr>
+<td>panToBounds(<i>LatLngBounds</i>)</td>
+<td>None</td>
+<td>将地图平移所需的最小距离以包含给定的 LatLngBounds。</td>
+</tr>
+<tr>
+<td>setCenter(<i>LatLng</i>)</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>setHeading(<i>number</i>)</td>
+<td>None</td>
+<td>设置航拍图像的罗盘方向（以度为单位进行测量），基本方向为北方。</td>
+</tr>
+<tr>
+<td><a href="ref-setmaptypeid.html">setMapTypeId(<i>MapTypeId</i>)</a></td>
+<td>None</td>
+<td>改变要显示的地图类型。</td>
+</tr>
+<tr>
+<td>setOptions(<i>MapOptions</i>)</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>setStreetView(<i>StreetViewPanorama</i>)</td>
+<td>None</td>
+<td>绑定一个 StreetViewPanorama 到地图上。</td>
+</tr>
+<tr>
+<td>setTilt(<i>number</i>)</td>
+<td>None</td>
+<td>设置航拍图像的入射角度数（支持 SATELLITE 和 HYBRID 地图类型）。</td>
+</tr>
+<tr>
+<td>setZoom(<i>number</i>)</td>
+<td>None</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3> Map() 的属性</h3>
+<table>
+<tbody>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>controls</td>
+<td><i>Array.&lt;MVCArray.&lt;Node&gt;&gt;</i></td>
+<td>要附加到地图上的额外控件。</td>
+</tr>
+<tr>
+<td>mapTypes</td>
+<td><i>MapTypeRegistry</i></td>
+<td>按字符串 ID 划分的 MapType 实例的注册表。</td>
+</tr>
+<tr>
+<td>overlayMapTypes</td>
+<td><i>MVCArray.&lt;MapType&gt;</i></td>
+<td>要叠加的额外地图类型。</td>
+</tr>
+</tbody>
+</table>
+<h3> Map() 的事件</h3>
+<table>
+<tbody>
+<tr>
+<th>事件</th>
+<th>参数</th>
+<th>描述</th>
+</tr>
+<tr>
+<td>bounds_changed</td>
+<td>None</td>
+<td>当可视区域范围更改时会触发此事件。</td>
+</tr>
+<tr>
+<td>center_changed</td>
+<td>None</td>
+<td>当地图 center（中心）属性更改时会触发此事件。</td>
+</tr>
+<tr>
+<td>click</td>
+<td><i>MouseEvent</i></td>
+<td>当用户点击地图（但不是点击标记或信息窗口）时会触发此事件。</td>
+</tr>
+<tr>
+<td>dblclick</td>
+<td><i>MouseEvent</i></td>
+<td>当用户双击地图时会触发此事件。请注意，触发此事件前还会触发点击事件。</td>
+</tr>
+<tr>
+<td>drag</td>
+<td>None</td>
+<td>当用户拖动地图时会反复触发此事件。</td>
+</tr>
+<tr>
+<td>dragend</td>
+<td>None</td>
+<td>当用户停止拖动地图时会触发此事件。</td>
+</tr>
+<tr>
+<td>dragstart</td>
+<td>None</td>
+<td>当用户开始拖动地图时会触发此事件。</td>
+</tr>
+<tr>
+<td>heading_changed</td>
+<td>None</td>
+<td>当地图 heading（方向）属性更改时会触发此事件。</td>
+</tr>
+<tr>
+<td>idle</td>
+<td>None</td>
+<td>当地图在平移或缩放之后变为闲置状态时会触发此事件。</td>
+</tr>
+<tr>
+<td>maptypeid_changed</td>
+<td>None</td>
+<td>当 mapTypeId 属性更改时会触发此事件。</td>
+</tr>
+<tr>
+<td>mousemove</td>
+<td><i>MouseEvent</i></td>
+<td>只要用户的鼠标在地图容器上移动，就会触发此事件。</td>
+</tr>
+<tr>
+<td>mouseout</td>
+<td><i>MouseEvent</i></td>
+<td>当用户的鼠标从地图容器上退出时会触发此事件。</td>
+</tr>
+<tr>
+<td>mouseover</td>
+<td><i>MouseEvent</i></td>
+<td>当用户的鼠标进入地图容器时会触发此事件。</td>
+</tr>
+<tr>
+<td>projection_changed</td>
+<td>None</td>
+<td>当投影更改时会触发此事件。</td>
+</tr>
+<tr>
+<td>resize</td>
+<td>None</td>
+<td>当地图（div）更改尺寸时会触发此事件。</td>
+</tr>
+<tr>
+<td>rightclick</td>
+<td><i>MouseEvent</i></td>
+<td>当用户右击地图时会触发此事件。</td>
+</tr>
+<tr>
+<td>tilesloaded</td>
+<td>None</td>
+<td>当可见图块载入完成后会触发此事件。</td>
+</tr>
+<tr>
+<td>tilt_changed</td>
+<td>None</td>
+<td>当地图 tilt（倾斜）属性更改时会触发此事件。</td>
+</tr>
+<tr>
+<td>zoom_changed</td>
+<td>None</td>
+<td>当地图 zoom（缩放）属性更改时会触发此事件。</td>
+</tr>
+</tbody>
+</table></div></section>
+<footer><p>离线版 · 内容抓取自 runoob.com，仅用于个人离线阅读；页面结构与广告已去除，原文版权归菜鸟教程及原作者。</p><p><a href="index.html">← 返回总索引</a></p></footer></body></html>
