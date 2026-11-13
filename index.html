@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>菜鸟教程全站归档 · 入口</title>
+<style>
+:root{
+  --ink:#1a1a1a; --ink-2:#4a4a4a; --ink-3:#8a8a8a;
+  --bg:#fdfdfb; --line:#e2e0d8; --card:#ffffff;
+  --measure:38em; --lh:1.9; --fs:17px;
+  --a:#1a7f37; --b:#0b6bcb; --c:#b26a00;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,"Songti SC","Noto Serif CJK SC","Source Han Serif SC",Georgia,"Microsoft YaHei",serif;
+  font-size:var(--fs); line-height:var(--lh);
+}
+.masthead{border-bottom:1px solid var(--line); padding:2.4em 1.2em 1.6em}
+.masthead .inner{max-width:var(--measure); margin:0 auto}
+.masthead h1{margin:0; font-size:1.72em; line-height:1.35; letter-spacing:.01em}
+.masthead p.sub{margin:.55em 0 0; color:var(--ink-3); font-size:.86em}
+main{max-width:var(--measure); margin:0 auto; padding:0 1.2em}
+.intro{padding:1.8em 0 .4em; color:var(--ink-2)}
+.intro p{margin:0 0 .9em}
+h2{font-size:1.14em; margin:2.2em 0 .7em; padding-bottom:.35em; border-bottom:1px solid var(--line)}
+h2:first-of-type{margin-top:1.4em}
+ul{list-style:none; margin:0; padding:0}
+ul.entry li{
+  border:1px solid var(--line); border-left:3px solid var(--b); border-radius:3px;
+  background:var(--card); padding:.85em 1em; margin:0 0 .75em;
+}
+ul.entry li.primary{border-left-color:var(--a)}
+ul.entry li.muted{border-left-color:var(--c)}
+ul.entry a{font-weight:600; color:var(--ink); text-decoration:none; border-bottom:1px solid #cfcabb}
+ul.entry a:hover{color:var(--b); border-bottom-color:var(--b)}
+ul.entry .desc{display:block; margin-top:.25em; color:var(--ink-2); font-size:.9em; line-height:1.75}
+ul.entry .tag{
+  display:inline-block; margin-left:.5em; padding:0 .4em; border-radius:2px;
+  font-size:.72em; font-weight:600; vertical-align:.12em; letter-spacing:.03em;
+}
+.tag-a{background:#e8f4ec; color:var(--a)}
+.tag-b{background:#e6effa; color:var(--b)}
+.tag-c{background:#faf0e0; color:var(--c)}
+table{width:100%; border-collapse:collapse; font-size:.9em; margin:.4em 0 1.2em}
+th,td{border-bottom:1px solid var(--line); padding:.45em .5em; text-align:left; vertical-align:top}
+th{color:var(--ink-3); font-weight:600; font-size:.92em}
+td.num,th.num{text-align:right; font-variant-numeric:tabular-nums}
+.note{font-size:.88em; color:var(--ink-3); border-top:1px solid var(--line); margin-top:2.4em; padding:1em 0 2.6em}
+.note p{margin:.3em 0}
+code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace; font-size:.9em; background:#f2f1ec; padding:.08em .3em; border-radius:2px}
+@media (max-width:34em){
+  body{font-size:16px}
+  .masthead h1{font-size:1.45em}
+}
+@media print{
+  .masthead{padding-top:0}
+  ul.entry li{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="inner">
+    <h1>菜鸟教程全站归档</h1>
+    <p class="sub">runoob.com · 150 个教程 · 4,419 个章节页 · 抓取于 2026-11</p>
+  </div>
+</header>
+
+<main>
+  <div class="intro">
+    <p>这份归档把菜鸟教程（runoob.com）首页的全部 150 个教程入口爬到本地，逐篇抽取正文与配图，再按「阅读」而不是「目录树」的方式重新排版。断网也能读，站内跳转不跳出。</p>
+  </div>
+
+  <h2>四个入口</h2>
+  <ul class="entry">
+    <li class="primary">
+      <a href="学习顺序_20261113.html">学习顺序 · 按 AI 替代度重排</a><span class="tag tag-a">建议先看</span>
+      <span class="desc">如果只想读一份文件，读这个。6 个阶段、哪些先学、哪些可以后置、哪些直接不学，附 12 周压缩方案。</span>
+    </li>
+    <li>
+      <a href="离线版/index.html">离线阅读版 · 150 个教程合成 150 页长文</a><span class="tag tag-b">最完整</span>
+      <span class="desc">每个教程的全部章节合成一页，配图全部本地化（5,804 张），内部链接改写为站内锚点，无脚本、无外链资源。</span>
+    </li>
+    <li>
+      <a href="阅读版_全归档.html">分类总表 · 分组与适用性评级</a><span class="tag tag-b">速查</span>
+      <span class="desc">12 个分组、150 行清单，每条给出适用性（A 推荐 / B 可用 / C 谨慎 / D 弃用）与时效判断。</span>
+    </li>
+    <li class="muted">
+      <a href="教程清单.csv">教程清单.csv</a><span class="tag tag-c">数据</span>
+      <span class="desc">150 行结构化数据：教程名、分组、章节数、评级、时效、备注。可导入表格软件自行筛选。</span>
+    </li>
+  </ul>
+
+  <h2>规模</h2>
+  <table>
+    <tr><th>项目</th><th class="num">数量</th></tr>
+    <tr><td>教程入口</td><td class="num">150</td></tr>
+    <tr><td>章节页面（去重后）</td><td class="num">4,419</td></tr>
+    <tr><td>合并后的长文页</td><td class="num">150</td></tr>
+    <tr><td>本地化配图</td><td class="num">5,804</td></tr>
+    <tr><td>站内改写链接</td><td class="num">899</td></tr>
+    <tr><td>站点体积（含图）</td><td class="num">约 472 MB</td></tr>
+  </table>
+
+  <h2>怎么用</h2>
+  <ul class="entry">
+    <li>
+      <a href="离线版/index.html">按教程读</a>
+      <span class="desc">左边是 150 个教程的折叠目录，点开选一个，整篇从头读到尾。适合「我想系统过一遍某个技术」。</span>
+    </li>
+    <li>
+      <a href="阅读版_全归档.html">按分组查</a>
+      <span class="desc">想知道某个教程值不值得学、还更不更新，先在这里查评级，再决定要不要进离线版读。</span>
+    </li>
+  </ul>
+
+  <div class="note">
+    <p>内容版权归 runoob.com 原作者所有，此处仅作个人离线阅读与学习路线整理之用。</p>
+    <p>抓取范围：首页可直达的 150 个教程入口；未收录需登录、已下线或首页未列出的页面。少数图片因源站失效保留为远程链接，正文中以占位符标注。</p>
+  </div>
+</main>
+
+</body>
+</html>

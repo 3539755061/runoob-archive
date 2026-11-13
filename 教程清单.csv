@@ -1,0 +1,151 @@
+﻿序号,阅读组,官方板块,教程,链接,章节数,在线运行,测验,适用性,时效,查验备注
+1,A,前端开发,JavaScript 教程,https://www.runoob.com/js/js-tutorial.html,89,是,是,推荐,在役,89 节，语法、DOM、事件、JSON 齐全；ES6+ 与模块化需另补
+2,A,前端开发,CSS 教程,https://www.runoob.com/css/css-tutorial.html,79,是,是,推荐,在役,79 节，选择器/盒模型/定位体系完整，中文 CSS 入门首选之一
+3,A,前端开发,HTML 教程,https://www.runoob.com/html/html-tutorial.html,76,是,是,推荐,在役,76 节，HTML 标准的入口页，含在线运行；与 HTML5 教程互为补充
+4,A,前端开发,HTML5 教程,https://www.runoob.com/html/html5-intro.html,76,是,是,推荐,在役,76 节，HTML5 新特性专题；标准文本成于 2014 年，语法主体未变
+5,A,前端开发,TypeScript 教程,https://www.runoob.com/typescript/ts-tutorial.html,72,是,是,推荐,在役,72 节，类型系统与编译配置；示例偏早期版本，语法仍适用
+6,A,前端开发,jQuery EasyUI 教程,https://www.runoob.com/jeasyui/jqueryeasyui-tutorial.html,68,否,否,谨慎,维护期,68 节，EasyUI 商用需授权，社区萎缩
+7,A,前端开发,Vue3 教程,https://www.runoob.com/vue3/vue3-tutorial.html,58,是,是,推荐,在役,58 节，组合式 API 主线教程，贴近当前版本
+8,A,前端开发,jQuery UI 教程,https://www.runoob.com/jqueryui/jqueryui-tutorial.html,54,否,否,谨慎,维护期,54 节，jQuery UI 维护极慢，组件栈已被现代框架取代
+9,A,前端开发,jQuery 教程,https://www.runoob.com/jquery/jquery-tutorial.html,47,是,是,可用,维护期,47 节，维护老项目必读；新项目不建议以它起步
+10,A,前端开发,React 教程,https://www.runoob.com/react/react-tutorial.html,41,是,是,推荐,在役,41 节，JSX/组件/状态；Hooks 与函数组件章节偏少，需配官方文档
+11,A,前端开发,Foundation 教程,https://www.runoob.com/foundation/foundation-tutorial.html,40,是,否,谨慎,维护期,40 节，生态活跃度远低于 Bootstrap，国内项目少见
+12,A,前端开发,Bootstrap5 教程,https://www.runoob.com/bootstrap5/bootstrap5-tutorial.html,38,是,否,推荐,在役,38 节，当前主线版本，栅格与组件齐全
+13,A,前端开发,Bootstrap4 教程,https://www.runoob.com/bootstrap4/bootstrap4-tutorial.html,35,是,否,谨慎,已停更,Bootstrap 4 于 2023-01 停止维护；同站已有 Bootstrap5
+14,A,前端开发,AngularJS 教程,https://www.runoob.com/angularjs/angularjs-tutorial.html,27,是,否,弃用,历史,AngularJS 于 2021-12 结束支持；页面只覆盖 1.x 时代（1.0 发布于 2012 年）
+15,A,前端开发,CSS3 教程,https://www.runoob.com/css3/css3-tutorial.html,24,是,否,可用,在役,仅 24 节，讲 CSS3 新特性；Flex/Grid 等现代布局覆盖不足
+16,A,前端开发,Tailwind CSS 教程,https://www.runoob.com/tailwindcss/tailwindcss-tutorial.html,24,是,否,推荐,在役,24 节，工具类思路清楚；类名迭代快，以官方 v4 文档为准
+17,A,前端开发,Vue.js 教程,https://www.runoob.com/vue2/vue-tutorial.html,22,是,否,谨慎,已停更,页面自述基于 Vue 2.1.8；Vue 2 于 2023-12-31 停止更新，应改看 Vue3
+18,A,前端开发,SVG 教程,https://www.runoob.com/svg/svg-tutorial.html,21,是,否,可用,在役,21 节，SVG 语法与动画基础
+19,A,前端开发,Font Awesome 图标,https://www.runoob.com/font-awesome/fontawesome-tutorial.html,17,是,否,可用,在役,17 节，图标库用法；6.x 起类名与引入方式有变
+20,A,前端开发,Highcharts 教程,https://www.runoob.com/highcharts/highcharts-tutorial.html,16,否,否,谨慎,在役,16 节，商用需授权；个人与非商业免费
+21,A,前端开发,HTML DOM 教程,https://www.runoob.com/htmldom/htmldom-tutorial.html,14,是,否,可用,维护期,14 节，DOM API 速查；日常开发多被框架封装
+22,A,前端开发,AJAX 教程,https://www.runoob.com/ajax/ajax-tutorial.html,13,是,否,谨慎,维护期,13 节，以 XMLHttpRequest 为主；现代用 fetch/框架，仅作概念了解
+23,A,前端开发,Chart.js 教程,https://www.runoob.com/chartjs/chartjs-tutorial.html,12,否,否,可用,在役,12 节，轻量图表库，内容偏简
+24,A,前端开发,ECharts 教程,https://www.runoob.com/echarts/echarts-tutorial.html,12,是,否,推荐,在役,12 节，配置项入门，足以画常见图表；深度需要官方文档补
+25,A,前端开发,Next.js 教程,https://www.runoob.com/nextjs/nextjs-tutorial.html,11,否,否,可用,在役,11 节，App Router 只做导览，深度不足以独立做项目
+26,A,前端开发,JSON 教程,https://www.runoob.com/json/json-tutorial.html,10,否,否,可用,在役,10 节，语法与解析速查，篇幅偏短
+27,A,前端开发,Google 地图基础,https://www.runoob.com/googleapi/google-maps-basic.html,9,是,否,谨慎,在役,9 节，Google Maps 在中国大陆可用性受限，需合规替代
+28,A,前端开发,Angular 2 教程,https://www.runoob.com/angularjs2/angularjs2-tutorial.html,8,否,否,谨慎,维护期,8 节，标题为 Angular 2；现代 Angular 已到 v19+，仅作历史参考
+29,B,编程语言,C++ 教程,https://www.runoob.com/cplusplus/cpp-tutorial.html,99,否,是,推荐,在役,99 节，语法覆盖面全站最广；C++11 之后特性需另补
+30,B,后端开发,PHP 教程,https://www.runoob.com/php/php-tutorial.html,93,否,是,推荐,在役,93 节，语法+表单+数据库；PHP 8 新特性未覆盖
+31,B,编程语言,C 语言教程,https://www.runoob.com/c/c-tutorial.html,63,否,是,推荐,在役,63 节，C 语言入门扎实；示例输出为老编译器风格
+32,B,后端开发,Java 教程,https://www.runoob.com/java/java-tutorial.html,56,否,是,推荐,在役,56 节，面向对象基础扎实；写法偏 Java 8 时代
+33,B,编程语言,Ruby 教程,https://www.runoob.com/ruby/ruby-tutorial.html,45,否,否,谨慎,维护期,45 节，国内就业面较窄，按需学
+34,B,后端开发,C# 教程,https://www.runoob.com/csharp/csharp-tutorial.html,42,否,是,推荐,在役,42 节，语法基础；.NET Core 与现代 C# 特性需另补
+35,B,后端开发,ASP 教程,https://www.runoob.com/asp/asp-tutorial.html,36,否,否,弃用,历史,36 节，经典 ASP 已淘汰，仅作技术史
+36,B,后端开发,Node.js 教程,https://www.runoob.com/nodejs/nodejs-tutorial.html,36,否,是,推荐,在役,36 节，事件循环、模块、Express 入门
+37,B,编程语言,Verilog 教程,https://www.runoob.com/w3cnote/verilog-tutorial.html,36,否,否,谨慎,在役,36 节，硬件描述语言，与软件编程不同赛道
+38,B,后端开发,Go 语言教程,https://www.runoob.com/go/go-tutorial.html,34,否,是,推荐,在役,34 节，语法与并发基础；go mod 等工程内容偏少
+39,B,后端开发,JSP 教程,https://www.runoob.com/jsp/jsp-tutorial.html,32,否,否,谨慎,历史,32 节，JSP 已非新项目主流，模板引擎与前后端分离取而代之
+40,B,后端开发,Linux 教程,https://www.runoob.com/linux/linux-tutorial.html,29,否,是,推荐,在役,29 节，命令与服务器基础；以 CentOS 为例，发行版差异需注意
+41,B,编程语言,Perl 教程,https://www.runoob.com/perl/perl-tutorial.html,29,否,否,谨慎,历史,29 节，新项目使用率极低
+42,B,后端开发,Rust 教程,https://www.runoob.com/rust/rust-tutorial.html,29,否,否,推荐,在役,29 节，所有权/借用/生命周期讲得清楚，适合第一门系统语言
+43,B,编程语言,Scala 教程,https://www.runoob.com/scala/scala-tutorial.html,25,否,否,谨慎,维护期,25 节，Scala 生态收缩，非入门首选
+44,B,后端开发,Servlet 教程,https://www.runoob.com/servlet/servlet-tutorial.html,24,否,否,可用,维护期,24 节，Java Web 传统路线；新项目多用 Spring Boot
+45,B,编程语言,汇编语言 – 教程,https://www.runoob.com/assembly/assembly-tutorial.html,23,否,否,谨慎,在役,23 节，仅特定场景；非通用入门路径
+46,B,编程语言,Lua 教程,https://www.runoob.com/lua/lua-tutorial.html,23,否,否,可用,在役,23 节，嵌入脚本（游戏/配置）仍常用
+47,B,后端开发,Docker 教程,https://www.runoob.com/docker/docker-tutorial.html,22,否,否,推荐,在役,22 节，镜像/容器/Compose 入门，运维与后端通用
+48,B,编程语言,Dart 教程,https://www.runoob.com/dart/dart-tutorial.html,21,否,否,可用,在役,21 节，主要服务 Flutter；单独学价值有限
+49,B,编程语言,Zig 教程,https://www.runoob.com/zig/zig-tutorial.html,14,否,否,可用,在役,14 节，小众但活跃；生态与中文资料仍薄
+50,B,后端开发,AppML 教程,https://www.runoob.com/appml/appml-tutorial.html,13,是,否,弃用,历史,13 节，AppML 无生态，页面仍在但技术已死
+51,B,后端开发,Swagger 教程,https://www.runoob.com/swagger/swagger-tutorial.html,13,否,否,可用,在役,13 节，OpenAPI 描述入门，够写接口文档
+52,B,后端开发,Zookeeper 教程,https://www.runoob.com/w3cnote/zookeeper-tutorial.html,13,否,否,谨慎,维护期,笔记体 13 节，无示例运行；现多由云托管协调服务替代
+53,B,后端开发,RESTful API 教程,https://www.runoob.com/restfulapi/restful-api-tutorial.html,10,否,是,可用,在役,10 节，概念清楚但无实战，适合先立概念
+54,B,后端开发,VBScript 教程,https://www.runoob.com/vbscript/vbscript-tutorial.html,10,是,否,弃用,历史,10 节，微软已弃用 VBScript
+55,C,Python / 数据科学,Python3 教程,https://www.runoob.com/python3/python3-tutorial.html,81,否,是,推荐,在役,81 节，最常用的中文 Python 入口；首章示例仍打印 3.3.2（2013），语法不受影响
+56,C,AI / 智能开发,机器学习教程,https://www.runoob.com/ml/ml-tutorial.html,58,否,否,推荐,在役,58 节，监督/无监督/评估体系较全，适合打底
+57,C,AI / 智能开发,AI 数学基础,https://www.runoob.com/ai-math/ai-math-tutorial.html,54,否,否,可用,在役,54 节，线代/概率/微积分速览，深度有限
+58,C,Python / 数据科学,Pandas 教程,https://www.runoob.com/pandas/pandas-tutorial.html,54,否,是,推荐,在役,54 节，读写/清洗/分组，实用度最高的一条
+59,C,Python / 数据科学,Flask 教程,https://www.runoob.com/flask/flask-tutorial.html,53,否,否,推荐,在役,53 节，轻量 Web 入门，示例可直接跑
+60,C,AI / 智能开发,Playwright 教程,https://www.runoob.com/playwright/playwright-tutorial.html,45,否,否,推荐,在役,45 节，现代 E2E 测试主线，示例可跑
+61,C,AI / 智能开发,AI Agent(智能体) 教程,https://www.runoob.com/ai-agent/ai-agent-tutorial.html,43,否,否,推荐,在役,43 节，Agent 概念到工具调用，2025–26 主线热点
+62,C,AI / 智能开发,LangChain 教程,https://www.runoob.com/langchain/langchain-tutorial.html,43,否,否,可用,在役,43 节，链/记忆/检索；API 变动大，代码需按版本调整
+63,C,AI / 智能开发,Claude Code 教程,https://www.runoob.com/claude-code/claude-code-tutorial.html,42,否,否,可用,在役,42 节，CLI 工作流完整；版本更新频繁
+64,C,Python / 数据科学,Python 基础教程,https://www.runoob.com/python/python-tutorial.html,42,否,是,谨慎,已停更,42 节，Python 2 已于 2020-01-01 停止维护，仅维护老代码时查阅
+65,C,AI / 智能开发,ChatGPT (Codex) 教程,https://www.runoob.com/codex/codex-tutorial.html,41,否,否,可用,在役,41 节，Codex CLI 用法；产品迭代快，以官方文档为准
+66,C,AI / 智能开发,PyTorch 教程,https://www.runoob.com/pytorch/pytorch-tutorial.html,39,否,否,推荐,在役,39 节，张量/自动求导/训练循环，深度学习首选
+67,C,AI / 智能开发,Skills 教程,https://www.runoob.com/skills/skills-tutorial.html,39,否,否,可用,在役,39 节，Agent 技能机制；不同平台实现差异大
+68,C,Python / 数据科学,FastAPI 教程,https://www.runoob.com/fastapi/fastapi-tutorial.html,38,否,否,推荐,在役,38 节，路由/依赖注入/异步，内容贴近当前版本
+69,C,AI / 智能开发,DeepSeek Harness 教程,https://www.runoob.com/deepseek-harness/deepseek-harness-tutorial.html,37,否,否,可用,在役,37 节，DSH 使用与架构；结论需与官方文档互证
+70,C,Python / 数据科学,Django 教程,https://www.runoob.com/django/django-tutorial.html,31,否,否,可用,在役,31 节，MTV 结构清楚；Django 4/5 新特性未覆盖
+71,C,AI / 智能开发,OpenCV 教程,https://www.runoob.com/opencv/opencv-tutorial.html,31,否,否,可用,在役,31 节，图像基础操作；OpenCV 4/5 接口有变
+72,C,AI / 智能开发,AI 入门教程,https://www.runoob.com/ai/ai-tutorial.html,30,否,否,推荐,在役,30 节，零基础 AI 通识，不要求数学与编程
+73,C,AI / 智能开发,Ollama 教程,https://www.runoob.com/ollama/ollama-tutorial.html,29,否,否,推荐,在役,29 节，本地跑模型的完整路径，可直接复现
+74,C,AI / 智能开发,OpenCode 教程,https://www.runoob.com/opencode/opencode-tutorial.html,29,否,否,可用,在役,29 节，开源编码 Agent 导览
+75,C,AI / 智能开发,Pi Agent 教程,https://www.runoob.com/pi-agent/pi-agent-tutorial.html,29,否,否,可用,在役,29 节，Agent 开发入门
+76,C,Python / 数据科学,R 语言教程,https://www.runoob.com/r/r-tutorial.html,29,否,否,可用,在役,29 节，R 语法与统计入门
+77,C,Python / 数据科学,Pillow 教程,https://www.runoob.com/pillow/pillow-tutorial.html,28,否,否,可用,在役,28 节，图像处理常用操作齐全
+78,C,Python / 数据科学,NumPy 教程,https://www.runoob.com/numpy/numpy-tutorial.html,26,否,是,推荐,在役,26 节，数组与广播基础，数据方向第一站
+79,C,Python / 数据科学,Julia 教程,https://www.runoob.com/julia/julia-tutorial.html,24,否,否,谨慎,在役,24 节，生态小众，中文资料少
+80,C,AI / 智能开发,TensorFlow 教程,https://www.runoob.com/tensorflow/tensorflow-tutorial.html,24,否,否,可用,在役,24 节，Keras 高层 API 入门；TF 2.x 细节需官方文档
+81,C,AI / 智能开发,AI 应用教程,https://www.runoob.com/ai-application/ai-app-tutorial.html,23,否,否,可用,在役,23 节，办公/创作场景案例；案例时效性强，需自行核对
+82,C,AI / 智能开发,NLP 教程,https://www.runoob.com/nlp/nlp-tutorial.html,21,否,否,可用,在役,21 节，NLP 概念与经典方法
+83,C,AI / 智能开发,Vibe Coding 教程,https://www.runoob.com/vibe-coding/vibe-coding-tutorial.html,21,否,否,可用,在役,21 节，方法论为主，缺少可复现的工程细节
+84,C,AI / 智能开发,Hermes Agent 教程,https://www.runoob.com/hermes-agent/hermes-agent-tutorial.html,20,否,否,可用,在役,20 节，小众 Agent 框架，生态待观察
+85,C,Python / 数据科学,Python 量化交易,https://www.runoob.com/qt/qt-tutorial.html,20,否,是,可用,在役,20 节，实为 Python 量化交易教程；金融场景，与 Qt 图形界面无关
+86,C,Python / 数据科学,Matplotlib 教程,https://www.runoob.com/matplotlib/matplotlib-tutorial.html,19,否,否,可用,在役,19 节，绘图入门；新版 API 与样式有差异
+87,C,AI / 智能开发,Selenium 教程,https://www.runoob.com/selenium/selenium-tutorial.html,15,否,否,可用,在役,15 节，Web 自动化入门；Selenium 4 写法不同
+88,C,Python / 数据科学,Dash 教程,https://www.runoob.com/dash/dash-tutorial.html,12,否,否,可用,在役,12 节，Dash 快速上手，示例偏少
+89,C,AI / 智能开发,Sklearn 教程,https://www.runoob.com/sklearn/sklearn-tutorial.html,12,否,否,可用,在役,12 节，API 速查，算法原理讲得少
+90,C,Python / 数据科学,SciPy 教程,https://www.runoob.com/scipy/scipy-tutorial.html,11,否,否,可用,在役,11 节，模块导览，深度不足
+91,C,Python / 数据科学,Jupyter Notebook 教程,https://www.runoob.com/jupyter-notebook/jupyter-notebook-tutorial.html,8,否,否,可用,在役,8 节，环境与快捷键，够入门
+92,D,数据库,SQL 教程,https://www.runoob.com/sql/sql-tutorial.html,67,否,是,推荐,在役,67 节，通用 SQL 语法，跨库适用，是这一组的核心
+93,D,数据库,SQLite 教程,https://www.runoob.com/sqlite/sqlite-tutorial.html,51,否,否,推荐,在役,51 节，嵌入式数据库完整入门
+94,D,数据库,MongoDB 教程,https://www.runoob.com/mongodb/mongodb-tutorial.html,49,否,否,可用,在役,49 节，文档模型/CRUD；新版驱动写法有差异
+95,D,数据库,PostgreSQL 教程,https://www.runoob.com/postgresql/postgresql-tutorial.html,45,否,否,推荐,在役,45 节，内容较完整，贴近 PG 主线
+96,D,数据库,MySQL 教程,https://www.runoob.com/mysql/mysql-tutorial.html,41,否,是,推荐,在役,41 节，安装/建表/查询；8.0 新特性少
+97,D,数据库,Redis 教程,https://www.runoob.com/redis/redis-tutorial.html,28,否,否,推荐,在役,28 节，数据类型与命令，实用
+98,D,数据库,Memcached 教程,https://www.runoob.com/Memcached/Memcached-tutorial.html,21,否,否,谨慎,维护期,21 节，多数缓存场景已被 Redis 取代
+99,E,移动开发,Android基础入门教程,https://www.runoob.com/w3cnote/android-tutorial-intro.html,156,否,否,谨慎,已停更,页面自述 2015 年撰写、共 148 节（侧栏实际 156 个链接）；Android 已转向 Kotlin+Compose
+100,E,移动开发,Swift 教程,https://www.runoob.com/swift/swift-tutorial.html,47,否,否,可用,维护期,47 节，示例基于 Swift 3.0.2 / Xcode 8.2；Swift 已到 6.x
+101,E,移动开发,Kotlin 教程,https://www.runoob.com/kotlin/kotlin-tutorial.html,43,否,否,推荐,在役,43 节，Android 官方首选语言
+102,E,移动开发,ionic 教程,https://www.runoob.com/ionic/ionic-tutorial.html,37,否,否,谨慎,维护期,37 节，Hybrid 方案热度下降
+103,E,移动开发,jQuery Mobile 教程,https://www.runoob.com/jquerymobile/jquerymobile-tutorial.html,32,是,否,弃用,历史,32 节，框架停滞十余年，无新项目采用
+104,E,移动开发,Flutter 教程,https://www.runoob.com/flutter/flutter-tutorial.html,25,否,否,推荐,在役,25 节，Widget/布局/状态入门
+105,E,后端开发,Electron 教程,https://www.runoob.com/electron/electron-tutorial.html,21,否,否,可用,在役,21 节，桌面端打包入门；安全实践需另补
+106,F,DevOps / 工程化,Eclipse 教程,https://www.runoob.com/eclipse/eclipse-tutorial.html,35,否,否,谨慎,维护期,35 节，Java IDE 使用率下降
+107,F,DevOps / 工程化,Maven 教程,https://www.runoob.com/maven/maven-tutorial.html,25,否,否,可用,在役,25 节，POM/依赖/生命周期；Gradle 需另学
+108,F,DevOps / 工程化,VSCode 教程,https://www.runoob.com/vscode/vscode-tutorial.html,25,否,否,可用,在役,25 节，安装/插件/调试基础
+109,F,DevOps / 工程化,Markdown 教程,https://www.runoob.com/markdown/md-tutorial.html,18,否,是,推荐,在役,18 节，语法+扩展，写作必备
+110,F,DevOps / 工程化,PyCharm 教程,https://www.runoob.com/pycharm/pycharm-tutorial.html,17,否,否,可用,在役,17 节，IDE 使用；界面与版本已变
+111,F,DevOps / 工程化,Git 教程,https://www.runoob.com/git/git-tutorial.html,16,否,是,推荐,在役,16 节，常用命令与分支，够日常协作
+112,F,DevOps / 工程化,SVN 教程,https://www.runoob.com/svn/svn-tutorial.html,14,否,否,谨慎,维护期,14 节，仅老项目维护需要
+113,F,DevOps / 工程化,LaTeX 教程,https://www.runoob.com/latex/latex-tutorial.html,12,是,否,可用,在役,12 节，文档结构/公式入门
+114,F,DevOps / 工程化,Obsidian 教程,https://www.runoob.com/obsidian/obsidian-tutorial.html,12,否,否,可用,在役,12 节，笔记工作流入门
+115,F,DevOps / 工程化,CMake 教程,https://www.runoob.com/cmake/cmake-tutorial.html,7,否,否,可用,在役,7 节，偏薄，只够写最小 CMakeLists
+116,G,计算机基础,数据结构与算法,https://www.runoob.com/data-structures/data-structures-tutorial.html,44,否,否,推荐,在役,44 节，结构+算法，配图解，适合系统打底
+117,G,计算机基础,设计模式,https://www.runoob.com/design-pattern/design-pattern-tutorial.html,36,否,否,推荐,在役,36 节，23 种模式，Java 示例
+118,G,计算机基础,网络协议,https://www.runoob.com/np/np-tutorial.html,29,否,否,可用,在役,29 节，协议栈概览；与 HTTP/TCP 教程有重叠
+119,G,计算机基础,设计模式,https://www.runoob.com/python-design-pattern/python-design-pattern-tutorial.html,24,否,否,可用,在役,24 节，Python 视角，示例更贴近实战
+120,G,计算机基础,计算机组成原理,https://www.runoob.com/computer-organization/computer-organization-tutorial.html,22,否,否,推荐,在役,22 节，CPU/存储/指令，考研与面试友好
+121,G,计算机基础,C 语言数据结构与算法,https://www.runoob.com/c-dsa/c-dsa-tutorial.html,20,否,否,可用,在役,20 节，C 实现版，与上一条互补
+122,G,计算机基础,W3C 教程,https://www.runoob.com/w3c/w3c-tutorial.html,16,否,否,谨慎,在役,16 节，标准组织介绍，属科普而非技术教程
+123,G,计算机基础,正则表达式 – 教程,https://www.runoob.com/regexp/regexp-tutorial.html,14,是,是,推荐,在役,14 节，语法+常用模式，够查
+124,G,计算机基础,HTTP 教程,https://www.runoob.com/http/http-tutorial.html,10,否,否,推荐,在役,10 节，报文/方法/状态码，概念清楚
+125,G,计算机基础,TCP/IP 教程,https://www.runoob.com/tcpip/tcpip-tutorial.html,5,否,否,谨慎,维护期,仅 5 节、400 余字，明显是占位页，应改看 HTTP 与网络协议
+126,H,.NET,ASP.NET 教程,https://www.runoob.com/aspnet/aspnet-tutorial.html,64,否,否,可用,维护期,64 节，ASP.NET 传统路线；新项目应看 ASP.NET Core
+127,H,.NET,ASP.NET MVC 简介,https://www.runoob.com/aspnet/mvc-intro.html,64,否,否,谨慎,维护期,与 ASP.NET 共用同一 64 节目录，仅入口不同
+128,H,.NET,ASP.NET Razor 标记,https://www.runoob.com/aspnet/razor-intro.html,64,否,否,谨慎,维护期,同上，Razor 语法页，与 ASP.NET 共用目录
+129,H,.NET,ASP.NET Web Forms 教程,https://www.runoob.com/aspnet/aspnet-intro.html,64,否,否,弃用,历史,Web Forms 已停止演进，官方主推 Blazor/MVC
+130,H,.NET,ASP.NET Web Pages 教程,https://www.runoob.com/aspnet/webpages-intro.html,64,否,否,谨慎,历史,Web Pages 已非主流路线
+131,H,XML / Web Service,XML DOM 教程,https://www.runoob.com/dom/dom-tutorial.html,40,否,否,谨慎,历史,40 节，浏览器端 XML 解析已少见
+132,H,XML / Web Service,XML 教程,https://www.runoob.com/xml/xml-tutorial.html,29,是,否,可用,在役,29 节，语法/DOM/命名空间；配置文件场景仍在用
+133,H,XML / Web Service,XML Schema 教程,https://www.runoob.com/schema/schema-tutorial.html,25,否,否,谨慎,维护期,25 节，XML Schema 仍用于企业集成
+134,H,XML / Web Service,XSLT 教程,https://www.runoob.com/xsl/xsl-tutorial.html,20,是,否,谨慎,历史,20 节，数据转换偶有使用，新项目少
+135,H,.NET,PowerShell 教程,https://www.runoob.com/powershell/powershell-tutorial.html,16,否,否,可用,在役,16 节，Windows 运维基础
+136,H,XML / Web Service,XSL-FO 教程,https://www.runoob.com/xslfo/xslfo-tutorial.html,13,否,否,弃用,历史,13 节，分页排版已被 HTML/CSS 方案取代
+137,H,XML / Web Service,XQuery 教程,https://www.runoob.com/xquery/xquery-tutorial.html,12,否,否,谨慎,历史,12 节，应用面窄
+138,H,XML / Web Service,RDF 教程,https://www.runoob.com/rdf/rdf-tutorial.html,11,否,否,弃用,历史,11 节，语义网研究范畴，工程中几乎不用
+139,H,XML / Web Service,DTD 教程,https://www.runoob.com/dtd/dtd-tutorial.html,10,否,否,谨慎,历史,10 节，校验已被 XML Schema 取代
+140,H,XML / Web Service,RSS 教程,https://www.runoob.com/rss/rss-tutorial.html,10,是,否,谨慎,维护期,10 节，阅读器时代产物，仍可作订阅格式参考
+141,H,XML / Web Service,SOAP 教程,https://www.runoob.com/soap/soap-tutorial.html,10,否,否,谨慎,维护期,10 节，企业集成仍在用，新项目多用 REST/JSON
+142,H,XML / Web Service,XPath 教程,https://www.runoob.com/xpath/xpath-tutorial.html,9,否,否,可用,在役,9 节，XPath 在爬虫/测试中仍常用
+143,H,XML / Web Service,WSDL 教程,https://www.runoob.com/wsdl/wsdl-tutorial.html,8,否,否,谨慎,历史,8 节，服务旧式 SOAP 体系
+144,H,XML / Web Service,XLink 和 XPointer 教程,https://www.runoob.com/xlink/xlink-tutorial.html,7,否,否,弃用,历史,7 节，XLink 在浏览器中基本无实现
+145,H,XML / Web Service,XLink 和 XPointer 教程,https://www.runoob.com/xlink/xlink-tutorial.html,7,否,否,弃用,历史,与 XLink 同一页面（重复条目），无独立内容
+146,H,XML / Web Service,Web Services 教程,https://www.runoob.com/webservices/webservices-tutorial.html,6,否,否,谨慎,历史,仅 6 节，概念页，无实操
+147,I,网站建设,网站建设指南,https://www.runoob.com/web/web-buildingprimer.html,15,否,否,可用,在役,15 节，建站知识地图，偏概念
+148,I,网站建设,浏览器信息,https://www.runoob.com/browsers/browser-information.html,13,否,否,谨慎,维护期,13 节，浏览器/系统统计页，数据明显陈旧
+149,I,网站建设,网站主机教程,https://www.runoob.com/hosting/hosting-tutorial.html,10,否,否,可用,在役,10 节，主机/云服务器概念入门
+150,I,网站建设,网站品质教程,https://www.runoob.com/quality/quality-tutorial.html,7,否,否,谨慎,维护期,7 节，Web 品质条目，理念性内容

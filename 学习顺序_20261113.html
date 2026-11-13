@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>学习顺序 · 按「AI 不可替代性」排序（2026-11-13）</title>
+<style>
+:root{--measure:42em;--lh:1.9;--fs:17px;--ink:#1f2328;--ink-2:#57606a;--line:#d8dee4;
+--bg:#f6f4ef;--card:#fffdf8;--accent:#8a5a2b}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{max-width:var(--measure);margin:0 auto;padding:52px 24px 120px;
+font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",-apple-system,"Segoe UI","Microsoft YaHei",serif;
+font-size:var(--fs);line-height:var(--lh);color:var(--ink);overflow-wrap:break-word}
+p{margin:0 0 1em}p+p{margin-top:0}
+h1,h2,h3,h4{line-height:1.45;margin:1.8em 0 .7em;font-weight:700}
+h1{font-size:1.72em;border-bottom:3px solid var(--accent);padding-bottom:.32em;margin-top:2.2em}
+h2{font-size:1.32em;border-left:5px solid var(--accent);padding-left:.55em}
+h3{font-size:1.1em;color:#243b53}
+a{color:#0b5cad;text-decoration:none;border-bottom:1px solid rgba(11,92,173,.3)}
+a:hover{border-bottom-color:#0b5cad}
+ul,ol{margin:0 0 1em;padding-left:1.7em}li{margin:.24em 0}
+blockquote{margin:1.2em 0;padding:.7em 1em;background:#fbf7ee;border-left:4px solid #d8b98a;color:#4a3b28}
+hr{border:0;border-top:1px dashed var(--line);margin:2.2em 0}
+code{font-family:"JetBrains Mono",Consolas,Menlo,monospace;font-size:.88em;background:#f1efea;padding:.1em .32em;border-radius:3px}
+pre{background:#f1efea;padding:1em;overflow-x:auto;border-radius:4px;font-size:.9em;line-height:1.7;white-space:pre-wrap}
+table{display:block;overflow-x:auto;border-collapse:collapse;font-size:.85em;line-height:1.6;margin:1.2em 0;max-width:100%}
+th,td{border:1px solid var(--line);padding:.45em .55em;vertical-align:top}
+thead th{background:#efe9dd;white-space:nowrap}
+td.num{white-space:nowrap;text-align:right}
+.masthead h1{margin-top:0;border-bottom:3px solid var(--accent)}
+.masthead p{color:var(--ink-2);font-size:.94em}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:1em 1.3em;margin:1.4em 0 2.4em}
+.toc h2{border:0;font-size:1.02em;margin:0 0 .5em;padding:0;color:var(--ink-2)}
+.toc ol{margin:0;padding-left:1.4em}.toc li{margin:.18em 0;font-size:.95em}
+.sec{padding-top:1.8em;border-top:1px solid var(--line);margin-top:2.2em}
+.sec:first-of-type{border-top:0}
+.meta{color:var(--ink-2);font-size:.85em;margin:-.4em 0 1em}
+.tag{display:inline-block;font-size:.78em;padding:.02em .45em;border-radius:3px;border:1px solid var(--line);color:var(--ink-2);margin-right:.35em}
+.hi{color:#1a7f37;font-weight:700}.mid{color:#b26a00;font-weight:700}.lo{color:#c62828;font-weight:700}
+.note{color:var(--ink-2);font-size:.9em}
+footer{margin-top:3em;padding-top:1.4em;border-top:1px dashed var(--line);color:var(--ink-2);font-size:.85em}
+@media(max-width:640px){body{padding:26px 15px 90px;font-size:16px}:root{--measure:none}}
+@media print{html{background:#fff}body{max-width:none;padding:0;font-size:11.5pt}.toc{display:none}
+.sec{border-top:0;page-break-before:always}}
+</style>
+</head>
+<body>
+<div class="masthead">
+<h1>学习顺序 · 按「AI 不可替代性」排序</h1>
+<p>依据同一目录里的 150 个教程评级与章节量重排：<b>先学 AI 替不了你判断的部分，后学 AI 写得比你好、你也看不出对错的部分</b>。<br>
+假设：零基础或转行、每周 8–10 小时、目标是能独立交付一个能跑的小项目。<b>不要求全部学</b>——按阶段取舍，后置项按需查。</p>
+</div>
+
+<nav class="toc"><h2>目录</h2><ol>
+<li><a href="#s0">0 三条排序原则</a></li>
+<li><a href="#s1">1 AI 替代度分级（决定先后）</a></li>
+<li><a href="#s2">2 顺序总表</a></li>
+<li><a href="#s3">3 阶段 0 工作台</a></li>
+<li><a href="#s4">4 阶段 1 编程基本功</a></li>
+<li><a href="#s5">5 阶段 2 数据与系统</a></li>
+<li><a href="#s6">6 阶段 3 交付能力</a></li>
+<li><a href="#s7">7 阶段 4 三个方向分叉</a></li>
+<li><a href="#s8">8 后置清单与「不必学」</a></li>
+<li><a href="#s9">9 压缩版与常见坑</a></li>
+</ol></nav>
+
+<section class="sec" id="s0">
+<h1>0 三条排序原则</h1>
+<p>这次不按「技术栈」排，也不按「从易到难」排，而是按<b>你在这件事上还有没有判断权</b>排。</p>
+<h3>原则一：先学「能验证 AI 输出」的东西</h3>
+<p>AI 已经能写出能跑的代码。真正稀缺的是：它写错了你能不能看出来。能不能看出 SQL 少了个 <code>JOIN</code> 条件、HTTP 少了个状态码分支、指针越界、复杂度是 O(n²)——这些判断来自语言语义、运行模型和调试经验，AI 只能帮你写，替不了你判断。</p>
+<h3>原则二：框架与配置项放最后</h3>
+<p>框架细节是 AI 最擅长的部分，也是变化最快的部分：你现在背熟的 Bootstrap 类名、ECharts 配置项、Spring 注解，半年后可能连版本都换了，而 AI 随时能给最新写法。<b>先把「语言 + 数据 + 系统」打牢，框架用到再学。</b></p>
+<h3>原则三：越靠后，手写越少、调试越多</h3>
+<p>阶段 0–1 你手写为主；到阶段 3–4，合理的工作方式是「AI 生成 + 你审查 + 你调试」。学习重心也随之从「记住语法」移到「读代码、写测试、定位问题」。</p>
+<blockquote><p><b>一句话</b>：AI 让「写」变便宜，让「判断」变贵。这份顺序就是把时间投在「判断」上。</p></blockquote>
+</section>
+
+<section class="sec" id="s1">
+<h1>1 AI 替代度分级（决定先后）</h1>
+<p>每一类内容给一个「AI 替代度」：高＝AI 基本能独立完成、你只需验收；中＝AI 能写但你需要判断与修改；低＝AI 帮不上多少，必须自己建立。</p>
+<table>
+<thead><tr><th>内容</th><th>AI 替代度</th><th>为什么</th><th>在顺序里的位置</th></tr></thead>
+<tbody>
+<tr><td>样板代码、CRUD、表单校验、接口胶水</td><td class="lo">高</td><td>模式固定、可复制，AI 生成质量已超过多数初学者的手写</td><td>后置，用时生成</td></tr>
+<tr><td>CSS 布局微调、UI 组件库类名</td><td class="lo">高</td><td>试错成本低，改到对为止即可</td><td>后置，只留最小必要</td></tr>
+<tr><td>正则表达式、图表配置、构建脚本</td><td class="lo">高</td><td>查文档比记规则快，AI 可直接给可用版本</td><td>后置，遇到再查</td></tr>
+<tr><td>文档排版、注释、提交信息</td><td class="lo">高</td><td>格式化与表达类工作</td><td>随时用</td></tr>
+<tr><td>SQL 基础查询、数据清洗脚本</td><td class="mid">中</td><td>AI 会写，但表结构理解、结果对不对、性能如何要你判断</td><td>中段，重判断</td></tr>
+<tr><td>API 设计、数据建模、测试设计</td><td class="mid">中</td><td>方案类工作，AI 给选项，取舍在你</td><td>中段</td></tr>
+<tr><td>性能优化、线上排障</td><td class="mid">中</td><td>依赖对系统的真实理解与观测数据</td><td>后段</td></tr>
+<tr><td>调试与排错、读陌生代码</td><td class="hi">低</td><td>需要在你自己的环境里复现、观察、假设、验证</td><td><b>最前</b></td></tr>
+<tr><td>数据结构与复杂度、语言语义</td><td class="hi">低</td><td>决定你能不能看出「能跑但很糟」</td><td><b>最前</b></td></tr>
+<tr><td>操作系统 / 网络 / 进程模型</td><td class="hi">低</td><td>环境问题的根因都在这层</td><td>前段</td></tr>
+<tr><td>版本控制与协作流程</td><td class="hi">低</td><td>涉及团队状态与历史，AI 只给命令</td><td>最前</td></tr>
+<tr><td>需求拆解、边界判断、验收标准</td><td class="hi">低</td><td>决定「做什么」比「怎么写」更贵</td><td>贯穿</td></tr>
+</tbody></table>
+<p class="note">「高」不等于不学：你需要看懂它、能验收它；只是不必在前期花时间背。</p>
+</section>
+
+<section class="sec" id="s2">
+<h1>2 顺序总表</h1>
+<p>主线段（0–3）约 16–20 周，分叉（4）再 8–10 周。章节数取自本归档阅读版的统计，实际投入按每节 6–10 分钟（含动手）估算。</p>
+<table>
+<thead><tr><th>阶段</th><th>学什么（用归档里的哪几篇）</th><th class="num">章节</th><th class="num">约几周</th><th>AI 替代度</th></tr></thead>
+<tbody>
+<tr><td><b>0 工作台</b></td><td>Git（16）＋ Markdown（18）</td><td class="num">34</td><td class="num">1–2</td><td class="hi">低</td></tr>
+<tr><td><b>1 编程基本功</b></td><td>Python3（81）＋ 数据结构与算法（44）<br><span class="note">替代路线：C（63）＋ C 语言数据结构（20）</span></td><td class="num">125</td><td class="num">6–8</td><td class="hi">低</td></tr>
+<tr><td><b>2 数据与系统</b></td><td>SQL（67）＋ MySQL（41）＋ HTTP（10）＋ 网络协议（29）＋ Linux（29）</td><td class="num">176</td><td class="num">5–6</td><td class="mid">中低</td></tr>
+<tr><td><b>3 交付能力</b></td><td>Docker（22）＋ Playwright（45）＋ 正则（14）</td><td class="num">81</td><td class="num">4</td><td class="mid">中</td></tr>
+<tr><td><b>4A 后端</b></td><td>FastAPI（38）或 Flask（53）→ RESTful（10）→ Swagger（13）</td><td class="num">61–76</td><td class="num">4<span class="note">＋项目 4</span></td><td class="mid">中</td></tr>
+<tr><td><b>4B 前端</b></td><td>HTML（76）＋ CSS（79）＋ JavaScript（89）＋ TypeScript（72）→ Vue3（58）或 React（41）</td><td class="num">357–374</td><td class="num">8–10</td><td class="mid">中</td></tr>
+<tr><td><b>4C 数据 / AI</b></td><td>NumPy（26）＋ Pandas（54）＋ 机器学习（58）→ PyTorch（39）→ LangChain（43）</td><td class="num">220</td><td class="num">8–10</td><td class="mid">中</td></tr>
+<tr><td><b>5 后置</b></td><td>框架细节、UI 库、图表库、构建工具、旧技术（见第 8 节）</td><td class="num">—</td><td class="num">—</td><td class="lo">高</td></tr>
+</tbody></table>
+<blockquote><p><b>为什么 4B 前端看着最重（Vue 路线 374 节）还放在后面？</b>因为它的「量」主要来自 HTML/CSS 的细节，而这部分恰恰是 AI 替代度最高的。真按这条线走，建议把 CSS 压缩到「盒模型 + 定位 + Flex」够用即止，别逐节刷完 79 节。</p></blockquote>
+</section>
+
+<section class="sec" id="s3">
+<h1>3 阶段 0 · 工作台（1–2 周）</h1>
+<p class="meta">用哪几篇：<a href="离线版/git.html">Git（16 节）</a>、<a href="离线版/markdown.html">Markdown（18 节）</a></p>
+<p><b>目标</b>：能自己建环境、留痕、回滚。这一阶段学的不是命令，是「可复现」。</p>
+<ul>
+<li>Git：提交、分支、合并、回滚、看 diff、看懂冲突标记。<b>不要</b>一上来背 rebase 的全部参数。</li>
+<li>Markdown：写清楚一件事（标题层级、列表、代码块、表格）——这直接决定你给 AI 的提示质量。</li>
+<li>编辑器：VS Code（25 节）当查阅，不必专门学；会搜索、会开终端、会设断点就够。</li>
+</ul>
+<p><b>验收</b>：新建仓库 → 写一份 md → 提交 → 故意改坏 → 用 diff 找出来 → 回滚到上一个好版本。全程不看教程。</p>
+<p class="note">这一阶段 AI 替代度低：Git 的历史与分支状态是「你所在环境的真实状态」，AI 只给命令，执行与判断仍是你。</p>
+</section>
+
+<section class="sec" id="s4">
+<h1>4 阶段 1 · 编程基本功（6–8 周）</h1>
+<p class="meta">用哪几篇：<a href="离线版/python3.html">Python3（81 节）</a>、<a href="离线版/data-structures.html">数据结构与算法（44 节）</a>；替代路线 <a href="离线版/c.html">C（63 节）</a>、<a href="离线版/c-dsa.html">C 语言数据结构（20 节）</a></p>
+<p><b>目标</b>：建立「程序怎么跑」和「代码好不好」两个判断力。这是全表里最不该交给 AI 的一段。</p>
+<ul>
+<li>语言只选一门，<b>不要同时开两门</b>。Python3 上手快、能直接接阶段 2 的数据与脚本；想更懂内存与指针就选 C。</li>
+<li>数据结构与算法：数组、链表、栈队列、哈希、树、排序、查找、复杂度。<b>重点是能手写并说清为什么</b>，不是刷题量。</li>
+<li>加练：调试。故意写错、看报错、加断点、二分定位。这项能力贯穿后面所有阶段。</li>
+</ul>
+<p><b>验收</b>：<br>① 不看资料手写 10 个基础算法；<br>② 给一段 200 行的陌生代码，说清它做什么、改一个行为；<br>③ 拿到一个报错，5 分钟内定位到行。</p>
+<blockquote><p><b>反常识</b>：这一段最「低效」——手写、报错、重来。但正是这些低效动作在建立判断力。让 AI 代写这一段的练习，等于把地基外包。</p></blockquote>
+</section>
+
+<section class="sec" id="s5">
+<h1>5 阶段 2 · 数据与系统（5–6 周）</h1>
+<p class="meta">用哪几篇：<a href="离线版/sql.html">SQL（67 节）</a>、<a href="离线版/mysql.html">MySQL（41 节）</a>、<a href="离线版/http.html">HTTP（10 节）</a>、<a href="离线版/np.html">网络协议（29 节）</a>、<a href="离线版/linux.html">Linux（29 节）</a></p>
+<p><b>目标</b>：知道数据存在哪、请求怎么走、程序跑在什么上。这三件事是「AI 给的方案靠不靠谱」的主要判断依据。</p>
+<ul>
+<li>SQL 先于具体数据库：联表、聚合、子查询、索引为什么会失效。MySQL 只学安装、建表、字符集、慢查询看哪里。</li>
+<li>HTTP 不求全：方法、状态码、头、缓存、连接复用。能看懂一次真实请求的报文就达标。</li>
+<li>网络协议只读「协议栈概览」，别陷进 TCP 三次握手细节；<b>本归档的 TCP/IP 教程只有 5 节，别拿它当主线</b>（见第 8 节）。</li>
+<li>Linux：文件、权限、进程、管道、日志、端口排查。够用即止。</li>
+</ul>
+<p><b>验收</b>：设计 3 张表并写出联表查询 → 用 <code>curl</code> 看一次请求与响应 → 在 Linux 上让一个脚本常驻并把日志写进文件。</p>
+<p class="note">这一阶段 AI 替代度中：SQL 它写得很快，但「这条查询会不会扫全表」「这个状态码该怎么处理」仍要你判断。</p>
+</section>
+
+<section class="sec" id="s6">
+<h1>6 阶段 3 · 交付能力（4 周）</h1>
+<p class="meta">用哪几篇：<a href="离线版/docker.html">Docker（22 节）</a>、<a href="离线版/playwright.html">Playwright（45 节）</a>、<a href="离线版/regexp.html">正则表达式（14 节）</a></p>
+<p><b>目标</b>：把「本地能跑」变成「别人也能跑」。这是业余与可交付之间的分界线。</p>
+<ul>
+<li>Docker：镜像、容器、Dockerfile、Compose、卷。目标是把阶段 2 的项目一条命令跑起来。</li>
+<li>测试：Playwright 写 5 条端到端用例。重点不是语法，是「选哪几条测」——这就是测试设计。</li>
+<li>正则：够用即止，会让 AI 生成、你负责验收；学它是为了能看懂并改。</li>
+</ul>
+<p><b>验收</b>：别人拿到你的仓库，按 README 三条命令跑起来；改坏一处，测试能报红。</p>
+</section>
+
+<section class="sec" id="s7">
+<h1>7 阶段 4 · 三个方向分叉（8–10 周）</h1>
+<p>到这一步再选方向，不要一开始就选。三个方向的共同前提都是阶段 0–3。</p>
+
+<h3>A · 后端</h3>
+<p class="meta">FastAPI（38）或 Flask（53）→ RESTful（10）→ Swagger（13）；Java 路线用 <a href="离线版/java.html">Java（56）</a> + <a href="离线版/servlet.html">Servlet（24）</a> 过渡</p>
+<p>重点在「接口契约」：资源怎么分、状态码怎么给、错误怎么返回、鉴权放哪。框架本身让 AI 写，你负责设计与验收。</p>
+
+<h3>B · 前端</h3>
+<p class="meta">HTML（76）→ CSS（只取盒模型/定位/Flex，约 30 节）→ JavaScript（89）→ TypeScript（72）→ Vue3（58）或 React（41）</p>
+<p>真正值钱的是 JavaScript 与 TypeScript：事件循环、闭包、原型、类型收窄。CSS 与组件库属于「AI 替代度高」，够用就行。</p>
+
+<h3>C · 数据 / AI</h3>
+<p class="meta">NumPy（26）→ Pandas（54）→ 机器学习（58）→ PyTorch（39）→ LangChain（43）</p>
+<p>顺序不能反：没有 NumPy/Pandas 的数组与表操作，直接上 PyTorch 只会变成调参。机器学习先学评估与过拟合，再学模型。</p>
+
+<blockquote><p><b>选一个，别三个都要</b>。三个方向共用前 16 周，分叉后各自 8–10 周；同时推进会变成三个都半途。</p></blockquote>
+</section>
+
+<section class="sec" id="s8">
+<h1>8 后置清单与「不必学」</h1>
+<h2>后置：AI 替代度高，用到再查</h2>
+<table>
+<thead><tr><th>类别</th><th>归档里的篇目</th><th>怎么处理</th></tr></thead>
+<tbody>
+<tr><td>UI 组件库</td><td>Bootstrap5（38）、Foundation（40）、jQuery UI（54）、EasyUI（68）</td><td>选一个用，只查组件用法；不逐节学</td></tr>
+<tr><td>图表库</td><td>ECharts（12）、Chart.js（12）、Highcharts（16）</td><td>让 AI 出配置，你改数据与交互</td></tr>
+<tr><td>构建/排版工具</td><td>CMake（7）、Maven（25）、LaTeX（12）、Obsidian（12）</td><td>项目需要时查，不必先学</td></tr>
+<tr><td>IDE 使用</td><td>VS Code（25）、PyCharm（17）、Eclipse（35）</td><td>用中查；Eclipse 可不看</td></tr>
+<tr><td>旧框架细节</td><td>Vue 2（22）、AngularJS（27）、Angular 2（8）</td><td>只维护老项目时看</td></tr>
+</tbody></table>
+
+<h2>不必学：归档里已判定为「弃用 / 历史」</h2>
+<p>以下 21 篇里的历史项，除非接手老系统，否则不进任何学习路线：</p>
+<ul>
+<li><b>已淘汰</b>：AngularJS、jQuery Mobile、经典 ASP、AppML、VBScript、Web Forms、XLink/XPointer、XSL-FO、RDF、DTD</li>
+<li><b>维护期、只查阅</b>：Vue 2、Bootstrap 4、JSP、Servlet、SVN、Eclipse、Memcached、jQuery UI、EasyUI、SOAP、WSDL、XSLT、XML Schema、RSS</li>
+<li><b>内容过薄、别当主线</b>：TCP/IP（5 节）、Web Services（6 节）、CMake（7 节）、网站品质（7 节）</li>
+</ul>
+<blockquote><p>判断口径与理由见同目录的 <a href="阅读版_全归档.html">阅读版_全归档.html</a> 第 10 节（H 组）；这里只做取舍，不重复论证。</p></blockquote>
+</section>
+
+<section class="sec" id="s9">
+<h1>9 压缩版与常见坑</h1>
+<h2>如果只有 12 周（每周 8–10 小时）</h2>
+<p>砍掉分叉与交付，只保留「能判断 + 能跑通」：</p>
+<ol>
+<li>第 1 周：Git + Markdown（34 节）</li>
+<li>第 2–7 周：Python3（81 节）＋ 数据结构（44 节，只做数组/哈希/树/排序）</li>
+<li>第 8–10 周：SQL（67 节）＋ HTTP（10 节）＋ Linux（29 节，只学文件/权限/进程/日志）</li>
+<li>第 11–12 周：用 FastAPI（38 节）做一个带数据库的小接口，Docker 打包，写 3 条测试</li>
+</ol>
+<p>12 周做不到「精通」，但能做到：<b>看得懂 AI 写的后端代码、能判断 SQL 与接口对不对、能把它跑起来</b>。这已经超过「只会让 AI 生成」的人。</p>
+
+<h2>四个常见坑</h2>
+<ol>
+<li><b>先学框架</b>：框架里 80% 是配置与约定，AI 最擅长；先学它等于把最容易被替代的部分放在最前面。</li>
+<li><b>刷完再动手</b>：每阶段的验收都是「做出来」，不是「看完」。章节数是上限，不是任务。</li>
+<li><b>同时开两条线</b>：语言、方向都只选一个；同时学 Python 和 Java，通常两个都停在语法层。</li>
+<li><b>把教程当权威</b>：本归档的教程示例普遍停在 2012–2015 年（Python3 首章打印 3.3.2、Vue 页自述 2.1.8）。语法可用，接口与版本以官方文档为准。</li>
+</ol>
+</section>
+
+<footer>
+<p>学习顺序 · 2026-11-13 · 依据 <a href="阅读版_全归档.html">阅读版_全归档</a> 的 150 条评级与章节量重排；章节数与时效引自该归档，取舍判断为本页新增。</p>
+<p>配套离线材料：<a href="离线版/index.html">离线版总索引</a>（4,851 节合并为 150 个长页，断网可读）。</p>
+</footer>
+</body>
+</html>
